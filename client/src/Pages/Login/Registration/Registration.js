@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterImg from '../Login_Img/Register-img.svg';
+import RegisterImg from '../Login_Img/Register-img.svggi';
 const Registration = () => {
     return (
         <div className="container">
