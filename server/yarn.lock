@@ -33,6 +33,7 @@
     "@types/webidl-conversions" "*"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz"
@@ -1370,6 +1371,8 @@ yallist@^4.0.0:
   resolved "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 =======
+=======
+>>>>>>> a651cfdeb8acd14a6f357df439f5bccea2964e01
 "abbrev@1":
   "integrity" "sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q=="
   "resolved" "https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz"
@@ -2643,4 +2646,7 @@ yallist@^4.0.0:
   "integrity" "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="
   "resolved" "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
   "version" "4.0.0"
+<<<<<<< HEAD
+>>>>>>> a651cfdeb8acd14a6f357df439f5bccea2964e01
+=======
 >>>>>>> a651cfdeb8acd14a6f357df439f5bccea2964e01
