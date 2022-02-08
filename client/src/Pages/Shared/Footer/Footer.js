@@ -29,11 +29,13 @@ const Footer = () => {
                 >
                   <div>
                     <a
-                      href="#"
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                       class="text-gray-300 hover:underline"
-                    ></a>
+                    >
+                      {" "}
+                    </a>
                   </div>
                   <div style={{ color: "#fff" }}>
                     <i
@@ -50,11 +52,13 @@ const Footer = () => {
                 >
                   <div style={{ color: "#fff" }}>
                     <a
-                      href="#"
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                       class="text-gray-300 hover:underline"
-                    ></a>
+                    >
+                      {" "}
+                    </a>
                   </div>
                   <div style={{ color: "#fff" }}>
                     <i
@@ -71,11 +75,13 @@ const Footer = () => {
                 >
                   <div style={{ color: "#fff" }}>
                     <a
-                      href="#"
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                       class="text-gray-300 hover:underline"
-                    ></a>
+                    >
+                      {" "}
+                    </a>
                   </div>
                   <div style={{ color: "#fff" }}>
                     <i
@@ -92,11 +98,13 @@ const Footer = () => {
                 >
                   <div style={{ color: "#fff" }}>
                     <a
-                      href="#"
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                       class="text-gray-300 hover:underline"
-                    ></a>
+                    >
+                      {" "}
+                    </a>
                   </div>
                   <div style={{ color: "#fff" }}>
                     <i
@@ -113,11 +121,13 @@ const Footer = () => {
                 >
                   <div style={{ color: "#fff" }}>
                     <a
-                      href="#"
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                       class="text-gray-300 hover:underline"
-                    ></a>
+                    >
+                      {" "}
+                    </a>
                   </div>
                   <div style={{ color: "#fff" }}>
                     <i
@@ -134,11 +144,13 @@ const Footer = () => {
                 >
                   <div style={{ color: "#fff" }}>
                     <a
-                      href="#"
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                       class="text-gray-300 hover:underline"
-                    ></a>
+                    >
+                      {" "}
+                    </a>
                   </div>
                   <div style={{ color: "#fff" }}>
                     <i
@@ -155,11 +167,13 @@ const Footer = () => {
                 >
                   <div style={{ color: "#fff" }}>
                     <a
-                      href="#"
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                       class="text-gray-300 hover:underline"
-                    ></a>
+                    >
+                      {" "}
+                    </a>
                   </div>
                   <div style={{ color: "#fff" }}>
                     <i
@@ -179,8 +193,8 @@ const Footer = () => {
             <ul>
               <li class="mb-4 text-lg">
                 <a
-                  href="#"
-                  target="_blank"
+                  href="/"
+                  target="blank"
                   rel="noreferrer"
                   class="text-gray-300 hover:underline "
                 >
@@ -193,8 +207,8 @@ const Footer = () => {
               </li>
               <li class="mb-4 text-lg">
                 <a
-                  href="#"
-                  target="_blank"
+                  href="/"
+                  target="blank"
                   rel="noreferrer"
                   class="text-gray-300 hover:underline"
                 >
@@ -207,8 +221,8 @@ const Footer = () => {
               </li>
               <li class="mb-4 text-lg">
                 <a
-                  href="#"
-                  target="_blank"
+                  href="/"
+                  target="blank"
                   rel="noreferrer"
                   class="text-gray-300 hover:underline"
                 >
@@ -221,8 +235,8 @@ const Footer = () => {
               </li>
               <li class="mb-4 text-lg">
                 <a
-                  href="#"
-                  target="_blank"
+                  href="/"
+                  target="blank"
                   rel="noreferrer"
                   class="text-gray-300 hover:underline"
                 >
@@ -235,7 +249,7 @@ const Footer = () => {
               </li>
               <li class="mb-4 text-lg">
                 <a
-                  href="#"
+                  href="/"
                   target="_blank"
                   rel="noreferrer"
                   class="text-gray-300 hover:underline"
@@ -249,7 +263,7 @@ const Footer = () => {
               </li>
               <li class="mb-4 text-lg">
                 <a
-                  href="#"
+                  href="/"
                   target="_blank"
                   rel="noreferrer"
                   class="text-gray-300 hover:underline"
@@ -263,7 +277,7 @@ const Footer = () => {
               </li>
               <li class="mb-4 text-lg">
                 <a
-                  href="#"
+                  href="/"
                   target="_blank"
                   rel="noreferrer"
                   class="text-gray-300 hover:underline"
@@ -326,7 +340,7 @@ const Footer = () => {
                   ></path>
                 </svg>
               </a>
-              <a href="#" class="text-gray-400 hover:text-white">
+              <a href="/" class="text-gray-400 hover:text-white">
                 <svg
                   class="w-10 h-10"
                   fill="currentColor"
