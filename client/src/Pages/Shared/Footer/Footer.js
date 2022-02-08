@@ -25,7 +25,10 @@ const Footer = () => {
             <ul style={{ marginRight: "10%" }}>
               <li class="mb-4 text-lg">
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                  }}
                 >
                   <div>
                     <a
@@ -175,13 +178,13 @@ const Footer = () => {
                       {" "}
                     </a>
                   </div>
-                  <div style={{ color: "#fff" }}>
+                  <div style={{ display: "inline", marginRight: "1%" }}>
                     <i
                       style={{ color: "#fff" }}
                       class="fas fa-chevron-right"
-                    ></i>{" "}
-                    Contact Us
+                    ></i>
                   </div>
+                  <span style={{ color: "#fff" }}>Contact Us</span>
                 </div>
               </li>
             </ul>
@@ -190,104 +193,41 @@ const Footer = () => {
             <h3 class="mb-6 text-lg font-semibold text-gray-400 uppercase">
               Opening Hour
             </h3>
-            <ul>
-              <li class="mb-4 text-lg">
-                <a
-                  href="/"
-                  target="blank"
-                  rel="noreferrer"
-                  class="text-gray-300 hover:underline "
-                >
-                  Monday
-                </a>{" "}
-                <span style={{ color: "#fff", marginLeft: "5%" }}>
-                  08:00 - 02:00
-                </span>
-                <hr className="horizonLine" />
-              </li>
-              <li class="mb-4 text-lg">
-                <a
-                  href="/"
-                  target="blank"
-                  rel="noreferrer"
-                  class="text-gray-300 hover:underline"
-                >
-                  Tuesday
-                </a>{" "}
-                <span style={{ color: "#fff", marginLeft: "5%" }}>
-                  08:00 - 02:00
-                </span>
-                <hr className="horizonLine" />
-              </li>
-              <li class="mb-4 text-lg">
-                <a
-                  href="/"
-                  target="blank"
-                  rel="noreferrer"
-                  class="text-gray-300 hover:underline"
-                >
-                  Wednesday
-                </a>{" "}
-                <span style={{ color: "#fff", marginLeft: "5%" }}>
-                  08:00 - 02:00
-                </span>
-                <hr className="horizonLine" />
-              </li>
-              <li class="mb-4 text-lg">
-                <a
-                  href="/"
-                  target="blank"
-                  rel="noreferrer"
-                  class="text-gray-300 hover:underline"
-                >
-                  Thursday
-                </a>{" "}
-                <span style={{ color: "#fff", marginLeft: "5%" }}>
-                  08:00 - 02:00
-                </span>
-                <hr className="horizonLine" />
-              </li>
-              <li class="mb-4 text-lg">
-                <a
-                  href="/"
-                  target="_blank"
-                  rel="noreferrer"
-                  class="text-gray-300 hover:underline"
-                >
-                  Friday
-                </a>{" "}
-                <span style={{ color: "#fff", marginLeft: "5%" }}>
-                  08:00 - 02:00
-                </span>
-                <hr className="horizonLine" />
-              </li>
-              <li class="mb-4 text-lg">
-                <a
-                  href="/"
-                  target="_blank"
-                  rel="noreferrer"
-                  class="text-gray-300 hover:underline"
-                >
-                  Saturday
-                </a>{" "}
-                <span style={{ color: "#fff", marginLeft: "5%" }}>
-                  08:00 - 02:00
-                </span>
-                <hr className="horizonLine" />
-              </li>
-              <li class="mb-4 text-lg">
-                <a
-                  href="/"
-                  target="_blank"
-                  rel="noreferrer"
-                  class="text-gray-300 hover:underline"
-                >
-                  Sunday
-                </a>{" "}
-                <span style={{ color: "#fff", marginLeft: "5%" }}>Closed</span>
-                <hr className="horizonLine" />
-              </li>
-            </ul>
+            <div className="openingHour">
+              <div className="item">Monday</div>
+              <div className="item">08:00 - 02:00</div>
+            </div>
+            <hr className="horizonLine" />
+            <div className="openingHour">
+              <div className="item">Tuesday</div>
+              <div className="item">08:00 - 02:00</div>
+            </div>
+            <hr className="horizonLine" />
+            <div className="openingHour">
+              <div className="item">Wednesday</div>
+              <div className="item">08:00 - 02:00</div>
+            </div>
+            <hr className="horizonLine" />
+            <div className="openingHour">
+              <div className="item">Thursday</div>
+              <div className="item">08:00 - 02:00</div>
+            </div>
+            <hr className="horizonLine" />
+            <div className="openingHour">
+              <div className="item">Friday</div>
+              <div className="item">08:00 - 02:00</div>
+            </div>
+            <hr className="horizonLine" />
+            <div className="openingHour">
+              <div className="item">Saturday</div>
+              <div className="item">08:00 - 02:00</div>
+            </div>
+            <hr className="horizonLine" />
+            <div className="openingHour">
+              <div className="item">Sunday</div>
+              <div className="item">08:00 - 02:00</div>
+            </div>
+            <hr className="horizonLine" />
           </div>
           <div>
             <h3 class="mb-6 text-lg font-semibold text-gray-400 uppercase">
@@ -326,7 +266,7 @@ const Footer = () => {
             <br />
 
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-              <a href="#" class="text-gray-400 hover:text-white">
+              <a href="/" class="text-gray-400 hover:text-white">
                 <svg
                   class="w-10 h-10"
                   fill="currentColor"
@@ -354,7 +294,7 @@ const Footer = () => {
                   ></path>
                 </svg>
               </a>
-              <a href="#" class="text-gray-400 hover:text-white">
+              <a href="/" class="text-gray-400 hover:text-white">
                 <svg
                   class="w-10 h-10"
                   fill="currentColor"
@@ -364,7 +304,7 @@ const Footer = () => {
                   <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
                 </svg>
               </a>
-              <a href="#" class="text-gray-400 hover:text-white">
+              <a href="/" class="text-gray-400 hover:text-white">
                 <svg
                   class="w-10 h-10"
                   fill="currentColor"
@@ -378,7 +318,7 @@ const Footer = () => {
                   ></path>
                 </svg>
               </a>
-              <a href="#" class="text-gray-400 hover:text-white">
+              <a href="/" class="text-gray-400 hover:text-white">
                 <svg
                   class="w-10 h-10"
                   fill="currentColor"
@@ -397,7 +337,7 @@ const Footer = () => {
         </div>
         <div class="py-6 px-4 bg-gray-700 md:flex md:items-center md:justify-between md:text-center">
           <span class="text-sm text-gray-300 sm:text-center ">
-            © 2022 <a href="#">Eskul</a>. All Rights Reserved.
+            © 2022 <a href="/">Eskul</a>. All Rights Reserved.
           </span>
         </div>
       </footer>
