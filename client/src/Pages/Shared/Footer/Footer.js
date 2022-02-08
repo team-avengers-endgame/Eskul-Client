@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div>
       <footer class="bg-gray-800 " style={{ marginTop: "561px" }}>
-        <div class="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 gap-x-16 py-8 px-6  ">
+        <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-x-16 py-8 px-6  ">
           <div>
             <h3 class="mb-6 text-lg font-semibold text-gray-400 uppercase ">
               <img
@@ -24,168 +24,135 @@ const Footer = () => {
             </h3>
             <ul style={{ marginRight: "10%" }}>
               <li class="mb-4 text-lg">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-evenly",
-                  }}
-                >
-                  <div>
-                    <a
-                      href="/"
-                      target="_blank"
-                      rel="noreferrer"
-                      class="text-gray-300 hover:underline"
-                    >
-                      {" "}
-                    </a>
-                  </div>
-                  <div style={{ color: "#fff" }}>
-                    <i
-                      style={{ color: "#fff" }}
-                      class="fas fa-chevron-right"
-                    ></i>{" "}
-                    Home
-                  </div>
+                <div>
+                  <a
+                    href="/"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="text-gray-300 hover:underline"
+                  >
+                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                      <i
+                        style={{ color: "#fff" }}
+                        class="fas fa-chevron-right"
+                      ></i>{" "}
+                      Home
+                    </div>
+                  </a>
+                </div>
+
+              </li>
+              <li class="mb-4 text-lg">
+                <div style={{ color: "#fff" }}>
+                  <a
+                    href="/"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="text-gray-300 hover:underline"
+                  >
+                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                      <i
+                        style={{ color: "#fff" }}
+                        class="fas fa-chevron-right"
+                      ></i>{" "}
+                      About
+                    </div>
+                  </a>
                 </div>
               </li>
               <li class="mb-4 text-lg">
-                <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
-                  <div style={{ color: "#fff" }}>
-                    <a
-                      href="/"
-                      target="_blank"
-                      rel="noreferrer"
-                      class="text-gray-300 hover:underline"
-                    >
-                      {" "}
-                    </a>
-                  </div>
-                  <div style={{ color: "#fff" }}>
-                    <i
-                      style={{ color: "#fff" }}
-                      class="fas fa-chevron-right"
-                    ></i>{" "}
-                    About
-                  </div>
+                <div style={{ color: "#fff" }}>
+                  <a
+                    href="/"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="text-gray-300 hover:underline"
+                  >
+                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                      <i
+                        style={{ color: "#fff" }}
+                        class="fas fa-chevron-right"
+                      ></i>{" "}
+                      Classes
+                    </div>
+                  </a>
+                </div>
+
+              </li>
+              <li class="mb-4 text-lg">
+                <div style={{ color: "#fff" }}>
+                  <a
+                    href="/"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="text-gray-300 hover:underline"
+                  >
+                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                      <i
+                        style={{ color: "#fff" }}
+                        class="fas fa-chevron-right"
+                      ></i>{" "}
+                      Teachers
+                    </div>
+                  </a>
                 </div>
               </li>
               <li class="mb-4 text-lg">
-                <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
-                  <div style={{ color: "#fff" }}>
-                    <a
-                      href="/"
-                      target="_blank"
-                      rel="noreferrer"
-                      class="text-gray-300 hover:underline"
-                    >
-                      {" "}
-                    </a>
-                  </div>
-                  <div style={{ color: "#fff" }}>
-                    <i
-                      style={{ color: "#fff" }}
-                      class="fas fa-chevron-right"
-                    ></i>{" "}
-                    Classes
-                  </div>
+                <div style={{ color: "#fff" }}>
+                  <a
+                    href="/"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="text-gray-300 hover:underline"
+                  >
+                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                      <i
+                        style={{ color: "#fff" }}
+                        class="fas fa-chevron-right"
+                      ></i>{" "}
+                      Testimonials
+                    </div>
+                  </a>
                 </div>
+
               </li>
               <li class="mb-4 text-lg">
-                <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
-                  <div style={{ color: "#fff" }}>
-                    <a
-                      href="/"
-                      target="_blank"
-                      rel="noreferrer"
-                      class="text-gray-300 hover:underline"
-                    >
-                      {" "}
-                    </a>
-                  </div>
-                  <div style={{ color: "#fff" }}>
-                    <i
-                      style={{ color: "#fff" }}
-                      class="fas fa-chevron-right"
-                    ></i>{" "}
-                    Teachers
-                  </div>
+                <div style={{ color: "#fff" }}>
+                  <a
+                    href="/"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="text-gray-300 hover:underline"
+                  >
+                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                      <i
+                        style={{ color: "#fff" }}
+                        class="fas fa-chevron-right"
+                      ></i>{" "}
+                      Blog
+                    </div>
+                  </a>
                 </div>
+
               </li>
               <li class="mb-4 text-lg">
-                <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
-                  <div style={{ color: "#fff" }}>
-                    <a
-                      href="/"
-                      target="_blank"
-                      rel="noreferrer"
-                      class="text-gray-300 hover:underline"
-                    >
-                      {" "}
-                    </a>
-                  </div>
-                  <div style={{ color: "#fff" }}>
-                    <i
-                      style={{ color: "#fff" }}
-                      class="fas fa-chevron-right"
-                    ></i>{" "}
-                    Testimonials
-                  </div>
+                <div style={{ color: "#fff" }}>
+                  <a
+                    href="/"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="text-gray-300 hover:underline"
+                  >
+                    <div style={{ marginRight: "1%", textAlign: 'start' }}>
+                      <i
+                        style={{ color: "#fff" }}
+                        class="fas fa-chevron-right"
+                      ></i><span style={{ color: "#fff" }}> Contact Us</span>
+                    </div>
+                  </a>
                 </div>
-              </li>
-              <li class="mb-4 text-lg">
-                <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
-                  <div style={{ color: "#fff" }}>
-                    <a
-                      href="/"
-                      target="_blank"
-                      rel="noreferrer"
-                      class="text-gray-300 hover:underline"
-                    >
-                      {" "}
-                    </a>
-                  </div>
-                  <div style={{ color: "#fff" }}>
-                    <i
-                      style={{ color: "#fff" }}
-                      class="fas fa-chevron-right"
-                    ></i>{" "}
-                    Blog
-                  </div>
-                </div>
-              </li>
-              <li class="mb-4 text-lg">
-                <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
-                  <div style={{ color: "#fff" }}>
-                    <a
-                      href="/"
-                      target="_blank"
-                      rel="noreferrer"
-                      class="text-gray-300 hover:underline"
-                    >
-                      {" "}
-                    </a>
-                  </div>
-                  <div style={{ display: "inline", marginRight: "1%" }}>
-                    <i
-                      style={{ color: "#fff" }}
-                      class="fas fa-chevron-right"
-                    ></i>
-                  </div>
-                  <span style={{ color: "#fff" }}>Contact Us</span>
-                </div>
+
+
               </li>
             </ul>
           </div>
@@ -235,17 +202,17 @@ const Footer = () => {
             </h3>
             <div className="text-lg">
               <ul>
-                <li>
+                <li className="text-left">
                   {" "}
                   <i
                     class="fas fa-map-marker-alt"
                     style={{ color: "#fff", marginRight: "3%" }}
                   ></i>{" "}
                   <span style={{ color: "#fff" }}>
-                    123 Lorem Ipsum, 32 sit Atlanta
+                    123 Lorem Ipsum, 32
                   </span>{" "}
                 </li>
-                <li>
+                <li className="text-left">
                   <br />
                   <i
                     style={{ color: "#fff", marginRight: "3%" }}
@@ -253,7 +220,7 @@ const Footer = () => {
                   ></i>{" "}
                   <span style={{ color: "#fff" }}>eskul@gmail.com</span>
                 </li>
-                <li>
+                <li className="text-left">
                   <br />
                   <i
                     style={{ color: "#fff", marginRight: "3%" }}
