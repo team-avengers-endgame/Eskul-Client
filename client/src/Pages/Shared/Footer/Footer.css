@@ -1,10 +1,11 @@
 .horizonLine {
   color: white;
-  width: 55%;
-  margin-left: 25%;
-  margin-right: 25%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-bottom: 3%;
   margin-top: 3%;
+  margin: 0 auto;
   color: gray;
 }
 .dropButton {
@@ -12,4 +13,12 @@
   width: 20%;
   margin-left: 40%;
   margin-bottom: 3%;
+}
+.openingHour {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.item {
+  color: white;
+  padding: 3%;
 }
