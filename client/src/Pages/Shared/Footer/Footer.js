@@ -18,7 +18,7 @@ const Footer = () => {
               necessitatibus maiores illo beatae ad dolor? Recusandae
             </p>
           </div>
-          <div>
+          <div style={{ margin: '0 auto' }}>
             <h3 class="mb-6 text-lg font-semibold text-gray-400 uppercase">
               Quick Links
             </h3>
@@ -110,7 +110,7 @@ const Footer = () => {
                         style={{ color: "#fff" }}
                         class="fas fa-chevron-right"
                       ></i>{" "}
-                      Testimonials
+                      Reviews
                     </div>
                   </a>
                 </div>
@@ -147,7 +147,7 @@ const Footer = () => {
                       <i
                         style={{ color: "#fff" }}
                         class="fas fa-chevron-right"
-                      ></i><span style={{ color: "#fff" }}> Contact Us</span>
+                      ></i><span style={{ color: "#fff" }}> Contact</span>
                     </div>
                   </a>
                 </div>
