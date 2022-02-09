@@ -3,22 +3,22 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div>
-      <footer class="bg-gray-800 " style={{ marginTop: "561px" }}>
+      <footer class="bg-gray-800 " >
+
         <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-x-16 py-8 px-6  ">
           <div>
             <h3 class="mb-6 text-lg font-semibold text-gray-400 uppercase ">
               <img
-                style={{ width: "30%", margin: "0 auto" }}
+                style={{ height: "25%", margin: "0 auto" }}
                 src="https://i.ibb.co/WHbBtLZ/eskul-logo.png"
                 alt=""
               />
             </h3>
-            <p class="text-lg" style={{ color: "#fff" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, ex
-              necessitatibus maiores illo beatae ad dolor? Recusandae
+            <p class="text-lg text-justify" style={{ color: "#fff" }}>
+              A school is an educational institution designed to provide learning spaces and learning environments for the teaching of students under the direction of teachers.
             </p>
           </div>
-          <div>
+          <div style={{ margin: '0 auto' }}>
             <h3 class="mb-6 text-lg font-semibold text-gray-400 uppercase">
               Quick Links
             </h3>
@@ -110,7 +110,7 @@ const Footer = () => {
                         style={{ color: "#fff" }}
                         class="fas fa-chevron-right"
                       ></i>{" "}
-                      Testimonials
+                      Reviews
                     </div>
                   </a>
                 </div>
@@ -147,7 +147,7 @@ const Footer = () => {
                       <i
                         style={{ color: "#fff" }}
                         class="fas fa-chevron-right"
-                      ></i><span style={{ color: "#fff" }}> Contact Us</span>
+                      ></i><span style={{ color: "#fff" }}> Contact</span>
                     </div>
                   </a>
                 </div>
@@ -197,7 +197,7 @@ const Footer = () => {
             <hr className="horizonLine" />
           </div>
           <div>
-            <h3 class="mb-6 text-lg font-semibold text-gray-400 uppercase">
+            <h3 class="mb-6 text-lg font-semibold text-gray-400 uppercase text-left">
               Get In Touch
             </h3>
             <div className="text-lg">
@@ -302,8 +302,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div class="py-6 px-4 bg-gray-700 md:flex md:items-center md:justify-between md:text-center">
-          <span class="text-sm text-gray-300 sm:text-center ">
+        <div class="py-6 px-4 bg-gray-700 text-center">
+          <span class="text-md font-bold text-gray-300 text-center ">
             © 2022 <a href="/">Eskul</a>. All Rights Reserved.
           </span>
         </div>

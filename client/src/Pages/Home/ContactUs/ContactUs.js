@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import "./ContactUs.css";
+
 import Zoom from "react-reveal/Zoom";
 import { LightSpeed, Roll } from "react-reveal";
 const ContactUs = () => {
