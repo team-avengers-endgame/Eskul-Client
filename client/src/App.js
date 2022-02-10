@@ -9,7 +9,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Login from './Pages/Login/Login/Login';
 import Registration from './Pages/Login/Registration/Registration';
 import AuthProvider from './context/AuthProvider/AuthProvider';
-import About from './Pages/About/About';
+import AboutUs from './Pages/AboutUs/AboutUs';
 
 function App() {
   return (
@@ -19,8 +19,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/home" element={<Home />}></Route>
+            <Route path="/aboutUs" element={<AboutUs />}></Route>
             <Route path="/login" element={<Login />}></Route>
-            <Route path="/about" element={<About />}></Route>
             <Route path="/registration" element={<Registration />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>

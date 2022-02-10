@@ -7,7 +7,7 @@ const Slider = ({ content }) => {
         <div className={`carousel-item ${active ? "active" : ""}   relative float-left w-full`}>
             <img
                 src={image}
-                className="block"
+                className="block  w-screen"
                 alt="..."
             />
             <div className="carousel-caption hidden md:block absolute text-left mb-40 ">
