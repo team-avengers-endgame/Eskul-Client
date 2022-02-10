@@ -4,7 +4,7 @@ const Subscribe = () => {
     return (
         <div className="mt-20">
 
-            <h1 className="underline decoration-green-500 text-6xl text-green-700 font-bold">Be a Subscriber</h1>
+            <h1 className="underline decoration-orange-400 text-4xl text-orange-400 font-bold">Be a Subscriber</h1>
 
             {/* <!-- component --> */}
             <div className="2xl:mx-auto 2xl:container mx-4 py-16">

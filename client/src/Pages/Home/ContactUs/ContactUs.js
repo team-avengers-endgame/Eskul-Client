@@ -47,9 +47,9 @@ const ContactUs = () => {
 
 
   return (
-    <div className="mt-20">
+    <div className="pt-20 px-3">
       <Zoom top>
-        <h1 className="font-mono text-6xl mb-20 font-bold text-orange-400">
+        <h1 className="font-mono text-4xl mb-20 font-bold text-orange-400">
           Contact Us
           <hr
             style={{
@@ -60,7 +60,7 @@ const ContactUs = () => {
           />
         </h1>
       </Zoom>
-      <div className="container lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 w-3/4 mx-auto bg-yellow-400 grid  gap-4 pb-10">
+      <div className="container lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 md:w-3/4 mx-auto bg-yellow-400 grid  gap-4 pb-10">
         <LightSpeed left>
           <div>
             <img

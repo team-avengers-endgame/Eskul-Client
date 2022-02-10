@@ -1,11 +1,8 @@
 import React from 'react';
-import Footer from '../../Shared/Footer/Footer';
-import Navigation from '../../Shared/Navigation/Navigation';
 
 const OurTeam = () => {
     return (
         <div>
-            <Navigation />
             <div className="mb-16">
                 {/* <!-- Code block starts --> */}
                 <dh-component>
@@ -258,7 +255,7 @@ const OurTeam = () => {
                 </dh-component>
 
             </div>
-            <Footer />
+
         </div>
     );
 };
