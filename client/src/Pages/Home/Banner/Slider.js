@@ -15,9 +15,9 @@ const Slider = ({ content }) => {
                     <h5 className="md:text-4xl sm:text-3xl font-bold text-lime-100">{lable}</h5>
                     <p className="md:text-2xl  text-yellow-200">{discription}</p>
                 </div>
-                <div class="relative text-lg bg-transparent text-gray-800">
-                    <div class="flex items-center  py-2">
-                        <input class="  md:mt-10 block md:w-1/2 px-3 py-2 bg-white border border-lime-300 rounded-md text-lg font-semibold shadow-lg placeholder-lime-500 font-mono" type="text" placeholder="Search" />
+                <div className="relative text-lg bg-transparent text-gray-800">
+                    <div className="flex items-center  py-2">
+                        <input className="  md:mt-10 block md:w-1/2 px-3 py-2 bg-white border border-lime-300 rounded-md text-lg font-semibold shadow-lg placeholder-lime-500 font-mono" type="text" placeholder="Search" />
 
                     </div>
                 </div>

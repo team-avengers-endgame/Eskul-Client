@@ -66,7 +66,7 @@ const Registration = () => {
                                 <input
                                     {...register("name", { required: true })}
                                     className=" mt-4 p-1 pl-3 rounded bg-blue-100 w-full"
-                                    type="name" name="name" placeholder="Full Name" /> <br />
+                                    type="text" name="text" placeholder="Full Name" /> <br />
                                 {errors.name &&
                                     <span className='text-red-500'>This Name field is required</span>}
 
