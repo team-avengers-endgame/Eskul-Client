@@ -15,9 +15,9 @@ const ContactUs = () => {
 
   console.log(watch("example"));
   return (
-    <div>
+    <div className="mt-20">
       <Zoom top>
-        <h1 className="font-mono text-6xl mb-20 font-bold">
+        <h1 className="font-mono text-6xl mb-20 font-bold text-orange-400">
           Contact Us
           <hr
             style={{
