@@ -3,7 +3,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div>
-      <footer class="bg-gray-800 " >
+      <footer class="footer" >
         <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-x-16 py-8 px-6  ">
           <div>
             <h3 class="mb-6 text-lg font-semibold text-gray-400 uppercase ">

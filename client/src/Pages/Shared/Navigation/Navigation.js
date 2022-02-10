@@ -45,7 +45,7 @@ const Navigation = () => {
                   {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
                   <a href="/" class=" text-emerald-900; hover:bg-lime-300 hover:text-green-900 px-3 py-2 rounded-md text-lg font-bold">Home</a>
 
-                  <a href="/" class="text-emerald-900 hover:bg-lime-300 hover:text-green-900 px-3 py-2 rounded-md text-lg font-bold">About</a>
+                  <a href="/about" class="text-emerald-900 hover:bg-lime-300 hover:text-green-900 px-3 py-2 rounded-md text-lg font-bold">About</a>
 
                   <a href="/" class="text-emerald-900 hover:bg-lime-300 hover:text-green-900 px-3 py-2 rounded-md text-lg font-bold">Classes</a>
 
@@ -100,7 +100,7 @@ const Navigation = () => {
             {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
             <a href="/" class=" text-emerald-900 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
 
-            <a href="/" class=" text-emerald-900hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+            <a href="/about" class=" text-emerald-900hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
 
             <a href="/" class=" text-emerald-900 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Classes</a>
 
