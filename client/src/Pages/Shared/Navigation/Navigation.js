@@ -30,29 +30,29 @@ const Navigation = () => {
                   <NavLink
 
                     to="/"
-                    className="text-gray-300 hover:bg--700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                   >
                     Team
                   </NavLink>
 
                   <NavLink
                     to="/"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                   >
                     Projects
                   </NavLink>
-                  <a href="/about" class="text-emerald-900 hover:bg-lime-300 hover:text-green-900 px-3 py-2 rounded-md text-lg font-bold">About</a>
+                  <NavLink to="/aboutUs" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold">About Us</NavLink>
 
                   <NavLink
                     to="/"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                   >
                     Calendar
                   </NavLink>
 
                   <NavLink
                     to="/"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                   >
                     Reports
                   </NavLink>
@@ -60,7 +60,7 @@ const Navigation = () => {
                   <NavLink
                     onClick={() => setIsOpen(!isOpen)}
                     to='/'
-                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className=" text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                   >
                     Dashboard
                   </NavLink>
@@ -68,12 +68,12 @@ const Navigation = () => {
                   {user.email ?
                     <button
                       onClick={logOut}
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                     >logout</button>
                     :
                     <NavLink
                       to="/login"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                     >
                       Login
                     </NavLink>
@@ -140,40 +140,40 @@ const Navigation = () => {
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 
-                <a href="/about" class=" text-emerald-900hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="/about" className=" text-emerald-900hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
 
                 <NavLink to="/"
                   activeStyle={{ color: 'red' }}
                   onClick={() => setIsOpen(!isOpen)}
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                 >
                   Team
                 </NavLink>
 
                 <NavLink to="/"
                   onClick={() => setIsOpen(!isOpen)}
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                 >
                   Projects
                 </NavLink>
 
                 <NavLink to="/"
                   onClick={() => setIsOpen(!isOpen)}
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                 >
                   Calendar
                 </NavLink>
 
                 <NavLink to="/"
                   onClick={() => setIsOpen(!isOpen)}
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                 >
                   Reports
                 </NavLink>
                 <NavLink
                   onClick={() => setIsOpen(!isOpen)}
                   to="/"
-                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                 >
                   Dashboard
                 </NavLink>
@@ -181,12 +181,12 @@ const Navigation = () => {
                 {user.email ?
                   <button
                     onClick={logOut}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                   >logOut</button>
                   :
                   <NavLink
                     to="/login"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                   >
                     Login
                   </NavLink>
