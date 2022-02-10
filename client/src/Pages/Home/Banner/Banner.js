@@ -53,7 +53,7 @@ const Banner = () => {
 
                     <div className="carousel-inner relative w-full overflow-hidden">
                         {
-                            slider.map(content => <Slider content={content} />)
+                            slider.map((content, index) => <Slider key={index} content={content} />)
                         }
                     </div>
                     <button
