@@ -29,4 +29,5 @@ module.exports = {
     },
   },
   plugins: [require('tw-elements/dist/plugin')],
+  inset: ["group-hover"],
 }
