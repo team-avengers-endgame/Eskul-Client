@@ -12,11 +12,12 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img
-                  className=" h-16 w-20"
-                  src="https://i.ibb.co/Tt6z27D/Screenshot-9-removebg-preview.png"
-                  alt="Eskul"
-                />
+                <NavLink to='/'>
+                  <img
+                    className=" h-16 w-20"
+                    src="https://i.ibb.co/Tt6z27D/Screenshot-9-removebg-preview.png"
+                    alt="Eskul"
+                  /></NavLink>
               </div>
             </div>
 
@@ -32,16 +33,15 @@ const Navigation = () => {
                     to="/"
                     className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                   >
-                    Team
+                    Schools
                   </NavLink>
 
                   <NavLink
                     to="/"
                     className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                   >
-                    Projects
+                    Gallery
                   </NavLink>
-                  <NavLink to="/aboutUs" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold">About Us</NavLink>
 
                   <NavLink
                     to="/"
@@ -56,9 +56,14 @@ const Navigation = () => {
                   >
                     Reports
                   </NavLink>
+                  <NavLink to="/aboutUs"
 
+                    className="text-gray-300
+                   hover:bg-gray-700
+                    px-3 py-2 rounded-md text-lg 
+                    font-bold">About Us</NavLink>
                   <NavLink
-                    onClick={() => setIsOpen(!isOpen)}
+
                     to='/'
                     className=" text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                   >
@@ -138,55 +143,69 @@ const Navigation = () => {
         >
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-left ">
 
-                <a href="/about" className=" text-emerald-900hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <NavLink
 
-                <NavLink to="/"
-                  activeStyle={{ color: 'red' }}
+                  to="/"
+                  className="text-gray-300 hover:bg-gray-700 px-3  py-2 rounded-md text-lg "
                   onClick={() => setIsOpen(!isOpen)}
-                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                 >
-                  Team
+                  Schools
                 </NavLink>
+                <br />
 
-                <NavLink to="/"
+                <NavLink
+                  to="/"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg "
                   onClick={() => setIsOpen(!isOpen)}
-                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                 >
-                  Projects
+                  Gallery
                 </NavLink>
-
-                <NavLink to="/"
+                <br />
+                <NavLink
+                  to="/"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg "
                   onClick={() => setIsOpen(!isOpen)}
-                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                 >
                   Calendar
                 </NavLink>
-
-                <NavLink to="/"
+                <br />
+                <NavLink
+                  to="/"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg "
                   onClick={() => setIsOpen(!isOpen)}
-                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                 >
                   Reports
                 </NavLink>
-                <NavLink
+                <br />
+                <NavLink to="/aboutUs"
+
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg "
                   onClick={() => setIsOpen(!isOpen)}
-                  to="/"
-                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
+                >About Us</NavLink>
+
+                <br />
+                <NavLink
+
+                  to='/'
+                  className=" text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg "
+                  onClick={() => setIsOpen(!isOpen)}
                 >
                   Dashboard
                 </NavLink>
-
+                <br />
                 {user.email ?
                   <button
                     onClick={logOut}
-                    className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
-                  >logOut</button>
+                    className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg "
+
+                  >logout</button>
                   :
                   <NavLink
                     to="/login"
-                    className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
+                    className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg "
+                    onClick={() => setIsOpen(!isOpen)}
                   >
                     Login
                   </NavLink>

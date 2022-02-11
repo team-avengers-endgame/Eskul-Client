@@ -214,11 +214,11 @@ const OurTeam = () => {
                                     <div className="rounded overflow-hidden shadow-md bg-white">
                                         <div className="absolute -mt-20 w-full flex justify-center">
                                             <div className="h-32 w-32">
-                                                <img src="https://i.ibb.co/KNzX87X/image-4531-1642242254.jpg" alt="" role="img" className="rounded-full object-cover h-full w-full shadow-md" />
+                                                <img src="https://i.ibb.co/x3cDX84/crop-img.jpg" alt="" role="img" className="rounded-full object-cover h-full w-full shadow-md" />
                                             </div>
                                         </div>
                                         <div className="px-6 mt-16">
-                                            <h1 className="font-bold text-3xl text-center mb-1">Sadia Jahan</h1>
+                                            <h1 className="font-bold text-3xl text-center mb-1">Tania Tabassum Noor</h1>
                                             <p className="text-gray-800 text-sm text-center">MERN Stack Developer</p>
                                             <p className="text-center text-gray-600 text-base pt-3 font-normal">A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it.</p>
                                             <div className="w-full flex justify-center pt-5 pb-5">
