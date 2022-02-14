@@ -6,9 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import 'tw-elements';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <App />
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );
 
