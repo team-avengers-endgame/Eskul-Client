@@ -41,7 +41,7 @@ const Navigation = () => {
                   >
                     Projects
                   </NavLink>
-                  <a href="/about" class="text-emerald-900 hover:bg-lime-300 hover:text-green-900 px-3 py-2 rounded-md text-lg font-bold">About</a>
+                  <a href="/aboutUs" class="text-emerald-900 hover:bg-lime-300 hover:text-green-900 px-3 py-2 rounded-md text-lg font-bold">About</a>
 
                   <NavLink
                     to="/"
@@ -140,7 +140,7 @@ const Navigation = () => {
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 
-                <a href="/about" class=" text-emerald-900hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="/aboutUs" class=" text-emerald-900hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
 
                 <NavLink to="/"
                   activeStyle={{ color: 'red' }}

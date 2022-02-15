@@ -1,7 +1,11 @@
-import React from 'react';
+
 import Featur from './Featur';
 
 const Features = () => {
+
+
+
+
     const featuresData = [
         {
             title: 'Schools',
@@ -46,7 +50,9 @@ const Features = () => {
         <div>
             <h1 className="underline  decoration-orange-700/[.33] text-6xl text-orange-900 font-bold mt-20">Our Features</h1>
             <div>
-                <div class="lg:flex md:flex sm:flex items-center content-center xl:justify-evanly flex-wrap md:justify-evenly sm:justify-around lg:justify-evenly">
+                <div
+
+                    class="lg:flex md:flex sm:flex items-center content-center xl:justify-evanly flex-wrap md:justify-evenly sm:justify-around lg:justify-evenly">
                     {
                         featuresData.map(featur =>
                             <Featur

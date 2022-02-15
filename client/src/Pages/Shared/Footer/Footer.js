@@ -1,19 +1,29 @@
-import React from "react";
+import Aos from "aos";
+import React, { useEffect } from "react";
 import "./Footer.css";
 const Footer = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, [])
+
   return (
     <div>
       <footer class="footer" >
         <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-x-16 py-8 px-6  ">
-          <div>
+          <div >
             <h3 className="mb-6 text-lg font-semibold text-gray-400 uppercase ">
               <img
+                data-aos="zoom-in"
                 style={{ height: "25%", margin: "0 auto" }}
                 src="https://i.ibb.co/WHbBtLZ/eskul-logo.png"
                 alt=""
               />
             </h3>
-            <p className="text-lg text-justify" style={{ color: "#fff" }}>
+            <p
+              data-aos="flip-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+              className="text-lg text-justify" style={{ color: "#fff" }}>
               A school is an educational institution designed to provide learning spaces and learning environments for the teaching of students under the direction of teachers.
             </p>
           </div>

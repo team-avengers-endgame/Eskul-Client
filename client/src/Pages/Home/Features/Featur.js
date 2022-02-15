@@ -1,11 +1,18 @@
-import React from 'react';
+import Aos from 'aos';
+import React, { useEffect } from 'react';
 
 const Featur = ({ featur }) => {
+
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, [])
     const { title, img, description } = featur;
     return (
 
 
-        <div>
+        <div
+            data-aos="zoom-in"
+        >
 
             <div class="relative group w-96 h-96 overflow-hidden bg-black m-auto mt-36">
                 <img class="object-cover w-full h-full transform duration-700 backdrop-opacity-100" src={img} alt="" />
