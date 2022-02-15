@@ -60,7 +60,7 @@ const ContactUs = () => {
           />
         </h1>
       </Zoom>
-      <div className="container lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 md:w-3/4 mx-auto bg-yellow-400 grid  gap-4 pb-10">
+      <div className="container lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 md:md:w-3/4 mx-auto bg-yellow-400 grid  gap-4 pb-10">
         <LightSpeed left>
           <div>
             <img
@@ -77,27 +77,27 @@ const ContactUs = () => {
             </h1>
             <form onSubmit={handleSubmit(sendEmail)}>
               <input
-                className=" mx-auto mt-10 block w-3/4 px-3 py-2 bg-white border border-slate-300 rounded-md text-lg font-semibold shadow-lg placeholder-slate-400 font-mono "
+                className=" mx-auto mt-10 block md:w-3/4 px-3 py-2 bg-white border border-slate-300 rounded-md text-lg font-semibold shadow-lg placeholder-slate-400 font-mono "
                 placeholder="Your Name"
                 {...register("name", { required: true })}
               />
               {errors.name && <span className=" text-red-500">This field is required</span>}
               <input
-                className=" mx-auto mt-8 block w-3/4 px-3 py-2 bg-white border border-slate-300 font-semibold  rounded-md text-lg shadow-lg placeholder-slate-400 font-mono "
+                className=" mx-auto mt-8 block md:w-3/4 px-3 py-2 bg-white border border-slate-300 font-semibold  rounded-md text-lg shadow-lg placeholder-slate-400 font-mono "
                 placeholder="Email"
                 type='email'
                 {...register("email", { required: true })}
               />
               {errors.email && <span className=" text-red-500">This field is required</span>}
               <input
-                className=" mx-auto mt-8 block w-3/4 px-3 py-2 bg-white border border-slate-300 font-semibold  rounded-md text-lg shadow-lg placeholder-slate-400 font-mono "
+                className=" mx-auto mt-8 block md:w-3/4 px-3 py-2 bg-white border border-slate-300 font-semibold  rounded-md text-lg shadow-lg placeholder-slate-400 font-mono "
                 placeholder="Title"
                 type='title'
                 {...register("title", { required: true })}
               />
               {errors.title && <span className=" text-red-500">This field is required</span>}
               <textarea
-                className=" mx-auto mt-8 block w-3/4 h-32 px-3 py-2 bg-white border border-slate-300 font-semibold rounded-md text-lg shadow-lg placeholder-slate-400"
+                className=" mx-auto mt-8 block md:w-3/4 h-32 px-3 py-2 bg-white border border-slate-300 font-semibold rounded-md text-lg shadow-lg placeholder-slate-400"
                 placeholder="Write Message "
                 type='text'
                 {...register("message", { required: true })}
