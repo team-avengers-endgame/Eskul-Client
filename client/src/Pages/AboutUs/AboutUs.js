@@ -12,8 +12,8 @@ const AboutUs = () => {
             <Navigation />
             <AboutUsBanner />
             <OnlineLP />
-            <AboutUsPhotoGallery />
             <OurTeam />
+            <AboutUsPhotoGallery />
             <Footer />
         </div>
     );

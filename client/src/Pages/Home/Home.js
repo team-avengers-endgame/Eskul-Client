@@ -10,7 +10,7 @@ import WhyUs from "./WhyUs/WhyUs";
 
 const Home = () => {
   return (
-    <div>
+    <div className=" overflow-hidden">
       <Navigation></Navigation>
       <Banner></Banner>
       <Features></Features>

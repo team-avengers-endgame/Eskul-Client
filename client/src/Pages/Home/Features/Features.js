@@ -47,15 +47,15 @@ const Features = () => {
     ]
 
     return (
-        <div>
-            <h1 className="underline  decoration-orange-700/[.33] text-6xl text-orange-900 font-bold mt-20">Our Features</h1>
-            <div>
-                <div
+        <div className=' p-3'>
 
-                    class="lg:flex md:flex sm:flex items-center content-center xl:justify-evanly flex-wrap md:justify-evenly sm:justify-around lg:justify-evenly">
+            <h1 className="underline  decoration-orange-500/[.33] text-4xl text-orange-400 font-bold py-20">Our Features</h1>
+            <div>
+                <div className="grid gap-10 md:grid-cols-3">
                     {
-                        featuresData.map(featur =>
+                        featuresData.map((featur, index) =>
                             <Featur
+                                key={index}
                                 featur={featur}
 
                             />

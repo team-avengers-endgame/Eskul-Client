@@ -26,6 +26,7 @@ const Featur = ({ featur }) => {
                     </div>
                     <button class="absolute left-1/4 bottom-4 bg-white text-black font-bold rounded-lg h-10 w-48">Explore</button>
                 </div>
+                <button className="absolute ml-4 left-1/4 bottom-4 bg-white text-black font-bold rounded-lg h-10 w-48 hover:bg-orange-400 hover:text-white">Explore</button>
             </div>
         </div>
     );
