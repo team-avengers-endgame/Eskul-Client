@@ -10,31 +10,37 @@ const WhyUs = () => {
 
 
         <div>
-            <div class="flex justify-center items-center  space-x-2 mt-20 p-6">
+            <div class="flex justify-center items-center  space-x-2 mt-20 p-6 font-bold">
                 <div
-                    data-aos="fade-up-right"
-                    class=" bg-black p-6">
-                    <h1 className="text-blue-600">E</h1>
+                    data-aos="fade-right"
+                    data-aos-offset="100"
+                    data-aos-easing="ease-in-sine"
+                    class=" bg-white p-6">
+                    <h1 className="text-blue-600 text-7xl">E</h1>
                 </div>
                 <div
                     data-aos="fade-up-left"
-                    class=" bg-black  p-6 animate-fade-out-down">
-                    <h1 className="text-yellow-300">S</h1>
+                    class=" bg-white  p-6 animate-fade-out-down">
+                    <h1 className="text-yellow-300 text-7xl">S</h1>
                 </div>
                 <div
-                    data-aos="fade-up-right"
-                    class=" bg-black  p-6 animate-fade-in-up">
-                    <h1 className="text-purple-300">K</h1>
+                    data-aos="fade-right"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine"
+                    class=" bg-white  p-6 animate-fade-in-up">
+                    <h1 className="text-purple-600 text-7xl">K</h1>
                 </div>
                 <div
                     data-aos="fade-up-left"
-                    class=" bg-black  p-6 animate-fade-out-up">
-                    <h1 className="text-orange-700">U</h1>
+                    class=" bg-white p-6 animate-fade-out-up">
+                    <h1 className="text-orange-700 text-7xl">U</h1>
                 </div>
                 <div
-                    data-aos="fade-up-right"
-                    class=" bg-black  p-6 animate-fade-out-up">
-                    <h1 className="text-white">L</h1>
+                    data-aos="fade-right"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine"
+                    class=" bg-white  p-6 animate-fade-out-up">
+                    <h1 className="text-green-700 text-7xl">L</h1>
                 </div>
 
             </div>
@@ -48,7 +54,7 @@ const WhyUs = () => {
                         <div
                             data-aos="fade-right"
                             className="md:col-span-1">
-                            <img src="https://i.ibb.co/sjk9MtL/pexels-photo-5303549.jpg" alt="" />
+                            <img src="https://i.ibb.co/xFGt0xZ/smiling-students-with-backpacks-1098-1220.jpg" alt="" />
                         </div>
                         <div
                             data-aos="fade-left"
@@ -67,7 +73,7 @@ const WhyUs = () => {
                         <div
                             data-aos="fade-up-left"
                             className=" md:col-span-1 ">
-                            <img src="https://i.ibb.co/sjk9MtL/pexels-photo-5303549.jpg" alt="" />
+                            <img src="https://i.ibb.co/qWCH42V/virtual-classroom-study-space-23-2149178640.jpg" alt="" />
                         </div>
                     </div>
                 </div>
