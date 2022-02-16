@@ -4,11 +4,11 @@ import "./Footer.css";
 const Footer = () => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
-  }, [])
+  }, []);
 
   return (
     <div>
-      <footer className="footer" >
+      <footer className="footer">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-x-16 py-8 px-6  ">
           <div>
             <h3 className="mb-6 text-lg font-semibold text-gray-400 uppercase ">
@@ -23,11 +23,15 @@ const Footer = () => {
               data-aos="flip-left"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
-              className="text-lg text-justify" style={{ color: "#fff" }}>
-              A school is an educational institution designed to provide learning spaces and learning environments for the teaching of students under the direction of teachers.
+              className="text-lg text-justify"
+              style={{ color: "#fff" }}
+            >
+              A school is an educational institution designed to provide
+              learning spaces and learning environments for the teaching of
+              students under the direction of teachers.
             </p>
           </div>
-          <div style={{ margin: '0 auto' }}>
+          <div style={{ margin: "0 auto" }}>
             <h3 className="mb-6 text-lg font-semibold text-gray-400 uppercase">
               Quick Links
             </h3>
@@ -40,7 +44,7 @@ const Footer = () => {
                     rel="noreferrer"
                     className="text-gray-300 hover:underline"
                   >
-                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                    <div style={{ color: "#fff", textAlign: "start" }}>
                       <i
                         style={{ color: "#fff" }}
                         className="fas fa-chevron-right"
@@ -49,7 +53,6 @@ const Footer = () => {
                     </div>
                   </a>
                 </div>
-
               </li>
               <li className="mb-4 text-lg">
                 <div style={{ color: "#fff" }}>
@@ -59,7 +62,7 @@ const Footer = () => {
                     rel="noreferrer"
                     className="text-gray-300 hover:underline"
                   >
-                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                    <div style={{ color: "#fff", textAlign: "start" }}>
                       <i
                         style={{ color: "#fff" }}
                         className="fas fa-chevron-right"
@@ -77,7 +80,7 @@ const Footer = () => {
                     rel="noreferrer"
                     className="text-gray-300 hover:underline"
                   >
-                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                    <div style={{ color: "#fff", textAlign: "start" }}>
                       <i
                         style={{ color: "#fff" }}
                         className="fas fa-chevron-right"
@@ -86,7 +89,6 @@ const Footer = () => {
                     </div>
                   </a>
                 </div>
-
               </li>
               <li className="mb-4 text-lg">
                 <div style={{ color: "#fff" }}>
@@ -96,7 +98,7 @@ const Footer = () => {
                     rel="noreferrer"
                     className="text-gray-300 hover:underline"
                   >
-                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                    <div style={{ color: "#fff", textAlign: "start" }}>
                       <i
                         style={{ color: "#fff" }}
                         className="fas fa-chevron-right"
@@ -114,7 +116,7 @@ const Footer = () => {
                     rel="noreferrer"
                     className="text-gray-300 hover:underline"
                   >
-                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                    <div style={{ color: "#fff", textAlign: "start" }}>
                       <i
                         style={{ color: "#fff" }}
                         className="fas fa-chevron-right"
@@ -123,7 +125,6 @@ const Footer = () => {
                     </div>
                   </a>
                 </div>
-
               </li>
               <li className="mb-4 text-lg">
                 <div style={{ color: "#fff" }}>
@@ -133,7 +134,7 @@ const Footer = () => {
                     rel="noreferrer"
                     className="text-gray-300 hover:underline"
                   >
-                    <div style={{ color: "#fff", textAlign: 'start' }}>
+                    <div style={{ color: "#fff", textAlign: "start" }}>
                       <i
                         style={{ color: "#fff" }}
                         className="fas fa-chevron-right"
@@ -142,7 +143,6 @@ const Footer = () => {
                     </div>
                   </a>
                 </div>
-
               </li>
               <li className="mb-4 text-lg">
                 <div style={{ color: "#fff" }}>
@@ -152,16 +152,15 @@ const Footer = () => {
                     rel="noreferrer"
                     className="text-gray-300 hover:underline"
                   >
-                    <div style={{ marginRight: "1%", textAlign: 'start' }}>
+                    <div style={{ marginRight: "1%", textAlign: "start" }}>
                       <i
                         style={{ color: "#fff" }}
                         className="fas fa-chevron-right"
-                      ></i><span style={{ color: "#fff" }}> Contact</span>
+                      ></i>
+                      <span style={{ color: "#fff" }}> Contact</span>
                     </div>
                   </a>
                 </div>
-
-
               </li>
             </ul>
           </div>
@@ -217,9 +216,7 @@ const Footer = () => {
                     className="fas fa-map-marker-alt"
                     style={{ color: "#fff", marginRight: "3%" }}
                   ></i>{" "}
-                  <span style={{ color: "#fff" }}>
-                    123 Lorem Ipsum, 32
-                  </span>{" "}
+                  <span style={{ color: "#fff" }}>123 Dhaka, Bangladesh</span>{" "}
                 </li>
                 <li className="text-left">
                   <br />
