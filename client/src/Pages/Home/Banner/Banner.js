@@ -1,7 +1,11 @@
-import React from 'react';
+import Aos from 'aos';
+import React, { useEffect } from 'react';
 import './Banner.css'
 import Slider from './Slider';
 const Banner = () => {
+    useEffect(() => {
+        Aos.init({ duration: 3000 });
+    }, [])
     const slider = [
         {
             image: "https://i.ibb.co/M9gwh73/rsz-1pexels-photo-8363770.png",
@@ -25,7 +29,7 @@ const Banner = () => {
     ]
 
     return (
-        <div className="">
+        <div>
             <div className=" relative carousel  flex flex-shrink-0 ">
                 <div id="carouselExampleCaptions" className="carousel slide relative" data-bs-ride="carousel">
                     <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">

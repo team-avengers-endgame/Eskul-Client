@@ -1,7 +1,11 @@
-import React from 'react';
+
 import Featur from './Featur';
 
 const Features = () => {
+
+
+
+
     const featuresData = [
         {
             title: 'Schools',
