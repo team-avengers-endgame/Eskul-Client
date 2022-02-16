@@ -10,6 +10,8 @@ import Login from './Pages/Login/Login/Login';
 import Registration from './Pages/Login/Registration/Registration';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import AboutUs from './Pages/AboutUs/AboutUs';
+import Tutors from './Pages/Shared/Teacher/Tutors/Tutors';
+import TutorDetails from './Pages/Shared/Teacher/TutorDetails/TutorDetails';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
             <Route path="/home" element={<Home />}></Route>
             <Route path="/aboutUs" element={<AboutUs />}></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/tutors" element={<Tutors />}></Route>
+            <Route path="/tutordetails/:tutorsId" element={<TutorDetails />}></Route>
             <Route path="/registration" element={<Registration />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
