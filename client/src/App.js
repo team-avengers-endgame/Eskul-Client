@@ -1,41 +1,23 @@
+import logo from './logo.svg';
 import './App.css';
-import 'flowbite';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
-import Home from './Pages/Home/Home';
-import NotFound from './Pages/NotFound/NotFound';
-import Login from './Pages/Login/Login/Login';
-import Registration from './Pages/Login/Registration/Registration';
-import AuthProvider from './context/AuthProvider/AuthProvider';
-import AboutUs from './Pages/AboutUs/AboutUs';
-import Dashboard from './Pages/Dashboard/Dashboard';
-import AddedSchoolData from './Pages/Dashboard/AddedSchoolData/AddedSchoolData';
-import Tutors from './Pages/Shared/Teacher/Tutors/Tutors';
-import TutorDetails from './Pages/Shared/Teacher/TutorDetails/TutorDetails';
 
 function App() {
   return (
     <div className="App">
-      <AuthProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/home" element={<Home />}></Route>
-            <Route path="/aboutUs" element={<AboutUs />}></Route>
-            <Route path="/dashboard" element={<Dashboard />}></Route>
-            <Route path="/dashboard/addedSchoolData" element={<AddedSchoolData />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="/tutors" element={<Tutors />}></Route>
-            <Route path="/tutordetails/:tutorsId" element={<TutorDetails />}></Route>
-            <Route path="/registration" element={<Registration />}></Route>
-            <Route path="*" element={<NotFound />}></Route>
-          </Routes>
-
-        </Router>
-      </AuthProvider>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
