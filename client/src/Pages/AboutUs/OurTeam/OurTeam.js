@@ -20,9 +20,7 @@ const OurTeam = () => {
                     <div className="w-full bg-gray-100 px-10 pt-10">
                         <div className="container mx-auto">
                             <div role="list" aria-label="Behind the scenes People " className="lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around">
-                                <div
-                                    data-aos="zoom-in-left"
-                                    role="listitem" className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
+                                <div role="listitem" className="xl:w-1/3 sm:md:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
                                     <div className="rounded overflow-hidden shadow-md bg-white">
                                         <div className="absolute -mt-20 w-full flex justify-center">
                                             <div className="h-32 w-32">
@@ -61,9 +59,7 @@ const OurTeam = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div
-                                    data-aos="zoom-out"
-                                    role="listitem" className="xl:w-1/3 lg:mx-3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
+                                <div role="listitem" className="xl:w-1/3 lg:mx-3 sm:md:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
                                     <div className="rounded overflow-hidden shadow-md bg-white">
                                         <div className="absolute -mt-20 w-full flex justify-center">
                                             <div className="h-32 w-32">
@@ -102,9 +98,7 @@ const OurTeam = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div
-                                    data-aos="zoom-in-right"
-                                    role="listitem" className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
+                                <div role="listitem" className="xl:w-1/3 sm:md:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
                                     <div className="rounded overflow-hidden shadow-md bg-white">
                                         <div className="absolute -mt-20 w-full flex justify-center">
                                             <div className="h-32 w-32">
@@ -143,11 +137,7 @@ const OurTeam = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div
-                                    data-aos="fade-right"
-                                    data-aos-offset="300"
-                                    data-aos-easing="ease-in-sine"
-                                    role="listitem" className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
+                                <div role="listitem" className="xl:w-1/3 sm:md:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
                                     <div className="rounded overflow-hidden shadow-md bg-white">
                                         <div className="absolute -mt-20 w-full flex justify-center">
                                             <div className="h-32 w-32">
@@ -186,10 +176,7 @@ const OurTeam = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div
-                                    data-aos="fade-up"
-                                    data-aos-duration="3000"
-                                    role="listitem" className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
+                                <div role="listitem" className="xl:w-1/3 sm:md:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
                                     <div className="rounded overflow-hidden shadow-md bg-white">
                                         <div className="absolute -mt-20 w-full flex justify-center">
                                             <div className="h-32 w-32">
@@ -228,11 +215,7 @@ const OurTeam = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div
-                                    data-aos="fade-left"
-                                    data-aos-offset="300"
-                                    data-aos-easing="ease-in-sine"
-                                    role="listitem" className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
+                                <div role="listitem" className="xl:w-1/3 sm:md:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
                                     <div className="rounded overflow-hidden shadow-md bg-white">
                                         <div className="absolute -mt-20 w-full flex justify-center">
                                             <div className="h-32 w-32">
