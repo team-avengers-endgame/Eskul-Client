@@ -30,10 +30,10 @@ const Navigation = () => {
 
                   <NavLink
 
-                    to="/"
+                    to="/tutors"
                     className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-lg font-bold"
                   >
-                    Schools
+                    Teacher
                   </NavLink>
 
                   <NavLink
