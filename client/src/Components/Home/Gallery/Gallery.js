@@ -6,7 +6,17 @@ const Gallery = () => {
         <Box>
             <Container>
                 <Box sx={{ textAlign: 'center' }}>
-
+                    <Typography
+                        variant="h5"
+                        gutterBottom
+                        component="div"
+                        sx={{
+                            fontStyle: 'italic',
+                            fontFamily: 'Georgia'
+                        }}
+                    >
+                        this is Gallery
+                    </Typography>
                 </Box>
             </Container>
         </Box>
