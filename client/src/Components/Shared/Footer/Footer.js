@@ -37,7 +37,7 @@ const Footer = () => {
                                             size='small'
                                         />
                                     </Button>
-                                    <Button size='small' sx={{ color: '#fff', backgroundColor: '#46aadd' }} ></Button>
+                                    <Button size='small' sx={{ color: '#fff', backgroundColor: '#46aadd' }} > </Button>
                                 </ButtonGroup>
                             </form>
 
@@ -158,6 +158,7 @@ const Footer = () => {
                                     <Typography className='footer-link'
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
                                         officeone@youremail.com
+                                        officeone@youremail.com
                                     </Typography>
                                 </a>
 
@@ -167,7 +168,7 @@ const Footer = () => {
 
                                     <Typography
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        {/* <AccessTimeIcon style={{ width: 20, height: 20, color: '#46aadd' }} /> */}
+
                                         Mon-Fri: 9:00 am – 5:00 pm
                                         Sat: 11:00 am – 16:00 pm
                                     </Typography>
@@ -199,18 +200,7 @@ const Footer = () => {
                             variant="h6" >
                             Follow us:
                         </Typography>
-                        <span style={{ display: 'inline' }}>
-                            <span className='footer-icon'>
-                                <img src={FacebookIcon} alt="" />
 
-                            </span>
-                            <span className='footer-icon'>
-                                <img src={TwitterIcon} alt="" />
-                            </span>
-                            <span className='footer-icon'>
-                                <img src={InstagramIcon} alt="" />
-                            </span>
-                        </span>
 
 
 
