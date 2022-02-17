@@ -18,7 +18,7 @@ const NurtingEnvironment = () => {
                                 Thought open ended play based experiences children flourish, and grow to love their school, taking pride in belonging to a community
                             </Typography>
                             <br /><br />
-                            <Button sx={{ borderRadius: '50%', height: '60px', width: '60px', backgroundColor: 'rgb(70, 170, 220)' }}>
+                            <Button sx={{ borderRadius: '50%', height: '60px', width: '60px', backgroundColor: 'rgb(70, 170, 220)', color: 'white' }}>
                                 <SlowMotionVideoOutlinedIcon style={{ color: 'fff' }} />
                             </Button> <Link style={{ color: 'rgb(70, 170, 220)', fontWeight: 'bold', textDecoration: 'none' }}>View Video</Link>
                         </Box>
