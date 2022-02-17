@@ -47,7 +47,12 @@ const NavigationBar = () => {
     };
     window.addEventListener('scroll', changeBackground);
     return (
-        <AppBar position={navbar ? 'sticky' : 'static'}>
+        <AppBar position={navbar ? 'sticky' : 'static'}
+            sx={navbar ? { backgroundColor: '#c3e9fff0' }
+                :
+                { backgroundColor: 'transparent', boxShadow: 'none' }
+            }
+        >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -174,7 +179,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >home
 
                             </Button>
@@ -183,7 +188,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >about us
 
                             </Button>
@@ -192,7 +197,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >programs
 
                             </Button>
@@ -201,7 +206,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >parent info
 
                             </Button>
@@ -210,14 +215,14 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >gallery
 
                             </Button>
                         </Link>
                         <Button
                             onClick={handleCloseNavMenu}
-                            sx={{ my: 2, color: 'white', display: 'block' }}
+                            sx={{ my: 2, color: '#211e1e', display: 'block' }}
                         >pages
 
                         </Button>
@@ -225,7 +230,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >blogs
 
                             </Button>
@@ -234,7 +239,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >contacts
 
                             </Button>
