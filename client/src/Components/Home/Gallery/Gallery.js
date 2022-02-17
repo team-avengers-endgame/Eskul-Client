@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 
 const Gallery = () => {
@@ -21,14 +20,6 @@ const Gallery = () => {
                 </Box>
             </Container>
         </Box>
-=======
-
-const Gallery = () => {
-    return (
-        <div>
-            <h1>this is Gallery</h1>
-        </div>
->>>>>>> rukon
     );
 };
 
