@@ -14,12 +14,12 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import logo from './logo.png';
 
-const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavigationBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [navbar, setNavbar] = React.useState(false);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -36,8 +36,18 @@ const NavigationBar = () => {
         setAnchorElUser(null);
     };
 
+
+    //navbar activity handler
+    const changeBackground = () => {
+        if (window.scrollY >= 80) {
+            setNavbar(true);
+        } else {
+            setNavbar(false);
+        }
+    };
+    window.addEventListener('scroll', changeBackground);
     return (
-        <AppBar position="static">
+        <AppBar position={navbar ? 'sticky' : 'static'}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
