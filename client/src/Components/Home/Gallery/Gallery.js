@@ -1,10 +1,15 @@
 import React from 'react';
+import { Box, Button, Container, Grid, Typography } from '@mui/material';
 
 const Gallery = () => {
     return (
-        <div>
-            <h1>this is Gallery</h1>
-        </div>
+        <Box>
+            <Container>
+                <Box sx={{ textAlign: 'center' }}>
+
+                </Box>
+            </Container>
+        </Box>
     );
 };
 
