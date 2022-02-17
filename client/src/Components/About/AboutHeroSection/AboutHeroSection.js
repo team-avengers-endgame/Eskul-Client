@@ -1,0 +1,56 @@
+import { Container, Grid, Typography } from "@mui/material";
+import React from "react";
+import prevideoimg from "../../../Assets/Images/AboutUs/video-prev.jpg";
+const AboutHeroSection = () => {
+  return (
+    <Container sx={{ my: 10 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={12} md={6}>
+          <Typography
+            sx={{ fontStyle: "italic", fontSize: 22, color: "#3B4757" }}
+            variant="body1"
+            gutterBottom
+          >
+            Igniting the spark of genius in every child
+          </Typography>
+          <Typography
+            sx={{ fontWeight: "500", fontSize: 42, color: "#3B4757" }}
+            variant="h4"
+            gutterBottom
+            component="div"
+          >
+            We Work to Understand Your{" "}
+            <span style={{ color: "#46AADC" }}>Kids Needs</span>
+          </Typography>
+          <Typography
+            sx={{ fontSize: 15, color: "#777" }}
+            variant="body2"
+            gutterBottom
+          >
+            We provide a warm and encouraging atmosphere that enhances
+            self-concept, instills basic moral values, encourages social
+            interaction, and enriches awareness of the natural and cultural
+            world. We’re a warm and loving community of preschoolers, teachers,
+            and parents who inspire imagination, creativity, and play for every
+            learner.
+          </Typography>
+          <br />
+          <Typography
+            sx={{ fontSize: 15, color: "#777" }}
+            variant="body2"
+            gutterBottom
+          >
+            In an environment rooted in respect and compassion, we strive to
+            nourish each child's spirit and provide a protective space for him
+            or her to grow.
+          </Typography>
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
+          <img sx={{ w: 1 }} src={prevideoimg} alt="" />
+        </Grid>
+      </Grid>
+    </Container>
+  );
+};
+
+export default AboutHeroSection;
