@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Box, Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 import foodImg from './image/healthyFood.png';
 import fruits from '../../../Assets/Images/fruits.png';
@@ -130,6 +131,14 @@ const HealthyFood = () => {
                 </Grid>
             </Container>
         </Box>
+=======
+
+const HealthyFood = () => {
+    return (
+        <div>
+            <h1>this is healthy</h1>
+        </div>
+>>>>>>> rukon
     );
 };
 
