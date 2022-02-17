@@ -1,9 +1,20 @@
 import React from "react";
+import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
+import AboutHeroSection from "../AboutHeroSection/AboutHeroSection";
+import DifferenceSection from "../DifferenceSection/DifferenceSection";
+import FacilitySection from "../FacilitySection/FacilitySection";
+import Principles from "../Principles/Principles";
+import VisionMissionSection from "../VisionMissionSection/VisionMissionSection";
 
 const About = () => {
   return (
     <div>
-      <h1>This is about</h1>
+      <NavigationBar />
+      <AboutHeroSection />
+      <VisionMissionSection />
+      <DifferenceSection />
+      <FacilitySection />
+      <Principles />
     </div>
   );
 };
