@@ -1,12 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-
-const WhyChooseUs = () => {
-    return (
-        <div>
-            <h1>this is why</h1>
-        </div>
-=======
 import { Container, Grid, Typography, Box } from '@mui/material';
 
 import './WhyChooseUs.css'
@@ -92,7 +84,6 @@ const WhyChooseUs = () => {
                 </Box>
             </Container>
         </Box>
->>>>>>> rukon
     );
 };
 

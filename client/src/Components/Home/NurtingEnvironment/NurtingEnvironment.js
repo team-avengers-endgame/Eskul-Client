@@ -1,12 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-
-const NurtingEnvironment = () => {
-    return (
-        <div>
-            <h1>this is nuturing</h1>
-        </div>
-=======
 import './NurtingEnvironment.css'
 import { Box, Button, Container, Grid, Link, Typography } from '@mui/material';
 import SlowMotionVideoOutlinedIcon from '@mui/icons-material/SlowMotionVideoOutlined';
@@ -35,7 +27,6 @@ const NurtingEnvironment = () => {
             </Container>
 
         </Box>
->>>>>>> rukon
     );
 };
 
