@@ -55,7 +55,6 @@ const Banner = () => {
                                     />
                                     <Typography
                                         variant="h5"
-                                        gutterBottom
                                         component="div"
                                         sx={{
                                             fontStyle: 'italic',
@@ -66,14 +65,12 @@ const Banner = () => {
                                     </Typography>
                                     <Typography
                                         variant="h3"
-                                        gutterBottom
                                         component="div"
                                         sx={{ fontWeight: '500', color: '#3B4757' }}
                                     >
                                         {newSlide.text2}
                                     </Typography>
                                 </Box>
-
                             </Grid>
                         </Grid>
                     </Box>)
