@@ -3,15 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react';
 import './Footer.css'
 import { useForm } from "react-hook-form";
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import FacebookIcon from './img/facebook.svg';
-import TwitterIcon from './img/twitter.svg';
-import InstagramIcon from './img/instagram.svg';
-import ArrowForwardIosSharpIcon from '@material-ui/icons/ArrowForwardIosSharp';
-import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
-import CallIcon from '@material-ui/icons/Call';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
+
 const Footer = () => {
 
     // Email handler =============
@@ -43,7 +35,7 @@ const Footer = () => {
                                             size='small'
                                         />
                                     </Button>
-                                    <Button size='small' sx={{ color: '#fff', backgroundColor: '#46aadd' }} ><ArrowForwardIcon /> </Button>
+                                    <Button size='small' sx={{ color: '#fff', backgroundColor: '#46aadd' }} > </Button>
                                 </ButtonGroup>
                             </form>
 
@@ -54,34 +46,34 @@ const Footer = () => {
                                 Quick Links
                             </Typography>
                             <Box sx={{ mt: 5 }}>
-                                <ArrowForwardIosSharpIcon style={{ width: 12, height: 10, color: '#46aadd' }} />
+                                
                                 <Link
                                     className='footer-link'
                                     sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }} href="#" underline="none">
                                     About us
                                 </Link><br /><br />
-                                <ArrowForwardIosSharpIcon style={{ width: 12, height: 10, color: '#46aadd' }} />
+                                
                                 <Link
                                     className='footer-link'
                                     sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                     href="#" underline="none">
                                     Programs
                                 </Link><br /><br />
-                                <ArrowForwardIosSharpIcon style={{ width: 12, height: 10, color: '#46aadd' }} />
+                               
                                 <Link
                                     className='footer-link'
                                     sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                     href="#" underline="none">
                                     Parent Info
                                 </Link><br /><br />
-                                <ArrowForwardIosSharpIcon style={{ width: 12, height: 10, color: '#46aadd' }} />
+                              
                                 <Link
                                     className='footer-link'
                                     sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                     href="#" underline="none">
                                     Events
                                 </Link><br /><br />
-                                <ArrowForwardIosSharpIcon style={{ width: 12, height: 10, color: '#46aadd' }} />
+                                
                                 <Link
                                     className='footer-link'
                                     sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
@@ -96,35 +88,35 @@ const Footer = () => {
                             sx={{ mt: 14, textAlign: "left" }}
                             item="true" xs={12} sm={4} md={2}>
 
-                            <ArrowForwardIosSharpIcon style={{ width: 12, height: 10, color: '#46aadd' }} />
+                           
                             <Link
                                 className='footer-link'
                                 sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                 href="#" underline="none">
                                 Prices
                             </Link><br /><br />
-                            <ArrowForwardIosSharpIcon style={{ width: 12, height: 10, color: '#46aadd' }} />
+                            
                             <Link
                                 className='footer-link'
                                 sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                 href="#" underline="none">
                                 FAQs
                             </Link><br /><br />
-                            <ArrowForwardIosSharpIcon style={{ width: 12, height: 10, color: '#46aadd' }} />
+                          
                             <Link
                                 className='footer-link'
                                 sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                 href="#" underline="none">
                                 Blog
                             </Link><br /><br />
-                            <ArrowForwardIosSharpIcon style={{ width: 12, height: 10, color: '#46aadd' }} />
+                          
                             <Link
                                 className='footer-link'
                                 sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                 href="#" underline="none">
                                 Testimonials
                             </Link><br /><br />
-                            <ArrowForwardIosSharpIcon style={{ width: 12, height: 10, color: '#46aadd' }} />
+                          
                             <Link
                                 className='footer-link'
                                 sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
@@ -147,7 +139,7 @@ const Footer = () => {
                                     href="http://" target="_blank" rel="noopener noreferrer">
                                     <Typography className='footer-link'
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        <LocationOnOutlinedIcon style={{ width: 20, height: 20, color: '#46aadd' }} /> 3261 Anmoore Road Brooklyn, NY 11230
+                                         3261 Anmoore Road Brooklyn, NY 11230
                                     </Typography>
                                 </a>
                                 <a
@@ -155,7 +147,7 @@ const Footer = () => {
                                     href="http://" target="_blank" rel="noopener noreferrer">
                                     <Typography className='footer-link'
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        <CallIcon style={{ width: 20, height: 20, color: '#46aadd' }} />  800-123-4567, Fax: 718-724-3312
+                                        800-123-4567, Fax: 718-724-3312
                                     </Typography>
                                 </a>
                                 <a
@@ -163,7 +155,7 @@ const Footer = () => {
                                     href="http://" target="_blank" rel="noopener noreferrer">
                                     <Typography className='footer-link'
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        <MailOutlineIcon style={{ width: 20, height: 20, color: '#46aadd' }} />   officeone@youremail.com
+                                           officeone@youremail.com
                                     </Typography>
                                 </a>
 
@@ -173,7 +165,7 @@ const Footer = () => {
 
                                     <Typography
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        <AccessTimeIcon style={{ width: 20, height: 20, color: '#46aadd' }} />
+                                        
                                         Mon-Fri: 9:00 am – 5:00 pm
                                         Sat: 11:00 am – 16:00 pm
                                     </Typography>
@@ -205,18 +197,7 @@ const Footer = () => {
                             variant="h6" >
                             Follow us:
                         </Typography>
-                        <span style={{ display: 'inline' }}>
-                            <span className='footer-icon'>
-                                <img src={FacebookIcon} alt="" />
-
-                            </span>
-                            <span className='footer-icon'>
-                                <img src={TwitterIcon} alt="" />
-                            </span>
-                            <span className='footer-icon'>
-                                <img src={InstagramIcon} alt="" />
-                            </span>
-                        </span>
+                    
 
 
 
