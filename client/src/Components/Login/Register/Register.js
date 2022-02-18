@@ -5,11 +5,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import LockIcon from '@material-ui/icons/Lock';
 import { AccountCircle } from '@material-ui/icons';
 import Avatar_img from '../Login/img/undraw_profile_pic_ic5t.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import GoogleIcon from '@mui/icons-material/Google';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Tooltip from '@mui/material/Tooltip';
+import useAuth from '../../../Hooks/useAuth';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -53,7 +54,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { registerUser, signInWithGoogle } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const onSubmit = data => {
+        registerUser(data.email, data.password, data.name, location, navigate)
+    };
 
     const classes = useStyles();
     return (
@@ -145,7 +152,7 @@ const Register = () => {
                                     <br />
                                     <Box sx={{ display: 'flex', justifyContent: ' space-around' }}>
                                         <Tooltip title="Google" arrow>
-                                            <Fab size="small" color="secondary" aria-label="add">
+                                            <Fab onClick={() => signInWithGoogle(location, navigate)} size="small" color="secondary" aria-label="add">
                                                 <GoogleIcon sx={{ mr: 1 }} />
 
                                             </Fab>
