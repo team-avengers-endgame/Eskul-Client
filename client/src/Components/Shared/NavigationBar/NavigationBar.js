@@ -14,12 +14,12 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import logo from './logo.png';
 
-const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavigationBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [navbar, setNavbar] = React.useState(false);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -36,8 +36,23 @@ const NavigationBar = () => {
         setAnchorElUser(null);
     };
 
+
+    //navbar activity handler
+    const changeBackground = () => {
+        if (window.scrollY >= 80) {
+            setNavbar(true);
+        } else {
+            setNavbar(false);
+        }
+    };
+    window.addEventListener('scroll', changeBackground);
     return (
-        <AppBar position="static">
+        <AppBar position={navbar ? 'sticky' : 'static'}
+            sx={navbar ? { backgroundColor: '#c3e9fff0' }
+                :
+                { backgroundColor: 'transparent', boxShadow: 'none' }
+            }
+        >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -164,7 +179,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >home
 
                             </Button>
@@ -173,7 +188,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >about us
 
                             </Button>
@@ -182,7 +197,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >programs
 
                             </Button>
@@ -191,7 +206,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >parent info
 
                             </Button>
@@ -200,14 +215,14 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >gallery
 
                             </Button>
                         </Link>
                         <Button
                             onClick={handleCloseNavMenu}
-                            sx={{ my: 2, color: 'white', display: 'block' }}
+                            sx={{ my: 2, color: '#211e1e', display: 'block' }}
                         >pages
 
                         </Button>
@@ -215,7 +230,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >blogs
 
                             </Button>
@@ -224,7 +239,7 @@ const NavigationBar = () => {
                             style={{ textDecoration: 'none' }}>
                             <Button
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: '#211e1e', display: 'block' }}
                             >contacts
 
                             </Button>

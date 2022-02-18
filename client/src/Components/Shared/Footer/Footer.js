@@ -3,7 +3,9 @@ import { Box } from '@mui/system';
 import React from 'react';
 import './Footer.css'
 import { useForm } from "react-hook-form";
-
+import FacebookIcon from './img/facebook.svg';
+import TwitterIcon from './img/twitter.svg';
+import InstagramIcon from './img/instagram.svg';
 const Footer = () => {
 
     // Email handler =============
@@ -46,34 +48,34 @@ const Footer = () => {
                                 Quick Links
                             </Typography>
                             <Box sx={{ mt: 5 }}>
-                                
+
                                 <Link
                                     className='footer-link'
                                     sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }} href="#" underline="none">
                                     About us
                                 </Link><br /><br />
-                                
+
                                 <Link
                                     className='footer-link'
                                     sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                     href="#" underline="none">
                                     Programs
                                 </Link><br /><br />
-                               
+
                                 <Link
                                     className='footer-link'
                                     sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                     href="#" underline="none">
                                     Parent Info
                                 </Link><br /><br />
-                              
+
                                 <Link
                                     className='footer-link'
                                     sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                     href="#" underline="none">
                                     Events
                                 </Link><br /><br />
-                                
+
                                 <Link
                                     className='footer-link'
                                     sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
@@ -88,35 +90,35 @@ const Footer = () => {
                             sx={{ mt: 14, textAlign: "left" }}
                             item="true" xs={12} sm={4} md={2}>
 
-                           
+
                             <Link
                                 className='footer-link'
                                 sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                 href="#" underline="none">
                                 Prices
                             </Link><br /><br />
-                            
+
                             <Link
                                 className='footer-link'
                                 sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                 href="#" underline="none">
                                 FAQs
                             </Link><br /><br />
-                          
+
                             <Link
                                 className='footer-link'
                                 sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                 href="#" underline="none">
                                 Blog
                             </Link><br /><br />
-                          
+
                             <Link
                                 className='footer-link'
                                 sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
                                 href="#" underline="none">
                                 Testimonials
                             </Link><br /><br />
-                          
+
                             <Link
                                 className='footer-link'
                                 sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
@@ -139,7 +141,7 @@ const Footer = () => {
                                     href="http://" target="_blank" rel="noopener noreferrer">
                                     <Typography className='footer-link'
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                         3261 Anmoore Road Brooklyn, NY 11230
+                                        3261 Anmoore Road Brooklyn, NY 11230
                                     </Typography>
                                 </a>
                                 <a
@@ -155,7 +157,8 @@ const Footer = () => {
                                     href="http://" target="_blank" rel="noopener noreferrer">
                                     <Typography className='footer-link'
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                           officeone@youremail.com
+                                        officeone@youremail.com
+                                        officeone@youremail.com
                                     </Typography>
                                 </a>
 
@@ -165,7 +168,7 @@ const Footer = () => {
 
                                     <Typography
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        
+
                                         Mon-Fri: 9:00 am – 5:00 pm
                                         Sat: 11:00 am – 16:00 pm
                                     </Typography>
@@ -197,7 +200,7 @@ const Footer = () => {
                             variant="h6" >
                             Follow us:
                         </Typography>
-                    
+
 
 
 
