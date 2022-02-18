@@ -49,10 +49,7 @@ const Banner = () => {
                                         backgroundSize: 'contain',
                                         backgroundRepeat: 'no-repeat'
                                     }}>
-                                    <img
-                                        src={newSlide.icon}
-                                        alt=""
-                                    />
+                                    <img src={newSlide.icon} alt="slide img" />
                                     <Typography
                                         variant="h5"
                                         component="div"
