@@ -11,15 +11,18 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from './logo.png';
+import useAuth from '../../../Hooks/useAuth';
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavigationBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [navbar, setNavbar] = React.useState(false);
+
+    const { user, logOut } = useAuth();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -37,6 +40,7 @@ const NavigationBar = () => {
     };
 
 
+
     //navbar activity handler
     const changeBackground = () => {
         if (window.scrollY >= 80) {
@@ -46,6 +50,8 @@ const NavigationBar = () => {
         }
     };
     window.addEventListener('scroll', changeBackground);
+
+    const LinkStyle = { textDecoration: 'none', color: 'black' }
     return (
         <AppBar position={navbar ? 'sticky' : 'static'}
             sx={navbar ? { backgroundColor: '#c3e9fff0' }
@@ -68,16 +74,19 @@ const NavigationBar = () => {
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
+                        <Tooltip title='Menu' arrow>
+                            <IconButton
+                                sx={{ color: 'black' }}
+                                size="large"
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleOpenNavMenu}
+                                color="inherit"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                        </Tooltip>
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorElNav}
@@ -93,12 +102,12 @@ const NavigationBar = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: { xs: 'block', md: 'none' }
                             }}
                         >
                             {/* mobile device menus */}
                             <Link to='/'
-                                style={{ textDecoration: 'none' }}>
+                                style={LinkStyle}>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
                                         Home
@@ -106,7 +115,7 @@ const NavigationBar = () => {
                                 </MenuItem>
                             </Link>
                             <Link to='/about'
-                                style={{ textDecoration: 'none' }}>
+                                style={LinkStyle}>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
                                         About us
@@ -114,7 +123,7 @@ const NavigationBar = () => {
                                 </MenuItem>
                             </Link>
                             <Link to='/programs'
-                                style={{ textDecoration: 'none' }}>
+                                style={LinkStyle}>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
                                         Programs
@@ -122,7 +131,7 @@ const NavigationBar = () => {
                                 </MenuItem>
                             </Link>
                             <Link to='/parents'
-                                style={{ textDecoration: 'none' }}>
+                                style={LinkStyle}>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
                                         Parent info
@@ -130,7 +139,7 @@ const NavigationBar = () => {
                                 </MenuItem>
                             </Link>
                             <Link to='/gallery'
-                                style={{ textDecoration: 'none' }}>
+                                style={LinkStyle}>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
                                         Gallery
@@ -143,7 +152,7 @@ const NavigationBar = () => {
                                 </Typography>
                             </MenuItem>
                             <Link to='/blog'
-                                style={{ textDecoration: 'none' }}>
+                                style={LinkStyle}>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
                                         Blog
@@ -151,7 +160,7 @@ const NavigationBar = () => {
                                 </MenuItem>
                             </Link>
                             <Link to='/contacts'
-                                style={{ textDecoration: 'none' }}>
+                                style={LinkStyle}>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
                                         Contacts
@@ -176,7 +185,7 @@ const NavigationBar = () => {
                     {/* large device menus */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <Link to='/'
-                            style={{ textDecoration: 'none' }}>
+                            style={LinkStyle}>
                             <Button
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: '#211e1e', display: 'block' }}
@@ -185,7 +194,7 @@ const NavigationBar = () => {
                             </Button>
                         </Link>
                         <Link to='/about'
-                            style={{ textDecoration: 'none' }}>
+                            style={LinkStyle}>
                             <Button
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: '#211e1e', display: 'block' }}
@@ -194,7 +203,7 @@ const NavigationBar = () => {
                             </Button>
                         </Link>
                         <Link to='/programs'
-                            style={{ textDecoration: 'none' }}>
+                            style={LinkStyle}>
                             <Button
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: '#211e1e', display: 'block' }}
@@ -203,7 +212,7 @@ const NavigationBar = () => {
                             </Button>
                         </Link>
                         <Link to='/parents'
-                            style={{ textDecoration: 'none' }}>
+                            style={LinkStyle}>
                             <Button
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: '#211e1e', display: 'block' }}
@@ -212,7 +221,7 @@ const NavigationBar = () => {
                             </Button>
                         </Link>
                         <Link to='/gallery'
-                            style={{ textDecoration: 'none' }}>
+                            style={LinkStyle}>
                             <Button
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: '#211e1e', display: 'block' }}
@@ -227,7 +236,7 @@ const NavigationBar = () => {
 
                         </Button>
                         <Link to='/blogs'
-                            style={{ textDecoration: 'none' }}>
+                            style={LinkStyle}>
                             <Button
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: '#211e1e', display: 'block' }}
@@ -236,7 +245,7 @@ const NavigationBar = () => {
                             </Button>
                         </Link>
                         <Link to='/contacts'
-                            style={{ textDecoration: 'none' }}>
+                            style={LinkStyle}>
                             <Button
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: '#211e1e', display: 'block' }}
@@ -247,9 +256,9 @@ const NavigationBar = () => {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+                        <Tooltip title="Open settings" arrow placement="left-end">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <Avatar sx={{ bgcolor: 'rgb(70, 170, 221)' }} alt="Remy Sharp" src={user?.photoURL} />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -268,11 +277,33 @@ const NavigationBar = () => {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
+                            {/* {settings.map((setting) => ( */}
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <Typography textAlign="center">Profile</Typography>
+                            </MenuItem>
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <Typography textAlign="center">Account</Typography>
+                            </MenuItem>
+                            <NavLink to='/dashboard' style={LinkStyle}>
+                                <MenuItem onClick={handleCloseUserMenu}>
+                                    <Typography textAlign="center">Dashboard</Typography>
                                 </MenuItem>
-                            ))}
+                            </NavLink>
+                            {user?.email ?
+                                <MenuItem onClick={() => {
+                                    handleCloseUserMenu()
+                                    logOut()
+                                }}>
+                                    <Typography textAlign="center">Logout</Typography>
+                                </MenuItem>
+                                :
+                                <NavLink to='/login' style={LinkStyle}>
+                                    <MenuItem onClick={handleCloseUserMenu}>
+                                        <Typography textAlign="center">Login</Typography>
+                                    </MenuItem>
+                                </NavLink>
+                            }
+                            {/* ))} */}
                         </Menu>
                     </Box>
                 </Toolbar>

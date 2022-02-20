@@ -40,7 +40,7 @@ const WhyChooseUs = () => {
         <Box sx={{ padding: '100px 0' }}>
             <Box sx={{ textAlign: 'center', mb: 10 }}>
                 <Typography variant='h6'
-                    sx={{ color: '#46AADC', pb: 2 }}
+                    sx={{ color: '#46AADC', pb: 2, fontFamily: 'Georgia', fontStyle: 'italic' }}
                 >Read on to understand our differene</Typography>
                 <Typography variant='h4'
                     sx={{ fontWeight: 'bold' }}

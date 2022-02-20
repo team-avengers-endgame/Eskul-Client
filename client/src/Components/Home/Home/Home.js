@@ -6,6 +6,7 @@ import ChildEducation from '../ChildEducation/ChildEducation';
 import Gallery from '../Gallery/Gallery';
 import HealthyFood from '../HealthyFood/HealthyFood';
 import NurtingEnvironment from '../NurtingEnvironment/NurtingEnvironment';
+import QuickScroll from '../QuickScroll/QuickScroll';
 import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
         <>
             <NavigationBar />
             <Banner />
+            <QuickScroll />
             <ChildEducation />
             <NurtingEnvironment />
             <WhyChooseUs />

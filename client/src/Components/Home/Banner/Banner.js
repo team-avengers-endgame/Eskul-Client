@@ -28,7 +28,7 @@ const Banner = () => {
                         key={newSlide.id}
                         sx={{
                             backgroundImage: `url(${newSlide.slideImg})`,
-                            backgroundSize: 'contain',
+                            backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat'
 
                         }}>

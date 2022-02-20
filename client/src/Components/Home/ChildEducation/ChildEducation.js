@@ -1,7 +1,7 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
-import child from './imgs/child.png'
-
+import child from './imgs/child.png';
+import { Link } from 'react-router-dom';
 const ChildEducation = () => {
     return (
         <Box>
@@ -45,12 +45,14 @@ const ChildEducation = () => {
                             >
                                 We provide an innovative, nurturing and stimulating environment where children develop independence, confidence and a positive sense of self and the world around them. Our curriculum is designed to involve children in experiences that enhance language, literacy, music, movement, art and socialization. Through play, all areas of development are fostered.
                             </Typography>
-                            <Button
-                                variant="text"
-                                sx={{
-                                    textTransform: 'lowercase'
-                                }}
-                            >read more  </Button>
+                            <Link to="/about">
+                                <Button
+                                    variant="text"
+                                    sx={{
+                                        textTransform: 'lowercase'
+                                    }}
+                                >read more  </Button>
+                            </Link>
                         </Box>
                     </Grid>
                 </Grid>
