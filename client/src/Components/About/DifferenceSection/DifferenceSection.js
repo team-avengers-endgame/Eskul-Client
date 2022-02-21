@@ -44,103 +44,191 @@ const DifferenceSection = () => {
       <Box>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12} md={3}>
-            <Typography
+            {/* box-1 */}
+
+            <Box
               sx={{
-                color: "#3B4757",
-                fontWeight: "500",
-                fontSize: "18px",
-                py: 2,
-                textAlign: "center",
+                background: "#fff",
+                w: "25%",
+                p: "20px 15px",
+                boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)",
+                borderRadius: "12px",
               }}
-              variant="h6"
-              gutterBottom
-              component="div"
             >
-              Experiential Learning
-            </Typography>
-            <Typography
-              sx={{ color: "#777", textAlign: "center", fontSize: "14px" }}
-              variant="body2"
-              gutterBottom
-            >
-              We help children connect with their surroundings in new ways, so
-              they discover what is meaningful to them in the moment and in the
-              future.
-            </Typography>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontSize: "55px",
+                  color: "#46AADD",
+                  fontWeight: "bold",
+                }}
+              >
+                1.
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#3B4757",
+                  fontWeight: "500",
+                  fontSize: "18px",
+                  py: 2,
+                  textAlign: "center",
+                }}
+                variant="h6"
+                gutterBottom
+                component="div"
+              >
+                Experiential Learning
+              </Typography>
+              <Typography
+                sx={{ color: "#777", textAlign: "center", fontSize: "14px" }}
+                variant="body2"
+                gutterBottom
+              >
+                We help children connect with their surroundings in new ways, so
+                they discover what is meaningful to them in the moment and in
+                the future.
+              </Typography>
+            </Box>
           </Grid>
           <Grid item xs={12} sm={12} md={3}>
-            <Typography
+            {/* box-2 */}
+
+            <Box
               sx={{
-                color: "#3B4757",
-                fontWeight: "500",
-                fontSize: "18px",
-                py: 2,
-                textAlign: "center",
+                background: "#fff",
+                w: "25%",
+                p: "20px 15px",
+                boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)",
+                borderRadius: "12px",
               }}
-              variant="h6"
-              gutterBottom
-              component="div"
             >
-              Community
-            </Typography>
-            <Typography
-              sx={{ color: "#777", textAlign: "center", fontSize: "14px" }}
-              variant="body2"
-              gutterBottom
-            >
-              A child’s educational success in large part depends on families,
-              educators, peers and relevant members of the community.
-            </Typography>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontSize: "55px",
+                  color: "#46AADD",
+                  fontWeight: "bold",
+                }}
+              >
+                2.
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#3B4757",
+                  fontWeight: "500",
+                  fontSize: "18px",
+                  py: 2,
+                  textAlign: "center",
+                }}
+                variant="h6"
+                gutterBottom
+                component="div"
+              >
+                Community
+              </Typography>
+              <Typography
+                sx={{ color: "#777", textAlign: "center", fontSize: "14px" }}
+                variant="body2"
+                gutterBottom
+              >
+                A child’s educational success in large part depends on families,
+                educators, peers and relevant members of the community.
+              </Typography>
+            </Box>
           </Grid>
           <Grid item xs={12} sm={12} md={3}>
-            <Typography
+            {/* box-3 */}
+
+            <Box
               sx={{
-                color: "#3B4757",
-                fontWeight: "500",
-                fontSize: "18px",
-                py: 2,
-                textAlign: "center",
+                background: "#fff",
+                w: "25%",
+                p: "20px 15px",
+                boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)",
+                borderRadius: "12px",
               }}
-              variant="h6"
-              gutterBottom
-              component="div"
             >
-              Collaboration
-            </Typography>
-            <Typography
-              sx={{ color: "#777", textAlign: "center", fontSize: "14px" }}
-              variant="body2"
-              gutterBottom
-            >
-              Sharing new experiences and solving problems with others leads to
-              a greater sense of connectedness – as well as meaningful learning
-              experiences.
-            </Typography>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontSize: "55px",
+                  color: "#46AADD",
+                  fontWeight: "bold",
+                }}
+              >
+                3.
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#3B4757",
+                  fontWeight: "500",
+                  fontSize: "18px",
+                  py: 2,
+                  textAlign: "center",
+                }}
+                variant="h6"
+                gutterBottom
+                component="div"
+              >
+                Collaboration
+              </Typography>
+              <Typography
+                sx={{ color: "#777", textAlign: "center", fontSize: "14px" }}
+                variant="body2"
+                gutterBottom
+              >
+                Sharing new experiences and solving problems with others leads
+                to a greater sense of connectedness – as well as meaningful
+                learning experiences.
+              </Typography>
+            </Box>
           </Grid>
           <Grid item xs={12} sm={12} md={3}>
-            <Typography
+            {/* box-4 */}
+
+            <Box
               sx={{
-                color: "#3B4757",
-                fontWeight: "500",
-                fontSize: "18px",
-                py: 2,
-                textAlign: "center",
+                background: "#fff",
+                w: "25%",
+                p: "20px 15px",
+                boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)",
+                borderRadius: "12px",
               }}
-              variant="h6"
-              gutterBottom
-              component="div"
             >
-              Proven Models
-            </Typography>
-            <Typography
-              sx={{ color: "#777", textAlign: "center", fontSize: "14px" }}
-              variant="body2"
-              gutterBottom
-            >
-              Several important learning models have been developed by educators
-              around the world. The human connection must be a key component of
-              learning.
-            </Typography>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontSize: "55px",
+                  color: "#46AADD",
+                  fontWeight: "bold",
+                }}
+              >
+                4.
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#3B4757",
+                  fontWeight: "500",
+                  fontSize: "18px",
+                  py: 2,
+                  textAlign: "center",
+                }}
+                variant="h6"
+                gutterBottom
+                component="div"
+              >
+                Proven Models
+              </Typography>
+              <Typography
+                sx={{ color: "#777", textAlign: "center", fontSize: "14px" }}
+                variant="body2"
+                gutterBottom
+              >
+                Several important learning models have been developed by
+                educators around the world. The human connection must be a key
+                component of learning.
+              </Typography>
+            </Box>
           </Grid>
         </Grid>
       </Box>
