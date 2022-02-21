@@ -12,6 +12,8 @@
 
                 BriefHistory: ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam perferendis quam sit deserunt maxime aspernatur possimus nihil officiis dolorem reiciendis at minima, pariatur tenetur deleniti amet ullam. Odio, eveniet et.'
             },
+
+            
         sub:[
             {
                 name:'',

@@ -36,7 +36,8 @@ const useFirebase = () => {
   }
 
   // register user 
-  const registerUser = (email, password, name, location, navigate) => {
+  const registerUser = (email, password, name, userPhoto, location, navigate) => {
+    console.log(userPhoto)
     setIsLoading(true)
     createUserWithEmailAndPassword(auth, email, password)
 
@@ -44,14 +45,14 @@ const useFirebase = () => {
         // Signed in 
 
         setAuthError('');
-        const newUser = { email, displayName: name };
+        const newUser = { email, displayName: name, photoURL: userPhoto };
         setUser(newUser)
 
         // save to database-------------
         /* saveUsers(email, name, 'POST') */
         // updateProfile----------
         updateProfile(auth.currentUser, {
-          displayName: name
+          displayName: name, photoURL: userPhoto
         }).then(() => {
           // Profile updated!
           // ...

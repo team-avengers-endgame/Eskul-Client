@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, TextField, Grid, Avatar, Divider, Chip, Fab, Input, Typography } from '@mui/material';
+import { Box, Button, TextField, Grid, Avatar, Divider, Chip, Fab, Typography } from '@mui/material';
 import { useForm } from "react-hook-form";
 import { makeStyles } from '@material-ui/core/styles';
 import LockIcon from '@material-ui/icons/Lock';
@@ -12,7 +12,8 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import Tooltip from '@mui/material/Tooltip';
 import useAuth from '../../../Hooks/useAuth';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
-
+import { styled } from '@mui/material/styles';
+import uploadImage from '../../../Hooks/useImgUpload';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -58,10 +59,19 @@ const Register = () => {
     const { registerUser, signInWithGoogle } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
-
+    const [userPhoto, setUserPhoto] = React.useState('');
+    console.log(userPhoto)
     const onSubmit = data => {
-        registerUser(data.email, data.password, data.name, location, navigate)
+        registerUser(data.email, data.password, data.name, userPhoto, location, navigate)
     };
+
+    const handleImgUpload = img => {
+        uploadImage(img)
+            .then(res => {
+                setUserPhoto(res.data.data.url);
+            })
+    }
+
 
     const classes = useStyles();
     return (
@@ -129,7 +139,11 @@ const Register = () => {
                                             {errors.password && <span style={{ color: 'red' }}>This field is required</span>}
                                             <br />
                                             <br />
-                                            <Input type="file" name="picture" />
+                                            <CssTextField
+                                                sx={{ width: 1 }}
+                                                accept="image/png, image/jpg, image/jpeg"
+                                                type="file"
+                                                onChange={e => handleImgUpload(e.target.files[0])} />
                                             <br />
                                             <br />
                                             <Button type="Login"
@@ -196,5 +210,25 @@ const Register = () => {
         </>
     );
 };
+
+const CssTextField = styled(TextField)({
+    '& label.Mui-focused': {
+        color: 'green',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: 'green',
+    },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: 'orange',
+        },
+        '&:hover fieldset': {
+            borderColor: 'hotpink',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: 'green',
+        },
+    },
+});
 
 export default Register;
