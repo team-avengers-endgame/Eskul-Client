@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link, NavLink } from 'react-router-dom';
 import logo from './logo.png';
 import useAuth from '../../../Hooks/useAuth';
+import { Divider } from '@mui/material';
 
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -277,18 +278,25 @@ const NavigationBar = () => {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {/* {settings.map((setting) => ( */}
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <Typography textAlign="center"> {user?.displayName}</Typography>
+                            </MenuItem>
+
+                            <Divider />
                             <MenuItem onClick={handleCloseUserMenu}>
                                 <Typography textAlign="center">Profile</Typography>
                             </MenuItem>
+                            <Divider />
                             <MenuItem onClick={handleCloseUserMenu}>
                                 <Typography textAlign="center">Account</Typography>
                             </MenuItem>
+                            <Divider />
                             <NavLink to='/dashboard' style={LinkStyle}>
                                 <MenuItem onClick={handleCloseUserMenu}>
                                     <Typography textAlign="center">Dashboard</Typography>
                                 </MenuItem>
                             </NavLink>
+                            <Divider />
                             {user?.email ?
                                 <MenuItem onClick={() => {
                                     handleCloseUserMenu()

@@ -7,6 +7,10 @@ import Register from "./Components/Login/Register/Register";
 import About from "./Components/About/About/About";
 import AOS from 'aos';
 import Dashboard from "./Components/Dashboard/Dashboard";
+import AddASchool from "./Components/Dashboard/AddASchool/AddASchool";
+import Schools from "./Components/Dashboard/Schools/Schools";
+import MakeAdmin from "./Components/Dashboard/MakeAdmin/MakeAdmin";
+import AddedSchoolDetailsForm from "./Components/Dashboard/Schools/AddedSchoolDetailsForm/AddedSchoolDetailsForm";
 
 
 function App() {
@@ -25,9 +29,19 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="register" element={<Register />} />
-          <Route path="dashboard" element={<Dashboard />} />
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
+
+
+          <Route path="dashboard" element={<Dashboard />} >
+            <Route path="addASchool" element={<AddASchool />} />
+            <Route path="schools" element={<Schools />} />
+            <Route path="addedSchoolDetailsForm/:id"
+              element={<AddedSchoolDetailsForm />} />
+
+            <Route path="makeAdmin" element={<MakeAdmin />} />
+          </Route>
+
         </Routes>
       </BrowserRouter>
     </AuthProvider>
