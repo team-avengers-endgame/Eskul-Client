@@ -21,7 +21,7 @@ const schoolSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a school founder"],
   },
-  co_education: {
+  schoolShift: {
     type: String,
     required: [true, "Please provide a school co-education"],
   },
