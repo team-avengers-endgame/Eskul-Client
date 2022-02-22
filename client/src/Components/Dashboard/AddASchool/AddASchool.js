@@ -1,6 +1,6 @@
 import { Button, Container, CssBaseline, Grid, MenuItem, TextField, Typography } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
-import { ButtonStyle } from '../../../Hooks/useStyle.js';
+import { alert, ButtonStyle } from '../../../Hooks/useStyle.js';
 import { Box } from '@mui/system';
 import React from 'react';
 import { useForm } from "react-hook-form";
@@ -11,6 +11,7 @@ import Stack from '@mui/material/Stack';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import { api } from '../../../Hooks/Api.js';
 const axios = require('axios');
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -69,18 +70,7 @@ const schoolShift = [
 
 ];
 
-/* Schools type:
-Primary school
-High school
-Co-education
-Boyes
-Girls
-Technical
 
-Shift:
-Morning shift
-Afternoon shift
-10am-4pm */
 
 const AddASchool = () => {
     const [schoolPhoto, setSchoolPhoto] = React.useState('');
@@ -98,11 +88,15 @@ const AddASchool = () => {
         data.schoolShift = schoolShiftValue;
         data.schoolType = schoolType;
 
-        axios.post('http://localhost:8000/api/schools', data)
+        axios.post(`${api}/schools`, data)
             .then((response) => {
-                console.log(response);
+                response.status === 201 &&
+                    alert('success', 'School add to the Database Success')
+
             })
             .catch((error) => {
+                !error.status === 201 &&
+                    alert('error', 'Bad Request, Places Try again')
                 console.log(error);
             });
 
