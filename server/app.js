@@ -1,18 +1,22 @@
 const express = require("express");
 const morgan = require("morgan");
 const rateLimit = require("express-rate-limit");
-const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
+const userRouter = require("./routes/userRoutes");
+const schoolRouter = require("./routes/schoolRoutes");
+const bookRouter = require("./routes/bookRoutes");
+const teacherRouter = require("./routes/teacherRoutes");
 const app = express();
 
 /* === GLOBAL MIDDLEWARE ===*/
-// Set security HTTP headers
-app.use(helmet({ contentSecurityPolicy: false }));
+//Cross Origin Resource Sharing
+app.use(cors());
 
 // Development logging
 if (process.env.NODE_ENV === "development") {
@@ -40,12 +44,10 @@ app.use(mongoSanitize());
 app.use(xss());
 
 //Default get request
-app.get("/", (req, res) => {
-  res.json({
-    message: "Hello from the server",
-  });
-});
-
+app.use("/api/users", userRouter);
+app.use("/api/schools", schoolRouter);
+app.use("/api/books", bookRouter);
+app.use("/api/teacher", teacherRouter);
 // If no routes are matched, send 404
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
