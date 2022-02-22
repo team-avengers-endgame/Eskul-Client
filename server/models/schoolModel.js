@@ -5,11 +5,11 @@ const schoolSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a school name"],
   },
-  banner: {
+  schoolPhoto: {
     type: String,
     required: [true, "Please provide a school banner"],
   },
-  eiinNumber: {
+  EIIN: {
     type: Number,
     required: [true, "Please provide a school eiin number"],
   },
@@ -17,42 +17,28 @@ const schoolSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a school location"],
   },
-  totalStudent: {
-    type: Number,
-    required: [true, "Please provide the total student number"],
-  },
-  feedback: {
+  founderDate: {
     type: String,
-    required: [true, "Please provide the feedback"],
+    required: [true, "Please provide a school founder"],
   },
-  ratings: {
-    type: Number,
-    min: 1,
-    max: 5,
-    required: [true, "Please provide the ratings"],
-  },
-  contact: {
+  co_education: {
     type: String,
-    required: [true, "Please provide school contact information"],
+    required: [true, "Please provide a school co-education"],
   },
-  teachers: [
-    {
-      name: {
-        type: String,
-        required: [true, "Please provide teacher name"],
-      },
-      profilePicture: {
-        type: String,
-        required: [true, "Please provide teacher profile picture"],
-      },
-      designation: {
-        type: String,
-        required: [true, "Please provide teacher designation "],
-      },
-    },
-  ],
+  schoolType: {
+    type: String,
+    required: [true, "Please provide a school type"],
+  },
+  schoolEmail: {
+    type: String,
+    required: [true, "Please provide a school email"],
+  },
 });
-
+schoolSchema.virtual("teachers", {
+  ref: "Teacher",
+  localField: "_id",
+  foreignField: "school",
+});
 const School = mongoose.model("School", schoolSchema);
 
 module.exports = School;
