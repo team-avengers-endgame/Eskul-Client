@@ -6,6 +6,7 @@ import ChildEducation from '../ChildEducation/ChildEducation';
 import Features from '../Features/Features';
 import Gallery from '../Gallery/Gallery';
 import NurtingEnvironment from '../NurtingEnvironment/NurtingEnvironment';
+import Partners from '../Partners/Partners';
 import TopList from '../TopList/TopList';
 import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 
@@ -19,6 +20,7 @@ const Home = () => {
             <Features />
             <TopList />
             <Gallery />
+            <Partners />
             <Footer />
         </>
     );
