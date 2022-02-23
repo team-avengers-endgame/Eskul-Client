@@ -39,9 +39,10 @@ teacherSchema.index({ school: 1 }, { unique: true });
 teacherSchema.pre(/^find/, function (next) {
   this.populate({
     path: "school",
-    select: "name",
+    select: "schoolName",
   });
   next();
 });
+
 const Teacher = mongoose.model("Teacher", teacherSchema);
 module.exports = Teacher;
