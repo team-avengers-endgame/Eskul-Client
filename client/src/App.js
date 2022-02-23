@@ -1,20 +1,21 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthProvider from "./Components/Context/AuthProvider";
-import Home from './Components/Home/Home/Home';
+import Home from "./Components/Home/Home/Home";
 import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Register/Register";
 import About from "./Components/About/About/About";
-import AOS from 'aos';
+import AOS from "aos";
 import Dashboard from "./Components/Dashboard/Dashboard";
-
+import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
+import Schools from "./Components/Schools/Schools/Schools";
 
 function App() {
   useEffect(() => {
     AOS.init({
       offset: 100,
       duration: 500,
-      easing: 'ease'
+      easing: "ease",
     });
   });
 
@@ -28,6 +29,8 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
+          <Route path="schools" element={<Schools />} />
+          <Route path="schDetails" element={<SchoolDetails />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Red Ring",
+    "eiin": "300",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Golden Necklace",
+    "eiin": "100",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/7Xp1wwc/pexels-the-glorious-studio-7093769.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Circular Full Set",
+    "eiin": "150",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/F3QFxFz/pexels-the-glorious-studio-8891952.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Designer Earring",
+    "eiin": "180",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/P1whqrN/pexels-fazil-nasirli-7258926.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Circular Pendants",
+    "eiin": "100",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/Dfnmzgn/pexels-the-glorious-studio-8306527.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Spiral Full Set",
+    "eiin": "300",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/5WTHC1f/pexels-the-glorious-studio-8891961.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Classic Set",
+    "eiin": "300",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/WVDkrm0/pexels-the-glorious-studio-8891953.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Diamond Ring",
+    "eiin": "100",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/9YCCMSg/pexels-the-glorious-studio-5442463-1.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Simple Pendants",
+    "eiin": "150",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/cYtLq7H/pexels-the-glorious-studio-5442466.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Bracelets",
+    "eiin": "180",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/sQPBg0L/pexels-the-glorious-studio-8398911.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Double Diamond Ring",
+    "eiin": "100",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/rmWfsbL/pexels-the-glorious-studio-5442468.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Love Ring",
+    "eiin": "300",
+    "location": "Deginer Collection",
+    "img": "https://i.ibb.co/9Z7VCyG/pexels-the-glorious-studio-9544360.jpg"
+  }
+]
