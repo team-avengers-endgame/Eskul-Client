@@ -6,7 +6,7 @@ import './WhyChooseUs.css'
 const WhyChooseUsData = [
     {
         id: 1,
-        title: 'Home-like Environment',
+        title: 'Perfect Information',
         dis: 'Children are comfortable and confident in their home, feeling safe and secure to explore and learn.'
     },
     {
@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
                 >Read on to understand our differene</Typography>
                 <Typography variant='h4'
                     sx={{ fontWeight: 'bold' }}
-                >Why Choose ChildiT</Typography>
+                >Why Choose Eskul</Typography>
 
             </Box>
 
@@ -57,7 +57,11 @@ const WhyChooseUs = () => {
                                     `${data.id === 1 || data.id === 3 || data.id === 5 ? "Why-ChooseUs-bg" : ""}`}
 
                             >
-                                <Box sx={{ display: 'flex' }}>
+                                <Box
+                                    data-aos="fade-down"
+                                    data-aos-easing="linear"
+                                    data-aos-duration="1500"
+                                    sx={{ display: 'flex' }}>
                                     <Box>
                                         <Typography variant='h4'
                                             sx={{ color: 'rgb(70, 170, 220)', fontWeight: 'bold' }}
