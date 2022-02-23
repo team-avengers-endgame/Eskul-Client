@@ -47,7 +47,7 @@ app.use(xss());
 app.use("/api/users", userRouter);
 app.use("/api/schools", schoolRouter);
 app.use("/api/books", bookRouter);
-app.use("/api/teacher", teacherRouter);
+app.use("/api/teachers", teacherRouter);
 // If no routes are matched, send 404
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

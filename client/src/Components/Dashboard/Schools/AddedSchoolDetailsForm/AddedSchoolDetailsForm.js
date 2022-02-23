@@ -49,7 +49,7 @@ const AddASchool = () => {
     }, [id])
 
     const onSubmit = data => {
-        data.TeacherPhoto = teacherPhoto;
+        data.teacherPhoto = teacherPhoto;
         data.designation = schoolTeacherValue;
         data.school = id;
 
@@ -60,6 +60,7 @@ const AddASchool = () => {
 
             })
             .catch((error) => {
+                console.log(error)
                 !error.status === 201 &&
                     alert('error', 'Bad Request, Places Try again')
             });
