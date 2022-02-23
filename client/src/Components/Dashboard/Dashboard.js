@@ -20,7 +20,6 @@ import { NavLink, Outlet } from 'react-router-dom';
 
 
 const drawerWidth = 240;
-
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -51,7 +50,6 @@ function Dashboard(props) {
                             <SchoolIcon />
                         </ListItemIcon>
                         Add A School
-
                     </ListItem>
                 </NavLink>
                 <Divider />
