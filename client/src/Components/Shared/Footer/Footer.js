@@ -199,11 +199,16 @@ const Footer = () => {
                             sx={{ fontSize: 15, display: 'inline', marginRight: 1 }}
                             variant="h6" >
                             Follow us:
+                            <Box className='footer-icon'>
+                                <img src={FacebookIcon} alt="" />
+                            </Box>
+                            <Box className='footer-icon'>
+                                <img src={TwitterIcon} alt="" />
+                            </Box>
+                            <Box className='footer-icon'>
+                                <img src={InstagramIcon} alt="" />
+                            </Box>
                         </Typography>
-
-
-
-
 
                     </Grid>
 

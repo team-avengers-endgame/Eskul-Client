@@ -28,7 +28,7 @@ const Banner = () => {
                         key={newSlide.id}
                         sx={{
                             backgroundImage: `url(${newSlide.slideImg})`,
-                            backgroundSize: 'contain',
+                            backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat'
 
 
@@ -50,10 +50,7 @@ const Banner = () => {
                                         backgroundSize: 'contain',
                                         backgroundRepeat: 'no-repeat'
                                     }}>
-                                    <img
-                                        src={newSlide.icon}
-                                        alt=""
-                                    />
+                                    <img src={newSlide.icon} alt="slide img" />
                                     <Typography
                                         variant="h5"
                                         component="div"
