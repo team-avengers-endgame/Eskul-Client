@@ -60,7 +60,7 @@ const Register = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [userPhoto, setUserPhoto] = React.useState('');
-    console.log(userPhoto)
+
     const onSubmit = data => {
         registerUser(data.email, data.password, data.name, userPhoto, location, navigate)
     };
@@ -195,7 +195,7 @@ const Register = () => {
                                                     color: '#005593',
                                                     fontWeight: 'bold'
                                                 }}
-                                            ><Button>Login</Button></Link>
+                                            ><Button>Register now</Button></Link>
                                         </Box>
 
                                     </Box>
