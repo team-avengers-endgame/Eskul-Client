@@ -50,6 +50,7 @@ function Dashboard(props) {
                             <SchoolIcon />
                         </ListItemIcon>
                         Add A School
+
                     </ListItem>
                 </NavLink>
                 <Divider />
