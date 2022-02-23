@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
-
+// search
 const SearchBar = () => {
   return (
     <Paper
@@ -14,6 +14,7 @@ const SearchBar = () => {
         display: "flex",
         alignItems: "center",
         width: "100%",
+        border: "1px solid pink",
         boxShadow: "0px 14px 22px rgb(42 135 158 / 7%)",
       }}
     >
