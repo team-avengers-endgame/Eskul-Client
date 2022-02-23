@@ -7,15 +7,16 @@ import Logo from './logo.png';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
+import HomeIcon from '@mui/icons-material/Home';
+import SchoolIcon from '@mui/icons-material/School';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import SchoolDataPostFrom from './SchoolDataPostFrome/SchoolDataPostFrome';
+import { LinkStyle } from '../../Hooks/useStyle';
+import { NavLink, Outlet } from 'react-router-dom';
 
 
 const drawerWidth = 240;
@@ -28,30 +29,59 @@ function Dashboard(props) {
         setMobileOpen(!mobileOpen);
     };
 
+
     const drawer = (
         <div>
             <Toolbar />
             <Divider />
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
+                <NavLink to='/home' style={LinkStyle}>
+                    <ListItem button >
                         <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                            <HomeIcon />
                         </ListItemIcon>
-                        <ListItemText primary={text} />
+                        home
                     </ListItem>
-                ))}
+                </NavLink>
+                <Divider />
+                <NavLink to='/dashboard/addASchool' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <SchoolIcon />
+                        </ListItemIcon>
+                        Add A School
+                    </ListItem>
+                </NavLink>
+                <Divider />
+                <NavLink to='/dashboard/schools' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <SchoolIcon />
+                        </ListItemIcon>
+                        Schools
+                    </ListItem>
+                </NavLink>
+                <Divider />
+                <NavLink to='/dashboard/makeAdmin' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <SchoolIcon />
+                        </ListItemIcon>
+                        Make a Admin
+                    </ListItem>
+                </NavLink>
+
             </List>
             <Divider />
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+
+                <ListItem button >
+                    <ListItemIcon>
+
+                    </ListItemIcon>
+                    <ListItemText />
+                </ListItem>
+
             </List>
         </div>
     );
@@ -122,7 +152,7 @@ function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                <SchoolDataPostFrom />
+                <Outlet />
 
             </Box>
         </Box>
