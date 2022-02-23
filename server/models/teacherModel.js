@@ -5,17 +5,33 @@ const teacherSchema = new mongoose.Schema({
     ref: "School",
     required: [true, "Please provide a school id"],
   },
-  name: {
+  teacherName: {
     type: String,
     required: [true, "Please provide teacher name"],
   },
-  profilePicture: {
+  teacherPhoto: {
     type: String,
     required: [true, "Please provide teacher profile picture"],
   },
   designation: {
     type: String,
     required: [true, "Please provide teacher designation "],
+  },
+  email: {
+    type: String,
+    required: [true, "Please provide teacher email "],
+  },
+  subject: {
+    type: String,
+    required: [true, "Please provide teacher subject "],
+  },
+  phoneNumber: {
+    type: String,
+    required: [true, "Please provide teacher phone number "],
+  },
+  qualification: {
+    type: String,
+    required: [true, "Please provide teacher qualification"],
   },
 });
 teacherSchema.index({ school: 1 }, { unique: true });
