@@ -2,7 +2,7 @@ import axios from "axios";
 
 const imgUpload = img => {
     let body = new FormData()
-    body.set('key', '518904f9fbbbab10c862cd2d81c9e6d9')
+    body.set('key', '7f01c6e5ffb1ca09145f331bec070d87')
     body.append('image', img)
 
     return axios({

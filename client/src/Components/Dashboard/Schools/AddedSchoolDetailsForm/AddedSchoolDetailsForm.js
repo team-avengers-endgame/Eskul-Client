@@ -106,7 +106,7 @@ const AddASchool = () => {
             <CssBaseline />
             <Box className={classes.paper}
 
-                sx={{ pb: 7, pt: 2, px: 2, background: "#f6f8ff", borderRadius: 5, boxShadow: "1px 2px 5px #e2e2e2" }}>
+                sx={{ pb: 7, pt: 2, px: 2, background: "#f6f8ff", borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 10%)" }}>
 
                 <img alt='' className={classes.avatar} src={Logo}></img>
                 <Typography sx={{ py: 1, fontWeight: 'bold' }}>{school?.schoolName}</Typography>
