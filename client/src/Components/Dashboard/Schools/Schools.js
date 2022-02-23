@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -11,6 +11,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 import { IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { api } from '../../../Hooks/Api';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -32,47 +33,43 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 export default function Schools() {
+    const [schools, setSchools] = useState([]);
+    useEffect(() => {
+        fetch(`${api}/schools`)
+            .then(res => res.json())
+            .then(data => setSchools(data?.data?.data))
+    }, [])
+
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
                 <TableHead>
                     <TableRow>
                         <StyledTableCell>Schools</StyledTableCell>
-                        <StyledTableCell align="right">Location</StyledTableCell>
-                        <StyledTableCell align="right">EIIN</StyledTableCell>
-                        <StyledTableCell align="right">Photo</StyledTableCell>
+                        <StyledTableCell align="left">Location</StyledTableCell>
+                        <StyledTableCell align="left">EIIN</StyledTableCell>
+                        <StyledTableCell align="left">Photo</StyledTableCell>
                         <StyledTableCell align="right">Added School data</StyledTableCell>
                         <StyledTableCell align="right">Edit</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
-                        <StyledTableRow key={row.name}>
+                    {schools?.map((school) => (
+                        <StyledTableRow key={school?._id}>
                             <StyledTableCell component="th" scope="row">
-                                Narayontola Mission High School
+                                {school?.schoolName}
                             </StyledTableCell>
-                            <StyledTableCell align="right">{'Sylhet'}</StyledTableCell>
-                            <StyledTableCell align="right">{3000}</StyledTableCell>
-                            <StyledTableCell align="right">
-                                <img style={{ width: 'auto', height: '50px' }} src="https://c8.alamy.com/comp/PAKNYJ/school-building-vector-modern-education-city-construction-urban-sign-font-yard-isolated-flat-cartoon-illustration-PAKNYJ.jpg" alt="" />
+                            <StyledTableCell align="left">{school?.location}</StyledTableCell>
+                            <StyledTableCell align="left">{school?.EIIN}</StyledTableCell>
+                            <StyledTableCell align="left">
+                                <img style={{ width: 'auto', height: '50px' }} src={school?.schoolPhoto} alt="" />
                             </StyledTableCell>
 
                             <StyledTableCell align="right">
 
-                                <Link to={`/dashboard/addedSchoolDetailsForm/${row.fat}`}>
+                                <Link to={`/dashboard/addedSchoolDetailsForm/${school?._id}`}>
                                     <IconButton color="secondary" >
                                         <AddCircleOutlinedIcon />
                                     </IconButton>

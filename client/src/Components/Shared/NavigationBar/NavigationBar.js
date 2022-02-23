@@ -80,7 +80,6 @@ const NavigationBar = () => {
 
 
 
-
           {/* large device menus */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Link to="/" style={LinkStyle}>

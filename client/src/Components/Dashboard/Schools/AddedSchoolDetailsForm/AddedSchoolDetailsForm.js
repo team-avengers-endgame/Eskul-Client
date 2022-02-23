@@ -1,12 +1,16 @@
-import { Button, Container, CssBaseline, Grid, TextField, Typography } from '@mui/material';
+import { Button, Container, CssBaseline, Grid, MenuItem, TextField, Typography } from '@mui/material';
+
 import { makeStyles } from '@material-ui/core/styles';
 import { ButtonStyle } from '../../../../Hooks/useStyle'
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Logo from '../../logo.png'
 import { styled } from '@mui/material/styles';
 import uploadImage from '../../../../Hooks/useImgUpload';
+import { useParams } from 'react-router-dom';
+import { api } from '../../../../Hooks/Api';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -32,11 +36,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AddASchool = () => {
-    const [schoolPhoto, setSchoolPhoto] = React.useState('');
+    const [teacherPhoto, setTeacherPhoto] = React.useState('');
     const { register, handleSubmit, reset } = useForm();
+    const [school, setSchool] = useState({})
+    const { id } = useParams()
+    const [schoolTeacherValue, SetSchoolTeacherValue] = React.useState('');
+
+    useEffect(() => {
+        fetch(`${api}/schools/${id}`)
+            .then(res => res.json())
+            .then(data => setSchool(data?.data?.data))
+    }, [id])
 
     const onSubmit = data => {
-        data.schoolPhoto = schoolPhoto;
+        data.TeacherPhoto = teacherPhoto;
+        data.designation = schoolTeacherValue;
+        data.school = id;
+
+        axios.post(`${api}/teachers`, data)
+            .then((response) => {
+                response.status === 201 &&
+                    alert('success', 'Add a Teachers in School Successfully')
+
+            })
+            .catch((error) => {
+                !error.status === 201 &&
+                    alert('error', 'Bad Request, Places Try again')
+            });
+
         console.log(data)
         reset();
     };
@@ -44,9 +71,34 @@ const AddASchool = () => {
     const handleImgUpload = img => {
         uploadImage(img)
             .then(res => {
-                setSchoolPhoto(res.data.data.url);
+                setTeacherPhoto(res.data.data.url);
             })
     }
+
+    const schoolTeacherOption = [
+        {
+            value: 'Headmaster',
+
+        },
+        {
+            value: 'Assistant Headmaster',
+
+        },
+        {
+            value: 'Assistant teacher',
+
+        },
+        {
+            value: 'guest  teacher',
+
+        },
+
+    ];
+
+    const handleChangeTeacherOption = (event) => {
+        SetSchoolTeacherValue(event.target.value);
+    };
+
     const classes = useStyles();
     return (
         <Container sx={{ p: 0 }}>
@@ -56,7 +108,14 @@ const AddASchool = () => {
                 sx={{ pb: 7, pt: 2, px: 2, background: "#f6f8ff", borderRadius: 5, boxShadow: "1px 2px 5px #e2e2e2" }}>
 
                 <img alt='' className={classes.avatar} src={Logo}></img>
-                <Typography component="h1" variant="h5">Add a School Teacher</Typography>
+                <Typography sx={{ py: 1, fontWeight: 'bold' }}>{school?.schoolName}</Typography>
+                <Typography sx={{ borderBottom: '1px solid red' }}>
+                    <span >EIIN: {school?.EIIN}</span>  ||
+                    <span >  Location: {school?.location}</span>
+                </Typography>
+
+                <Typography variant="h5">Add a School Teacher</Typography>
+
                 <Box >
                     <form onSubmit={handleSubmit(onSubmit)}
                         className={classes.form} noValidate
@@ -72,13 +131,74 @@ const AddASchool = () => {
                                     autoFocus
                                 />
                             </Grid>
+
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     size='small'
                                     variant="outlined"
-                                    {...register("address", { required: true })}
+                                    {...register("qualification", { required: true })}
                                     fullWidth
-                                    label="Address"
+                                    label="Qualification"
+                                    autoFocus
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                    id="outlined-select-currency"
+                                    select
+                                    fullWidth
+                                    size='small'
+                                    label="Designation "
+                                    value={schoolTeacherValue}
+                                    onChange={handleChangeTeacherOption}
+                                    autoFocus
+                                >
+                                    {schoolTeacherOption.map((option) => (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.value}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                    size='small'
+                                    variant="outlined"
+                                    {...register("subject", { required: true })}
+                                    fullWidth
+                                    label="Subject"
+                                    autoFocus
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                    size='small'
+                                    variant="outlined"
+                                    {...register("institution", { required: true })}
+                                    fullWidth
+                                    label="Institution"
+                                    autoFocus
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                    type="number"
+                                    size='small'
+                                    variant="outlined"
+                                    {...register("phoneNumber", { required: true })}
+                                    fullWidth
+                                    label="Phone Number"
+                                    autoFocus
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+
+                                    size='small'
+                                    variant="outlined"
+                                    {...register("email", { required: true })}
+                                    fullWidth
+                                    label="Email"
                                     autoFocus
                                 />
                             </Grid>
@@ -109,7 +229,9 @@ const AddASchool = () => {
                         </Grid>
                     </form>
                 </Box>
+
             </Box>
+
         </Container>
     );
 };
