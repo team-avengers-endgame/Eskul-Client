@@ -6,6 +6,7 @@ import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Register/Register";
 import About from "./Components/About/About/About";
 import AOS from "aos";
+import 'aos/dist/aos.css';
 import Dashboard from "./Components/Dashboard/Dashboard";
 import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
 import Schools from "./Components/Schools/Schools/Schools";
