@@ -39,6 +39,7 @@ function Dashboard(props) {
                     <ListItem button >
                         <ListItemIcon>
                             <HomeIcon />
+
                         </ListItemIcon>
                         home
                     </ListItem>
