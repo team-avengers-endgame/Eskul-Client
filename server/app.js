@@ -12,6 +12,7 @@ const userRouter = require("./routes/userRoutes");
 const schoolRouter = require("./routes/schoolRoutes");
 const bookRouter = require("./routes/bookRoutes");
 const teacherRouter = require("./routes/teacherRoutes");
+const privateTeacherRouter = require("./routes/privateTeacherRoutes");
 const app = express();
 
 /* === GLOBAL MIDDLEWARE ===*/
@@ -47,7 +48,8 @@ app.use(xss());
 app.use("/api/users", userRouter);
 app.use("/api/schools", schoolRouter);
 app.use("/api/books", bookRouter);
-app.use("/api/teacher", teacherRouter);
+app.use("/api/teachers", teacherRouter);
+app.use("/api/privateTeachers", privateTeacherRouter);
 // If no routes are matched, send 404
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
