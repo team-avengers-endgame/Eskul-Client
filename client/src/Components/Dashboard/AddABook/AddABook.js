@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Container, CssBaseline, Grid, TextField, Typography } from '@mui/material';
+import { Button, Container, CssBaseline, Grid, MenuItem, TextField, Typography } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
-import { ButtonStyle } from '../../../Hooks/useStyle'
+import { ButtonStyle, alert } from '../../../Hooks/useStyle'
 import { Box } from '@mui/system';
 import { useForm } from "react-hook-form";
 import Logo from '../logo.png'
@@ -55,12 +55,14 @@ const useStyles = makeStyles((theme) => ({
 const AddABook = () => {
     const [bookImg, setBookImg] = React.useState('');
     const { register, handleSubmit, reset } = useForm();
-    const [publishedDate, setPublishedDate] = React.useState(new Date('2014-08-18T21:11:54').toDateString());
+    const [publishedDate, setPublishedDate] = React.useState(new Date('2014-08-18T21:11:54').toDateString().toString());
     const [rating, setRating] = React.useState(2);
     const [hover, setHover] = React.useState(-1);
+    const [type, SetType] = React.useState('');
+
 
     const onSubmit = data => {
-        const book = { ...data, publishedDate, bookImg }
+        const book = { ...data, publishedDate, bookImg, type, rating }
 
         axios.post(`${api}/books`, book)
             .then((response) => {
@@ -74,7 +76,7 @@ const AddABook = () => {
                     alert('error', 'Bad Request, Places Try again')
             });
 
-        console.log({ ...data, publishedDate, bookImg, rating })
+        console.log(book)
         reset();
     };
 
@@ -89,8 +91,70 @@ const AddABook = () => {
     const handleChangePublishedDate = (newValue) => {
         setPublishedDate(newValue);
     };
+    const handleChangeBookType = (event) => {
+        SetType(event.target.value);
+    };
 
-    console.log(rating)
+    const bookType = [
+        {
+            value: 'Educational',
+
+        },
+        {
+            value: 'Novel',
+
+        },
+        {
+            value: "Children's books",
+
+        },
+        {
+            value: "The story",
+
+        },
+        {
+            value: "Translation",
+
+        },
+        {
+            value: "Liberation War",
+
+        },
+        {
+            value: "Science fiction",
+
+        },
+        {
+            value: "Book Fair 2022",
+
+        },
+        {
+            value: "School books",
+
+        },
+        {
+            value: "Programming"
+        },
+        {
+            value: "Travel and Emigration"
+        },
+        {
+            value: "Rhymes and poems"
+        },
+
+    ];
+
+
+
+
+
+
+
+
+
+
+
+
 
     const classes = useStyles();
     return (
@@ -190,6 +254,24 @@ const AddABook = () => {
 
                             </Grid>
                             <Grid item xs={12} sm={6}>
+                                <TextField
+                                    id="outlined-select-currency"
+                                    select
+                                    fullWidth
+                                    size='small'
+                                    label="Type"
+                                    value={type}
+                                    onChange={handleChangeBookType}
+                                    autoFocus
+                                >
+                                    {bookType.map((option) => (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.value}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
                                 <Rating
                                     name="hover-feedback"
                                     value={rating}
@@ -207,9 +289,6 @@ const AddABook = () => {
                                 )}
 
                             </Grid>
-
-
-
                         </Grid>
                         <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
                             <Grid item xs={12} sm={6} md={6}>

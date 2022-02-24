@@ -14,8 +14,16 @@ import AddASchool from "./Components/Dashboard/AddASchool/AddASchool";
 import DashboardSchools from "./Components/Dashboard/Schools/Schools";
 import MakeAdmin from "./Components/Dashboard/MakeAdmin/MakeAdmin";
 import AddedSchoolDetailsForm from "./Components/Dashboard/Schools/AddedSchoolDetailsForm/AddedSchoolDetailsForm";
+<<<<<<< HEAD
 import Contacts from "./Components/Contacts/Contacts";
+=======
+<<<<<<< HEAD
+import BasicSection from "./Components/SchoolDetails/SchDetailsLayout/ContentBar/BasicSection/BasicSection";
+=======
+>>>>>>> c81b5a0ffd6a6d60658815eee4f9b0698caa3912
 import AddABook from "./Components/Dashboard/AddABook/AddABook";
+import DashboardBooks from "./Components/Dashboard/Books/Books";
+>>>>>>> 42b5ac4dae4edc95d2429f1fdd70836c83eefc5b
 
 function App() {
   useEffect(() => {
@@ -37,14 +45,20 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
           <Route path="schools" element={<Schools />} />
+<<<<<<< HEAD
           <Route path="schDetails" element={<SchoolDetails />} />
          
          
 
+=======
+          <Route path="details/:id" element={<SchoolDetails />} />
+          <Route path="basic" element={<BasicSection />} />
+>>>>>>> c81b5a0ffd6a6d60658815eee4f9b0698caa3912
           <Route path="dashboard" element={<Dashboard />}>
             <Route path="addASchool" element={<AddASchool />} />
-            <Route path="addABook" element={<AddABook />} />
             <Route path="schools" element={<DashboardSchools />} />
+            <Route path="addABook" element={<AddABook />} />
+            <Route path="books" element={<DashboardBooks />} />
             <Route
               path="addedSchoolDetailsForm/:id"
               element={<AddedSchoolDetailsForm />}

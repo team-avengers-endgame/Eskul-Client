@@ -25,7 +25,7 @@ const TopBar = () => {
           md: "5px 15px",
         },
         boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)",
-        borderRadius: "80px",
+        borderRadius: "0px 100px 0px 100px",
         mt: {
           xs: -2,
           sm: -2,
@@ -52,8 +52,8 @@ const TopBar = () => {
             flexDirection: "column",
           }}
           item
-          xs={1}
-          sm={1}
+          xs={2}
+          sm={2}
           md={1}
         >
           <HomeIcon
@@ -93,8 +93,8 @@ const TopBar = () => {
             flexDirection: "column",
           }}
           item
-          xs={1}
-          sm={1}
+          xs={2}
+          sm={2}
           md={1}
         >
           <AssessmentIcon
@@ -133,8 +133,8 @@ const TopBar = () => {
             flexDirection: "column",
           }}
           item
-          xs={1}
-          sm={1}
+          xs={2}
+          sm={2}
           md={1}
         >
           <AssignmentIcon
@@ -173,8 +173,8 @@ const TopBar = () => {
             flexDirection: "column",
           }}
           item
-          xs={1}
-          sm={1}
+          xs={2}
+          sm={2}
           md={1}
         >
           <ArticleIcon
@@ -213,8 +213,8 @@ const TopBar = () => {
             flexDirection: "column",
           }}
           item
-          xs={1}
-          sm={1}
+          xs={2}
+          sm={2}
           md={1}
         >
           <PeopleIcon
@@ -253,8 +253,8 @@ const TopBar = () => {
             flexDirection: "column",
           }}
           item
-          xs={1}
-          sm={1}
+          xs={2}
+          sm={2}
           md={1}
         >
           <CollectionsIcon
@@ -293,8 +293,8 @@ const TopBar = () => {
             flexDirection: "column",
           }}
           item
-          xs={1}
-          sm={1}
+          xs={2}
+          sm={2}
           md={1}
         >
           <StarIcon
@@ -333,8 +333,8 @@ const TopBar = () => {
             flexDirection: "column",
           }}
           item
-          xs={1}
-          sm={1}
+          xs={2}
+          sm={2}
           md={1}
         >
           <MessageIcon
@@ -373,8 +373,8 @@ const TopBar = () => {
             flexDirection: "column",
           }}
           item
-          xs={1}
-          sm={1}
+          xs={2}
+          sm={2}
           md={1}
         >
           <CallIcon

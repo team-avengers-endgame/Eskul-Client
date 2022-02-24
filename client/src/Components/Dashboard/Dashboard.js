@@ -18,8 +18,11 @@ import { LinkStyle } from '../../Hooks/useStyle';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import { Avatar } from '@mui/material';
-
-
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import AddCardIcon from '@mui/icons-material/AddCard';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 const drawerWidth = 240;
 function Dashboard(props) {
     const { user, logOut } = useAuth();
@@ -35,12 +38,14 @@ function Dashboard(props) {
         <div>
 
             <Toolbar>
-                <ListItem button >
-                    <ListItemIcon>
-                        <Avatar alt="User Logo" src={user?.photoURL} />
-                    </ListItemIcon>
-                    {user.displayName}
-                </ListItem>
+                <Link to='/dashboard' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <Avatar alt="User Logo" src={user?.photoURL} />
+                        </ListItemIcon>
+                        {user.displayName}
+                    </ListItem>
+                </Link>
             </Toolbar>
             <List>
                 <Divider />
@@ -74,16 +79,25 @@ function Dashboard(props) {
                 <NavLink to='/dashboard/addABook' style={LinkStyle}>
                     <ListItem button >
                         <ListItemIcon>
-                            <SchoolIcon />
+                            <AddCardIcon />
                         </ListItemIcon>
                         Add a Book
+                    </ListItem>
+                </NavLink>
+                <Divider />
+                <NavLink to='/dashboard/books' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <MenuBookIcon />
+                        </ListItemIcon>
+                        Books
                     </ListItem>
                 </NavLink>
                 <Divider />
                 <NavLink to='/dashboard/makeAdmin' style={LinkStyle}>
                     <ListItem button >
                         <ListItemIcon>
-                            <SchoolIcon />
+                            <AdminPanelSettingsIcon />
                         </ListItemIcon>
                         Make a Admin
                     </ListItem>
@@ -94,14 +108,14 @@ function Dashboard(props) {
                 {user.email ?
                     <ListItem style={LinkStyle} button onClick={logOut}>
                         <ListItemIcon>
-                            <SchoolIcon />
+                            <LogoutIcon />
                         </ListItemIcon>
                         Logout
                     </ListItem> :
                     <Link to='/login' style={LinkStyle}>
                         <ListItem button onClick={logOut}>
                             <ListItemIcon>
-                                <SchoolIcon />
+                                <LoginIcon />
                             </ListItemIcon>
                             Login
                         </ListItem>

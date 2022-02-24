@@ -1,4 +1,10 @@
-import { Button, Container, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  ButtonBase,
+  Container,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import WhatsappRoundedIcon from "@mui/icons-material/WhatsappRounded";
@@ -88,10 +94,18 @@ const Subscribe = () => {
           mb: 5,
         }}
       >
-        <FacebookRoundedIcon sx={{ fontSize: "28px" }} />
-        <WhatsappRoundedIcon sx={{ fontSize: "28px" }} />
-        <LinkedInIcon sx={{ fontSize: "28px" }} />
-        <EmailIcon sx={{ fontSize: "28px" }} />
+        <ButtonBase>
+          <FacebookRoundedIcon sx={{ fontSize: "28px", cursor: "pointer" }} />
+        </ButtonBase>
+        <ButtonBase>
+          <WhatsappRoundedIcon sx={{ fontSize: "28px", cursor: "pointer" }} />
+        </ButtonBase>
+        <ButtonBase>
+          <LinkedInIcon sx={{ fontSize: "28px", cursor: "pointer" }} />
+        </ButtonBase>
+        <ButtonBase>
+          <EmailIcon sx={{ fontSize: "28px", cursor: "pointer" }} />
+        </ButtonBase>
       </Container>
     </Container>
   );

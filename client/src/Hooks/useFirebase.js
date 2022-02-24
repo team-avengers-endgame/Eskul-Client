@@ -1,7 +1,8 @@
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { useEffect, useState } from "react";
 import initializeAuthentication from '../Components/Login/Firebase/firebase.init';
-// import initializeAuthentication from '../Login/Firebase/firebase.init';
+import { api } from './Api';
+
 
 
 initializeAuthentication();
@@ -24,7 +25,7 @@ const useFirebase = () => {
         navigate(location?.state?.from || '/')
         const user = result.user;
         // save user to database--
-        /* saveUsers(user.email, user.displayName, 'PUT') */
+        saveUsers(user.email, user.displayName, 'PUT')
 
         setUser(user)
 
@@ -49,7 +50,7 @@ const useFirebase = () => {
         setUser(newUser)
 
         // save to database-------------
-        /* saveUsers(email, name, 'POST') */
+        saveUsers(email, name, 'POST')
         // updateProfile----------
         updateProfile(auth.currentUser, {
           displayName: name, photoURL: userPhoto
@@ -108,10 +109,10 @@ const useFirebase = () => {
 
 
   // save user to database-------------
-  /* const saveUsers = (email, displayName, method) => {
+  const saveUsers = (email, displayName, method) => {
     const user = { email, displayName }
 
-    fetch('https://evening-woodland-47343.herokuapp.com/users', {
+    fetch(`${api}/users`, {
       method: method,
       headers: {
         'content-type': 'application/json'
@@ -120,7 +121,7 @@ const useFirebase = () => {
     }).then(res => res.json())
       .then(data => console.log(data))
   }
- */
+
 
 
   // on auth state change -----------------------------
@@ -143,7 +144,7 @@ const useFirebase = () => {
   // get admin ============================
   /*  useEffect(() => {
  
-     fetch(`https://evening-woodland-47343.herokuapp.com/users/${user.email}`)
+     fetch(`${api}/${user.email}`)
  
        .then(res => res.json())
        .then(data => {

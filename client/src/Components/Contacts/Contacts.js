@@ -33,10 +33,10 @@ const Contacts = () => {
     return (
         
                <>
-               
+                 <NavigationBar/>
           <Container className='contacts' id='contacts'>
 
-            <NavigationBar/>
+          
              <Typography sx={{ my: 4 }} variant='h2'> Contact Us</Typography>
 
               <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 ,lg:12}}>
