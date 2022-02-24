@@ -1,56 +1,50 @@
 const mongoose = require("mongoose");
 
-const schoolSchema = new mongoose.Schema({
-  schoolName: {
-    type: String,
-    required: [true, "Please provide a school name"],
-  },
-  banner: {
-    type: String,
-    required: [true, "Please provide a school banner"],
-  },
-  eiinNumber: {
-    type: Number,
-    required: [true, "Please provide a school eiin number"],
-  },
-  location: {
-    type: String,
-    required: [true, "Please provide a school location"],
-  },
-  totalStudent: {
-    type: Number,
-    required: [true, "Please provide the total student number"],
-  },
-  feedback: {
-    type: String,
-    required: [true, "Please provide the feedback"],
-  },
-  ratings: {
-    type: Number,
-    min: 1,
-    max: 5,
-    required: [true, "Please provide the ratings"],
-  },
-  contact: {
-    type: String,
-    required: [true, "Please provide school contact information"],
-  },
-  teachers: [
-    {
-      name: {
-        type: String,
-        required: [true, "Please provide teacher name"],
-      },
-      profilePicture: {
-        type: String,
-        required: [true, "Please provide teacher profile picture"],
-      },
-      designation: {
-        type: String,
-        required: [true, "Please provide teacher designation "],
-      },
+const schoolSchema = new mongoose.Schema(
+  {
+    schoolName: {
+      type: String,
+      required: [true, "Please provide a school name"],
     },
-  ],
+    schoolPhoto: {
+      type: String,
+      required: [true, "Please provide a school banner"],
+    },
+    EIIN: {
+      type: Number,
+      required: [true, "Please provide a school eiin number"],
+    },
+    location: {
+      type: String,
+      required: [true, "Please provide a school location"],
+    },
+    founderDate: {
+      type: String,
+      required: [true, "Please provide a school founder"],
+    },
+    schoolShift: {
+      type: String,
+      required: [true, "Please provide a school co-education"],
+    },
+    schoolType: {
+      type: String,
+      required: [true, "Please provide a school type"],
+    },
+    schoolEmail: {
+      type: String,
+      required: [true, "Please provide a school email"],
+    },
+  },
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
+);
+
+schoolSchema.virtual("teachers", {
+  ref: "Teacher",
+  localField: "_id",
+  foreignField: "school",
 });
 
 const School = mongoose.model("School", schoolSchema);

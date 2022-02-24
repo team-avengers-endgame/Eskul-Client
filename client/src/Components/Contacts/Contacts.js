@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
-// import TextField from '@mui/material/TextField';
-import { Box, Button, Container, FormControl, Grid, OutlinedInput, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import connectImg from '../../Assets/Images/contact.svg'
 import img1 from '../../Assets/Images/location-removebg-preview (1).png'
 import img2 from '../../Assets/Images/email-removebg-preview (1).png'
@@ -54,6 +53,7 @@ const Contacts = () => {
               <Typography sx={{ mb: 4 }} variant='body'>You can find out any information about school in this website.If you have any question or confusion! Don't be shy. Feel free to connect with us. We are waitting for your response.</Typography>
               
               </Box>
+
 
                             <form ref={form} onSubmit={sendEmail}>
 

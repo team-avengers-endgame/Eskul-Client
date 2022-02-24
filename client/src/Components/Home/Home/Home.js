@@ -3,10 +3,11 @@ import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 import Banner from '../Banner/Banner';
 import ChildEducation from '../ChildEducation/ChildEducation';
+import Features from '../Features/Features';
 import Gallery from '../Gallery/Gallery';
-import HealthyFood from '../HealthyFood/HealthyFood';
 import NurtingEnvironment from '../NurtingEnvironment/NurtingEnvironment';
-import QuickScroll from '../QuickScroll/QuickScroll';
+import Partners from '../Partners/Partners';
+import TopList from '../TopList/TopList';
 import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 
 const Home = () => {
@@ -14,12 +15,12 @@ const Home = () => {
         <>
             <NavigationBar />
             <Banner />
-            <QuickScroll />
-            <ChildEducation />
             <NurtingEnvironment />
             <WhyChooseUs />
-            <HealthyFood />
+            <Features />
+            <TopList />
             <Gallery />
+            <Partners />
             <Footer />
         </>
     );
