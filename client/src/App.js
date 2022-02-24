@@ -13,6 +13,7 @@ import AddASchool from "./Components/Dashboard/AddASchool/AddASchool";
 import DashboardSchools from "./Components/Dashboard/Schools/Schools";
 import MakeAdmin from "./Components/Dashboard/MakeAdmin/MakeAdmin";
 import AddedSchoolDetailsForm from "./Components/Dashboard/Schools/AddedSchoolDetailsForm/AddedSchoolDetailsForm";
+import BasicSection from "./Components/SchoolDetails/SchDetailsLayout/ContentBar/BasicSection/BasicSection";
 
 function App() {
   useEffect(() => {
@@ -33,8 +34,8 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
           <Route path="schools" element={<Schools />} />
-          <Route path="schDetails" element={<SchoolDetails />} />
-
+          <Route path="details/:id" element={<SchoolDetails />} />
+          <Route path="basic" element={<BasicSection />} />
           <Route path="dashboard" element={<Dashboard />}>
             <Route path="addASchool" element={<AddASchool />} />
             <Route path="schools" element={<DashboardSchools />} />

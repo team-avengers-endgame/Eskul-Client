@@ -1,9 +1,16 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import wavepink from "../../../Assets/Images/wave-pink.svg";
-import AddLocationIcon from "@mui/icons-material/AddLocation";
-import CalendarViewDayIcon from "@mui/icons-material/CalendarViewDay";
+import { api } from "../../../Hooks/Api";
 const Banner = () => {
+  const [schoolName, setSchoolName] = useState({});
+  const { id } = useParams();
+  useEffect(() => {
+    fetch(`${api}/schools/${id}`)
+      .then((res) => res.json())
+      .then((data) => setSchoolName(data.data.data));
+  }, []);
   return (
     <Box
       sx={{
@@ -49,7 +56,7 @@ const Banner = () => {
             },
           }}
         >
-          School Name goes here
+          {schoolName?.schoolName}
         </Typography>
       </Box>
     </Box>

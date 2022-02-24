@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
+import EmailIcon from "@mui/icons-material/Email";
 import CallIcon from "@mui/icons-material/Call";
+import { useParams } from "react-router-dom";
+import { api } from "../../../../../Hooks/Api";
 const Contact = () => {
+  const [contacts, setContacts] = useState({});
+  const { id } = useParams();
+  useEffect(() => {
+    fetch(`${api}/schools/${id}`)
+      .then((res) => res.json())
+      .then((data) => setContacts(data.data.data));
+  }, []);
   return (
     <Container sx={{ mb: { xs: 1, sm: 1, md: 10 } }}>
       <Box
@@ -39,91 +49,12 @@ const Contact = () => {
           mx: { xs: "auto", sm: "auto" },
         }}
       >
-        <Grid
-          sx={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            textAlign: "center",
-          }}
-          rowSpacing={1}
-          columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-        >
+        <Grid container spacing={2}>
           <Grid item xs={12} sm={12} md={1}>
-            <CallIcon
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                color: "#01479b",
-              }}
-            />{" "}
-            <Typography
-              sx={{
-                display: "flex",
-                alignItems: "flex-start",
-                flexDirection: "column",
-              }}
-            >
-              017434124
-            </Typography>
+            <EmailIcon sx={{ color: "#01479b" }} />
           </Grid>
-          <Grid item xs={12} sm={12} md={1}>
-            <AddLocationIcon
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                color: "#01479b",
-              }}
-            />{" "}
-            <Typography
-              sx={{
-                display: "flex",
-                alignItems: "flex-start",
-                flexDirection: "column",
-              }}
-            >
-              Khulshi
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={12} md={1}>
-            <AddLocationIcon
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                color: "#01479b",
-              }}
-            />{" "}
-            <Typography
-              sx={{
-                display: "flex",
-                alignItems: "flex-start",
-                flexDirection: "column",
-              }}
-            >
-              Nasirabad
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={12} md={1}>
-            <AddLocationIcon
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                color: "#01479b",
-              }}
-            />{" "}
-            <Typography
-              sx={{
-                display: "flex",
-                alignItems: "flex-start",
-                flexDirection: "column",
-              }}
-            >
-              Chittiagong
-            </Typography>
+          <Grid item xs={12} sm={12} md={11}>
+            <Typography>{contacts?.schoolEmail}</Typography>
           </Grid>
         </Grid>
       </Box>
