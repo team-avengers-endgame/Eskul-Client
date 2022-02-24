@@ -19,6 +19,8 @@ import Contacts from "./Components/Contacts/Contacts";
 =======
 <<<<<<< HEAD
 import BasicSection from "./Components/SchoolDetails/SchDetailsLayout/ContentBar/BasicSection/BasicSection";
+
+
 =======
 >>>>>>> c81b5a0ffd6a6d60658815eee4f9b0698caa3912
 import AddABook from "./Components/Dashboard/AddABook/AddABook";
