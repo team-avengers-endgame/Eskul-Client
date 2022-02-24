@@ -9,23 +9,59 @@ const SearchBar = () => {
     <Paper
       component="form"
       sx={{
-        p: "8px 16px",
+        p: {
+          xs: "2px 8px",
+          sm: "2px 8px",
+          md: "8px 16px",
+        },
         mb: 6,
+        mx: "auto",
         display: "flex",
         alignItems: "center",
-        width: "100%",
-        border: "1px solid pink",
-        boxShadow: "0px 14px 22px rgb(42 135 158 / 7%)",
+        width: {
+          xs: "80%",
+          sm: "80%",
+          md: "50%",
+        },
+        border: "4px solid #46AADC",
+        borderRadius: "50px",
+        // boxShadow: "0px 14px 22px rgb(42 135 158 / 7%)",
       }}
     >
       <IconButton sx={{ p: "10px" }} aria-label="menu"></IconButton>
       <InputBase
-        sx={{ ml: 1, flex: 1, mx: "auto", fontSize: "20px", p: "3px 5px" }}
+        sx={{
+          ml: 1,
+          flex: 1,
+          mx: "auto",
+          fontSize: {
+            xs: "12px",
+            sm: "15px",
+            md: "20px",
+          },
+          p: "3px 5px",
+        }}
         placeholder="Search by School Name or EIIN"
         inputProps={{ "aria-label": "search school" }}
       />
-      <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
-        <SearchIcon />
+      <IconButton
+        type="submit"
+        sx={{
+          p: "5px",
+          color: "#46AADC",
+          fontWeight: "bold",
+        }}
+        aria-label="search"
+      >
+        <SearchIcon
+          sx={{
+            fontSize: {
+              xs: "25px",
+              sm: "30px",
+              md: "35px",
+            },
+          }}
+        />
       </IconButton>
     </Paper>
   );
