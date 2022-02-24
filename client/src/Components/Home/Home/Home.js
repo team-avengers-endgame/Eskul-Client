@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 import Banner from '../Banner/Banner';
-import ChildEducation from '../ChildEducation/ChildEducation';
+
 import Features from '../Features/Features';
 import Gallery from '../Gallery/Gallery';
 import NurtingEnvironment from '../NurtingEnvironment/NurtingEnvironment';
