@@ -55,12 +55,13 @@ const useStyles = makeStyles((theme) => ({
 const AddABook = () => {
     const [bookImg, setBookImg] = React.useState('');
     const { register, handleSubmit, reset } = useForm();
-    const [publishedDate, setPublishedDate] = React.useState(new Date('2014-08-18T21:11:54').toDateString());
+    const [publishedDate, setPublishedDate] = React.useState(new Date('2014-08-18T21:11:54').toDateString().toString());
     const [rating, setRating] = React.useState(2);
     const [hover, setHover] = React.useState(-1);
 
+    const type = "golpoer boi"
     const onSubmit = data => {
-        const book = { ...data, publishedDate, bookImg }
+        const book = { ...data, publishedDate, bookImg, type }
 
         axios.post(`${api}/books`, book)
             .then((response) => {
@@ -74,7 +75,7 @@ const AddABook = () => {
                     alert('error', 'Bad Request, Places Try again')
             });
 
-        console.log({ ...data, publishedDate, bookImg, rating })
+        console.log(book)
         reset();
     };
 
