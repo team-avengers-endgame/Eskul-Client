@@ -15,6 +15,8 @@ import DashboardSchools from "./Components/Dashboard/Schools/Schools";
 import MakeAdmin from "./Components/Dashboard/MakeAdmin/MakeAdmin";
 import AddedSchoolDetailsForm from "./Components/Dashboard/Schools/AddedSchoolDetailsForm/AddedSchoolDetailsForm";
 import Contacts from "./Components/Contacts/Contacts";
+import AddABook from "./Components/Dashboard/AddABook/AddABook";
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -41,6 +43,7 @@ function App() {
 
           <Route path="dashboard" element={<Dashboard />}>
             <Route path="addASchool" element={<AddASchool />} />
+            <Route path="addABook" element={<AddABook />} />
             <Route path="schools" element={<DashboardSchools />} />
             <Route
               path="addedSchoolDetailsForm/:id"

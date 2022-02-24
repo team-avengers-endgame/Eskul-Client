@@ -5,21 +5,33 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a book type"],
   },
-  title: {
+  bookName: {
     type: String,
-    required: [true, "Please provide a title"],
+    required: [true, "Please provide a book name"],
   },
-  authorName: {
+  author: {
     type: String,
     required: [true, "Please provide a authorName"],
   },
-  price: {
+  bookDescription: {
+    type: String,
+    required: [true, "Please provide a book description"],
+  },
+  bookPrice: {
     type: Number,
     required: [true, "Please provide a book price"],
   },
-  image: {
+  bookImg: {
     type: String,
     required: [true, "Please provide a book image"],
+  },
+  publishedDate: {
+    type: String,
+    required: [true, "Please provide a book published date"],
+  },
+  publisher: {
+    type: String,
+    required: [true, "Please provide a book publisher"],
   },
   rating: {
     type: Number,

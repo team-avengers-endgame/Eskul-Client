@@ -10,35 +10,44 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import HomeIcon from '@mui/icons-material/Home';
 import SchoolIcon from '@mui/icons-material/School';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import { LinkStyle } from '../../Hooks/useStyle';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+import { Avatar } from '@mui/material';
 
 
 const drawerWidth = 240;
 function Dashboard(props) {
+    const { user, logOut } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-
+    console.log(user)
 
     const drawer = (
         <div>
-            <Toolbar />
-            <Divider />
+
+            <Toolbar>
+                <ListItem button >
+                    <ListItemIcon>
+                        <Avatar alt="User Logo" src={user?.photoURL} />
+                    </ListItemIcon>
+                    {user.displayName}
+                </ListItem>
+            </Toolbar>
             <List>
+                <Divider />
                 <NavLink to='/home' style={LinkStyle}>
                     <ListItem button >
                         <ListItemIcon>
                             <HomeIcon />
-
                         </ListItemIcon>
                         home
                     </ListItem>
@@ -62,6 +71,15 @@ function Dashboard(props) {
                     </ListItem>
                 </NavLink>
                 <Divider />
+                <NavLink to='/dashboard/addABook' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <SchoolIcon />
+                        </ListItemIcon>
+                        Add a Book
+                    </ListItem>
+                </NavLink>
+                <Divider />
                 <NavLink to='/dashboard/makeAdmin' style={LinkStyle}>
                     <ListItem button >
                         <ListItemIcon>
@@ -71,17 +89,26 @@ function Dashboard(props) {
                     </ListItem>
                 </NavLink>
 
-            </List>
-            <Divider />
-            <List>
+                <Divider />
 
-                <ListItem button >
-                    <ListItemIcon>
+                {user.email ?
+                    <ListItem style={LinkStyle} button onClick={logOut}>
+                        <ListItemIcon>
+                            <SchoolIcon />
+                        </ListItemIcon>
+                        Logout
+                    </ListItem> :
+                    <Link to='/login' style={LinkStyle}>
+                        <ListItem button onClick={logOut}>
+                            <ListItemIcon>
+                                <SchoolIcon />
+                            </ListItemIcon>
+                            Login
+                        </ListItem>
+                    </Link>
 
-                    </ListItemIcon>
-                    <ListItemText />
-                </ListItem>
-
+                }
+                <Divider />
             </List>
         </div>
     );
