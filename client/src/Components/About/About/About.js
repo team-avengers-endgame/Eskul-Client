@@ -7,7 +7,7 @@ import Principles from "../Principles/Principles";
 import VisionMissionSection from "../VisionMissionSection/VisionMissionSection";
 import SharedBanner from "../../Shared/SharedBanner/SharedBanner";
 import Footer from "../../Shared/Footer/Footer";
-// About
+// About section
 const About = () => {
   return (
     <div>
