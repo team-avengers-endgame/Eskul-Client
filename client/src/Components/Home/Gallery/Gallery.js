@@ -66,10 +66,14 @@ const Gallery = () => {
                                 key={singleImage.id}
                                 item xs={12} sm={6} md={3}>
                                 <Box sx={{}}>
-                                    <img style={{
-                                        width: '100%',
-                                        borderRadius: 15
-                                    }} src={singleImage.image} alt="" />
+                                    <img
+                                        data-aos="flip-left"
+                                        data-aos-easing="ease-out-cubic"
+                                        data-aos-duration="2000"
+                                        style={{
+                                            width: '100%',
+                                            borderRadius: 15
+                                        }} src={singleImage.image} alt="" />
                                 </Box>
                             </Grid>)
                         }
@@ -79,10 +83,14 @@ const Gallery = () => {
                                     galleryImgs.map(singleImage => singleImage.id > 6 && singleImage.id < 11 && <Grid
                                         key={singleImage.id}
                                         item xs={6}>
-                                        <img style={{
-                                            width: '100%',
-                                            borderRadius: 15
-                                        }} src={singleImage.image} alt="" />
+                                        <img
+                                            data-aos="flip-right"
+                                            data-aos-easing="ease-out-cubic"
+                                            data-aos-duration="2000"
+                                            style={{
+                                                width: '100%',
+                                                borderRadius: 15
+                                            }} src={singleImage.image} alt="" />
                                     </Grid>)
                                 }
 
@@ -91,10 +99,14 @@ const Gallery = () => {
                         <Grid
                             item xs={12} sm={6} md={3}>
                             <Box>
-                                <img style={{
-                                    width: '100%',
-                                    borderRadius: 15
-                                }} src={img11} alt="" />
+                                <img
+                                    data-aos="flip-left"
+                                    data-aos-easing="ease-out-cubic"
+                                    data-aos-duration="2000"
+                                    style={{
+                                        width: '100%',
+                                        borderRadius: 15
+                                    }} src={img11} alt="" />
                             </Box>
                         </Grid>
                     </Grid>

@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './NurtingEnvironment.css'
 import { Box, Button, Container, Grid, Link, Typography } from '@mui/material';
 import SlowMotionVideoOutlinedIcon from '@mui/icons-material/SlowMotionVideoOutlined';
+import Aos from 'aos';
 const NurtingEnvironment = () => {
+
+
+    useEffect(() => {
+        Aos.init({
+            duration: 1000
+        });
+    }, []);
     return (
         <Box className='NurtingEnvironment-container' >
 
             <Container>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     <Grid item xs={12} sm={4} md={4}>
-                        <Box>
-                            <Typography variant='h4' sx={{ fontWeight: 'bold' }}>
-                                We Create a Nurturing Environment <br />
+                        <Box >
+                            <Typography
+                                data-aos="flip-left"
+                                data-aos-easing="ease-out-cubic"
+                                data-aos-duration="2000"
+                                variant='h4' sx={{ fontWeight: 'bold' }}>
+                                We Create a Helpfull Environment <br />
                                 <span style={{ color: 'rgb(70, 170, 220)' }}>for Each Child</span>
                             </Typography>
-                            <Typography variant='body'>
+                            <Typography
+                                data-aos="flip-right"
+                                data-aos-easing="ease-out-cubic"
+                                data-aos-duration="2000"
+                                variant='body'>
                                 Thought open ended play based experiences children flourish, and grow to love their school, taking pride in belonging to a community
                             </Typography>
                             <br /><br />

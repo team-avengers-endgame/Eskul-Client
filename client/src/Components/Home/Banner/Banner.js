@@ -10,8 +10,8 @@ import ico1 from '../../../Assets/Slider/slider-ico.svg';
 import ico2 from '../../../Assets/Slider/slider-ico-2.svg';
 
 const slideImages = [
-    { id: 1, slideImg: img1, text1: 'looking for a Centre where', text2: 'Your Child Will Be Safe?', icon: ico1 },
-    { id: 2, slideImg: img2, text1: 'Where Fun Happens!', text2: 'Educating Your Children', icon: ico2 },
+    { id: 1, slideImg: img1, text1: 'Looking for a Website where', text2: 'You can find your ideal School', icon: ico1 },
+    { id: 2, slideImg: img2, text1: 'Where Fun Happens!', text2: 'Explore the new searchs', icon: ico2 },
 ]
 
 
@@ -30,6 +30,7 @@ const Banner = () => {
                             backgroundImage: `url(${newSlide.slideImg})`,
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat'
+
 
                         }}>
                         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}

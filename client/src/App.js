@@ -6,6 +6,7 @@ import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Register/Register";
 import About from "./Components/About/About/About";
 import AOS from "aos";
+import 'aos/dist/aos.css';
 import Dashboard from "./Components/Dashboard/Dashboard";
 import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
 import Schools from "./Components/Schools/Schools/Schools";
@@ -13,7 +14,12 @@ import AddASchool from "./Components/Dashboard/AddASchool/AddASchool";
 import DashboardSchools from "./Components/Dashboard/Schools/Schools";
 import MakeAdmin from "./Components/Dashboard/MakeAdmin/MakeAdmin";
 import AddedSchoolDetailsForm from "./Components/Dashboard/Schools/AddedSchoolDetailsForm/AddedSchoolDetailsForm";
+<<<<<<< HEAD
 import BasicSection from "./Components/SchoolDetails/SchDetailsLayout/ContentBar/BasicSection/BasicSection";
+=======
+import AddABook from "./Components/Dashboard/AddABook/AddABook";
+import DashboardBooks from "./Components/Dashboard/Books/Books";
+>>>>>>> 42b5ac4dae4edc95d2429f1fdd70836c83eefc5b
 
 function App() {
   useEffect(() => {
@@ -39,6 +45,8 @@ function App() {
           <Route path="dashboard" element={<Dashboard />}>
             <Route path="addASchool" element={<AddASchool />} />
             <Route path="schools" element={<DashboardSchools />} />
+            <Route path="addABook" element={<AddABook />} />
+            <Route path="books" element={<DashboardBooks />} />
             <Route
               path="addedSchoolDetailsForm/:id"
               element={<AddedSchoolDetailsForm />}
