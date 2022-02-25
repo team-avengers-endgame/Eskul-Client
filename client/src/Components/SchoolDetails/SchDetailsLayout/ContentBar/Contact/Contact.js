@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import AddLocationIcon from "@mui/icons-material/AddLocation";
 import EmailIcon from "@mui/icons-material/Email";
-import CallIcon from "@mui/icons-material/Call";
 import { useParams } from "react-router-dom";
 import { api } from "../../../../../Hooks/Api";
 const Contact = () => {
@@ -12,7 +10,7 @@ const Contact = () => {
     fetch(`${api}/schools/${id}`)
       .then((res) => res.json())
       .then((data) => setContacts(data.data.data));
-  }, []);
+  }, [id]);
   return (
     <Container sx={{ mb: { xs: 1, sm: 1, md: 10 } }}>
       <Box
@@ -23,7 +21,7 @@ const Contact = () => {
           width: "10%",
           mt: 17,
           ml: { xs: 0, sm: 0, md: 25 },
-          mt: { xs: 5, sm: 5 },
+
         }}
       >
         <Typography
