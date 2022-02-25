@@ -167,7 +167,10 @@ const Teachers = () => {
                                                     Subject: {single.subject}
                                                 </Typography>
                                                 <Typography variant="body2" color="text.secondary">
-                                                    Area: {single.area}
+                                                    Area: {single.aria}
+                                                </Typography>
+                                                <Typography variant="body2" color="text.secondary">
+                                                    Area: {single.time}
                                                 </Typography>
                                                 <Typography variant="body2" color="text.secondary">
                                                     Fee: {single.fee}
