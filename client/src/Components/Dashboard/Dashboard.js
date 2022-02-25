@@ -76,6 +76,15 @@ function Dashboard(props) {
                     </ListItem>
                 </NavLink>
                 <Divider />
+                <NavLink to='/dashboard/addOnlineTuition' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <AddCardIcon />
+                        </ListItemIcon>
+                        Add a Online Tuition
+                    </ListItem>
+                </NavLink>
+                <Divider />
                 <NavLink to='/dashboard/addABook' style={LinkStyle}>
                     <ListItem button >
                         <ListItemIcon>

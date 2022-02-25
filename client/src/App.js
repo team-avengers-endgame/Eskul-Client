@@ -18,6 +18,7 @@ import BasicSection from "./Components/SchoolDetails/SchDetailsLayout/ContentBar
 import AddABook from "./Components/Dashboard/AddABook/AddABook";
 import DashboardBooks from "./Components/Dashboard/Books/Books";
 import Contacts from "./Components/Contacts/Contacts";
+import OnlineTuitionTeacherAdd from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeacherAdd";
 
 function App() {
   useEffect(() => {
@@ -42,11 +43,13 @@ function App() {
           <Route path="schools" element={<Schools />} />
           <Route path="details/:id" element={<SchoolDetails />} />
           <Route path="basic" element={<BasicSection />} />
+
           <Route path="dashboard" element={<Dashboard />}>
             <Route path="addASchool" element={<AddASchool />} />
             <Route path="schools" element={<DashboardSchools />} />
             <Route path="addABook" element={<AddABook />} />
             <Route path="books" element={<DashboardBooks />} />
+            <Route path="addOnlineTuition" element={<OnlineTuitionTeacherAdd />} />
             <Route
               path="addedSchoolDetailsForm/:id"
               element={<AddedSchoolDetailsForm />}
