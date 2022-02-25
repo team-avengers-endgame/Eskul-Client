@@ -100,6 +100,8 @@ const Teachers = () => {
         maxHeight: "100%",
     });
 
+
+
     return (
         <Container>
             <Typography
