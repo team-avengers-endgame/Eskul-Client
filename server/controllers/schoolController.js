@@ -1,4 +1,4 @@
-const School = require("../models/SchoolModel");
+const School = require("../models/schoolModel");
 const handlerFactory = require("./handlerFactory");
 
 exports.getAllSchools = handlerFactory.getAll(School);
