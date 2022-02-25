@@ -9,7 +9,11 @@ const PrivateTeacherSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a subject"],
   },
-  teacherImage: {
+  email: {
+    type: String,
+    required: [true, "Please provide a email"],
+  },
+  teacherPhoto: {
     type: String,
     required: [true, "Please provide a teacher image"],
   },
@@ -17,13 +21,17 @@ const PrivateTeacherSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Please provide a teacher monthly fee"],
   },
-  qualification: {
+  educationQualification: {
     type: String,
     required: [true, "Please provide a teacher qualification"],
   },
   descriptions: {
     type: String,
     required: [true, "Please provide a teacher descriptions"],
+  },
+  location: {
+    type: String,
+    required: [true, "Please provide a teacher location"],
   },
 });
 const PrivateTeacherModel = mongoose.model(

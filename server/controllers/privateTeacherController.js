@@ -1,4 +1,4 @@
-const PrivateTeacher = require("../models/PrivateTeacherModel");
+const PrivateTeacher = require("../models/privateTeacherModel");
 const handlerFactory = require("./handlerFactory");
 
 exports.getAllPrivateTeachers = handlerFactory.getAll(PrivateTeacher);

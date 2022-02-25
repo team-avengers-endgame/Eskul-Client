@@ -4,6 +4,7 @@ import foodImg from './image/healthyFood.png';
 
 import background from '../../../Assets/Images/gray_wave.svg';
 import Aos from 'aos';
+import { Link } from 'react-router-dom';
 
 
 const Features = () => {
@@ -79,10 +80,9 @@ const Features = () => {
                                                     We provide all the best schools information here.
                                                 </Typography>
                                             </CardContent>
-                                            <CardActions>
-                                                <Button size="small">Explore</Button>
 
-                                            </CardActions>
+                                            <Link to="/schools"><Button size="small">Explore</Button></Link>
+
                                         </Card>
                                     </CardActionArea>
                                 </Grid>
@@ -107,10 +107,10 @@ const Features = () => {
                                                     You can find your online tution in this website.
                                                 </Typography>
                                             </CardContent>
-                                            <CardActions>
-                                                <Button size="small">Explore</Button>
 
-                                            </CardActions>
+                                            <Link to="/teachers">   <Button size="small">Explore</Button></Link>
+
+
                                         </Card>
                                     </CardActionArea>
                                 </Grid>
@@ -135,10 +135,10 @@ const Features = () => {
                                                     You can donate any schools through our website.
                                                 </Typography>
                                             </CardContent>
-                                            <CardActions>
-                                                <Button size="small">Explore</Button>
 
-                                            </CardActions>
+                                            <Link to="/"> <Button size="small">Explore</Button></Link>
+
+
                                         </Card>
                                     </CardActionArea>
                                 </Grid>
@@ -163,10 +163,10 @@ const Features = () => {
                                                     We give you the transport facility for your kids.
                                                 </Typography>
                                             </CardContent>
-                                            <CardActions>
-                                                <Button size="small">Explore</Button>
 
-                                            </CardActions>
+                                            <Link to="/">    <Button size="small">Explore</Button></Link>
+
+
                                         </Card>
                                     </CardActionArea>
                                 </Grid>
@@ -191,10 +191,10 @@ const Features = () => {
                                                     You can buy your kids books from here online.
                                                 </Typography>
                                             </CardContent>
-                                            <CardActions>
-                                                <Button size="small">Explore</Button>
 
-                                            </CardActions>
+                                            <Link to="/books"> <Button size="small">Explore</Button></Link>
+
+
                                         </Card>
                                     </CardActionArea>
                                 </Grid>
@@ -219,10 +219,10 @@ const Features = () => {
                                                     We also provide important class notes in our website.
                                                 </Typography>
                                             </CardContent>
-                                            <CardActions>
-                                                <Button size="small">Explore</Button>
 
-                                            </CardActions>
+                                            <Link to="/"> <Button size="small">Explore</Button></Link>
+
+
                                         </Card>
                                     </CardActionArea>
                                 </Grid>

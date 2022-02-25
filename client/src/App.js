@@ -14,10 +14,12 @@ import AddASchool from "./Components/Dashboard/AddASchool/AddASchool";
 import DashboardSchools from "./Components/Dashboard/Schools/Schools";
 import MakeAdmin from "./Components/Dashboard/MakeAdmin/MakeAdmin";
 import AddedSchoolDetailsForm from "./Components/Dashboard/Schools/AddedSchoolDetailsForm/AddedSchoolDetailsForm";
+import BookList from "./Components/BookList/BookList";
+import Teachers from "./Components/Teachers/Teachers";
 import BasicSection from "./Components/SchoolDetails/SchDetailsLayout/ContentBar/BasicSection/BasicSection";
-import AddABook from "./Components/Dashboard/AddABook/AddABook";
 import DashboardBooks from "./Components/Dashboard/Books/Books";
 import Contacts from "./Components/Contacts/Contacts";
+import AddABook from "./Components/Dashboard/AddABook/AddABook";
 
 function App() {
   useEffect(() => {
@@ -37,8 +39,10 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
+          <Route path="books" element={<BookList />} />
+          <Route path="teachers" element={<Teachers />} />
+          <Route path="schDetails" element={<SchoolDetails />} />
           <Route path="contacts" element={<Contacts />} />
-
           <Route path="schools" element={<Schools />} />
           <Route path="details/:id" element={<SchoolDetails />} />
           <Route path="basic" element={<BasicSection />} />
