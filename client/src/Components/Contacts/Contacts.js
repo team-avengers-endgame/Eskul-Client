@@ -161,9 +161,9 @@ const Contacts = () => {
                           </Grid>
                           </Grid>
                         </Box>
-                        <Footer/>
+                       
           </Container>
-         
+          <Footer/>
           </>
         
       
