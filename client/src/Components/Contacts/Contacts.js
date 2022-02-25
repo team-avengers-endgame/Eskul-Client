@@ -15,6 +15,7 @@ import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 
 
 
+
 const Contacts = () => {
   const { register } = useForm();
   const form = useRef();
