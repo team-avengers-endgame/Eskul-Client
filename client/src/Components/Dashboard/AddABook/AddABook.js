@@ -94,52 +94,61 @@ const AddABook = () => {
     const handleChangeBookType = (event) => {
         SetType(event.target.value);
     };
+    
+    
+   
+    
+    
+    
+   
+    
 
+    
     const bookType = [
         {
-            value: 'Educational',
+            value: 'শিক্ষামূলক',
 
         },
         {
-            value: 'Novel',
+            value: 'উপন্যাস',
 
         },
         {
-            value: "Children's books",
+            value: " শিশু-কিশোর বই",
 
         },
         {
-            value: "The story",
+            value: "গল্প",
 
         },
         {
-            value: "Translation",
+            value: "অনুবাদ",
 
         },
         {
-            value: "Liberation War",
+            value: "মুক্তিযুদ্ধ",
 
         },
         {
-            value: "Science fiction",
+            value: " সায়েন্স ফিকশন",
 
         },
         {
-            value: "Book Fair 2022",
+            value: "বইমেলা ২০২২",
 
         },
         {
-            value: "School books",
+            value: "স্কুলের বই",
 
         },
         {
-            value: "Programming"
+            value: "প্রোগ্রামিং"
         },
         {
-            value: "Travel and Emigration"
+            value: " ভ্রমন ও প্রবাস"
         },
         {
-            value: "Rhymes and poems"
+            value: "ছড়া ও কবিতা"
         },
 
     ];
