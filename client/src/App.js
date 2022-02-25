@@ -8,7 +8,7 @@ import About from "./Components/About/About/About";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import Dashboard from "./Components/Dashboard/Dashboard";
-import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
+// import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
 import Schools from "./Components/Schools/Schools/Schools";
 import AddASchool from "./Components/Dashboard/AddASchool/AddASchool";
 import DashboardSchools from "./Components/Dashboard/Schools/Schools";
@@ -18,6 +18,7 @@ import BasicSection from "./Components/SchoolDetails/SchDetailsLayout/ContentBar
 import AddABook from "./Components/Dashboard/AddABook/AddABook";
 import DashboardBooks from "./Components/Dashboard/Books/Books";
 import Contacts from "./Components/Contacts/Contacts";
+import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
 
 function App() {
   useEffect(() => {
