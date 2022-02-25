@@ -36,8 +36,8 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
-          <Route path="about" element={<About />} />          
-          <Route path="contacts" element={<Contacts />} />          
+          <Route path="about" element={<About />} />
+          <Route path="contacts" element={<Contacts />} />
 
           <Route path="schools" element={<Schools />} />
           <Route path="details/:id" element={<SchoolDetails />} />
@@ -51,7 +51,6 @@ function App() {
               path="addedSchoolDetailsForm/:id"
               element={<AddedSchoolDetailsForm />}
             />
-
             <Route path="makeAdmin" element={<MakeAdmin />} />
           </Route>
         </Routes>
