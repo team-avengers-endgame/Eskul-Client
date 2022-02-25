@@ -40,7 +40,7 @@ const schoolTypes = [
 
     },
     {
-        value: 'Boyes',
+        value: 'Boys',
 
     },
     {
@@ -189,7 +189,7 @@ const AddASchool = () => {
                                     select
                                     fullWidth
                                     size='small'
-                                    label="Shipt"
+                                    label="Shift"
                                     value={schoolShiftValue}
                                     onChange={handleChangeSchoolShift}
                                     autoFocus
