@@ -21,11 +21,11 @@ const PrivateTeacherSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Please provide a teacher monthly fee"],
   },
-  educationQualification: {
+  educationalQualification: {
     type: String,
     required: [true, "Please provide a teacher qualification"],
   },
-  descriptions: {
+  description: {
     type: String,
     required: [true, "Please provide a teacher descriptions"],
   },

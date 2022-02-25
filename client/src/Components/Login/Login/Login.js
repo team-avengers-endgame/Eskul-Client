@@ -56,17 +56,15 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 const Login = () => {
-    const { signInWithGoogle, registerUser } = useAuth();
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { signInWithGoogle, loginUser } = useAuth();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const location = useLocation();
     const navigate = useNavigate();
     const onSubmit = data => {
-        registerUser(data.email, data.password, data.name, location, navigate)
-
+        loginUser(data.email, data.password, location, navigate)
+        reset();
     };
-
-
     const classes = useStyles();
 
     return (
@@ -116,7 +114,7 @@ const Login = () => {
                                             {errors.password && <span style={{ color: 'red' }}>This field is required</span>}
                                             <br />
                                             <br />
-                                            <Button type="Login"
+                                            <Button type="submit"
                                                 variant="contained"
                                                 className={classes.LoginButton}
                                                 sx={{ display: 'block', width: 1 }}

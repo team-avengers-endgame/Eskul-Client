@@ -12,6 +12,8 @@ const BookList = () => {
             .then(res => res.json())
             .then(data => setBooks(data?.data?.data))
     }, [])
+
+
     return (
         <>
             <NavigationBar />
@@ -69,8 +71,6 @@ const BookList = () => {
 
                                         <AddShoppingCartIcon />
                                     </IconButton>
-
-
                                 </CardActions>
                             </Card>
                         </Grid>

@@ -32,7 +32,7 @@ function Dashboard(props) {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-    console.log(user)
+
 
     const drawer = (
         <div>
@@ -73,6 +73,15 @@ function Dashboard(props) {
                             <SchoolIcon />
                         </ListItemIcon>
                         Schools
+                    </ListItem>
+                </NavLink>
+                <Divider />
+                <NavLink to='/dashboard/addOnlineTuition' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <AddCardIcon />
+                        </ListItemIcon>
+                        Add a Online Tuition
                     </ListItem>
                 </NavLink>
                 <Divider />

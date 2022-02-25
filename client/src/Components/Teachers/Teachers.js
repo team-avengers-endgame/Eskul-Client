@@ -1,107 +1,21 @@
-
-import { styled } from '@material-ui/styles';
-import { ButtonBase, Container, Grid, Paper, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
+import { Box } from '@mui/system';
+import { api } from '../../Hooks/Api';
+import Footer from '../Shared/Footer/Footer';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 
-const teachers = [
-    {
-        id: '1',
-        name: 'John',
-        discription: '',
-        img: 'https://i.ibb.co/z4zdft6/280-2804197-learn-english-online-english-course-am-a-teacher.jpg',
-        institution: '',
-        qualification: '',
-        age: 18,
-        aria: '',
-        subject: '',
-        time: '',
-        fee: '',
 
-    },
-    {
-        id: '1',
-        name: 'John',
-        discription: '',
-        img: 'https://i.ibb.co/z4zdft6/280-2804197-learn-english-online-english-course-am-a-teacher.jpg',
-        institution: '',
-        qualification: '',
-        age: 18,
-        aria: '',
-        subject: '',
-        time: '',
-        fee: '',
-
-    },
-    {
-        id: '1',
-        name: 'John',
-        discription: '',
-        img: 'https://i.ibb.co/z4zdft6/280-2804197-learn-english-online-english-course-am-a-teacher.jpg',
-        institution: '',
-        qualification: '',
-        age: 18,
-        aria: '',
-        subject: '',
-        time: '',
-        fee: '',
-
-    },
-    {
-        id: '1',
-        name: 'John',
-        discription: '',
-        img: 'https://i.ibb.co/z4zdft6/280-2804197-learn-english-online-english-course-am-a-teacher.jpg',
-        institution: '',
-        qualification: '',
-        age: 18,
-        aria: '',
-        subject: '',
-        time: '',
-        fee: '',
-
-    },
-    {
-        id: '1',
-        name: 'John',
-        discription: '',
-        img: 'https://i.ibb.co/z4zdft6/280-2804197-learn-english-online-english-course-am-a-teacher.jpg',
-        institution: '',
-        qualification: '',
-        age: 18,
-        aria: '',
-        subject: '',
-        time: '',
-        fee: '',
-
-    },
-    {
-        id: '1',
-        name: 'John',
-        discription: '',
-        img: 'https://i.ibb.co/z4zdft6/280-2804197-learn-english-online-english-course-am-a-teacher.jpg',
-        institution: '',
-        qualification: '',
-        age: 18,
-        aria: '',
-        subject: '',
-        time: '',
-        fee: '',
-
-    },
-]
 
 
 
 const Teachers = () => {
-    const Img = styled("img")({
-        margin: "auto",
-        display: "block",
-        maxWidth: "100%",
-        maxHeight: "100%",
-    });
-
-
+    const [teachers, setTeachers] = useState([]);
+    useEffect(() => {
+        fetch(`${api}/privateTeachers`)
+            .then(res => res.json())
+            .then(data => setTeachers(data?.data?.data))
+    }, [])
 
     return (
         <>
@@ -123,72 +37,67 @@ const Teachers = () => {
                 </Typography>
 
 
-                <Grid container spacing={2}>
+                <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {teachers.map((single) => (
-                        <Grid sx={{ py: 3 }} key={single.id} item xs={12} sm={12} md={6}>
+                        <Grid sx={{ py: 3 }} key={single._id} item xs={12} sm={12} md={4}>
                             <Paper
                                 sx={{
-                                    p: 2,
+                                    p: 1,
                                     margin: "auto",
                                     maxWidth: 500,
                                     flexGrow: 1,
                                     boxShadow: "0px 14px 22px rgb(42 135 158 / 10%)",
                                 }}
                             >
-                                <Grid container spacing={2}>
-                                    <Grid item>
-                                        <ButtonBase sx={{ width: 128, height: 128 }}>
-                                            <Img alt="complex" src={single.img} />
-                                        </ButtonBase>
+                                <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+                                    <Grid item xs={2} sm={4} md={4}>
+
+                                        <CardMedia
+                                            component="img"
+                                            sx={{ objectFit: 'cover', objectPosition: '15% 100%', borderRadius: '50%' }} alt="complex" src={single?.teacherPhoto} />
+                                        <Typography sx={{ cursor: "pointer", textAlign: 'center', color: '#007c65' }} variant="body2">
+                                            Hire me
+                                        </Typography>
+
                                     </Grid>
-                                    <Grid item xs={6} sm container>
-                                        <Grid item xs container direction="column" spacing={2}>
-                                            <Grid item xs>
-                                                <Typography
-                                                    gutterBottom
-                                                    variant="subtitle1"
-                                                    component="div"
-                                                >
-                                                    Name: {single.name}
-                                                </Typography>
-                                                <Typography variant="body2" gutterBottom>
-                                                    Discription:{single.discription}
-                                                </Typography>
-                                                <Typography variant="body2" color="text.secondary">
-                                                    Qualification: {single.qualification}
-                                                </Typography>
-                                                <Typography variant="body2" color="text.secondary">
-                                                    Institution: {single.institution}
-                                                </Typography>
-                                                <Typography variant="body2" color="text.secondary">
-                                                    Age: {single.age}
-                                                </Typography>
-                                                <Typography variant="body2" color="text.secondary">
-                                                    Subject: {single.subject}
-                                                </Typography>
-                                                <Typography variant="body2" color="text.secondary">
-                                                    Area: {single.aria}
-                                                </Typography>
-                                                <Typography variant="body2" color="text.secondary">
-                                                    Area: {single.time}
-                                                </Typography>
-                                                <Typography variant="body2" color="text.secondary">
-                                                    Fee: {single.fee}
-                                                </Typography>
-                                            </Grid>
-                                            <Grid item>
-                                                <Typography sx={{ cursor: "pointer" }} variant="body2">
-                                                    Hire me
-                                                </Typography>
-                                            </Grid>
-                                        </Grid>
+                                    <Grid item xs={2} sm={4} md={8}>
+
+                                        <Box>
+                                            <Typography variant='h6'
+                                                sx={{ color: '#46aadd' }}
+                                            >
+                                                {single?.teacherName}
+                                            </Typography>
+
+
+
+                                            <Typography variant="body2" color="text.secondary">
+                                                Qualification: {single.educationalQualification}
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                Subject: <span style={{ color: '#dc00ef' }}>{single?.subject}</span>
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                Area: {single?.location}
+                                            </Typography>
+
+                                            <Typography variant="body2" color="text.secondary">
+                                                ৳: <span style={{ color: 'red' }}>{single?.monthlyFee}</span>
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                Email: {single?.email}
+                                            </Typography>
+                                        </Box>
+
                                     </Grid>
                                 </Grid>
+
                             </Paper>
                         </Grid>
                     ))}
                 </Grid>
             </Container>
+            <Footer />
         </>
     );
 };

@@ -8,7 +8,7 @@ import { api } from './Api';
 initializeAuthentication();
 
 const useFirebase = () => {
-  /* const [admin, setAdmin] = useState(false) */
+  const [admin, setAdmin] = useState(false)
   const [user, setUser] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   const auth = getAuth()
@@ -25,7 +25,7 @@ const useFirebase = () => {
         navigate(location?.state?.from || '/')
         const user = result.user;
         // save user to database--
-        saveUsers(user.email, user.displayName, 'PUT')
+        saveUsers(user.email, user.displayName, user.photoURL, 'PUT')
 
         setUser(user)
 
@@ -38,7 +38,6 @@ const useFirebase = () => {
 
   // register user 
   const registerUser = (email, password, name, userPhoto, location, navigate) => {
-    console.log(userPhoto)
     setIsLoading(true)
     createUserWithEmailAndPassword(auth, email, password)
 
@@ -50,7 +49,7 @@ const useFirebase = () => {
         setUser(newUser)
 
         // save to database-------------
-        saveUsers(email, name, 'POST')
+        saveUsers(newUser, 'POST')
         // updateProfile----------
         updateProfile(auth.currentUser, {
           displayName: name, photoURL: userPhoto
@@ -109,9 +108,8 @@ const useFirebase = () => {
 
 
   // save user to database-------------
-  const saveUsers = (email, displayName, method) => {
-    const user = { email, displayName }
-
+  const saveUsers = (newUser, method) => {
+    const user = { ...newUser }
     fetch(`${api}/users`, {
       method: method,
       headers: {
@@ -142,19 +140,15 @@ const useFirebase = () => {
 
 
   // get admin ============================
-  /*  useEffect(() => {
- 
-     fetch(`${api}/${user.email}`)
- 
-       .then(res => res.json())
-       .then(data => {
- 
-         setAdmin(data.admin)
- 
-       }).finally(() => {
- 
-       })
-   }, [user.email]) */
+  useEffect(() => {
+    fetch(`${api}/users/:${user.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setAdmin(data.admin)
+      }).finally(() => {
+
+      })
+  }, [user.email])
 
 
 
@@ -167,7 +161,7 @@ const useFirebase = () => {
     setIsLoading,
     logOut,
     authError,
-    /* admin */
+    admin
 
   }
 }
