@@ -7,6 +7,8 @@ import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
 import CircleIcon from "@mui/icons-material/Circle";
+import { ButtonBase } from "@mui/material";
+import { NavLink } from "react-router-dom";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -62,7 +64,16 @@ export default function CustomizedAccordions() {
           <ListItem>
             {" "}
             <CircleIcon sx={{ fontSize: "14px", px: 2 }} />
-            <Typography sx={{ fontSize: "20px" }}>Basic</Typography>
+            <NavLink
+              to="/basic"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <ButtonBase>
+                <Typography sx={{ fontSize: "20px", cursor: "pointer" }}>
+                  Basic
+                </Typography>
+              </ButtonBase>
+            </NavLink>
           </ListItem>
           <ListItem>
             {" "}

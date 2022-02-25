@@ -59,7 +59,7 @@ const books = [
 ]
 
 
-const BookLIst = () => {
+const BookList = () => {
 
     return (
         <Container sx={{ py: 8 }} maxWidth="md">
@@ -127,4 +127,4 @@ const BookLIst = () => {
     );
 };
 
-export default BookLIst;
+export default BookList;

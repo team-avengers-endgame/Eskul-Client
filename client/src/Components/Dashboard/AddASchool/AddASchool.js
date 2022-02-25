@@ -19,8 +19,6 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-
-
     },
     avatar: {
 
@@ -191,7 +189,7 @@ const AddASchool = () => {
                                     select
                                     fullWidth
                                     size='small'
-                                    label="Co-Education"
+                                    label="Shipt"
                                     value={schoolShiftValue}
                                     onChange={handleChangeSchoolShift}
                                     autoFocus

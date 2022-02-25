@@ -78,8 +78,6 @@ const NavigationBar = () => {
             />
           </Typography>
 
-
-
           {/* large device menus */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Link to="/" style={LinkStyle}>
@@ -98,6 +96,7 @@ const NavigationBar = () => {
                 about us
               </Button>
             </Link>
+
             <Link to="/schools" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
@@ -195,6 +194,11 @@ const NavigationBar = () => {
               <Link to="/about" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">About us</Typography>
+                </MenuItem>
+              </Link>
+              <Link to="/schools" style={LinkStyle}>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">Schools</Typography>
                 </MenuItem>
               </Link>
               <Link to="/programs" style={LinkStyle}>

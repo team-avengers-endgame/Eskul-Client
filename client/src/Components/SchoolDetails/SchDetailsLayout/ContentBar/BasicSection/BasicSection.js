@@ -1,7 +1,17 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { api } from "../../../../../Hooks/Api";
 
 const BasicSection = () => {
+  const { id } = useParams();
+  const [details, setDetails] = useState({});
+  useEffect(() => {
+    fetch(`${api}/schools/${id}`)
+      .then((res) => res.json())
+      .then((data) => setDetails(data.data.data));
+  }, []);
   return (
     <Container>
       <Box
@@ -24,6 +34,7 @@ const BasicSection = () => {
           Basic
         </Typography>
       </Box>
+
       <Box
         sx={{
           p: "15px 15px 15px 15px",
@@ -40,17 +51,27 @@ const BasicSection = () => {
       >
         <Typography variant="subtitle1" gutterBottom component="div">
           <span style={{ color: "#01479b", fontWeight: "bolder" }}>
-            Chittagong Government School
+            {details?.schoolName}
           </span>{" "}
           is a academic institute located at Nasirabad,in Chittagong district.
           Its institute code{" "}
           <span style={{ color: "#01479b", fontWeight: "bolder" }}>(EIIN)</span>{" "}
           is{" "}
           <span style={{ color: "#01479b", fontWeight: "bolder" }}>
-            123456.
+            {details?.EIIN}
           </span>{" "}
-          It was established on 01 January 2000.Its co-education type is
-          combined.
+          It was established on{" "}
+          <span style={{ color: "#01479b", fontWeight: "bolder" }}>
+            {details?.founderDate}
+          </span>
+          .Its co-education type is{" "}
+          <span style={{ color: "#01479b", fontWeight: "bolder" }}>
+            {details?.schoolType}
+          </span>
+          . The location of the school is{" "}
+          <span style={{ color: "#01479b", fontWeight: "bolder" }}>
+            {details?.location}
+          </span>
         </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={4}>
@@ -63,7 +84,7 @@ const BasicSection = () => {
               gutterBottom
               component="div"
             >
-              Chittagong Government School
+              {details?.schoolName}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
@@ -71,7 +92,7 @@ const BasicSection = () => {
               EIIN
             </Typography>
             <Typography variant="subtitle1" gutterBottom component="div">
-              123456
+              {details?.EIIN}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
@@ -79,31 +100,31 @@ const BasicSection = () => {
               Founded
             </Typography>
             <Typography variant="subtitle1" gutterBottom component="div">
-              01-01-2000
+              {details?.founderDate}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Typography variant="h6" gutterBottom component="div">
-              Founded
+              Location
             </Typography>
             <Typography variant="subtitle1" gutterBottom component="div">
-              01-01-2000
+              {details?.location}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Typography variant="h6" gutterBottom component="div">
-              Founded
+              Type
             </Typography>
             <Typography variant="subtitle1" gutterBottom component="div">
-              Combined
+              {details?.schoolType}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Typography variant="h6" gutterBottom component="div">
-              Founded
+              School Shift
             </Typography>
             <Typography variant="subtitle1" gutterBottom component="div">
-              Plain-Land
+              {details?.schoolShift}
             </Typography>
           </Grid>
         </Grid>
