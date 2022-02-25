@@ -15,6 +15,7 @@ import DashboardSchools from "./Components/Dashboard/Schools/Schools";
 import MakeAdmin from "./Components/Dashboard/MakeAdmin/MakeAdmin";
 import AddedSchoolDetailsForm from "./Components/Dashboard/Schools/AddedSchoolDetailsForm/AddedSchoolDetailsForm";
 import BookList from "./Components/BookList/BookList";
+import Teachers from "./Components/Teachers/Teachers";
 
 function App() {
   useEffect(() => {
@@ -36,8 +37,8 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="schools" element={<Schools />} />
           <Route path="books" element={<BookList />} />
+          <Route path="teachers" element={<Teachers />} />
           <Route path="schDetails" element={<SchoolDetails />} />
-
           <Route path="dashboard" element={<Dashboard />}>
             <Route path="addASchool" element={<AddASchool />} />
             <Route path="schools" element={<DashboardSchools />} />
@@ -45,7 +46,6 @@ function App() {
               path="addedSchoolDetailsForm/:id"
               element={<AddedSchoolDetailsForm />}
             />
-
             <Route path="makeAdmin" element={<MakeAdmin />} />
           </Route>
         </Routes>

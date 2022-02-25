@@ -21,7 +21,7 @@ const books = [
         price: '450'
     },
     {
-        id: '1',
+        id: '3',
         img: 'https://i.ibb.co/bBpfHMb/Harry-Potter-and-the-Prisoner-of-Azkaban.jpg',
         title: 'Harry Potter Prisoner of Azkaban ',
         author: 'J. K. Rowling',
@@ -30,7 +30,7 @@ const books = [
         price: '450'
     },
     {
-        id: '1',
+        id: '4',
         img: 'https://i.ibb.co/34J9msZ/Harry-Potter-and-the-Philosopher-s-Stone-Book-Cover.jpg',
         title: 'Harry Potter Goblet of Fire  ',
         author: 'J. K. Rowling',
@@ -39,7 +39,7 @@ const books = [
         price: '450'
     },
     {
-        id: '1',
+        id: '5',
         img: 'https://i.ibb.co/bBpfHMb/Harry-Potter-and-the-Prisoner-of-Azkaban.jpg',
         title: 'Harry Potter Order of the Phoenix ',
         author: 'J. K. Rowling',
@@ -48,7 +48,7 @@ const books = [
         price: '450'
     },
     {
-        id: '1',
+        id: '6',
         img: 'https://i.ibb.co/bBpfHMb/Harry-Potter-and-the-Prisoner-of-Azkaban.jpg',
         title: 'Harry Potter Half-Blood Prince ',
         author: 'J. K. Rowling',
@@ -83,9 +83,9 @@ const BookLIst = () => {
 
             <Grid container spacing={4}>
                 {books.map((book) => (
-                    <Grid item key={book} xs={12} sm={6} md={4}>
+                    <Grid item key={book.id} xs={12} sm={6} md={4}>
                         <Card
-                            sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                            sx={{ height: '100%', minWidth: '200px', display: 'flex', flexDirection: 'column' }}
                         >
 
                             <CardContent sx={{ flexGrow: 1 }}>
