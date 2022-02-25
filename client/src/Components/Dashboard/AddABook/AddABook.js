@@ -76,7 +76,7 @@ const AddABook = () => {
                     alert('error', 'Bad Request, Places Try again')
             });
 
-        console.log(book)
+
         reset();
     };
 

@@ -4,63 +4,6 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { api } from '../../Hooks/Api';
 
-// const books = [
-//     {
-//         id: '1',
-//         img: 'https://i.ibb.co/bBpfHMb/Harry-Potter-and-the-Prisoner-of-Azkaban.jpg',
-//         title: 'Harry Potter Philosophers Stone ',
-//         author: 'J. K. Rowling',
-//         published: '1997',
-//         type: 'Story',
-//         price: '450'
-//     },
-//     {
-//         id: '2',
-//         img: 'https://i.ibb.co/8DzMFYD/Harry-Potter-and-the-Chamber-of-Secrets.jpg',
-//         title: 'Harry Potter Chamber of Secrets  ',
-//         author: 'J. K. Rowling',
-//         published: '1998',
-//         type: 'Story',
-//         price: '450'
-//     },
-//     {
-//         id: '3',
-//         img: 'https://i.ibb.co/bBpfHMb/Harry-Potter-and-the-Prisoner-of-Azkaban.jpg',
-//         title: 'Harry Potter Prisoner of Azkaban ',
-//         author: 'J. K. Rowling',
-//         published: '1999',
-//         type: 'Story',
-//         price: '450'
-//     },
-//     {
-//         id: '4',
-//         img: 'https://i.ibb.co/34J9msZ/Harry-Potter-and-the-Philosopher-s-Stone-Book-Cover.jpg',
-//         title: 'Harry Potter Goblet of Fire  ',
-//         author: 'J. K. Rowling',
-//         published: '2000',
-//         type: 'Story',
-//         price: '450'
-//     },
-//     {
-//         id: '5',
-//         img: 'https://i.ibb.co/bBpfHMb/Harry-Potter-and-the-Prisoner-of-Azkaban.jpg',
-//         title: 'Harry Potter Order of the Phoenix ',
-//         author: 'J. K. Rowling',
-//         published: '2003',
-//         type: 'Story',
-//         price: '450'
-//     },
-//     {
-//         id: '6',
-//         img: 'https://i.ibb.co/bBpfHMb/Harry-Potter-and-the-Prisoner-of-Azkaban.jpg',
-//         title: 'Harry Potter Half-Blood Prince ',
-//         author: 'J. K. Rowling',
-//         published: '2005',
-//         type: 'Story',
-//         price: '450'
-//     },
-// ]
-
 
 const BookList = () => {
     const [books, setBooks] = useState([]);
@@ -69,6 +12,8 @@ const BookList = () => {
             .then(res => res.json())
             .then(data => setBooks(data?.data?.data))
     }, [])
+
+
     return (
         <>
             <NavigationBar />
@@ -126,8 +71,6 @@ const BookList = () => {
 
                                         <AddShoppingCartIcon />
                                     </IconButton>
-
-
                                 </CardActions>
                             </Card>
                         </Grid>

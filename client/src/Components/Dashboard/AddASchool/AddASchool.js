@@ -98,8 +98,6 @@ const AddASchool = () => {
                 console.log(error);
             });
 
-
-        console.log(data)
         reset();
     };
 

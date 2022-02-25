@@ -1,13 +1,12 @@
-import { useEffect } from "react";
+import { Suspense, useEffect, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AOS from "aos";
+import 'aos/dist/aos.css';
 import AuthProvider from "./Components/Context/AuthProvider";
 import Home from "./Components/Home/Home/Home";
 import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Register/Register";
 import About from "./Components/About/About/About";
-import AOS from "aos";
-import 'aos/dist/aos.css';
-import Dashboard from "./Components/Dashboard/Dashboard";
 import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
 import Schools from "./Components/Schools/Schools/Schools";
 import AddASchool from "./Components/Dashboard/AddASchool/AddASchool";
@@ -19,7 +18,11 @@ import AddABook from "./Components/Dashboard/AddABook/AddABook";
 import DashboardBooks from "./Components/Dashboard/Books/Books";
 import Contacts from "./Components/Contacts/Contacts";
 import OnlineTuitionTeacherAdd from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeacherAdd";
-
+import Teachers from "./Components/Teachers/Teachers";
+import BookList from "./Components/BookList/BookList";
+import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
+import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
+const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
 function App() {
   useEffect(() => {
     AOS.init({
@@ -33,18 +36,26 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
+          {/*  */}
           <Route path="/" element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
           <Route path="contacts" element={<Contacts />} />
-
+          <Route path="teachers" element={<Teachers />} />
+          <Route path="books" element={<BookList />} />
           <Route path="schools" element={<Schools />} />
-          <Route path="details/:id" element={<SchoolDetails />} />
+          <Route path="details/:id" element={
+            <PrivateRoute><SchoolDetails /></PrivateRoute>} />
           <Route path="basic" element={<BasicSection />} />
+          {/****************** Dashboard route  start******************/}
+          <Route path="dashboard" element={
+            <Suspense fallback={<LoadingPage />}>
+              <Dashboard />
+            </Suspense>
+          }>
 
-          <Route path="dashboard" element={<Dashboard />}>
             <Route path="addASchool" element={<AddASchool />} />
             <Route path="schools" element={<DashboardSchools />} />
             <Route path="addABook" element={<AddABook />} />
@@ -56,6 +67,7 @@ function App() {
             />
             <Route path="makeAdmin" element={<MakeAdmin />} />
           </Route>
+          {/***************** Dashboard route  End*****************/}
         </Routes>
       </BrowserRouter>
     </AuthProvider>

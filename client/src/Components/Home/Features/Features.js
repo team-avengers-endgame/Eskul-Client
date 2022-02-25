@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 import foodImg from './image/healthyFood.png';
 
 import background from '../../../Assets/Images/gray_wave.svg';
