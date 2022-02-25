@@ -14,12 +14,9 @@ import AddASchool from "./Components/Dashboard/AddASchool/AddASchool";
 import DashboardSchools from "./Components/Dashboard/Schools/Schools";
 import MakeAdmin from "./Components/Dashboard/MakeAdmin/MakeAdmin";
 import AddedSchoolDetailsForm from "./Components/Dashboard/Schools/AddedSchoolDetailsForm/AddedSchoolDetailsForm";
-<<<<<<< HEAD
 import BasicSection from "./Components/SchoolDetails/SchDetailsLayout/ContentBar/BasicSection/BasicSection";
-=======
 import AddABook from "./Components/Dashboard/AddABook/AddABook";
 import DashboardBooks from "./Components/Dashboard/Books/Books";
->>>>>>> 42b5ac4dae4edc95d2429f1fdd70836c83eefc5b
 
 function App() {
   useEffect(() => {
@@ -51,7 +48,6 @@ function App() {
               path="addedSchoolDetailsForm/:id"
               element={<AddedSchoolDetailsForm />}
             />
-
             <Route path="makeAdmin" element={<MakeAdmin />} />
           </Route>
         </Routes>
