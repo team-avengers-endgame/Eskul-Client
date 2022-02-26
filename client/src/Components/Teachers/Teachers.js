@@ -1,7 +1,8 @@
 
 import { styled } from '@material-ui/styles';
 import { ButtonBase, Container, Grid, Paper, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { api } from '../../Hooks/Api';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 
 const teachers = [
@@ -101,6 +102,14 @@ const Teachers = () => {
         maxHeight: "100%",
     });
 
+
+    
+    const [teachers, setTeachers] = useState([]);
+    useEffect(() => {
+        fetch(`${api}/teachers`)
+            .then(res => res.json())
+            .then(data => setTeachers(data?.data?.data))
+    }, [])
 
 
     return (
