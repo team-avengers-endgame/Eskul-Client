@@ -2,7 +2,14 @@ const UserModel = require("../models/userModel");
 const { createOne, updateOne } = require("./handlerFactory");
 
 const createUser = createOne(UserModel);
-const makeAdmin = updateOne(UserModel);
+
+const makeAdmin = async (req, res) => {
+  const user = req.body;
+  const filter = { email: user.email };
+  const updateDoc = { $set: { role: "admin" } };
+  const result = await UserModel.updateOne(filter, updateDoc);
+  res.json(result);
+};
 
 const checkIsAdmin = async (req, res) => {
   const email = req.params.email;
