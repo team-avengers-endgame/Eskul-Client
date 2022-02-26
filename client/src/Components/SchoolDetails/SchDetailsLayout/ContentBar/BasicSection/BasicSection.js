@@ -1,5 +1,4 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../../../../Hooks/Api";
@@ -11,7 +10,7 @@ const BasicSection = () => {
     fetch(`${api}/schools/${id}`)
       .then((res) => res.json())
       .then((data) => setDetails(data.data.data));
-  }, []);
+  }, [id]);
   return (
     <Container>
       <Box

@@ -11,7 +11,7 @@ export const ButtonStyle = {
 
 export const alert = (icon, title) => {
     Swal.fire({
-        position: 'top-end',
+        position: 'center',
         icon: icon,
         title: title,
         showConfirmButton: false,

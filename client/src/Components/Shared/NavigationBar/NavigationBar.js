@@ -23,7 +23,7 @@ const NavigationBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [navbar, setNavbar] = React.useState(false);
 
-  const { user, logOut } = useAuth();
+  const { user, admin, logOut } = useAuth();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -272,11 +272,13 @@ const NavigationBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign="center"> {user?.displayName}</Typography>
-              </MenuItem>
+              {user.displayName && <span>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center"> {user?.displayName}</Typography>
+                </MenuItem>  <Divider />
+              </span>}
 
-              <Divider />
+
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Profile</Typography>
               </MenuItem>
@@ -284,12 +286,14 @@ const NavigationBar = () => {
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Account</Typography>
               </MenuItem>
-              <Divider />
-              <NavLink to="/dashboard" style={LinkStyle}>
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Dashboard</Typography>
-                </MenuItem>
-              </NavLink>
+              {admin && <span>
+                <Divider />
+                <NavLink to="/dashboard" style={LinkStyle}>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">Dashboard</Typography>
+                  </MenuItem>
+                </NavLink>
+              </span>}
               <Divider />
               {user?.email ? (
                 <MenuItem

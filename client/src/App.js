@@ -1,14 +1,13 @@
-import { useEffect } from "react";
+import { Suspense, useEffect, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AOS from "aos";
+import 'aos/dist/aos.css';
 import AuthProvider from "./Components/Context/AuthProvider";
 import Home from "./Components/Home/Home/Home";
 import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Register/Register";
 import About from "./Components/About/About/About";
-import AOS from "aos";
-import 'aos/dist/aos.css';
-import Dashboard from "./Components/Dashboard/Dashboard";
-// import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
+import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
 import Schools from "./Components/Schools/Schools/Schools";
 import AddASchool from "./Components/Dashboard/AddASchool/AddASchool";
 import DashboardSchools from "./Components/Dashboard/Schools/Schools";
@@ -18,8 +17,14 @@ import BasicSection from "./Components/SchoolDetails/SchDetailsLayout/ContentBar
 import AddABook from "./Components/Dashboard/AddABook/AddABook";
 import DashboardBooks from "./Components/Dashboard/Books/Books";
 import Contacts from "./Components/Contacts/Contacts";
-import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
 
+import OnlineTuitionTeacherAdd from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeacherAdd";
+import Teachers from "./Components/Teachers/Teachers";
+import BookList from "./Components/BookList/BookList";
+import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
+import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
+import AdminRoute from "./Components/Dashboard/AdminRoute/AdminRoute";
+const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
 function App() {
   useEffect(() => {
     AOS.init({
@@ -33,27 +38,76 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
+          {/*  */}
           <Route path="/" element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
+          <Route path="books" element={<BookList />} />
+          <Route path="teachers" element={<Teachers />} />
+          <Route path="schDetails" element={<SchoolDetails />} />
           <Route path="contacts" element={<Contacts />} />
-
           <Route path="schools" element={<Schools />} />
-          <Route path="details/:id" element={<SchoolDetails />} />
+          <Route path="details/:id" element={
+            <PrivateRoute><SchoolDetails /></PrivateRoute>} />
           <Route path="basic" element={<BasicSection />} />
-          <Route path="dashboard" element={<Dashboard />}>
-            <Route path="addASchool" element={<AddASchool />} />
-            <Route path="schools" element={<DashboardSchools />} />
-            <Route path="addABook" element={<AddABook />} />
-            <Route path="books" element={<DashboardBooks />} />
+
+
+          {/****************** Dashboard route  start******************/}
+          <Route path="dashboard" element={
+            <Suspense fallback={<LoadingPage />}>
+              <AdminRoute>
+                <Dashboard />
+              </AdminRoute>
+            </Suspense>
+          }>
+
+            <Route path="addASchool" element={
+              <AdminRoute>
+                <AddASchool />
+              </AdminRoute>
+            } />
+
+            <Route path="schools" element={
+              <AdminRoute>
+                <DashboardSchools />
+              </AdminRoute>
+            } />
+
+            <Route path="addABook" element={
+              <AdminRoute>
+                <AddABook />
+              </AdminRoute>
+            } />
+
+            <Route path="books" element={
+              <AdminRoute>
+                <DashboardBooks />
+              </AdminRoute>
+            } />
+
+            <Route path="addOnlineTuition" element={
+              <AdminRoute>
+                <OnlineTuitionTeacherAdd />
+              </AdminRoute>
+            } />
+
             <Route
               path="addedSchoolDetailsForm/:id"
-              element={<AddedSchoolDetailsForm />}
-            />
-            <Route path="makeAdmin" element={<MakeAdmin />} />
+              element={
+                <AdminRoute>
+                  <AddedSchoolDetailsForm />
+                </AdminRoute>
+              } />
+
+            <Route path="makeAdmin" element={
+              <AdminRoute>
+                <MakeAdmin />
+              </AdminRoute>
+            } />
           </Route>
+          {/***************** Dashboard route  End*****************/}
         </Routes>
       </BrowserRouter>
     </AuthProvider>
