@@ -137,7 +137,7 @@ const useFirebase = () => {
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      /* .then((data) => console.log(data)) */
       .catch((err) => console.log(err));
   };
 
@@ -154,16 +154,16 @@ const useFirebase = () => {
     });
     return () => unsubscribe();
   }, [auth]);
-
+  // const email = 'koiry.rupok@gmail.com'
   // get admin ============================
   useEffect(() => {
-    fetch(`${api}/users/${user.email}`)
+    fetch(`${api}/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+
         setAdmin(data.admin);
       })
-      .finally(() => {});
+      .finally(() => { });
   }, [user.email]);
 
   return {

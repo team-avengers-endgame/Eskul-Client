@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 const AddABook = () => {
     const [bookImg, setBookImg] = React.useState('');
     const { register, handleSubmit, reset } = useForm();
-    const [publishedDate, setPublishedDate] = React.useState(new Date('2014-08-18T21:11:54').toDateString().toString());
+    const [publishedDate, setPublishedDate] = React.useState(new Date('2/26/2022').toLocaleDateString());
     const [rating, setRating] = React.useState(2);
     const [hover, setHover] = React.useState(-1);
     const [type, SetType] = React.useState('');

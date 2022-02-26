@@ -13,6 +13,7 @@ const makeAdmin = async (req, res) => {
 
 const checkIsAdmin = async (req, res) => {
   const email = req.params.email;
+  console.log(email)
   const user = await UserModel.findOne({ email: email });
   let isAdmin = false;
 

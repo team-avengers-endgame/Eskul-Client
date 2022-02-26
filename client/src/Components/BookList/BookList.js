@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent, CardMedia, Container, Divider, Grid, IconButton, Typography } from '@mui/material';
+import { Card, CardActions, CardContent, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
@@ -12,12 +12,12 @@ const BookList = () => {
             .then(res => res.json())
             .then(data => setBooks(data?.data?.data))
     }, [])
-
+    console.log(books)
 
     return (
         <>
             <NavigationBar />
-            <Container sx={{ py: 8 }} maxWidth="md">
+            <Container>
 
                 <Typography
                     variant="h3"
@@ -34,16 +34,16 @@ const BookList = () => {
                 >
                     Books
                 </Typography>
-                <Divider variant="middle" />
 
-                <Grid container spacing={4}>
+
+                <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {books.map((book) => (
-                        <Grid item key={book.id} xs={12} sm={6} md={4}>
+                        <Grid item key={book._id} xs={4} sm={4} md={3}>
                             <Card
                                 sx={{ height: '100%', minWidth: '200px', display: 'flex', flexDirection: 'column' }}
                             >
 
-                                <CardContent sx={{ flexGrow: 1 }}>
+                                <CardContent>
                                     <CardMedia
                                         component="img"
                                         height="194"
@@ -51,19 +51,19 @@ const BookList = () => {
                                         alt=""
                                     />
                                     <Typography gutterBottom variant="h5">
-                                        {book.title}
+                                        {book.bookName}
                                     </Typography>
                                     <Typography>
                                         {book.author}
                                     </Typography>
                                     <Typography>
-                                        First published: {book.published}
+                                        First published: {book.publishedDate}
                                     </Typography>
                                     <Typography>
                                         Book type: {book.type}
                                     </Typography>
                                     <Typography>
-                                        Price: {book.price}
+                                        Price: {book.bookPrice}
                                     </Typography>
                                 </CardContent>
                                 <CardActions>

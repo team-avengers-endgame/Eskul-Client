@@ -25,14 +25,14 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 const drawerWidth = 240;
 function Dashboard(props) {
-    const { user, logOut } = useAuth();
+    const { user, logOut, admin } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-
+    console.log(admin)
 
     const drawer = (
         <div>
