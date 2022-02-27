@@ -50,6 +50,17 @@ app.use("/api/schools", schoolRouter);
 app.use("/api/books", bookRouter);
 app.use("/api/teachers", teacherRouter);
 app.use("/api/privateTeachers", privateTeacherRouter);
+
+//For serving static files
+if (process.env.NODE_ENV == "production") {
+  app.use(express.static("client/build"));
+
+  const path = require("path");
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 // If no routes are matched, send 404
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

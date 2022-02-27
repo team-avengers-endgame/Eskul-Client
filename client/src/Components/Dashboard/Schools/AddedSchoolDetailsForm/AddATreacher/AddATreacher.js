@@ -64,8 +64,6 @@ const AddATreacher = () => {
                 !error.status === 201 &&
                     alert('error', 'Bad Request, Places Try again')
             });
-
-        console.log(data)
         reset();
     };
 

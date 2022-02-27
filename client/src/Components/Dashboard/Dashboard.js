@@ -25,14 +25,14 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 const drawerWidth = 240;
 function Dashboard(props) {
-    const { user, logOut } = useAuth();
+    const { user, logOut, admin } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-    console.log(user)
+    console.log(admin)
 
     const drawer = (
         <div>
@@ -73,6 +73,15 @@ function Dashboard(props) {
                             <SchoolIcon />
                         </ListItemIcon>
                         Schools
+                    </ListItem>
+                </NavLink>
+                <Divider />
+                <NavLink to='/dashboard/addOnlineTuition' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <AddCardIcon />
+                        </ListItemIcon>
+                        Add a Online Tuition
                     </ListItem>
                 </NavLink>
                 <Divider />
