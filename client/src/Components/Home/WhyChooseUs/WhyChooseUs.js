@@ -20,6 +20,7 @@ const WhyChooseUsData = [
         dis: 'If you’re not completely satisfied we will refund your money, no questions asked.'
     },
     {
+        
         id: 4,
         title: 'Culture of Honour',
         dis: 'We aim to help all people that come into contact with ChildiT to feel Significant, Appreciated and Understood.'
