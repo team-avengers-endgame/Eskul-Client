@@ -20,7 +20,7 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import StarIcon from "@mui/icons-material/Star";
 import Rating from "@mui/material/Rating";
-import { ButtonStyle } from "../../../../Hooks/useStyle";
+import { ButtonStyle, alert } from "../../../../Hooks/useStyle";
 import { useForm } from "react-hook-form";
 import { api } from "../../../../Hooks/Api";
 import axios from "axios";
@@ -153,9 +153,17 @@ const EditBooks = ({ id, handleClose, open, scroll, loadBooks }) => {
       type,
       rating,
     };
-    const response = await axios.patch(`${api}/books/${id}`, book);
-    //Show modal here if success or error
-    console.log(response);
+    try {
+      const response = await axios.patch(`${api}/books/${id}`, book);
+      if (response.status === 200)
+        alert("success", "Book Updated Successfully");
+    } catch (error) {
+      if (!error.status === 200)
+        alert("error", "Bad Request, Places Try again");
+    }
+
+    handleClose();
+    reset();
     loadBooks();
   };
   const classes = useStyles();
