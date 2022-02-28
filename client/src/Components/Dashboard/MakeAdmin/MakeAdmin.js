@@ -25,7 +25,7 @@ const MakeAdmin = () => {
 
 
     return (
-        <Box>
+        <Box sx={{ p: 3 }}>
             <Box>
                 <h1>Make a admin form</h1>
                 <Box sx={{ maxWidth: 400 }}>
