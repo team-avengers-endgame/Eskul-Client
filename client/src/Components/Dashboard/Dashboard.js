@@ -10,9 +10,9 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import HomeIcon from '@mui/icons-material/Home';
 import SchoolIcon from '@mui/icons-material/School';
 import MenuIcon from '@mui/icons-material/Menu';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import Toolbar from '@mui/material/Toolbar';
 import { LinkStyle } from '../../Hooks/useStyle';
 import { Link, NavLink, Outlet } from 'react-router-dom';
@@ -38,7 +38,7 @@ function Dashboard(props) {
         <div>
 
             <Toolbar>
-                <Link to='/dashboard' style={LinkStyle}>
+                <Link to='/home' style={LinkStyle}>
                     <ListItem button >
                         <ListItemIcon>
                             <Avatar alt="User Logo" src={user?.photoURL} />
@@ -49,12 +49,12 @@ function Dashboard(props) {
             </Toolbar>
             <List>
                 <Divider />
-                <NavLink to='/home' style={LinkStyle}>
+                <NavLink to='/dashboard' style={LinkStyle}>
                     <ListItem button >
                         <ListItemIcon>
-                            <HomeIcon />
+                            <DashboardIcon />
                         </ListItemIcon>
-                        home
+                        Dashboard
                     </ListItem>
                 </NavLink>
                 <Divider />
@@ -199,7 +199,7 @@ function Dashboard(props) {
             </Box>
             <Box
                 component="main"
-                sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+                sx={{ flexGrow: 1, p: 0, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
                 <Outlet />

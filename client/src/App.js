@@ -25,6 +25,7 @@ import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
 import AdminRoute from "./Components/Dashboard/AdminRoute/AdminRoute";
 import EditBooks from "./Components/Dashboard/Books/EditBooks/EditBooks";
+import DashboardHome from "./Components/Dashboard/DashboardHome/DashboardHome";
 const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
 function App() {
   useEffect(() => {
@@ -58,12 +59,12 @@ function App() {
           {/****************** Dashboard route  start******************/}
           <Route path="dashboard" element={
             <Suspense fallback={<LoadingPage />}>
-              {/* <AdminRoute> */}
-              <Dashboard />
-              {/* </AdminRoute> */}
+              <AdminRoute>
+                <Dashboard />
+              </AdminRoute>
             </Suspense>
           }>
-
+            <Route index element={<DashboardHome />} />
             <Route path="addASchool" element={
               <AdminRoute>
                 <AddASchool />
