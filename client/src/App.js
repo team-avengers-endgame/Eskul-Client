@@ -57,9 +57,9 @@ function App() {
           {/****************** Dashboard route  start******************/}
           <Route path="dashboard" element={
             <Suspense fallback={<LoadingPage />}>
-              <AdminRoute>
-                <Dashboard />
-              </AdminRoute>
+              {/* <AdminRoute> */}
+              <Dashboard />
+              {/* </AdminRoute> */}
             </Suspense>
           }>
 
@@ -76,9 +76,9 @@ function App() {
             } />
 
             <Route path="addABook" element={
-              <AdminRoute>
-                <AddABook />
-              </AdminRoute>
+              // <AdminRoute>
+              <AddABook />
+              // </AdminRoute>
             } />
 
             <Route path="books" element={

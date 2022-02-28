@@ -12,6 +12,7 @@ import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 import { IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { api } from '../../../Hooks/Api';
+import EditSchoolDataForm from './EditSchoolDataForm/EditSchoolDataForm';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -36,51 +37,82 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 export default function Schools() {
     const [schools, setSchools] = useState([]);
+    const [open, setOpen] = React.useState(false);
+    const [scroll, setScroll] = React.useState('paper');
+    const [school, setSchool] = useState({});
     useEffect(() => {
         fetch(`${api}/schools`)
             .then(res => res.json())
             .then(data => setSchools(data?.data?.data))
     }, [])
 
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
+    const singleSchool = async (id) => {
+
+        await fetch(`${api}/schools/${id}`)
+            .then(res => res.json())
+            .then(data => setSchool(data?.data?.data || ''))
+        setScroll('paper');
+        setOpen(true);
+    }
+
+
     return (
-        <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 700 }} aria-label="customized table">
-                <TableHead>
-                    <TableRow>
-                        <StyledTableCell>Schools</StyledTableCell>
-                        <StyledTableCell align="left">Location</StyledTableCell>
-                        <StyledTableCell align="left">EIIN</StyledTableCell>
-                        <StyledTableCell align="left">Photo</StyledTableCell>
-                        <StyledTableCell align="right">Added School data</StyledTableCell>
-                        <StyledTableCell align="right">Edit</StyledTableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {schools?.map((school) => (
-                        <StyledTableRow key={school?._id}>
-                            <StyledTableCell component="th" scope="row">
-                                {school?.schoolName}
-                            </StyledTableCell>
-                            <StyledTableCell align="left">{school?.location}</StyledTableCell>
-                            <StyledTableCell align="left">{school?.EIIN}</StyledTableCell>
-                            <StyledTableCell align="left">
-                                <img style={{ width: 'auto', height: '50px' }} src={school?.schoolPhoto} alt="" />
-                            </StyledTableCell>
+        <>
+            <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                    <TableHead>
+                        <TableRow>
+                            <StyledTableCell>Schools</StyledTableCell>
+                            <StyledTableCell align="left">Location</StyledTableCell>
+                            <StyledTableCell align="left">EIIN</StyledTableCell>
+                            <StyledTableCell align="left">Photo</StyledTableCell>
+                            <StyledTableCell align="right">Added School data</StyledTableCell>
+                            <StyledTableCell align="right">Edit</StyledTableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {schools?.map((school) => (
+                            <StyledTableRow key={school?._id}>
+                                <StyledTableCell component="th" scope="row">
+                                    {school?.schoolName}
+                                </StyledTableCell>
+                                <StyledTableCell align="left">{school?.location}</StyledTableCell>
+                                <StyledTableCell align="left">{school?.EIIN}</StyledTableCell>
+                                <StyledTableCell align="left">
+                                    <img style={{ width: 'auto', height: '50px' }} src={school?.schoolPhoto} alt="" />
+                                </StyledTableCell>
 
-                            <StyledTableCell align="right">
+                                <StyledTableCell align="right">
 
-                                <Link to={`/dashboard/addedSchoolDetailsForm/${school?._id}`}>
-                                    <IconButton color="secondary" >
-                                        <AddCircleOutlinedIcon />
+                                    <Link to={`/dashboard/addedSchoolDetailsForm/${school?._id}`}>
+                                        <IconButton color="secondary" >
+                                            <AddCircleOutlinedIcon />
+                                        </IconButton>
+                                    </Link>
+
+                                </StyledTableCell>
+                                <StyledTableCell align="right">
+                                    <IconButton color="secondary" onClick={() => singleSchool(school?._id)} >
+                                        <EditIcon />
                                     </IconButton>
-                                </Link>
+                                </StyledTableCell>
+                            </StyledTableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+            < EditSchoolDataForm
+                school={school}
+                open={open}
+                scroll={scroll}
+                handleClose={handleClose} />
 
-                            </StyledTableCell>
-                            <StyledTableCell align="right"><IconButton color="secondary" ><EditIcon /></IconButton></StyledTableCell>
-                        </StyledTableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+
+        </>
     );
 }
