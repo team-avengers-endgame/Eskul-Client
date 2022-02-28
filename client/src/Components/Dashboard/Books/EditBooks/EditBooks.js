@@ -157,7 +157,6 @@ const EditBooks = ({ id, handleClose, open, scroll, loadBooks }) => {
     console.log(response);
     loadBooks();
   };
-
   const classes = useStyles();
 
   return (
