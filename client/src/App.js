@@ -23,7 +23,9 @@ import BookList from "./Components/BookList/BookList";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
 import AdminRoute from "./Components/Dashboard/AdminRoute/AdminRoute";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -34,7 +36,7 @@ function App() {
   });
 
   return (
-    <AuthProvider>
+    <> <AuthProvider>
       <BrowserRouter>
         <Routes>
           {/*  */}
@@ -108,8 +110,15 @@ function App() {
           </Route>
           {/***************** Dashboard route  End*****************/}
         </Routes>
+        <MessengerCustomerChat
+          pageId="111112171511275"
+          appId="505054407836582"
+          htmlRef="<REF_STRING>"
+        />,
       </BrowserRouter>
     </AuthProvider>
+
+    </>
   );
 }
 
