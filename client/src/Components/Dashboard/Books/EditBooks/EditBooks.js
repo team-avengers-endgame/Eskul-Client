@@ -154,6 +154,7 @@ const EditBooks = ({ id, handleClose, open, scroll, loadBooks }) => {
       rating,
     };
     const response = await axios.patch(`${api}/books/${id}`, book);
+    //Show modal here if success or error
     console.log(response);
     loadBooks();
   };
