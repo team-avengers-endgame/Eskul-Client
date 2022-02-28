@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
@@ -12,6 +12,9 @@ import { Box } from '@mui/system';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { api } from '../../../Hooks/Api';
+import EditBooks from './EditBooks/EditBooks';
+import axios from 'axios';
+import { alert } from '../../../Hooks/useStyle';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -34,14 +37,43 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 export default function Books() {
-
+    const [id, setId] = useState('')
     const [books, setBooks] = React.useState([]);
-    React.useEffect(() => {
+    const [open, setOpen] = React.useState(false);
+    const [scroll, setScroll] = React.useState();
+    useEffect(() => {
         fetch(`${api}/books`)
             .then(res => res.json())
             .then(data => setBooks(data?.data?.data))
     }, [])
-    console.log(books)
+
+
+    const handleDeleteBook = (bookId) => {
+        axios.delete(`${api}/books/${bookId}`)
+            .then((response) => {
+                response.status === 204 &&
+                    alert('success', 'Delete Successfully')
+                books.filter(d => d._id !== id);
+
+            })
+            .catch((error) => {
+                console.log(error)
+                !error.status === 204 &&
+                    alert('error', 'Bad Request, Places Try again')
+            });
+    }
+
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleSetScroll = (id) => {
+        setId(id)
+        setScroll();
+        setOpen(true);
+    }
+
+
     return (
         <Box>
             <Typography variant='h5' sx={{ my: 2, fontWeight: 'bold' }}>Manage All Book</Typography>
@@ -70,13 +102,16 @@ export default function Books() {
                                 </StyledTableCell>
                                 <StyledTableCell align="right">
                                     <IconButton
+                                        onClick={() => handleSetScroll(book._id)}
                                         color="secondary"
                                         component="span">
                                         <EditIcon />
+
                                     </IconButton>
                                 </StyledTableCell>
                                 <StyledTableCell align="right">
                                     <IconButton
+                                        onClick={() => handleDeleteBook(book._id)}
                                         color='secondary'
                                         sx={{ color: '#f50057' }}
                                         component="span">
@@ -85,10 +120,18 @@ export default function Books() {
                                 </StyledTableCell>
 
                             </StyledTableRow>
+
                         ))}
                     </TableBody>
                 </Table>
             </TableContainer>
+
+            <EditBooks
+                id={id}
+                handleClose={handleClose}
+                open={open}
+                scroll={scroll}
+            />
         </Box>
     );
 }

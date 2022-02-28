@@ -25,16 +25,18 @@ const MakeAdmin = () => {
 
 
     return (
-        <>
-            <h1>Make a admin form</h1>
-            <Box sx={{ maxWidth: 400 }}>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <TextField size='small' fullWidth label="Email" placeholder='Email'{...register("email", { required: true })} />
-                    {errors.email && <span>This admin field is required</span>} <br /> <br />
-                    <Button type='submit' fullWidth sx={ButtonStyle}>Make Admin</Button>
-                </form>
+        <Box>
+            <Box>
+                <h1>Make a admin form</h1>
+                <Box sx={{ maxWidth: 400 }}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <TextField size='small' fullWidth label="Email" placeholder='Email'{...register("email", { required: true })} />
+                        {errors.email && <span>This admin field is required</span>} <br /> <br />
+                        <Button type='submit' fullWidth sx={ButtonStyle}>Make Admin</Button>
+                    </form>
+                </Box>
             </Box>
-        </>
+        </Box>
     );
 };
 
