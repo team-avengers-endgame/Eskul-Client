@@ -15,6 +15,8 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "./logo.png";
 import useAuth from "../../../Hooks/useAuth";
 import { Divider } from "@mui/material";
+import DropdownMenuPage from "./DropdownMenuPage";
+import DropdownMenuGallery from "./DropdownMenuGallery";
 
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -24,6 +26,8 @@ const NavigationBar = () => {
   const [navbar, setNavbar] = React.useState(false);
 
   const { user, admin, logOut } = useAuth();
+
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -121,20 +125,14 @@ const NavigationBar = () => {
                 parent info
               </Button>
             </Link>
-            <Link to="/gallery" style={LinkStyle}>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "#211e1e", display: "block" }}
-              >
-                gallery
-              </Button>
-            </Link>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "#211e1e", display: "block" }}
-            >
-              pages
-            </Button>
+            <DropdownMenuGallery />
+            <DropdownMenuPage />
+
+
+
+
+
+
             <Link to="/blogs" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
@@ -211,14 +209,8 @@ const NavigationBar = () => {
                   <Typography textAlign="center">Parent info</Typography>
                 </MenuItem>
               </Link>
-              <Link to="/gallery" style={LinkStyle}>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Gallery</Typography>
-                </MenuItem>
-              </Link>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Pages</Typography>
-              </MenuItem>
+              <DropdownMenuGallery />
+              <DropdownMenuPage />
               <Link to="/blog" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Blog</Typography>

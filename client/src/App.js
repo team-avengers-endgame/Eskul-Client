@@ -23,6 +23,7 @@ import BookList from "./Components/BookList/BookList";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
 import AdminRoute from "./Components/Dashboard/AdminRoute/AdminRoute";
+import EditBooks from "./Components/Dashboard/Books/EditBooks/EditBooks";
 const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
 function App() {
   useEffect(() => {
@@ -98,6 +99,13 @@ function App() {
                 <AdminRoute>
                   <AddedSchoolDetailsForm />
                 </AdminRoute>
+              } />
+            <Route
+              path="editBooks/:id"
+              element={
+                // <AdminRoute>
+                <EditBooks />
+                // </AdminRoute>
               } />
 
             <Route path="makeAdmin" element={

@@ -12,9 +12,9 @@ import { Box } from '@mui/system';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { api } from '../../../Hooks/Api';
-import EditBooks from './EditBooks/EditBooks';
 import axios from 'axios';
 import { alert } from '../../../Hooks/useStyle';
+import { Link } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -37,10 +37,11 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 export default function Books() {
-    const [id, setId] = useState('')
+
     const [books, setBooks] = React.useState([]);
-    const [open, setOpen] = React.useState(false);
-    const [scroll, setScroll] = React.useState();
+
+
+
     useEffect(() => {
         fetch(`${api}/books`)
             .then(res => res.json())
@@ -48,12 +49,17 @@ export default function Books() {
     }, [])
 
 
+
+
+
+
     const handleDeleteBook = (bookId) => {
         axios.delete(`${api}/books/${bookId}`)
             .then((response) => {
                 response.status === 204 &&
                     alert('success', 'Delete Successfully')
-                books.filter(d => d._id !== id);
+                const deleteBook = books.filter(d => d._id !== bookId)
+                setBooks(deleteBook);
 
             })
             .catch((error) => {
@@ -64,14 +70,6 @@ export default function Books() {
     }
 
 
-    const handleClose = () => {
-        setOpen(false);
-    };
-    const handleSetScroll = (id) => {
-        setId(id)
-        setScroll();
-        setOpen(true);
-    }
 
 
     return (
@@ -89,36 +87,38 @@ export default function Books() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {books.map((book) => (
+                        {books?.map((book) => (
                             <StyledTableRow
                                 key={book._id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <StyledTableCell component="th" scope="row">
-                                    {book.bookName}
+                                    {book?.bookName}
                                 </StyledTableCell>
                                 <StyledTableCell  >
-                                    <img style={{ width: '50px', height: '70px' }} src={book.bookImg} alt="" />
+                                    <img style={{ width: '50px', height: '70px' }} src={book?.bookImg} alt="" />
                                 </StyledTableCell>
                                 <StyledTableCell align="right">
-                                    <IconButton
-                                        onClick={() => handleSetScroll(book._id)}
-                                        color="secondary"
-                                        component="span">
-                                        <EditIcon />
+                                    <Link to={`/dashboard/editBooks/${book?._id}`}>
+                                        <IconButton
+                                            color="secondary"
+                                            component="span">
+                                            <EditIcon />
 
-                                    </IconButton>
+                                        </IconButton>
+                                    </Link>
                                 </StyledTableCell>
                                 <StyledTableCell align="right">
+
                                     <IconButton
-                                        onClick={() => handleDeleteBook(book._id)}
+                                        onClick={() => handleDeleteBook(book?._id)}
                                         color='secondary'
                                         sx={{ color: '#f50057' }}
                                         component="span">
                                         <DeleteIcon />
                                     </IconButton>
-                                </StyledTableCell>
 
+                                </StyledTableCell>
                             </StyledTableRow>
 
                         ))}
@@ -126,12 +126,7 @@ export default function Books() {
                 </Table>
             </TableContainer>
 
-            <EditBooks
-                id={id}
-                handleClose={handleClose}
-                open={open}
-                scroll={scroll}
-            />
+
         </Box>
     );
 }
