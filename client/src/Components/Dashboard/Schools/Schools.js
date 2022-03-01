@@ -9,7 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import EditIcon from "@mui/icons-material/Edit";
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, TableFooter, TablePagination, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { api } from "../../../Hooks/Api";
 import EditSchoolDataForm from "./EditSchoolDataForm/EditSchoolDataForm";
@@ -39,6 +39,8 @@ export default function Schools() {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState("paper");
   const [school, setSchool] = useState({});
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const loadSchools = async () => {
     fetch(`${api}/schools`)
@@ -62,6 +64,15 @@ export default function Schools() {
     setOpen(true);
   };
 
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant="h5" sx={{ pb: 3 }}>Manage all Schools</Typography>
@@ -78,7 +89,7 @@ export default function Schools() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {schools?.map((school) => (
+            {schools?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((school) => (
               <StyledTableRow key={school?._id}>
                 <StyledTableCell component="th" scope="row">
                   {school?.schoolName}
@@ -113,6 +124,17 @@ export default function Schools() {
               </StyledTableRow>
             ))}
           </TableBody>
+          <TableFooter>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
+              component="div"
+              count={schools?.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+          </TableFooter>
         </Table>
       </TableContainer>
       <EditSchoolDataForm

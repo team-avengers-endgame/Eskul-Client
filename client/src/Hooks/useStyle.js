@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-export const LinkStyle = { textDecoration: 'none', color: 'rgba(0, 0, 0, 0.54)' }
+export const LinkStyle = { textDecoration: 'none', color: 'rgba(5,5, 0, 0.54)' }
 export const ActiveLinkStyle = { color: 'gray', fontWeight: 'bold' }
 
 export const ButtonStyle = {

@@ -23,6 +23,8 @@ import AddCardIcon from '@mui/icons-material/AddCard';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import HomeIcon from '@mui/icons-material/Home';
+
 const drawerWidth = 240;
 function Dashboard(props) {
     const { user, logOut, admin } = useAuth();
@@ -50,6 +52,16 @@ function Dashboard(props) {
                 </Link>
             </Toolbar>
             <List>
+                <Divider />
+                <NavLink to='/' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <HomeIcon />
+                        </ListItemIcon>
+                        Home
+                    </ListItem>
+                </NavLink>
+                <Divider />
                 <Divider />
                 <NavLink to='/dashboard' style={LinkStyle}>
                     <ListItem button >

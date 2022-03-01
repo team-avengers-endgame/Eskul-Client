@@ -5,7 +5,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { IconButton, Typography } from "@mui/material";
+import { IconButton, TableFooter, TablePagination, Typography } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box } from "@mui/system";
@@ -42,6 +42,9 @@ export default function Books() {
   const [books, setBooks] = React.useState([]);
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState();
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
 
   const loadBooks = async () => {
     fetch(`${api}/books`)
@@ -92,6 +95,16 @@ export default function Books() {
     setOpen(true);
   };
 
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant="h5" sx={{ my: 2, fontWeight: "bold" }}>
@@ -112,7 +125,7 @@ export default function Books() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {books.map((book) => (
+            {books?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((book) => (
               <StyledTableRow
                 key={book._id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -149,7 +162,20 @@ export default function Books() {
               </StyledTableRow>
             ))}
           </TableBody>
+
         </Table>
+
+        <TableFooter>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
+            component="div"
+            count={books?.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </TableFooter>
       </TableContainer>
 
       <EditBooks
