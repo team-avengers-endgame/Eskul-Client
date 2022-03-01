@@ -19,6 +19,9 @@ const SchoolMain = () => {
     maxWidth: "100%",
     maxHeight: "100%",
   });
+
+
+
   return (
     <Container>
       <Typography
@@ -35,6 +38,8 @@ const SchoolMain = () => {
       >
         All Schools in Bangladesh
       </Typography>
+
+      
 
       <SearchBar />
       <Grid container spacing={2}>
