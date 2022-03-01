@@ -33,8 +33,11 @@ const teacherSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide teacher qualification"],
   },
+  institution: {
+    type: String,
+    required: [true, "Please provide teacher qualification"],
+  },
 });
-teacherSchema.index({ school: 1 }, { unique: true });
 
 teacherSchema.pre(/^find/, function (next) {
   this.populate({

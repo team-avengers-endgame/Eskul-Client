@@ -126,11 +126,7 @@ function App() {
           </Route>
           {/***************** Dashboard route  End*****************/}
         </Routes>
-        <MessengerCustomerChat
-          pageId="111112171511275"
-          appId="505054407836582"
-          htmlRef="<REF_STRING>"
-        />,
+
       </BrowserRouter>
     </AuthProvider>
 
