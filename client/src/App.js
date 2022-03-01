@@ -27,7 +27,9 @@ import AdminRoute from "./Components/Dashboard/AdminRoute/AdminRoute";
 import EditBooks from "./Components/Dashboard/Books/EditBooks/EditBooks";
 import DashboardHome from "./Components/Dashboard/DashboardHome/DashboardHome";
 import OnlineTuitionTeachers from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeachers/OnlineTuitionTeachers";
+import MessengerCustomerChat from "react-messenger-customer-chat/lib/MessengerCustomerChat";
 const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -38,7 +40,7 @@ function App() {
   });
 
   return (
-    <AuthProvider>
+    <> <AuthProvider>
       <BrowserRouter>
         <Routes>
           {/*  */}
@@ -124,8 +126,15 @@ function App() {
           </Route>
           {/***************** Dashboard route  End*****************/}
         </Routes>
+        <MessengerCustomerChat
+          pageId="111112171511275"
+          appId="505054407836582"
+          htmlRef="<REF_STRING>"
+        />,
       </BrowserRouter>
     </AuthProvider>
+
+    </>
   );
 }
 

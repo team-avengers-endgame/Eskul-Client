@@ -8,6 +8,7 @@ import Principles from "../Principles/Principles";
 import VisionMissionSection from "../VisionMissionSection/VisionMissionSection";
 import SharedBanner from "../../Shared/SharedBanner/SharedBanner";
 import Footer from "../../Shared/Footer/Footer";
+import TeamCard from "../TeamCard/TeamCard";
 // About section
 const About = () => {
   return (
@@ -20,6 +21,7 @@ const About = () => {
       <DifferenceSection />
       <FacilitySection />
       <Principles />
+      <TeamCard></TeamCard>
       <Footer />
     </div>
   );
