@@ -26,6 +26,8 @@ import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
 import AdminRoute from "./Components/Dashboard/AdminRoute/AdminRoute";
 import EditBooks from "./Components/Dashboard/Books/EditBooks/EditBooks";
 import DashboardHome from "./Components/Dashboard/DashboardHome/DashboardHome";
+import PrivateTuor from "./Components/PrivateTutor/PrivateTutor/PrivateTuor";
+import TutorDetails from "./Components/PrivateTutor/TutorDetails/TutorDetails";
 const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
 function App() {
   useEffect(() => {
@@ -54,6 +56,10 @@ function App() {
           <Route path="details/:id" element={
             <PrivateRoute><SchoolDetails /></PrivateRoute>} />
           <Route path="basic" element={<BasicSection />} />
+          <Route path="privateTutor" element={<PrivateTuor />} />
+          <Route path="tutorDetails" element={
+            <PrivateRoute><TutorDetails /></PrivateRoute>} />
+          
 
 
           {/****************** Dashboard route  start******************/}
