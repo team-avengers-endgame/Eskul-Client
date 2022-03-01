@@ -1,7 +1,7 @@
 import { Suspense, useEffect, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AOS from "aos";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 import AuthProvider from "./Components/Context/AuthProvider";
 import Home from "./Components/Home/Home/Home";
 import Login from "./Components/Login/Login/Login";
@@ -29,8 +29,14 @@ import DashboardHome from "./Components/Dashboard/DashboardHome/DashboardHome";
 import OnlineTuitionTeachers from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeachers/OnlineTuitionTeachers";
 import PrivateTuor from "./Components/PrivateTutor/PrivateTutor/PrivateTuor";
 import TutorDetails from "./Components/PrivateTutor/TutorDetails/TutorDetails";
+import TeacherDetails from "./Components/TeacherDetails/TeacherDetails";
+import Transport from "./Components/Transport/Transport";
 
-const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
+const Dashboard = lazy(() => {
+  return new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
+    import("./Components/Dashboard/Dashboard")
+  );
+});
 function App() {
   useEffect(() => {
     AOS.init({
@@ -55,58 +61,91 @@ function App() {
           <Route path="schDetails" element={<SchoolDetails />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="schools" element={<Schools />} />
-          <Route path="details/:id" element={
-            <PrivateRoute><SchoolDetails /></PrivateRoute>} />
+          <Route path="transport" element={<Transport />} />
+          <Route
+            path="details/:id"
+            element={
+              <PrivateRoute>
+                <SchoolDetails />
+              </PrivateRoute>
+            }
+          />
+          <Route path="teacherDetails/:id" element={<TeacherDetails />} />
           <Route path="basic" element={<BasicSection />} />
           <Route path="privateTutor" element={<PrivateTuor />} />
-          <Route path="tutorDetails" element={
-            <PrivateRoute><TutorDetails /></PrivateRoute>} />
-
-
+          <Route
+            path="tutorDetails"
+            element={
+              <PrivateRoute>
+                <TutorDetails />
+              </PrivateRoute>
+            }
+          />
 
           {/****************** Dashboard route  start******************/}
-          <Route path="dashboard" element={
-            <Suspense fallback={<LoadingPage />}>
-              <AdminRoute>
-                <Dashboard />
-              </AdminRoute>
-            </Suspense>
-          }>
+          <Route
+            path="dashboard"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <AdminRoute>
+                  <Dashboard />
+                </AdminRoute>
+              </Suspense>
+            }
+          >
             <Route index element={<DashboardHome />} />
-            <Route path="addASchool" element={
-              <AdminRoute>
-                <AddASchool />
-              </AdminRoute>
-            } />
+            <Route
+              path="addASchool"
+              element={
+                <AdminRoute>
+                  <AddASchool />
+                </AdminRoute>
+              }
+            />
 
-            <Route path="schools" element={
-              <AdminRoute>
-                <DashboardSchools />
-              </AdminRoute>
-            } />
+            <Route
+              path="schools"
+              element={
+                <AdminRoute>
+                  <DashboardSchools />
+                </AdminRoute>
+              }
+            />
 
-            <Route path="addABook" element={
-              <AdminRoute>
-                <AddABook />
-              </AdminRoute>
-            } />
+            <Route
+              path="addABook"
+              element={
+                <AdminRoute>
+                  <AddABook />
+                </AdminRoute>
+              }
+            />
 
-            <Route path="books" element={
-              <AdminRoute>
-                <DashboardBooks />
-              </AdminRoute>
-            } />
+            <Route
+              path="books"
+              element={
+                <AdminRoute>
+                  <DashboardBooks />
+                </AdminRoute>
+              }
+            />
 
-            <Route path="addOnlineTuition" element={
-              <AdminRoute>
-                <OnlineTuitionTeacherAdd />
-              </AdminRoute>
-            } />
-            <Route path="onlineTuitionTeachers" element={
-              <AdminRoute>
-                <OnlineTuitionTeachers />
-              </AdminRoute>
-            } />
+            <Route
+              path="addOnlineTuition"
+              element={
+                <AdminRoute>
+                  <OnlineTuitionTeacherAdd />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="onlineTuitionTeachers"
+              element={
+                <AdminRoute>
+                  <OnlineTuitionTeachers />
+                </AdminRoute>
+              }
+            />
 
             <Route
               path="addedSchoolDetailsForm/:id"
@@ -114,20 +153,25 @@ function App() {
                 <AdminRoute>
                   <AddedSchoolDetailsForm />
                 </AdminRoute>
-              } />
+              }
+            />
             <Route
               path="editBooks/:id"
               element={
                 <AdminRoute>
                   <EditBooks />
                 </AdminRoute>
-              } />
+              }
+            />
 
-            <Route path="makeAdmin" element={
-              <AdminRoute>
-                <MakeAdmin />
-              </AdminRoute>
-            } />
+            <Route
+              path="makeAdmin"
+              element={
+                <AdminRoute>
+                  <MakeAdmin />
+                </AdminRoute>
+              }
+            />
           </Route>
           {/***************** Dashboard route  End*****************/}
         </Routes>
