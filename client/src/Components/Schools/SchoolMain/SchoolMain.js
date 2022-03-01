@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import SearchBar from "../SearchBar/SearchBar";
 import { NavLink } from "react-router-dom";
-import Banner from "../../SchoolDetails/Banner/Banner";
+// import Banner from "../../SchoolDetails/Banner/Banner";
 import { api } from "../../../Hooks/Api";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
 const SchoolMain = () => {
