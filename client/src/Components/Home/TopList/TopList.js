@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 
 function createData(number, name, totalGPA) {
     return { number, name, totalGPA };
@@ -27,7 +27,7 @@ const TopList = () => {
 
         <Container>
 
-            <h1>Top Schools</h1>
+            <Typography variant='h5'>Top Schools</Typography>
             <TableContainer component={Paper}>
                 <Table aria-label="simple table">
                     <TableHead sx={{ border: '1px solid #ccc', p: '8px', lineHeight: '1.5', verticalAlign: 'top', fontWeight: 'bold', textAlign: 'center', fontSize: '1.5rem', borderCollapse: 'collapse', gap: '10px' }}>

@@ -17,13 +17,16 @@ import BasicSection from "./Components/SchoolDetails/SchDetailsLayout/ContentBar
 import AddABook from "./Components/Dashboard/AddABook/AddABook";
 import DashboardBooks from "./Components/Dashboard/Books/Books";
 import Contacts from "./Components/Contacts/Contacts";
+
 import OnlineTuitionTeacherAdd from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeacherAdd";
-import Teachers from "./Components/Teachers/Teachers";
+import PrivateTeachers from "./Components/PrivateTeachers/PrivateTeachers";
 import BookList from "./Components/BookList/BookList";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
 import AdminRoute from "./Components/Dashboard/AdminRoute/AdminRoute";
-import MessengerCustomerChat from 'react-messenger-customer-chat';
+import EditBooks from "./Components/Dashboard/Books/EditBooks/EditBooks";
+import DashboardHome from "./Components/Dashboard/DashboardHome/DashboardHome";
+import OnlineTuitionTeachers from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeachers/OnlineTuitionTeachers";
 const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
 
 function App() {
@@ -46,7 +49,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
           <Route path="books" element={<BookList />} />
-          <Route path="teachers" element={<Teachers />} />
+          <Route path="teachers" element={<PrivateTeachers />} />
           <Route path="schDetails" element={<SchoolDetails />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="schools" element={<Schools />} />
@@ -63,7 +66,7 @@ function App() {
               </AdminRoute>
             </Suspense>
           }>
-
+            <Route index element={<DashboardHome />} />
             <Route path="addASchool" element={
               <AdminRoute>
                 <AddASchool />
@@ -93,12 +96,24 @@ function App() {
                 <OnlineTuitionTeacherAdd />
               </AdminRoute>
             } />
+            <Route path="onlineTuitionTeachers" element={
+              <AdminRoute>
+                <OnlineTuitionTeachers />
+              </AdminRoute>
+            } />
 
             <Route
               path="addedSchoolDetailsForm/:id"
               element={
                 <AdminRoute>
                   <AddedSchoolDetailsForm />
+                </AdminRoute>
+              } />
+            <Route
+              path="editBooks/:id"
+              element={
+                <AdminRoute>
+                  <EditBooks />
                 </AdminRoute>
               } />
 
@@ -110,11 +125,7 @@ function App() {
           </Route>
           {/***************** Dashboard route  End*****************/}
         </Routes>
-        <MessengerCustomerChat
-          pageId="111112171511275"
-          appId="505054407836582"
-          htmlRef="<REF_STRING>"
-        />,
+
       </BrowserRouter>
     </AuthProvider>
 

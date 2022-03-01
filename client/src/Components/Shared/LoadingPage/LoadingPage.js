@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import Img from './flying-bird-gif-bird.gif';
@@ -9,7 +10,7 @@ const LoadingPage = () => {
                 <Box sx={{ textAlign: 'center' }}>
                     <img src={Logo} alt="" /><br />
                     <img src={Img} alt="" />
-                    <p>Loading...</p>
+                    <Typography>Loading...</Typography>
                 </Box>
             </Box>
         </Box>

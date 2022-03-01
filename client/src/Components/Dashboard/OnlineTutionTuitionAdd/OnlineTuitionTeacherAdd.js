@@ -1,10 +1,10 @@
+import React from 'react';
 import { Button, Container, CssBaseline, Grid, TextField, Typography } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
-import { alert, ButtonStyle } from '../../../Hooks/useStyle.js';
+import { alert, ButtonStyle } from '../../../Hooks/useStyle';
 import { Box } from '@mui/system';
-import React from 'react';
 import { useForm } from "react-hook-form";
-import Logo from '../logo.png'
+import Logo from './OnlineTuitionTeachers/logo.png'
 import { styled } from '@mui/material/styles';
 import uploadImage from '../../../Hooks/useImgUpload';
 

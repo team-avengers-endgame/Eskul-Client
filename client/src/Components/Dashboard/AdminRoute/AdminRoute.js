@@ -14,7 +14,7 @@ const AdminRoute = ({ children }) => {
     if (admin) {
         return children;
     }
-    return <Navigate to="/" state={{ from: location }} />;
+    return !admin ? <LoadingPage /> : <Navigate to="/" state={{ from: location }} />;
 };
 
 export default AdminRoute;
