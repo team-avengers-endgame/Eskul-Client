@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -8,7 +8,6 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 
 import {
   Button,
-  Chip,
   Divider,
   Grid,
   MenuItem,
@@ -22,7 +21,6 @@ import { Box } from "@mui/system";
 import { useForm } from "react-hook-form";
 import { styled } from "@mui/material/styles";
 import uploadImage from "../../../../Hooks/useImgUpload";
-import AutorenewIcon from "@mui/icons-material/Autorenew";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import axios from "axios";
@@ -77,10 +75,8 @@ const EditSchoolDataForm = ({
     setSchoolType(school.schoolType);
     reset(school);
   }, [reset, school]);
-  console.log(school);
 
-  const [teacherPhoto, setTeacherPhoto] = React.useState("");
-  const [schoolTeacherValue, SetSchoolTeacherValue] = React.useState("");
+
   const descriptionElementRef = React.useRef(null);
   React.useEffect(() => {
     if (open) {
@@ -91,13 +87,7 @@ const EditSchoolDataForm = ({
     }
   }, [open]);
 
-  /************  handleTeacherUpdate **************/
 
-  const handleTeacherUpdate = (data) => {
-    console.log(data);
-    handleClose();
-    reset();
-  };
 
   /************  handleStudentUpdate **************/
   const handleSchoolUpdate = async (data) => {
@@ -129,20 +119,7 @@ const EditSchoolDataForm = ({
       setSchoolPhoto(res.data.data.url);
     });
   };
-  const schoolTeacherOption = [
-    {
-      value: "Headmaster",
-    },
-    {
-      value: "Assistant Headmaster",
-    },
-    {
-      value: "Assistant teacher",
-    },
-    {
-      value: "guest  teacher",
-    },
-  ];
+
   const schoolTypes = [
     {
       value: "Co-education",
@@ -168,10 +145,6 @@ const EditSchoolDataForm = ({
       value: "Full time (10am-4pm)",
     },
   ];
-
-  const handleChangeTeacherOption = (event) => {
-    SetSchoolTeacherValue(event.target.value);
-  };
 
   const classes = useStyles();
   return (
@@ -324,131 +297,7 @@ const EditSchoolDataForm = ({
                 </Grid>
               </form>
             </Box>
-            {/* <br />
-            <Divider>
-              <Chip label={<AutorenewIcon />} />
-            </Divider>
-            <Box>
-              <DialogTitle id="scroll-dialog-title">
-                Edit Teacher information
-              </DialogTitle>
-              <Divider />
-              <form
-                onSubmit={handleSubmit(handleTeacherUpdate)}
-                className={classes.form}
-                noValidate
-              >
-                <Grid container spacing={1}>
-                  <Grid item xs={12} sm={6} md={6}>
-                    <TextField
-                      size="small"
-                      variant="outlined"
-                      fullWidth
-                      label="Teacher Name"
-                      autoFocus
-                      // defaultValue={school}
-                      {...register("teacherName", { required: true })}
-                    />
-                  </Grid>
 
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      size="small"
-                      variant="outlined"
-                      {...register("qualification", { required: true })}
-                      fullWidth
-                      label="Qualification"
-                      autoFocus
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      id="outlined-select-currency"
-                      select
-                      fullWidth
-                      size="small"
-                      label="Designation "
-                      value={schoolTeacherValue}
-                      onChange={handleChangeTeacherOption}
-                      autoFocus
-                    >
-                      {schoolTeacherOption.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.value}
-                        </MenuItem>
-                      ))}
-                    </TextField>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      size="small"
-                      variant="outlined"
-                      {...register("subject", { required: true })}
-                      fullWidth
-                      label="Subject"
-                      autoFocus
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      size="small"
-                      variant="outlined"
-                      {...register("institution", { required: true })}
-                      fullWidth
-                      label="Institution"
-                      autoFocus
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      type="number"
-                      size="small"
-                      variant="outlined"
-                      {...register("phoneNumber", { required: true })}
-                      fullWidth
-                      label="Phone Number"
-                      autoFocus
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      size="small"
-                      variant="outlined"
-                      {...register("email", { required: true })}
-                      fullWidth
-                      label="Email"
-                      autoFocus
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <CssTextField
-                      size="small"
-                      sx={{ width: 1 }}
-                      accept="image/png, image/jpg, image/jpeg"
-                      type="file"
-                      onChange={(e) => handleImgUpload(e.target.files[0])}
-                    />
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  spacing={1}
-                  sx={{ display: "flex", justifyContent: "center", mt: 2 }}
-                >
-                  <Grid item xs={12} sm={6} md={6}>
-                    <Button
-                      style={ButtonStyle}
-                      type="submit"
-                      size="small"
-                      variant="outlined"
-                      fullWidth
-                    >
-                      Submit
-                    </Button>
-                  </Grid>
-                </Grid>
-              </form>
-            </Box> */}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

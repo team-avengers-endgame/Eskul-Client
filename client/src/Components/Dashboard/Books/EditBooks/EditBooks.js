@@ -81,7 +81,7 @@ const EditBooks = ({ id, handleClose, open, scroll, loadBooks }) => {
             });
     }, [id, setSingleBook, reset]);
 
-    console.log(singleBook);
+
 
     const descriptionElementRef = React.useRef(null);
     React.useEffect(() => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, TextField } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useForm } from "react-hook-form";
 import { api } from '../../../Hooks/Api';
@@ -27,7 +27,7 @@ const MakeAdmin = () => {
     return (
         <Box sx={{ p: 3 }}>
             <Box>
-                <h1>Make a admin form</h1>
+                <Typography variant='h5'>Make a admin form</Typography>
                 <Box sx={{ maxWidth: 400 }}>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <TextField size='small' fullWidth label="Email" placeholder='Email'{...register("email", { required: true })} />

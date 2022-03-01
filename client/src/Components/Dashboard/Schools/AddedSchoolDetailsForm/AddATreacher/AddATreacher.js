@@ -48,12 +48,11 @@ const AddATreacher = () => {
             .then(data => setSchool(data?.data?.data))
     }, [id])
 
-    const onSubmit = data => {
-        data.teacherPhoto = teacherPhoto;
-        data.designation = schoolTeacherValue;
-        data.school = id;
-
-        axios.post(`${api}/teachers`, data)
+    console.log(teacherPhoto)
+    const onSubmit = (data) => {
+        const teacher = { ...data, teacherPhoto, designation: schoolTeacherValue, school: id }
+        console.log(teacher)
+        axios.post(`${api}/teachers`, teacher)
             .then((response) => {
                 response.status === 201 &&
                     alert('success', 'Add a Teachers in School Successfully')

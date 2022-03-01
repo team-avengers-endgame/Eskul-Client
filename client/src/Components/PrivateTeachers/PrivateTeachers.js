@@ -9,7 +9,7 @@ import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 
 
 
-const Teachers = () => {
+const PrivateTeachers = () => {
     const [teachers, setTeachers] = useState([]);
     useEffect(() => {
         fetch(`${api}/privateTeachers`)
@@ -102,4 +102,4 @@ const Teachers = () => {
     );
 };
 
-export default Teachers;
+export default PrivateTeachers;

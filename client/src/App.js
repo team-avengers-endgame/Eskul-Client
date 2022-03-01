@@ -19,13 +19,14 @@ import DashboardBooks from "./Components/Dashboard/Books/Books";
 import Contacts from "./Components/Contacts/Contacts";
 
 import OnlineTuitionTeacherAdd from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeacherAdd";
-import Teachers from "./Components/Teachers/Teachers";
+import PrivateTeachers from "./Components/PrivateTeachers/PrivateTeachers";
 import BookList from "./Components/BookList/BookList";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
 import AdminRoute from "./Components/Dashboard/AdminRoute/AdminRoute";
 import EditBooks from "./Components/Dashboard/Books/EditBooks/EditBooks";
 import DashboardHome from "./Components/Dashboard/DashboardHome/DashboardHome";
+import OnlineTuitionTeachers from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeachers/OnlineTuitionTeachers";
 const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
 function App() {
   useEffect(() => {
@@ -47,7 +48,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
           <Route path="books" element={<BookList />} />
-          <Route path="teachers" element={<Teachers />} />
+          <Route path="teachers" element={<PrivateTeachers />} />
           <Route path="schDetails" element={<SchoolDetails />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="schools" element={<Schools />} />
@@ -78,9 +79,9 @@ function App() {
             } />
 
             <Route path="addABook" element={
-              // <AdminRoute>
-              <AddABook />
-              // </AdminRoute>
+              <AdminRoute>
+                <AddABook />
+              </AdminRoute>
             } />
 
             <Route path="books" element={
@@ -94,6 +95,11 @@ function App() {
                 <OnlineTuitionTeacherAdd />
               </AdminRoute>
             } />
+            <Route path="onlineTuitionTeachers" element={
+              <AdminRoute>
+                <OnlineTuitionTeachers />
+              </AdminRoute>
+            } />
 
             <Route
               path="addedSchoolDetailsForm/:id"
@@ -105,9 +111,9 @@ function App() {
             <Route
               path="editBooks/:id"
               element={
-                // <AdminRoute>
-                <EditBooks />
-                // </AdminRoute>
+                <AdminRoute>
+                  <EditBooks />
+                </AdminRoute>
               } />
 
             <Route path="makeAdmin" element={

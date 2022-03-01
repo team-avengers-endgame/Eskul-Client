@@ -15,7 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import Toolbar from '@mui/material/Toolbar';
 import { LinkStyle } from '../../Hooks/useStyle';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import { Avatar } from '@mui/material';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
@@ -28,6 +28,8 @@ function Dashboard(props) {
     const { user, logOut, admin } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+
+    const navigate = useNavigate();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -85,6 +87,15 @@ function Dashboard(props) {
                     </ListItem>
                 </NavLink>
                 <Divider />
+                <NavLink to='/dashboard/onlineTuitionTeachers' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <AddCardIcon />
+                        </ListItemIcon>
+                        Tuition Teachers
+                    </ListItem>
+                </NavLink>
+                <Divider />
                 <NavLink to='/dashboard/addABook' style={LinkStyle}>
                     <ListItem button >
                         <ListItemIcon>
@@ -115,7 +126,7 @@ function Dashboard(props) {
                 <Divider />
 
                 {user.email ?
-                    <ListItem style={LinkStyle} button onClick={logOut}>
+                    <ListItem style={LinkStyle} button onClick={() => logOut(navigate)}>
                         <ListItemIcon>
                             <LogoutIcon />
                         </ListItemIcon>

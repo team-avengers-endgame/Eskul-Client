@@ -1,9 +1,10 @@
+import { Typography } from '@mui/material';
 import React from 'react';
 
 const AddAStudent = () => {
     return (
         <div>
-            <h1>Add a Student form</h1>
+            <Typography variant='h5'>Add a Student form</Typography>
         </div>
     );
 };

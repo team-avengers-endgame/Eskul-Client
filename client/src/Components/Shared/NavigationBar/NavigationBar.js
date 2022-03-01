@@ -11,7 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "./logo.png";
 import useAuth from "../../../Hooks/useAuth";
 import { Divider } from "@mui/material";
@@ -27,7 +27,7 @@ const NavigationBar = () => {
 
   const { user, admin, logOut } = useAuth();
 
-
+  const navigate = useNavigate()
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -291,7 +291,7 @@ const NavigationBar = () => {
                 <MenuItem
                   onClick={() => {
                     handleCloseUserMenu();
-                    logOut();
+                    logOut(navigate);
                   }}
                 >
                   <Typography textAlign="center">Logout</Typography>
