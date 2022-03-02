@@ -27,7 +27,7 @@ const TopList = () => {
 
         <Container>
 
-            <Typography variant='h5'>Top Schools</Typography>
+            <Typography sx={{ textAlign: 'center', margin: '5px' }} variant='h5'>Top Schools</Typography>
             <TableContainer component={Paper}>
                 <Table aria-label="simple table">
                     <TableHead sx={{ border: '1px solid #ccc', p: '8px', lineHeight: '1.5', verticalAlign: 'top', fontWeight: 'bold', textAlign: 'center', fontSize: '1.5rem', borderCollapse: 'collapse', gap: '10px' }}>

@@ -8,6 +8,7 @@ import Gallery from '../Gallery/Gallery';
 import NurtingEnvironment from '../NurtingEnvironment/NurtingEnvironment';
 import Partners from '../Partners/Partners';
 import QuickScroll from '../QuickScroll/QuickScroll';
+import Testimonial from '../Testimonial/Testimonial';
 import TopList from '../TopList/TopList';
 import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 
@@ -21,6 +22,7 @@ const Home = () => {
             <WhyChooseUs />
             <Features />
             <TopList />
+            <Testimonial />
             <Gallery />
             <Partners />
             <QuickScroll />
