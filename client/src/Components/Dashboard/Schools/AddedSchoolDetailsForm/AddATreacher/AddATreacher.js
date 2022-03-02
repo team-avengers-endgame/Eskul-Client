@@ -69,7 +69,7 @@ const AddATreacher = () => {
         !error.status === 201 &&
           alert("error", "Bad Request, Places Try again");
       });
-    // reset();
+    reset();
   };
 
   const handleImgUpload = (img) => {

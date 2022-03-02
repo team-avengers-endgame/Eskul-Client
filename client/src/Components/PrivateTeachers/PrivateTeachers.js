@@ -4,7 +4,8 @@ import { Box } from '@mui/system';
 import { api } from '../../Hooks/Api';
 import Footer from '../Shared/Footer/Footer';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
-
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 
 
@@ -96,6 +97,11 @@ const PrivateTeachers = () => {
                         </Grid>
                     ))}
                 </Grid>
+                <Stack spacing={2}>
+
+                    <Pagination count={teachers.length} color="secondary" />
+
+                </Stack>
             </Container>
             <Footer />
         </>

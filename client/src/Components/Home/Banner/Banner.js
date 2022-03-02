@@ -52,7 +52,7 @@ const Banner = () => {
                                     }}>
                                     <img src={newSlide.icon} alt="slide img" />
                                     <Typography
-                                        variant="h5"
+                                        variant="h6"
                                         component="div"
                                         sx={{
                                             fontStyle: 'italic',
@@ -62,7 +62,7 @@ const Banner = () => {
                                         {newSlide.text1}
                                     </Typography>
                                     <Typography
-                                        variant="h3"
+                                        variant="h5"
                                         component="div"
                                         sx={{ fontWeight: '500', color: '#3B4757' }}
                                     >

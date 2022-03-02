@@ -85,7 +85,8 @@ export default function Schools() {
               <StyledTableCell align="left">EIIN</StyledTableCell>
               <StyledTableCell align="left">Photo</StyledTableCell>
               <StyledTableCell align="right">Added School data</StyledTableCell>
-              <StyledTableCell align="right">Edit</StyledTableCell>
+              <StyledTableCell align="right">School Edit</StyledTableCell>
+              <StyledTableCell align="right">Teachers Edit</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -120,6 +121,13 @@ export default function Schools() {
                   >
                     <EditIcon />
                   </IconButton>
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  <Link to={`/dashboard/teachers/${school?._id}`}>
+                    <IconButton color="secondary">
+                      <EditIcon />
+                    </IconButton>
+                  </Link>
                 </StyledTableCell>
               </StyledTableRow>
             ))}
