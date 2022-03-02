@@ -108,7 +108,7 @@ const Features = () => {
                                                 </Typography>
                                             </CardContent>
 
-                                            <Link to="/teachers">   <Button size="small">Explore</Button></Link>
+                                            <Link to="/privateTutor">   <Button size="small">Explore</Button></Link>
 
 
                                         </Card>

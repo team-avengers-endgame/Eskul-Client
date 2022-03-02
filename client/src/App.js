@@ -63,7 +63,7 @@ function App() {
             <PrivateRoute><SchoolDetails /></PrivateRoute>} />
           <Route path="basic" element={<BasicSection />} />
           <Route path="privateTutor" element={<PrivateTuor />} />
-          <Route path="tutorDetails" element={
+          <Route path="tutorDetails/:id" element={
             <PrivateRoute><TutorDetails /></PrivateRoute>} />
 
 
