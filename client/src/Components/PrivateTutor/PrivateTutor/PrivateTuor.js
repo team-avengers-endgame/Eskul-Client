@@ -15,11 +15,11 @@ const PrivateTuor = () => {
 
     return (
         <>
-          <NavigationBar />
-              <SharedBanner pageName={"Online Private Tutor"} />
-              
+            <NavigationBar />
+            <SharedBanner pageName={"Online Private Tutor"} />
+
             <Container>
-        
+
 
 
                 <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -49,7 +49,7 @@ const PrivateTuor = () => {
 
                                         <Box>
                                             <Typography variant='h6'
-                                               
+
                                             >
                                                 {single?.teacherName}
                                             </Typography>
@@ -60,18 +60,18 @@ const PrivateTuor = () => {
                                               {single.educationalQualification}
                                             </Typography> */}
                                             <Typography variant="body" >
-                                              <span style={{ fontWeight: 700}}> Subject: </span> <span >{single?.subject}</span>
+                                                <span style={{ fontWeight: 700 }}> Subject: </span> <span >{single?.subject}</span>
                                             </Typography>
                                             {/* <Typography variant="body2" color="text.secondary">
                                                 Area: {single?.location}
                                             </Typography> */}
-                                          <br />
+                                            <br />
 
                                             <Typography variant="body" ><span
-                                            style={{ fontWeight: 700}}> Monthly Fee: </span> ৳{single?.monthlyFee}
+                                                style={{ fontWeight: 700 }}> Monthly Fee: </span> ৳{single?.monthlyFee}
                                             </Typography>
                                             <Typography variant="body2" ><span
-                                            style={{ fontWeight: 700}}> Email:  </span>
+                                                style={{ fontWeight: 700 }}> Email:  </span>
                                                 {single?.email}
                                             </Typography>
                                         </Box>
@@ -85,7 +85,7 @@ const PrivateTuor = () => {
                 </Grid>
             </Container>
             <Footer />
-      
+
         </>
     );
 };

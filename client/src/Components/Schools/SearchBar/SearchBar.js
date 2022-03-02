@@ -4,7 +4,7 @@ import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 // search
-const SearchBar = () => {
+const SearchBar = ({ handleOnChange }) => {
   return (
     <Paper
       component="form"
@@ -30,6 +30,7 @@ const SearchBar = () => {
     >
       <IconButton sx={{ p: "10px" }} aria-label="menu"></IconButton>
       <InputBase
+        onChange={handleOnChange}
         sx={{
           ml: 1,
           flex: 1,

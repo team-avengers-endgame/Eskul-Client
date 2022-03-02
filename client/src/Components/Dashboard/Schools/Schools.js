@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
+import { styled, alpha } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
@@ -13,6 +13,9 @@ import { Box, IconButton, TableFooter, TablePagination, Typography } from "@mui/
 import { Link } from "react-router-dom";
 import { api } from "../../../Hooks/Api";
 import EditSchoolDataForm from "./EditSchoolDataForm/EditSchoolDataForm";
+import SearchIcon from '@mui/icons-material/Search';
+import InputBase from '@mui/material/InputBase';
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -34,23 +37,65 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(3),
+    width: 'auto',
+  },
+}));
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
+    },
+  },
+}));
+
 export default function Schools() {
   const [schools, setSchools] = useState([]);
+  const [searchValue, setSearchValue] = useState([]);
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState("paper");
   const [school, setSchool] = useState({});
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
+
   const loadSchools = async () => {
     fetch(`${api}/schools`)
       .then((res) => res.json())
-      .then((data) => setSchools(data?.data?.data));
+      .then((data) => {
+        setSchools(data?.data?.data?.reverse())
+        setSearchValue(data?.data?.data?.reverse())
+      });
   };
 
   useEffect(() => {
     loadSchools();
+
   }, []);
+
+  const handleOnChange = (e) => {
+    const value = e.target.value;
+    const newValue = schools?.filter(s => s.schoolName.toLowerCase().includes(value.toLowerCase()) || s.location.toLowerCase().includes(value.toLowerCase()))
+    setSearchValue(newValue)
+  }
+
 
   const handleClose = () => {
     setOpen(false);
@@ -73,10 +118,32 @@ export default function Schools() {
     setPage(0);
   };
 
+  const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }));
+
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant="h5" sx={{ pb: 3 }}>Manage all Schools</Typography>
       <TableContainer component={Paper}>
+
+        <Search >
+          <SearchIconWrapper>
+            <SearchIcon />
+          </SearchIconWrapper>
+          <StyledInputBase
+            placeholder="Search…"
+            inputProps={{ 'aria-label': 'search' }}
+            onChange={handleOnChange}
+          />
+        </Search>
+
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
@@ -90,7 +157,7 @@ export default function Schools() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {schools?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((school) => (
+            {searchValue?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.map((school) => (
               <StyledTableRow key={school?._id}>
                 <StyledTableCell component="th" scope="row">
                   {school?.schoolName}

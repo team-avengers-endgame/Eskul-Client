@@ -14,36 +14,36 @@ import {
 } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-
+import Img from './32zvb859.jpg'
 const products = [
     {
         id: uuid(),
         name: 'Dropbox',
-        imageUrl: '/static/images/products/product_1.png',
+        imageUrl: Img,
         updatedAt: subHours(Date.now(), 2)
     },
     {
         id: uuid(),
         name: 'Medium Corporation',
-        imageUrl: '/static/images/products/product_2.png',
+        imageUrl: Img,
         updatedAt: subHours(Date.now(), 2)
     },
     {
         id: uuid(),
         name: 'Slack',
-        imageUrl: '/static/images/products/product_3.png',
+        imageUrl: Img,
         updatedAt: subHours(Date.now(), 3)
     },
     {
         id: uuid(),
         name: 'Lyft',
-        imageUrl: '/static/images/products/product_4.png',
+        imageUrl: Img,
         updatedAt: subHours(Date.now(), 5)
     },
     {
         id: uuid(),
         name: 'GitHub',
-        imageUrl: '/static/images/products/product_5.png',
+        imageUrl: Img,
         updatedAt: subHours(Date.now(), 9)
     }
 ];
@@ -56,7 +56,7 @@ export const LatestProducts = (props) => (
         />
         <Divider />
         <List>
-            {products.map((product, i) => (
+            {products?.map((product, i) => (
                 <ListItem
                     divider={i < products.length - 1}
                     key={product.id}

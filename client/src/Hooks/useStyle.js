@@ -7,7 +7,7 @@ export const ButtonStyle = {
     backgroundImage: `linear-gradient(to right,#00bccf, #005593)`,
     color: 'white'
 }
-
+export const ButtonHover = { backgroundImage: `linear-gradient(to left,#00bccf, #005593)` }
 
 export const alert = (icon, title) => {
     Swal.fire({

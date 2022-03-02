@@ -12,11 +12,12 @@ import Stack from '@mui/material/Stack';
 
 const PrivateTeachers = () => {
     const [teachers, setTeachers] = useState([]);
+    const [page, setPage] = useState(1)
     useEffect(() => {
         fetch(`${api}/privateTeachers`)
             .then(res => res.json())
             .then(data => setTeachers(data?.data?.data))
-    }, [])
+    }, [page])
 
     return (
         <>
@@ -99,7 +100,7 @@ const PrivateTeachers = () => {
                 </Grid>
                 <Stack spacing={2}>
 
-                    <Pagination count={teachers.length} color="secondary" />
+                    <Pagination onChange={(e, value) => setPage(value)} count={teachers.length} color="secondary" />
 
                 </Stack>
             </Container>
