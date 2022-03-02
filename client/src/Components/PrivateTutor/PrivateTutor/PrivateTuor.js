@@ -1,4 +1,4 @@
-import { Box,ButtonBase, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
+import { Box, ButtonBase, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { api } from '../../../Hooks/Api';
@@ -17,11 +17,11 @@ const PrivateTuor = () => {
 
     return (
         <>
-          <NavigationBar />
-              <SharedBanner pageName={"Online Private Tutor"} />
-              
+            <NavigationBar />
+            <SharedBanner pageName={"Online Private Tutor"} />
+
             <Container>
-        
+
 
 
                 <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -51,19 +51,19 @@ const PrivateTuor = () => {
 
                                         <Box>
                                             <Typography variant='h6'
-                                               
+
                                             >
                                                 {single?.teacherName}
                                             </Typography>
 
                                             <Typography variant="body" >
-                                              <span style={{ fontWeight: 700}}> Subject: </span> <span >{single?.subject}</span>
+                                                <span style={{ fontWeight: 700 }}> Subject: </span> <span >{single?.subject}</span>
                                             </Typography>
-                                        
-                                          <br />
+
+                                            <br />
 
                                             <Typography variant="body" ><span
-                                            style={{ fontWeight: 700}}> Monthly Fee: </span> ৳{single?.monthlyFee}
+                                                style={{ fontWeight: 700 }}> Monthly Fee: </span> ৳{single?.monthlyFee}
                                             </Typography>
                                             {/* <Typography variant="body2" ><span
                                             style={{ fontWeight: 700}}> Email:  </span>
@@ -71,46 +71,46 @@ const PrivateTuor = () => {
                                             </Typography> */}
                                         </Box>
                                         <br />
-                                       <NavLink
-                        to={`/tutorDetails/${single._id}`}
-                        style={{ textDecoration: "none" }}
-                      >
-                        <ButtonBase
-                          sx={{
-                            color: "#fff",
-                            flexBasis: "initial",
-                            minHeight: "30px",
-                            fontFamily: "Sans-serif",
-                            fontSize: "12px",
-                            textTransform: "capitalize",
-                            letterSpacing: "0px",
-                            backgroundColor: "#01479b",
-                            borderStyle: "solid",
-                            borderWidth: "1px 1px 1px 1px",
-                            borderColor: "#01479b",
-                            paddingTop: 0,
-                            paddingBottom: 0,
-                            border: "none",
-                            padding: "6px 12px",
-                            display: "inlineBlock",
-                            mb: { xs: 2 },
-                            borderRadius: "5px",
-                            fill: "#FFFFFF",
-                            textAlign: "center",
-                            fontWeight: 400,
-                            whiteSpace: "nowrap",
-                            userSelect: "none",
-                            width: "auto",
+                                        <NavLink
+                                            to={`/tutorDetails/${single._id}`}
+                                            style={{ textDecoration: "none" }}
+                                        >
+                                            <ButtonBase
+                                                sx={{
+                                                    color: "#fff",
+                                                    flexBasis: "initial",
+                                                    minHeight: "30px",
+                                                    fontFamily: "Sans-serif",
+                                                    fontSize: "12px",
+                                                    textTransform: "capitalize",
+                                                    letterSpacing: "0px",
+                                                    backgroundColor: "#01479b",
+                                                    borderStyle: "solid",
+                                                    borderWidth: "1px 1px 1px 1px",
+                                                    borderColor: "#01479b",
+                                                    paddingTop: 0,
+                                                    paddingBottom: 0,
+                                                    border: "none",
+                                                    padding: "6px 12px",
+                                                    display: "inlineBlock",
+                                                    mb: { xs: 2 },
+                                                    borderRadius: "5px",
+                                                    fill: "#FFFFFF",
+                                                    textAlign: "center",
+                                                    fontWeight: 400,
+                                                    whiteSpace: "nowrap",
+                                                    userSelect: "none",
+                                                    width: "auto",
 
-                            overflow: "visible",
-                            "&:hover": {
-                              backgroundColor: "black",
-                            },
-                          }}
-                        >
-                          Details
-                        </ButtonBase>
-                      </NavLink>
+                                                    overflow: "visible",
+                                                    "&:hover": {
+                                                        backgroundColor: "black",
+                                                    },
+                                                }}
+                                            >
+                                                Details
+                                            </ButtonBase>
+                                        </NavLink>
 
                                     </Grid>
                                 </Grid>
@@ -119,12 +119,12 @@ const PrivateTuor = () => {
                         </Grid>
                     ))}
                 </Grid>
-              
 
-             
+
+
             </Container>
             <Footer />
-      
+
         </>
     );
 };
