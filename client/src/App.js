@@ -29,6 +29,7 @@ import DashboardHome from "./Components/Dashboard/DashboardHome/DashboardHome";
 import OnlineTuitionTeachers from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeachers/OnlineTuitionTeachers";
 import PrivateTuor from "./Components/PrivateTutor/PrivateTutor/PrivateTuor";
 import TutorDetails from "./Components/PrivateTutor/TutorDetails/TutorDetails";
+import DashboardSchoolTeachers from "./Components/Dashboard/Schools/Teachers/Teachers";
 
 const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
 function App() {
@@ -113,6 +114,13 @@ function App() {
               element={
                 <AdminRoute>
                   <AddedSchoolDetailsForm />
+                </AdminRoute>
+              } />
+            <Route
+              path="teachers/:schoolId"
+              element={
+                <AdminRoute>
+                  <DashboardSchoolTeachers />
                 </AdminRoute>
               } />
             <Route
