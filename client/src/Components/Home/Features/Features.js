@@ -101,7 +101,7 @@ const Features = () => {
                                             />
                                             <CardContent>
                                                 <Typography gutterBottom variant="h5" component="div">
-                                                    Online Tution
+                                                    Online Tuition
                                                 </Typography>
                                                 <Typography variant="body2" color="text.secondary">
                                                     You can find your online tution in this website.
@@ -220,7 +220,7 @@ const Features = () => {
                                                 </Typography>
                                             </CardContent>
 
-                                            <Link to="/"> <Button size="small">Explore</Button></Link>
+                                            <Link to="/notes"> <Button size="small">Explore</Button></Link>
 
 
                                         </Card>
