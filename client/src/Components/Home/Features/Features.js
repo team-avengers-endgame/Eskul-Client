@@ -61,6 +61,7 @@ const Features = () => {
                             <Grid container spacing={2} columns={{ xs: 12, sm: 8, md: 12 }}>
                                 <Grid item xs={12} sm={4} md={4}>
                                     <CardActionArea>
+                                    <Link  to="/schools" style={{textDecoration:"none"}}> 
                                         <Card
                                             data-aos="fade-right"
                                             data-aos-offset="300"
@@ -80,14 +81,18 @@ const Features = () => {
                                                     We provide all the best schools information here.
                                                 </Typography>
                                             </CardContent>
-
-                                            <Link to="/schools"><Button size="small">Explore</Button></Link>
+                                            <Box sx={{display:"flex", justifyContent:"center"}}>
+                                            <Button size="small">Explore</Button>
+                                            </Box>
+                                          
 
                                         </Card>
+                                        </Link>
                                     </CardActionArea>
                                 </Grid>
                                 <Grid item xs={12} sm={4} md={4}>
                                     <CardActionArea>
+                                    <Link  to="/privateTutor" style={{textDecoration:"none"}}>    
                                         <Card
                                             data-aos="fade-down"
                                             data-aos-easing="linear"
@@ -108,14 +113,18 @@ const Features = () => {
                                                 </Typography>
                                             </CardContent>
 
-                                            <Link to="/privateTutor">   <Button size="small">Explore</Button></Link>
+                                         <Box sx={{display:"flex", justifyContent:"center"}}>
+                                         <Button  size="small">Explore</Button>
 
+                                         </Box>
 
                                         </Card>
+                                        </Link>
                                     </CardActionArea>
                                 </Grid>
                                 <Grid item xs={12} sm={4} md={4}>
                                     <CardActionArea>
+                                    <Link  to="/" style={{textDecoration:"none"}}> 
                                         <Card
                                             data-aos="fade-left"
                                             data-aos-offset="300"
@@ -135,15 +144,18 @@ const Features = () => {
                                                     You can donate any schools through our website.
                                                 </Typography>
                                             </CardContent>
-
-                                            <Link to="/"> <Button size="small">Explore</Button></Link>
+                                            <Box sx={{display:"flex", justifyContent:"center"}}>
+                                            <Button size="small">Explore</Button>
+                                            </Box>
 
 
                                         </Card>
+                                        </Link>
                                     </CardActionArea>
                                 </Grid>
                                 <Grid item xs={12} sm={4} md={4}>
                                     <CardActionArea>
+                                    <Link  to="/" style={{textDecoration:"none"}}> 
                                         <Card
                                             data-aos="fade-left"
                                             data-aos-offset="300"
@@ -163,15 +175,17 @@ const Features = () => {
                                                     We give you the transport facility for your kids.
                                                 </Typography>
                                             </CardContent>
-
-                                            <Link to="/">    <Button size="small">Explore</Button></Link>
-
+                                            <Box sx={{display:"flex", justifyContent:"center"}}>
+                                            <Button size="small">Explore</Button>
+                                            </Box>
 
                                         </Card>
+                                        </Link>
                                     </CardActionArea>
                                 </Grid>
                                 <Grid item xs={12} sm={4} md={4}>
                                     <CardActionArea>
+                                  <  Link  to="/books" style={{textDecoration:"none"}}> 
                                         <Card
                                             data-aos="fade-up"
                                             data-aos-easing="linear"
@@ -191,15 +205,18 @@ const Features = () => {
                                                     You can buy your kids books from here online.
                                                 </Typography>
                                             </CardContent>
-
-                                            <Link to="/books"> <Button size="small">Explore</Button></Link>
+                                            <Box sx={{display:"flex", justifyContent:"center"}}>
+                                            <Button size="small">Explore</Button>
+                                            </Box>
 
 
                                         </Card>
+                                        </Link>
                                     </CardActionArea>
                                 </Grid>
                                 <Grid item xs={12} sm={4} md={4}>
                                     <CardActionArea>
+                                    <Link  to="/notes" style={{textDecoration:"none"}}> 
                                         <Card
                                             data-aos="fade-right"
                                             data-aos-offset="300"
@@ -220,10 +237,13 @@ const Features = () => {
                                                 </Typography>
                                             </CardContent>
 
-                                            <Link to="/notes"> <Button size="small">Explore</Button></Link>
+                                        
+                                            <Box sx={{display:"flex", justifyContent:"center"}}>
+                                            <Button size="small">Explore</Button></Box>
 
 
                                         </Card>
+                                        </Link>
                                     </CardActionArea>
                                 </Grid>
 
