@@ -1,32 +1,44 @@
-import { Box, Button, ButtonBase, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
+import { Box, Button, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { api } from '../../../Hooks/Api';
 import { ButtonStyle } from '../../../Hooks/useStyle';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
+import SearchBar from '../../Shared/SearchBar/SearchBar';
 import SharedBanner from '../../Shared/SharedBanner/SharedBanner';
 
 const PrivateTuor = () => {
     const [teachers, setTeachers] = useState([]);
-    // const [pageCount, setPageCount] = useState()
+    const [searchValue, setSearchValue] = useState([]);
     useEffect(() => {
         fetch(`${api}/privateTeachers`)
             .then(res => res.json())
-            .then(data => setTeachers(data?.data?.data))
+            .then(data => {
+                setTeachers(data?.data?.data);
+                setSearchValue(data?.data?.data)
+            })
     }, [])
 
+    /*************** searching *****************/
+    const handleOnChange = (e) => {
+        const value = e.target.value;
+        const newValue = teachers?.filter(s => s.subject.toLowerCase().includes(value.toLowerCase()) || s.location.toLowerCase().includes(value.toLowerCase()))
+        setSearchValue(newValue)
+    }
+
+    const placeholder = 'Search by Teacher name or Location';
     return (
         <>
             <NavigationBar />
             <SharedBanner pageName={"Online Private Tutor"} />
 
             <Container>
+                <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
 
 
-
-                <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-                    {teachers.map((single) => (
+                <Grid container spacing={2} sx={{ mt: 6 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    {searchValue?.map((single) => (
                         <Grid sx={{ py: 3 }} key={single._id} item xs={4} sm={8} md={6}>
                             <Paper
                                 sx={{

@@ -92,14 +92,7 @@ const NavigationBar = () => {
                 home
               </Button>
             </Link>
-            <Link to="/about" style={LinkStyle}>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "#211e1e", display: "block" }}
-              >
-                about us
-              </Button>
-            </Link>
+
 
             <Link to="/schools" style={LinkStyle}>
               <Button
@@ -109,7 +102,23 @@ const NavigationBar = () => {
                 Schools
               </Button>
             </Link>
-            <Link to="/programs" style={LinkStyle}>
+            <Link to="/privateTutor" style={LinkStyle}>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "#211e1e", display: "block" }}
+              >
+                Private Tutor
+              </Button>
+            </Link>
+            <Link to="/books" style={LinkStyle}>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "#211e1e", display: "block" }}
+              >
+                Books
+              </Button>
+            </Link>
+            <Link to="/" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
@@ -117,7 +126,7 @@ const NavigationBar = () => {
                 programs
               </Button>
             </Link>
-            <Link to="/parents" style={LinkStyle}>
+            <Link to="/" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
@@ -127,28 +136,6 @@ const NavigationBar = () => {
             </Link>
             <DropdownMenuGallery />
             <DropdownMenuPage />
-
-
-
-
-
-
-            <Link to="/blogs" style={LinkStyle}>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "#211e1e", display: "block" }}
-              >
-                blogs
-              </Button>
-            </Link>
-            <Link to="/contacts" style={LinkStyle}>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "#211e1e", display: "block" }}
-              >
-                contacts
-              </Button>
-            </Link>
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -199,19 +186,19 @@ const NavigationBar = () => {
                   <Typography textAlign="center">Schools</Typography>
                 </MenuItem>
               </Link>
-              <Link to="/programs" style={LinkStyle}>
+              <Link to="/" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Programs</Typography>
                 </MenuItem>
               </Link>
-              <Link to="/parents" style={LinkStyle}>
+              <Link to="/" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Parent info</Typography>
                 </MenuItem>
               </Link>
               <DropdownMenuGallery />
               <DropdownMenuPage />
-              <Link to="/blog" style={LinkStyle}>
+              <Link to="/" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Blog</Typography>
                 </MenuItem>

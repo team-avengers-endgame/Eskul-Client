@@ -1,12 +1,12 @@
 import { Button, ButtonBase, Container, Grid, Pagination, Paper, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
-import SearchBar from "../SearchBar/SearchBar";
+
 import { NavLink } from "react-router-dom";
-// import Banner from "../../SchoolDetails/Banner/Banner";
 import { api } from "../../../Hooks/Api";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
 import { ButtonStyle } from "../../../Hooks/useStyle";
+import SearchBar from "../../Shared/SearchBar/SearchBar";
 const SchoolMain = () => {
   const [schools, setSchools] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
@@ -20,7 +20,7 @@ const SchoolMain = () => {
       });
   }, [page]);
 
-  console.log(searchValue)
+
   const handleOnChange = (e) => {
     const value = e.target.value;
     const newValue = schools?.filter(s => s.schoolName.toLowerCase().includes(value.toLowerCase()) || s.location.toLowerCase().includes(value.toLowerCase()))
@@ -35,29 +35,14 @@ const SchoolMain = () => {
     maxHeight: "100%",
   });
 
-
+  const placeholder = 'Search by School Name or EIIN';
 
   return (
     <Container>
-      <Typography
-        variant="h3"
-        sx={{
-          fontWeight: "500",
-          fontSize: "30px",
-          color: "#3B4757",
-          textAlign: "center",
-          py: 3,
-        }}
-        gutterBottom
-        component="div"
-      >
-        All Schools in Bangladesh
-      </Typography>
 
+      <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
 
-
-      <SearchBar handleOnChange={handleOnChange} />
-      <Grid container spacing={2}>
+      <Grid container spacing={2} sx={{ mt: 6 }}>
         {searchValue?.map((single) => (
           <Grid sx={{ py: 3 }} key={single._id} item xs={12} sm={12} md={6}>
             <Paper
@@ -126,7 +111,7 @@ const SchoolMain = () => {
       </Grid>
       <Stack spacing={2}>
 
-        <Pagination onChange={(e, value) => setPage(value)} count={schools.length} color="secondary" />
+        <Pagination onChange={(e, value) => setPage(value)} count={100} color="secondary" />
 
       </Stack>
     </Container>

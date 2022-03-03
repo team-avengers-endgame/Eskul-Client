@@ -4,17 +4,12 @@ import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 // search
-const SearchBar = ({ handleOnChange }) => {
+const SearchBar = ({ handleOnChange, placeholder }) => {
   return (
     <Paper
       component="form"
       sx={{
-        p: {
-          xs: "2px 8px",
-          sm: "2px 8px",
-          md: "8px 16px",
-        },
-        mb: 6,
+
         mx: "auto",
         display: "flex",
         alignItems: "center",
@@ -40,15 +35,15 @@ const SearchBar = ({ handleOnChange }) => {
             sm: "15px",
             md: "20px",
           },
-          p: "3px 5px",
+
         }}
-        placeholder="Search by School Name or EIIN"
+        placeholder={placeholder}
         inputProps={{ "aria-label": "search school" }}
       />
       <IconButton
         type="submit"
         sx={{
-          p: "5px",
+
           color: "#46AADC",
           fontWeight: "bold",
         }}

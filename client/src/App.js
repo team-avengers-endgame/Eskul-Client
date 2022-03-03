@@ -19,7 +19,6 @@ import DashboardBooks from "./Components/Dashboard/Books/Books";
 import Contacts from "./Components/Contacts/Contacts";
 
 import OnlineTuitionTeacherAdd from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeacherAdd";
-import PrivateTeachers from "./Components/PrivateTeachers/PrivateTeachers";
 import BookList from "./Components/BookList/BookList";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
@@ -54,7 +53,6 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
           <Route path="books" element={<BookList />} />
-          <Route path="teachers" element={<PrivateTeachers />} />
           <Route path="notes" element={<NotesPage />} />
           <Route path="schDetails" element={<SchoolDetails />} />
           <Route path="contacts" element={<Contacts />} />
