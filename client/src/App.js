@@ -29,9 +29,8 @@ import OnlineTuitionTeachers from "./Components/Dashboard/OnlineTutionTuitionAdd
 import PrivateTuor from "./Components/PrivateTutor/PrivateTutor/PrivateTuor";
 import TutorDetails from "./Components/PrivateTutor/TutorDetails/TutorDetails";
 import DashboardSchoolTeachers from "./Components/Dashboard/Schools/Teachers/Teachers";
-
-
 import NotesPage from "./Components/Notes/NotesPage";
+import BookDetails from "./Components/BookDetails/BookDetails";
 const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
 function App() {
   useEffect(() => {
@@ -53,6 +52,8 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
           <Route path="books" element={<BookList />} />
+          <Route path="bookDetails/:id" element={
+            <PrivateRoute><BookDetails/></PrivateRoute>} />
           <Route path="notes" element={<NotesPage />} />
           <Route path="schDetails" element={<SchoolDetails />} />
           <Route path="contacts" element={<Contacts />} />
