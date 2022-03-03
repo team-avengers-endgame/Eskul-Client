@@ -31,6 +31,7 @@ import PrivateTuor from "./Components/PrivateTutor/PrivateTutor/PrivateTuor";
 import TutorDetails from "./Components/PrivateTutor/TutorDetails/TutorDetails";
 import TeacherDetails from "./Components/TeacherDetails/TeacherDetails";
 import Transport from "./Components/Transport/Transport";
+import TransportHome from "./Components/Transport/TransportHome";
 
 const Dashboard = lazy(() => {
   return new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
@@ -61,7 +62,7 @@ function App() {
           <Route path="schDetails" element={<SchoolDetails />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="schools" element={<Schools />} />
-          <Route path="transport" element={<Transport />} />
+          <Route path="transport" element={<TransportHome />} />
           <Route
             path="details/:id"
             element={
