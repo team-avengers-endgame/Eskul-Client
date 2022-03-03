@@ -6,7 +6,7 @@ dotenv.config({ path: "./config.env" });
 //If any exception occurs, it will be caught here
 process.on("uncaughtException", (err) => {
   console.log("UNCAUGHT EXCEPTION Shutting Down...😓");
-  console.log(err.name, err.message);
+  console.log(err);
   process.exit(1);
 });
 
@@ -25,6 +25,6 @@ const server = app.listen(port, () =>
 //If any promise rejection occurs, it will be caught here
 process.on("unhandledRejection", (err) => {
   console.log("UNHANDLED REJECTION 💥 Shutting Down...😓");
-  console.log(err.name, err.message);
+  console.log(err);
   server.close(() => process.exit(1));
 });
