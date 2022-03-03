@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, Grid, IconButton, Paper, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
@@ -7,7 +7,13 @@ import SearchBar from '../Shared/SearchBar/SearchBar';
 import SharedBanner from '../Shared/SharedBanner/SharedBanner';
 import Footer from '../Shared/Footer/Footer';
 import { ButtonStyle } from '../../Hooks/useStyle';
+<<<<<<< HEAD
 import { NavLink } from 'react-router-dom';
+=======
+import { Link, NavLink } from 'react-router-dom';
+import StarRateIcon from '@mui/icons-material/StarRate';
+
+>>>>>>> 5a5686a4c336b96cf2640536a89270bcc3083ba0
 
 
 const BookList = () => {
@@ -39,51 +45,62 @@ const BookList = () => {
 
                 <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
 
-                <Grid container spacing={2} sx={{ pt: 5 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                    {searchValue.map((book) => (
-                        <Grid item key={book._id} xs={4} sm={4} md={3}>
-                            <Card
-                                sx={{ height: '100%', minWidth: '200px', display: 'flex', flexDirection: 'column' }}
+                <Grid container spacing={2} sx={{ mt: 6 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    {searchValue?.map((single) => (
+                        <Grid sx={{ py: 3 }} key={single._id} item xs={4} sm={8} md={6}>
+                            <Paper
+                                sx={{
+                                    p: 1,
+                                    margin: "auto",
+                                    maxWidth: 500,
+                                    flexGrow: 1,
+                                    boxShadow: "0px 14px 22px rgb(42 135 158 / 10%)",
+                                }}
                             >
+                                <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+                                    <Grid item xs={2} sm={4} md={4}>
 
-                                <CardContent>
-                                    <CardMedia
-                                        component="img"
-                                        height="194"
-                                        image={book.bookImg}
-                                        alt=""
-                                    />
-                                    <Typography gutterBottom variant="h5">
-                                        {book.bookName}
-                                    </Typography>
-                                    <Typography>
-                                        {book.author}
-                                    </Typography>
-                                    <Typography>
-                                        First published: {book.publishedDate}
-                                    </Typography>
-                                    <Typography>
-                                        Book type: {book.type}
-                                    </Typography>
-                                    <Typography>
-                                        Price: {book.bookPrice}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions>
-                                    <IconButton color="primary" aria-label="add to shopping cart">
+                                        <CardMedia
+                                            component="img"
+                                            sx={{ objectFit: 'cover', height:200, width: 200 }} alt="complex" src={single?.bookImg} />
+                                      
 
-                                        <AddShoppingCartIcon />
-                                    </IconButton>
+                                    </Grid>
+                                    <Grid item xs={2} sm={4} md={8}  pl={2} my={3}>
 
-                                    <NavLink
-                                        to={`/bookDetails/${book._id}`}
-                                        style={{ textDecoration: "none" }}
-                                    >
-                                        <Button size='small' sx={ButtonStyle}>Details</Button>
+                                        <Box>
+                                            <Typography variant='h6'   >
+                                                {single?.bookName}
+                                            </Typography>
 
-                                    </NavLink>
-                                </CardActions>
-                            </Card>
+                                            <Typography variant="body" >
+                                                <span  style={{ fontWeight: 700 }}> লেখক: </span> <span >{single?.author}</span>
+                                            </Typography>
+                                            <br />
+
+                                            <Typography variant="body"><span
+                                                style={{ fontWeight: 700 }}> মূল্যঃ ৳</span> {single?.bookPrice}
+                                            </Typography>
+                                            <br />
+                                            <Typography variant='body1'>
+                                    <StarRateIcon/><StarRateIcon/><StarRateIcon/><StarRateIcon/><StarRateIcon/>
+                                          </Typography>
+                                        </Box>
+                                        <br />
+                                        <NavLink
+                                            to={`/bookDetails/${single._id}`}
+                                            style={{ textDecoration: "none", marginRight: "5px" }}
+                                        
+                                        >
+                                            <Button size='small' sx={ButtonStyle}>Details</Button>
+
+                                        </NavLink>
+                                        <Button size='small' sx={ButtonStyle}>Purchase</Button>
+
+                                    </Grid>
+                                </Grid>
+
+                            </Paper>
                         </Grid>
                     ))}
                 </Grid>

@@ -35,7 +35,7 @@ const NurtingEnvironment = () => {
                             </Typography>
                             <br /><br />
                             <Button sx={{ borderRadius: '50%', height: '60px', width: '60px', backgroundColor: 'rgb(70, 170, 220)', color: 'white' }}>
-                                <SlowMotionVideoOutlinedIcon style={{ color: 'fff' }} />
+                                 <a href="https://www.youtube.com/watch?v=aXZPJ8yGbwU"><SlowMotionVideoOutlinedIcon style={{ color: 'fff' }}></SlowMotionVideoOutlinedIcon></a>
                             </Button> <Link style={{ color: 'rgb(70, 170, 220)', fontWeight: 'bold', textDecoration: 'none' }}>View Video</Link>
                         </Box>
                     </Grid>
