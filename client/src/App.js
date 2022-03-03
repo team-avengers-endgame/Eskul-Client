@@ -31,6 +31,7 @@ import TutorDetails from "./Components/PrivateTutor/TutorDetails/TutorDetails";
 import DashboardSchoolTeachers from "./Components/Dashboard/Schools/Teachers/Teachers";
 import NotesPage from "./Components/Notes/NotesPage";
 import BookDetails from "./Components/BookDetails/BookDetails";
+import NotFound from "./Components/NotFound/NotFound";
 const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
 function App() {
   useEffect(() => {
@@ -140,7 +141,9 @@ function App() {
             } />
           </Route>
           {/***************** Dashboard route  End*****************/}
+          <Route path="*" element={<NotFound/>}></Route>
         </Routes>
+
       </BrowserRouter>
     </AuthProvider>
   );

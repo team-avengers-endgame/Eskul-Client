@@ -55,9 +55,7 @@ const PrivateTuor = () => {
                                         <CardMedia
                                             component="img"
                                             sx={{ objectFit: 'cover', objectPosition: '15% 100%', borderRadius: '50%' }} alt="complex" src={single?.teacherPhoto} />
-                                        {/* <Typography sx={{ cursor: "pointer", textAlign: 'center', color: '#007c65' }} variant="body2">
-                                            Hire me
-                                        </Typography> */}
+                                        
 
                                     </Grid>
                                     <Grid item xs={2} sm={4} md={8}>
