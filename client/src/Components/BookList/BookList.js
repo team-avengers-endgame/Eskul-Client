@@ -1,8 +1,10 @@
-import { Card, CardActions, CardContent, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { api } from '../../Hooks/Api';
+import { NavLink } from 'react-router-dom';
+import { ButtonStyle } from '../../Hooks/useStyle';
 
 
 const BookList = () => {
@@ -71,6 +73,14 @@ const BookList = () => {
 
                                         <AddShoppingCartIcon />
                                     </IconButton>
+
+                                    <NavLink
+                        to={`/bookDetails/${6}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                                            <Button size='small' sx={ButtonStyle}>Details</Button>
+
+                      </NavLink>
                                 </CardActions>
                             </Card>
                         </Grid>

@@ -19,7 +19,6 @@ import DashboardBooks from "./Components/Dashboard/Books/Books";
 import Contacts from "./Components/Contacts/Contacts";
 
 import OnlineTuitionTeacherAdd from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeacherAdd";
-import PrivateTeachers from "./Components/PrivateTeachers/PrivateTeachers";
 import BookList from "./Components/BookList/BookList";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
@@ -30,9 +29,8 @@ import OnlineTuitionTeachers from "./Components/Dashboard/OnlineTutionTuitionAdd
 import PrivateTuor from "./Components/PrivateTutor/PrivateTutor/PrivateTuor";
 import TutorDetails from "./Components/PrivateTutor/TutorDetails/TutorDetails";
 import DashboardSchoolTeachers from "./Components/Dashboard/Schools/Teachers/Teachers";
-
-
 import NotesPage from "./Components/Notes/NotesPage";
+import BookDetails from "./Components/BookDetails/BookDetails";
 const Dashboard = lazy(() => { return new Promise(resolve => setTimeout(resolve, 1000)).then(() => import("./Components/Dashboard/Dashboard")) });
 function App() {
   useEffect(() => {
@@ -54,7 +52,8 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
           <Route path="books" element={<BookList />} />
-          <Route path="teachers" element={<PrivateTeachers />} />
+          <Route path="bookDetails/:id" element={
+            <PrivateRoute><BookDetails/></PrivateRoute>} />
           <Route path="notes" element={<NotesPage />} />
           <Route path="schDetails" element={<SchoolDetails />} />
           <Route path="contacts" element={<Contacts />} />
