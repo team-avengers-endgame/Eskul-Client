@@ -7,7 +7,7 @@ import SearchBar from '../Shared/SearchBar/SearchBar';
 import SharedBanner from '../Shared/SharedBanner/SharedBanner';
 import Footer from '../Shared/Footer/Footer';
 import { ButtonStyle } from '../../Hooks/useStyle';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const BookList = () => {

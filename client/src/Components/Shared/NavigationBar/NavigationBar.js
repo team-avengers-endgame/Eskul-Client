@@ -17,8 +17,10 @@ import useAuth from "../../../Hooks/useAuth";
 import { Divider } from "@mui/material";
 import DropdownMenuPage from "./DropdownMenuPage";
 import DropdownMenuGallery from "./DropdownMenuGallery";
+import NotificationIcon from "./NotificationIcon";
+import CartDrawer from "./CartDrawer";
 
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 
 const NavigationBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -171,6 +173,17 @@ const NavigationBar = () => {
               }}
             >
               {/* mobile device menus */}
+              <Box  >
+                <Tooltip title="Open settings" arrow placement="left-end">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ ml: 1, p: 0 }}>
+                    <Avatar
+                      sx={{ bgcolor: "rgb(70, 170, 221)" }}
+                      alt="Remy Sharp"
+                      src={user?.photoURL}
+                    />
+                  </IconButton>
+                </Tooltip>
+              </Box>
               <Link to="/" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Home</Typography>
@@ -226,15 +239,21 @@ const NavigationBar = () => {
             />
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings" arrow placement="left-end">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar
-                  sx={{ bgcolor: "rgb(70, 170, 221)" }}
-                  alt="Remy Sharp"
-                  src={user?.photoURL}
-                />
-              </IconButton>
-            </Tooltip>
+
+            <CartDrawer />
+            <NotificationIcon />
+
+            <Box sx={{ display: { xs: 'none', sm: 'inline', md: 'inline' } }} >
+              <Tooltip title="Open settings" arrow placement="left-end">
+                <IconButton onClick={handleOpenUserMenu} sx={{ ml: 1, p: 0 }}>
+                  <Avatar
+                    sx={{ bgcolor: "rgb(70, 170, 221)" }}
+                    alt="Remy Sharp"
+                    src={user?.photoURL}
+                  />
+                </IconButton>
+              </Tooltip>
+            </Box>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
