@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "",
+    "rent": "10,000",
+    "time": "8:00 AM - 10:00 Am",
+    "location": "Dhaka",
+    "driverName": "Nikhil Das",
+    "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
+    "driverImg": "https://i.ibb.co/HVpyJ5V/indoor-picture-cheerful-handsome-young-man-having-folded-hands-looking-directly-smiling-sincerely-we.jpg"
+  },
+  {
+    "id": 2,
+    "name": "",
+    "rent": "15,000",
+    "time": "7:00 AM - 9:00 AM",
+    "location": "Chittagong",
+    "driverName": "Anik Datta",
+    "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
+    "driverImg": "https://i.ibb.co/8bFVHsP/bohemian-man-with-his-arms-crossed-1368-3542.webp"
+  },
+  {
+    "id": 3,
+    "name": "Red Ring",
+    "rent": "12,000",
+    "time": "8:00 AM - 10:00 Am",
+    "location": "Comilla",
+    "driverName": "Malek Ahmed",
+    "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
+    "driverImg": "https://i.ibb.co/0s0DTQM/handsome-confident-smiling-man-with-hands-crossed-chest.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Red Ring",
+    "rent": "9,000",
+    "time": "6:00 AM - 8:00 Am",
+    "location": "Barisal",
+    "driverName": "Fahim Rana",
+    "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
+    "driverImg": "https://i.ibb.co/fp1wdHf/young-bearded-man-with-striped-shirt.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Red Ring",
+    "rent": "11,000",
+    "time": "9:00 AM - 11:00 Am",
+    "location": "Rajshahi",
+    "driverName": "Rafi Alam",
+    "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
+    "driverImg": "https://i.ibb.co/PFvGwTk/delivery-concept-handsome-african-american-delivery-man-crossed-arms-isolated-grey-studio-background.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Red Ring",
+    "rent": "9,000",
+    "time": "6:00 AM - 8:00 AM",
+    "location": "Noakhali",
+    "driverName": "Kamal Khan",
+    "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
+    "driverImg": "https://i.ibb.co/4Ss0D4T/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crosse.jpg"
+  }
+]

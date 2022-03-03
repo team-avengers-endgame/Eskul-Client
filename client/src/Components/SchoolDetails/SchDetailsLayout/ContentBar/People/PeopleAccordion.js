@@ -4,6 +4,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import DetailPageTeacher from "../DetailPageTeacher/DetailPageTeacher";
 
 const PeopleAccordion = () => {
   return (
@@ -24,7 +25,7 @@ const PeopleAccordion = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>No records found.</Typography>
+          <DetailPageTeacher />
         </AccordionDetails>
       </Accordion>
       <Accordion>
