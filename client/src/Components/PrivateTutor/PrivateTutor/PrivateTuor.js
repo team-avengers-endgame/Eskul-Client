@@ -1,7 +1,8 @@
-import { Box, ButtonBase, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
+import { Box, Button, ButtonBase, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { api } from '../../../Hooks/Api';
+import { ButtonStyle } from '../../../Hooks/useStyle';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 import SharedBanner from '../../Shared/SharedBanner/SharedBanner';
@@ -64,51 +65,19 @@ const PrivateTuor = () => {
                                             <Typography variant="body" ><span
                                                 style={{ fontWeight: 700 }}> Monthly Fee: </span> ৳{single?.monthlyFee}
                                             </Typography>
-                                            {/* <Typography variant="body2" ><span
-                                            style={{ fontWeight: 700}}> Email:  </span>
+                                            <br />
+                                            <Typography variant="body" ><span
+                                                style={{ fontWeight: 700 }}> Email:  </span>
                                                 {single?.email}
-                                            </Typography> */}
+                                            </Typography>
                                         </Box>
                                         <br />
                                         <NavLink
                                             to={`/tutorDetails/${single._id}`}
                                             style={{ textDecoration: "none" }}
                                         >
-                                            <ButtonBase
-                                                sx={{
-                                                    color: "#fff",
-                                                    flexBasis: "initial",
-                                                    minHeight: "30px",
-                                                    fontFamily: "Sans-serif",
-                                                    fontSize: "12px",
-                                                    textTransform: "capitalize",
-                                                    letterSpacing: "0px",
-                                                    backgroundColor: "#01479b",
-                                                    borderStyle: "solid",
-                                                    borderWidth: "1px 1px 1px 1px",
-                                                    borderColor: "#01479b",
-                                                    paddingTop: 0,
-                                                    paddingBottom: 0,
-                                                    border: "none",
-                                                    padding: "6px 12px",
-                                                    display: "inlineBlock",
-                                                    mb: { xs: 2 },
-                                                    borderRadius: "5px",
-                                                    fill: "#FFFFFF",
-                                                    textAlign: "center",
-                                                    fontWeight: 400,
-                                                    whiteSpace: "nowrap",
-                                                    userSelect: "none",
-                                                    width: "auto",
+                                            <Button size='small' sx={ButtonStyle}>Details</Button>
 
-                                                    overflow: "visible",
-                                                    "&:hover": {
-                                                        backgroundColor: "black",
-                                                    },
-                                                }}
-                                            >
-                                                Details
-                                            </ButtonBase>
                                         </NavLink>
 
                                     </Grid>
