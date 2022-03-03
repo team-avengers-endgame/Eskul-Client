@@ -17,7 +17,7 @@ import useAuth from "../../../Hooks/useAuth";
 import { Divider } from "@mui/material";
 import DropdownMenuPage from "./DropdownMenuPage";
 import DropdownMenuGallery from "./DropdownMenuGallery";
-
+// Nav
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavigationBar = () => {
@@ -27,7 +27,7 @@ const NavigationBar = () => {
 
   const { user, admin, logOut } = useAuth();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -92,7 +92,6 @@ const NavigationBar = () => {
                 home
               </Button>
             </Link>
-
 
             <Link to="/schools" style={LinkStyle}>
               <Button
@@ -251,12 +250,17 @@ const NavigationBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {user.displayName && <span>
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center"> {user?.displayName}</Typography>
-                </MenuItem>  <Divider />
-              </span>}
-
+              {user.displayName && (
+                <span>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">
+                      {" "}
+                      {user?.displayName}
+                    </Typography>
+                  </MenuItem>{" "}
+                  <Divider />
+                </span>
+              )}
 
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Profile</Typography>
@@ -265,14 +269,16 @@ const NavigationBar = () => {
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Account</Typography>
               </MenuItem>
-              {admin && <span>
-                <Divider />
-                <NavLink to="/dashboard" style={LinkStyle}>
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Dashboard</Typography>
-                  </MenuItem>
-                </NavLink>
-              </span>}
+              {admin && (
+                <span>
+                  <Divider />
+                  <NavLink to="/dashboard" style={LinkStyle}>
+                    <MenuItem onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">Dashboard</Typography>
+                    </MenuItem>
+                  </NavLink>
+                </span>
+              )}
               <Divider />
               {user?.email ? (
                 <MenuItem
