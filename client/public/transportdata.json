@@ -1,62 +1,74 @@
 [
   {
     "id": 1,
-    "name": "Micro Bus",
+    "name": "Surma Bus",
     "rent": "10,000",
     "time": "8:00 AM - 10:00 Am",
     "location": "Dhaka",
     "driverName": "Nikhil Das",
+    "phone":"01347698321",
     "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
-    "driverImg": "https://i.ibb.co/HVpyJ5V/indoor-picture-cheerful-handsome-young-man-having-folded-hands-looking-directly-smiling-sincerely-we.jpg"
+    "driverImg": "https://i.ibb.co/4Ss0D4T/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crosse.jpg",
+    "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg"
   },
   {
     "id": 2,
-    "name": "",
+    "name": "Dream Bus",
     "rent": "15,000",
     "time": "7:00 AM - 9:00 AM",
     "location": "Chittagong",
+    "phone":"01547698388",
     "driverName": "Anik Datta",
     "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
-    "driverImg": "https://i.ibb.co/8bFVHsP/bohemian-man-with-his-arms-crossed-1368-3542.webp"
+    "driverImg": "https://i.ibb.co/HVpyJ5V/indoor-picture-cheerful-handsome-young-man-having-folded-hands-looking-directly-smiling-sincerely-we.jpg",
+    "busImg": "https://i.ibb.co/0J8L7Zj/bus-parked-road-69593-7793.webp"
   },
   {
     "id": 3,
-    "name": "Red Ring",
+    "name": "Meghna Bus",
     "rent": "12,000",
     "time": "8:00 AM - 10:00 Am",
     "location": "Comilla",
+    "phone":"01647698355",
     "driverName": "Malek Ahmed",
     "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
-    "driverImg": "https://i.ibb.co/0s0DTQM/handsome-confident-smiling-man-with-hands-crossed-chest.jpg"
+    "driverImg": "https://i.ibb.co/0s0DTQM/handsome-confident-smiling-man-with-hands-crossed-chest.jpg",
+    "busImg": "https://i.ibb.co/f94Bh1T/photo-1550523049-a61d0deec4a4.jpg"
   },
   {
     "id": 4,
-    "name": "Red Ring",
+    "name": "Titas Bus",
     "rent": "9,000",
     "time": "6:00 AM - 8:00 Am",
     "location": "Barisal",
     "driverName": "Fahim Rana",
+    "phone":"01847698373",
     "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
-    "driverImg": "https://i.ibb.co/fp1wdHf/young-bearded-man-with-striped-shirt.jpg"
+    "driverImg": "https://i.ibb.co/fp1wdHf/young-bearded-man-with-striped-shirt.jpg",
+    "busImg": "https://i.ibb.co/bFRQJ7J/small-bus-urban-suburban-travel-car-with-empty-body-design-advertising-3d-illustration-101266-15396.webp"
   },
   {
     "id": 5,
-    "name": "Red Ring",
+    "name": "Sunflower Bus",
     "rent": "11,000",
     "time": "9:00 AM - 11:00 Am",
     "location": "Rajshahi",
     "driverName": "Rafi Alam",
+    "phone":"01947698322",
     "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
-    "driverImg": "https://i.ibb.co/PFvGwTk/delivery-concept-handsome-african-american-delivery-man-crossed-arms-isolated-grey-studio-background.jpg"
+    "driverImg": "https://i.ibb.co/PFvGwTk/delivery-concept-handsome-african-american-delivery-man-crossed-arms-isolated-grey-studio-background.jpg",
+    "busImg": "https://i.ibb.co/JF1M85v/photo-1583508805133-8fd03a9916d4-1.jpg"
   },
   {
     "id": 6,
-    "name": "Red Ring",
+    "name": "Rainbow Bus",
     "rent": "9,000",
     "time": "6:00 AM - 8:00 AM",
     "location": "Noakhali",
     "driverName": "Kamal Khan",
+    "phone":"01847698365",
     "img": "https://i.ibb.co/TYqp2gZ/pexels-the-glorious-studio-6358514.jpg",
-    "driverImg": "https://i.ibb.co/4Ss0D4T/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crosse.jpg"
+    "driverImg": "https://i.ibb.co/8bFVHsP/bohemian-man-with-his-arms-crossed-1368-3542.webp",
+    "busImg": "https://i.ibb.co/Kbg0kfs/blue-small-bus-travel-car-with-empty-body-design-advertising-3d-illustration-101266-15588.webp" 
   }
 ]

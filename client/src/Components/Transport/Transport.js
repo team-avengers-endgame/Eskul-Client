@@ -1,11 +1,6 @@
 import {
   Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
+ 
   Container,
   Grid,
   Typography,
@@ -22,7 +17,11 @@ const Transport = () => {
 
   return (
     <Container>
+      <Typography sx={{textAlign:"center",py:5,color:"#0c4b65"}} variant="h4"
+                  gutterBottom
+                  component="div">Our Trasportation Facilities</Typography>
       <Grid container spacing={2}>
+        
         {transports.map((dt) => (
           <Grid key={dt._id} item xs={12} sm={12} md={12}>
             <Grid container spacing={12}>
@@ -43,9 +42,10 @@ const Transport = () => {
                       maxWidth: "100%",
                       verticalAlign: "top",
                       borderRadius: "10px",
+                      margin:"auto",
                       aspectRatio: "auto 1200 / 1200",
                     }}
-                    src={dt.driverImg}
+                    src={dt.busImg}
                     alt=""
                   />
                 </Box>
@@ -62,19 +62,21 @@ const Transport = () => {
                   gutterBottom
                   component="div"
                 >
-                  {dt?.driverName}
+                  {dt?.name}
                 </Typography>
+               
                 <Typography
                   sx={{
                     fontSize: "18px",
                     margin: "0 0 8px",
-                    color: "#46aadd",
-                    fontWeight: "800",
+                    color: "#3B4757",
+                    fontWeight: "400",
                   }}
                   variant="subtitle2"
                   gutterBottom
                   component="div"
                 >
+                  <span style={{ fontWeight: "800" }}>Location:</span>{" "}
                   {dt?.location}
                 </Typography>
                 <Typography
@@ -88,7 +90,20 @@ const Transport = () => {
                   gutterBottom
                   component="div"
                 >
-                  <span style={{ fontWeight: "800" }}>Qualification:</span>{" "}
+                  <span style={{ fontWeight: "800" }}>Time:</span> {dt?.time}
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "18px",
+                    margin: "0 0 8px",
+                    color: "#3B4757",
+                    fontWeight: "400",
+                  }}
+                  variant="subtitle2"
+                  gutterBottom
+                  component="div"
+                >
+                  <span style={{ fontWeight: "800" }}>Rent Fee: </span>
                   {dt?.rent}
                 </Typography>
                 <Typography
@@ -102,7 +117,23 @@ const Transport = () => {
                   gutterBottom
                   component="div"
                 >
-                  <span style={{ fontWeight: "800" }}>Subject:</span> {dt?.time}
+                  <span style={{ fontWeight: "800" }}>Schedule:</span>
+                  {dt?.time}
+                </Typography>
+                
+                <Typography
+                  sx={{
+                    fontSize: "18px",
+                    margin: "0 0 8px",
+                    color: "#3B4757",
+                    fontWeight: "400",
+                  }}
+                  variant="subtitle2"
+                  gutterBottom
+                  component="div"
+                >
+                  <span style={{ fontWeight: "800" }}>Driver Name:</span>
+                  {dt?.driverName}
                 </Typography>
                 <Typography
                   sx={{
@@ -115,23 +146,10 @@ const Transport = () => {
                   gutterBottom
                   component="div"
                 >
-                  <span style={{ fontWeight: "800" }}>Mobile: </span>
-                  {dt?.phoneNumber}
+                  <span style={{ fontWeight: "800" }}>Driver Phone Number:</span>
+                  {dt?.phone}
                 </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    margin: "0 0 8px",
-                    color: "#3B4757",
-                    fontWeight: "400",
-                  }}
-                  variant="subtitle2"
-                  gutterBottom
-                  component="div"
-                >
-                  <span style={{ fontWeight: "800" }}>Email:</span>
-                  {dt?.email}
-                </Typography>
+                <img style={{width:"25%",height:"25%",objectFit:'cover',borderRadius:"50px 0px 50px 0px",marginBottom:"10%"}} src={dt?.driverImg} alt="" />
               </Grid>
             </Grid>
           </Grid>
