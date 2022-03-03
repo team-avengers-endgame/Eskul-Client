@@ -6,8 +6,8 @@ import { api } from '../../Hooks/Api';
 import SearchBar from '../Shared/SearchBar/SearchBar';
 import SharedBanner from '../Shared/SharedBanner/SharedBanner';
 import Footer from '../Shared/Footer/Footer';
-import { NavLink } from 'react-router-dom';
 import { ButtonStyle } from '../../Hooks/useStyle';
+import { Link, NavLink } from 'react-router-dom';
 
 
 const BookList = () => {
@@ -76,12 +76,12 @@ const BookList = () => {
                                     </IconButton>
 
                                     <NavLink
-                        to={`/bookDetails/${6}`}
-                        style={{ textDecoration: "none" }}
-                      >
-                                            <Button size='small' sx={ButtonStyle}>Details</Button>
+                                        to={`/bookDetails/${book._id}`}
+                                        style={{ textDecoration: "none" }}
+                                    >
+                                        <Button size='small' sx={ButtonStyle}>Details</Button>
 
-                      </NavLink>
+                                    </NavLink>
                                 </CardActions>
                             </Card>
                         </Grid>
