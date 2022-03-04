@@ -8,12 +8,19 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from 'react';
+import Aos from 'aos';
 import footerbgsvg from "../../../Assets/Images/AboutUs/footer-bg.svg";
 import paper from "../../../Assets/Images/AboutUs/paper.svg";
 import vision from "../../../Assets/Images/AboutUs/vision.svg";
 import philosophy from "../../../Assets/Images/AboutUs/philosophy.svg";
 const VisionMissionSection = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000
+    });
+  }, []);
+
   return (
     <Box
       sx={{
@@ -24,13 +31,17 @@ const VisionMissionSection = () => {
       }}
     >
       <Container>
-        <Box sx={{ textAlign: "center" }}>
+        <Box
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+          sx={{ textAlign: "center" }}>
           <Typography
             sx={{ fontStyle: "italic", fontSize: 22, color: "#46AADD" }}
             variant="body1"
             gutterBottom
           >
-            What is special about centre
+            What is special about ESKUL
           </Typography>
 
           <Typography
@@ -49,7 +60,11 @@ const VisionMissionSection = () => {
         </Box>
         <Box>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={12} md={4}>
+            <Grid
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
+              item xs={12} sm={12} md={4}>
               <Card sx={{ py: "70px", px: "40px" }}>
                 <CardActionArea>
                   <CardMedia
@@ -83,7 +98,11 @@ const VisionMissionSection = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={12} md={4}>
+            <Grid
+              data-aos="fade-up"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
+              item xs={12} sm={12} md={4}>
               <Card sx={{ py: "70px", px: "40px" }}>
                 <CardActionArea>
                   <CardMedia
@@ -111,13 +130,17 @@ const VisionMissionSection = () => {
                       color="text.secondary"
                     >
                       Our vision for Early Years is based upon the premise that
-                      every child the receieves the very best education.
+                      every child  receieves the very best education and find pure information.
                     </Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={12} md={4}>
+            <Grid
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
+              item xs={12} sm={12} md={4}>
               <Card sx={{ py: "70px", px: "40px" }}>
                 <CardActionArea>
                   <CardMedia

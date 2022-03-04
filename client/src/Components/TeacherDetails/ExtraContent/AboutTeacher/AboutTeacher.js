@@ -19,12 +19,7 @@ const AboutTeacher = () => {
         About Teacher
       </Typography>
       <Typography sx={{ mr: 4 }} variant="body1" gutterBottom>
-        Donec nec odio sem. Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit. Aenean posuere enim eu tellus condimentum ullamcorper. Quisque
-        dolor risus, blandit et sem eu, faucibus efficitur augue. Quisque at
-        ornare ipsum. Curabitur viverra, nibh vitae bibendum semper, tortor
-        ipsum euismod mauris, a facilisis ex enim non nibh. Cras cursus ligula
-        nec lacus vehicula, ut molestie purus vestibulum.
+      A Teacher is a professional who teaches students based on national curriculum guidelines within their specialist subject areas.For me teaching is a passionate field for teaching students. Teaching is a great responsibility for the nation. As a teacher, teaching students is the prime responsibility for me. Not only teaching but also giving moral values to students is also the responsibility of the teacher. 
       </Typography>
 
       <Button

@@ -1,10 +1,19 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from 'react';
+import Aos from 'aos';
 
 const DifferenceSection = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 4000
+    });
+  }, []);
   return (
     <Container sx={{ py: 15 }}>
-      <Box sx={{ pb: 8 }}>
+      <Box
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        sx={{ pb: 8 }}>
         <Typography
           sx={{
             fontStyle: "italic",
@@ -36,14 +45,17 @@ const DifferenceSection = () => {
           variant="body2"
           gutterBottom
         >
-          What gives our schools the quality you feel the moment you enter are
+          What gives our website the quality you feel the moment you enter are
           the “pillars” of belief that support them. <br /> There are six core
-          beliefs on which everything centers at our schools.
+          beliefs on which everything centers at our Website.
         </Typography>
       </Box>
       <Box>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={12} md={3}>
+          <Grid
+            data-aos="fade-right"
+            data-aos-duration="3000"
+            item xs={12} sm={12} md={3}>
             {/* box-1 */}
 
             <Box
@@ -90,7 +102,10 @@ const DifferenceSection = () => {
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={12} md={3}>
+          <Grid
+            data-aos="fade-left"
+            data-aos-duration="3000"
+            item xs={12} sm={12} md={3}>
             {/* box-2 */}
 
             <Box
@@ -136,7 +151,10 @@ const DifferenceSection = () => {
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={12} md={3}>
+          <Grid
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            item xs={12} sm={12} md={3}>
             {/* box-3 */}
 
             <Box
@@ -178,8 +196,7 @@ const DifferenceSection = () => {
                 gutterBottom
               >
                 Sharing new experiences and solving problems with others leads
-                to a greater sense of connectedness – as well as meaningful
-                learning experiences.
+                to a greater sense of connectedness.
               </Typography>
             </Box>
           </Grid>
@@ -225,8 +242,7 @@ const DifferenceSection = () => {
                 gutterBottom
               >
                 Several important learning models have been developed by
-                educators around the world. The human connection must be a key
-                component of learning.
+                educators around the world.
               </Typography>
             </Box>
           </Grid>
