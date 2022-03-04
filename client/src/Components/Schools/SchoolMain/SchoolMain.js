@@ -1,18 +1,33 @@
-import { ButtonBase, Container, Grid, Paper, Typography } from "@mui/material";
+import { Button, ButtonBase, Container, Grid, Pagination, Paper, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
-import SearchBar from "../SearchBar/SearchBar";
+
 import { NavLink } from "react-router-dom";
-// import Banner from "../../SchoolDetails/Banner/Banner";
 import { api } from "../../../Hooks/Api";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
+import { ButtonStyle } from "../../../Hooks/useStyle";
+import SearchBar from "../../Shared/SearchBar/SearchBar";
 const SchoolMain = () => {
   const [schools, setSchools] = useState([]);
+  const [searchValue, setSearchValue] = useState([]);
+  const [page, setPage] = useState(1);
   useEffect(() => {
-    fetch(`${api}/schools`)
+    fetch(`${api}/schools?page=${page}&limit=10`)
       .then((res) => res.json())
-      .then((data) => setSchools(data?.data?.data));
-  }, []);
+      .then((data) => {
+        setSchools(data?.data?.data);
+        setSearchValue(data?.data?.data)
+      });
+  }, [page]);
+
+
+  const handleOnChange = (e) => {
+    const value = e.target.value;
+    const newValue = schools?.filter(s => s.schoolName.toLowerCase().includes(value.toLowerCase()) || s.location.toLowerCase().includes(value.toLowerCase()))
+    setSearchValue(newValue)
+  }
+
+
   const Img = styled("img")({
     margin: "auto",
     display: "block",
@@ -20,30 +35,15 @@ const SchoolMain = () => {
     maxHeight: "100%",
   });
 
-
+  const placeholder = 'Search by School Name or EIIN';
 
   return (
     <Container>
-      <Typography
-        variant="h3"
-        sx={{
-          fontWeight: "500",
-          fontSize: "30px",
-          color: "#3B4757",
-          textAlign: "center",
-          py: 3,
-        }}
-        gutterBottom
-        component="div"
-      >
-        All Schools in Bangladesh
-      </Typography>
 
-      
+      <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
 
-      <SearchBar />
-      <Grid container spacing={2}>
-        {schools.map((single) => (
+      <Grid container spacing={2} sx={{ mt: 6 }}>
+        {searchValue?.map((single) => (
           <Grid sx={{ py: 3 }} key={single._id} item xs={12} sm={12} md={6}>
             <Paper
               sx={{
@@ -93,41 +93,13 @@ const SchoolMain = () => {
                         to={`/details/${single._id}`}
                         style={{ textDecoration: "none" }}
                       >
-                        <ButtonBase
-                          sx={{
-                            color: "#fff",
-                            flexBasis: "initial",
-                            minHeight: "30px",
-                            fontFamily: "Sans-serif",
-                            fontSize: "12px",
-                            textTransform: "capitalize",
-                            letterSpacing: "0px",
-                            backgroundColor: "#01479b",
-                            borderStyle: "solid",
-                            borderWidth: "1px 1px 1px 1px",
-                            borderColor: "#01479b",
-                            paddingTop: 0,
-                            paddingBottom: 0,
-                            border: "none",
-                            padding: "6px 12px",
-                            display: "inlineBlock",
-                            mb: { xs: 2 },
-                            borderRadius: "5px",
-                            fill: "#FFFFFF",
-                            textAlign: "center",
-                            fontWeight: 400,
-                            whiteSpace: "nowrap",
-                            userSelect: "none",
-                            width: "auto",
+                        <Button
+                          size='small'
+                          sx={{ ...ButtonStyle }}
 
-                            overflow: "visible",
-                            "&:hover": {
-                              backgroundColor: "black",
-                            },
-                          }}
                         >
                           Details
-                        </ButtonBase>
+                        </Button>
                       </NavLink>
                     </Grid>
                   </Grid>
@@ -137,6 +109,11 @@ const SchoolMain = () => {
           </Grid>
         ))}
       </Grid>
+      <Stack spacing={2}>
+
+        <Pagination onChange={(e, value) => setPage(value)} count={100} color="secondary" />
+
+      </Stack>
     </Container>
   );
 };

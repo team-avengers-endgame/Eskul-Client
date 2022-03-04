@@ -8,7 +8,7 @@ const Schools = () => {
   return (
     <div>
       <NavigationBar />
-      <SharedBanner pageName={"All Schools"} />
+      <SharedBanner pageName={"All Schools in Bangladesh"} />
       <SchoolMain />
       <Footer />
     </div>

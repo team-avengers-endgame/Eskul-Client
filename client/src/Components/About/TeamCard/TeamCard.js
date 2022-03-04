@@ -25,7 +25,7 @@ const TeamCard = () => {
                                 <div className='description'>
                                     <h3>{team.name}</h3>
                                     <p>{team.description}</p>
-                                    <a href="">Contact</a>
+                                    <a href="">Resume</a>
                                 </div>
 
                             </div>

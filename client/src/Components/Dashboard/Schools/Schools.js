@@ -13,6 +13,8 @@ import { Box, IconButton, TableFooter, TablePagination, Typography } from "@mui/
 import { Link } from "react-router-dom";
 import { api } from "../../../Hooks/Api";
 import EditSchoolDataForm from "./EditSchoolDataForm/EditSchoolDataForm";
+import SearchBar from "../../Shared/SearchBar/SearchBar";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -34,23 +36,38 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+
+
 export default function Schools() {
   const [schools, setSchools] = useState([]);
+  const [searchValue, setSearchValue] = useState([]);
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState("paper");
   const [school, setSchool] = useState({});
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
+
   const loadSchools = async () => {
     fetch(`${api}/schools`)
       .then((res) => res.json())
-      .then((data) => setSchools(data?.data?.data));
+      .then((data) => {
+        setSchools(data?.data?.data?.reverse())
+        setSearchValue(data?.data?.data?.reverse())
+      });
   };
 
   useEffect(() => {
     loadSchools();
+
   }, []);
+
+  const handleOnChange = (e) => {
+    const value = e.target.value;
+    const newValue = schools?.filter(s => s.schoolName.toLowerCase().includes(value.toLowerCase()) || s.location.toLowerCase().includes(value.toLowerCase()))
+    setSearchValue(newValue)
+  }
+
 
   const handleClose = () => {
     setOpen(false);
@@ -73,8 +90,11 @@ export default function Schools() {
     setPage(0);
   };
 
+  const placeholder = 'Search by School Name or Location';
+
   return (
     <Box sx={{ p: 3 }}>
+      <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
       <Typography variant="h5" sx={{ pb: 3 }}>Manage all Schools</Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -90,7 +110,7 @@ export default function Schools() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {schools?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((school) => (
+            {searchValue?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.map((school) => (
               <StyledTableRow key={school?._id}>
                 <StyledTableCell component="th" scope="row">
                   {school?.schoolName}

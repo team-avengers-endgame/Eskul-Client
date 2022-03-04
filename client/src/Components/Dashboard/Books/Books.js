@@ -16,6 +16,7 @@ import EditBooks from "./EditBooks/EditBooks";
 import axios from "axios";
 import { alert } from "../../../Hooks/useStyle";
 import Swal from "sweetalert2";
+import SearchBar from "../../Shared/SearchBar/SearchBar";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -44,17 +45,28 @@ export default function Books() {
   const [scroll, setScroll] = React.useState();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
+  const [searchValue, setSearchValue] = useState([]);
 
   const loadBooks = async () => {
     fetch(`${api}/books`)
       .then((res) => res.json())
-      .then((data) => setBooks(data?.data?.data));
+      .then((data) => {
+        setBooks(data?.data?.data);
+        setSearchValue(data?.data?.data);
+      });
   };
   useEffect(() => {
     loadBooks();
   }, []);
 
+
+  /*************** searching *****************/
+  const handleOnChange = (e) => {
+    const value = e.target.value;
+    const newValue = books?.filter(s => s.bookName.includes(value) || s.author.includes(value))
+    setSearchValue(newValue)
+  }
+  const placeholder = 'Search by Book Name or Author Name';
   const handleDeleteBook = (bookId) => {
 
     Swal.fire({
@@ -107,6 +119,7 @@ export default function Books() {
 
   return (
     <Box sx={{ p: 3 }}>
+      <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
       <Typography variant="h5" sx={{ my: 2, fontWeight: "bold" }}>
         Manage All Book
       </Typography>
@@ -125,7 +138,7 @@ export default function Books() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {books?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((book) => (
+            {searchValue?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((book) => (
               <StyledTableRow
                 key={book._id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

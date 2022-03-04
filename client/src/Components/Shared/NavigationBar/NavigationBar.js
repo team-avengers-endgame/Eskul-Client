@@ -17,8 +17,8 @@ import useAuth from "../../../Hooks/useAuth";
 import { Divider } from "@mui/material";
 import DropdownMenuPage from "./DropdownMenuPage";
 import DropdownMenuGallery from "./DropdownMenuGallery";
-
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import NotificationIcon from "./NotificationIcon";
+import CartDrawer from "./CartDrawer";
 
 const NavigationBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -27,7 +27,7 @@ const NavigationBar = () => {
 
   const { user, admin, logOut } = useAuth();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -92,14 +92,6 @@ const NavigationBar = () => {
                 home
               </Button>
             </Link>
-            <Link to="/about" style={LinkStyle}>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "#211e1e", display: "block" }}
-              >
-                about us
-              </Button>
-            </Link>
 
             <Link to="/schools" style={LinkStyle}>
               <Button
@@ -109,7 +101,23 @@ const NavigationBar = () => {
                 Schools
               </Button>
             </Link>
-            <Link to="/programs" style={LinkStyle}>
+            <Link to="/privateTutor" style={LinkStyle}>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "#211e1e", display: "block" }}
+              >
+                Private Tutor
+              </Button>
+            </Link>
+            <Link to="/books" style={LinkStyle}>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "#211e1e", display: "block" }}
+              >
+                Books
+              </Button>
+            </Link>
+            <Link to="/" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
@@ -117,7 +125,7 @@ const NavigationBar = () => {
                 programs
               </Button>
             </Link>
-            <Link to="/parents" style={LinkStyle}>
+            <Link to="/" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
@@ -127,28 +135,6 @@ const NavigationBar = () => {
             </Link>
             <DropdownMenuGallery />
             <DropdownMenuPage />
-
-
-
-
-
-
-            <Link to="/blogs" style={LinkStyle}>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "#211e1e", display: "block" }}
-              >
-                blogs
-              </Button>
-            </Link>
-            <Link to="/contacts" style={LinkStyle}>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "#211e1e", display: "block" }}
-              >
-                contacts
-              </Button>
-            </Link>
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -184,6 +170,17 @@ const NavigationBar = () => {
               }}
             >
               {/* mobile device menus */}
+              <Box>
+                <Tooltip title="Open settings" arrow placement="left-end">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ ml: 1, p: 0 }}>
+                    <Avatar
+                      sx={{ bgcolor: "rgb(70, 170, 221)" }}
+                      alt="Remy Sharp"
+                      src={user?.photoURL}
+                    />
+                  </IconButton>
+                </Tooltip>
+              </Box>
               <Link to="/" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Home</Typography>
@@ -199,19 +196,19 @@ const NavigationBar = () => {
                   <Typography textAlign="center">Schools</Typography>
                 </MenuItem>
               </Link>
-              <Link to="/programs" style={LinkStyle}>
+              <Link to="/" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Programs</Typography>
                 </MenuItem>
               </Link>
-              <Link to="/parents" style={LinkStyle}>
+              <Link to="/" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Parent info</Typography>
                 </MenuItem>
               </Link>
               <DropdownMenuGallery />
               <DropdownMenuPage />
-              <Link to="/blog" style={LinkStyle}>
+              <Link to="/" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Blog</Typography>
                 </MenuItem>
@@ -239,15 +236,20 @@ const NavigationBar = () => {
             />
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings" arrow placement="left-end">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar
-                  sx={{ bgcolor: "rgb(70, 170, 221)" }}
-                  alt="Remy Sharp"
-                  src={user?.photoURL}
-                />
-              </IconButton>
-            </Tooltip>
+            <CartDrawer />
+            <NotificationIcon />
+
+            <Box sx={{ display: { xs: "none", sm: "inline", md: "inline" } }}>
+              <Tooltip title="Open settings" arrow placement="left-end">
+                <IconButton onClick={handleOpenUserMenu} sx={{ ml: 1, p: 0 }}>
+                  <Avatar
+                    sx={{ bgcolor: "rgb(70, 170, 221)" }}
+                    alt="Remy Sharp"
+                    src={user?.photoURL}
+                  />
+                </IconButton>
+              </Tooltip>
+            </Box>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -264,12 +266,17 @@ const NavigationBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {user.displayName && <span>
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center"> {user?.displayName}</Typography>
-                </MenuItem>  <Divider />
-              </span>}
-
+              {user.displayName && (
+                <span>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">
+                      {" "}
+                      {user?.displayName}
+                    </Typography>
+                  </MenuItem>{" "}
+                  <Divider />
+                </span>
+              )}
 
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Profile</Typography>
@@ -278,14 +285,16 @@ const NavigationBar = () => {
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Account</Typography>
               </MenuItem>
-              {admin && <span>
-                <Divider />
-                <NavLink to="/dashboard" style={LinkStyle}>
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Dashboard</Typography>
-                  </MenuItem>
-                </NavLink>
-              </span>}
+              {admin && (
+                <span>
+                  <Divider />
+                  <NavLink to="/dashboard" style={LinkStyle}>
+                    <MenuItem onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">Dashboard</Typography>
+                    </MenuItem>
+                  </NavLink>
+                </span>
+              )}
               <Divider />
               {user?.email ? (
                 <MenuItem

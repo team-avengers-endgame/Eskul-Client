@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Toolbar } from '@mui/material';
 import React from 'react';
 import { Budget } from './DeashboardHomeComponet/Budget';
 import { LatestOrders } from './DeashboardHomeComponet/Latest-orders';
@@ -27,7 +27,7 @@ const DashboardHome = () => {
                 </Grid>
             </Grid>
 
-            <br />
+            <Toolbar />
 
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 
@@ -39,7 +39,7 @@ const DashboardHome = () => {
                 </Grid>
             </Grid>
 
-            <br />
+            <Toolbar />
 
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 <Grid item xs={4} sm={4} md={6}>
@@ -50,7 +50,8 @@ const DashboardHome = () => {
                 </Grid>
 
             </Grid>
-            <br /><br />
+            <Toolbar />
+
         </Box>
     );
 };

@@ -18,7 +18,7 @@ const DropdownMenuPage = () => {
         onClick={handleOpenUserMenu}
         sx={{ my: 2, color: "#211e1e", display: "block" }}
       >
-        Page
+        Pages
       </Button>
       <Menu
         sx={{ mt: "45px" }}
@@ -37,21 +37,23 @@ const DropdownMenuPage = () => {
         onClose={handleCloseUserMenu}
       >
 
-        <Link to="/" style={LinkStyle}>
+
+
+        <Link to="/about" style={LinkStyle}>
           <MenuItem onClick={handleCloseUserMenu}>
-            <Typography textAlign="center">page</Typography>
+            <Typography textAlign="center">About us</Typography>
           </MenuItem>
         </Link>
         <Divider />
         <Link to="/" style={LinkStyle}>
           <MenuItem onClick={handleCloseUserMenu}>
-            <Typography textAlign="center">page</Typography>
+            <Typography textAlign="center">Blogs</Typography>
           </MenuItem>
         </Link>
         <Divider />
-        <Link to="/" style={LinkStyle}>
+        <Link to="/contacts" style={LinkStyle}>
           <MenuItem onClick={handleCloseUserMenu}>
-            <Typography textAlign="center">page</Typography>
+            <Typography textAlign="center">Contacts</Typography>
           </MenuItem>
         </Link>
       </Menu>

@@ -15,6 +15,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import OnlineTuitionTeachersEdit from './OnlineTuitionTeachersEdit';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import SearchBar from '../../../Shared/SearchBar/SearchBar';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -45,20 +46,29 @@ const OnlineTuitionTeachers = () => {
     const [id, setId] = useState("");
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
+    const [searchValue, setSearchValue] = useState([]);
     // --------------------------------------------------------
 
     const fetchTeacher = async () => {
         await fetch(`${api}/privateTeachers`)
             .then(res => res?.json())
-            .then(data => setTeachers(data?.data?.data))
+            .then(data => {
+                setTeachers(data?.data?.data);
+                setSearchValue(data?.data?.data)
+            })
     }
     useEffect(() => {
         fetchTeacher()
     }, [setTeachers, setTeachers]);
+    console.log(teachers)
 
-
-
+    /*************** searching *****************/
+    const handleOnChange = (e) => {
+        const value = e.target.value;
+        const newValue = teachers?.filter(s => s.subject.toLowerCase().includes(value.toLowerCase()) || s.location.toLowerCase().includes(value.toLowerCase()) || s.teacherName.toLowerCase().includes(value.toLowerCase()));
+        setSearchValue(newValue)
+    }
+    const placeholder = 'Search by Teacher Name || Subject || Location';
     //----------------------------------------------------------
 
     const handleDelete = (id) => {
@@ -115,8 +125,10 @@ const OnlineTuitionTeachers = () => {
         setPage(0);
     };
     //////////////////////////////////////////////////
+
     return (
         <Box sx={{ p: 3 }}>
+            <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
             <Typography variant='h5' sx={{ pb: 3 }}>
                 Online Tuition Teachers
             </Typography>
@@ -131,7 +143,7 @@ const OnlineTuitionTeachers = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {teachers?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                        {searchValue?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((teacher) => (
                                 <StyledTableRow key={teacher?._id}>
                                     <StyledTableCell component="th" scope="row">
