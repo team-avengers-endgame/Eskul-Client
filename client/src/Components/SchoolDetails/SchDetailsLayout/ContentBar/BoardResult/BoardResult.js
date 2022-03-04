@@ -8,7 +8,7 @@ const BoardResult = () => {
       <Box
         sx={{
           p: "10px 100px 10px 15px",
-          backgroundColor: "#01479b",
+          backgroundColor: "#46aadd",
           borderRadius: "0px 100px 0px 0px",
           width: "10%",
           mt: 17,
@@ -33,7 +33,7 @@ const BoardResult = () => {
           borderLeft: 1,
           borderStyle: "solid",
           borderWidth: "0px 0px 0px 2px",
-          borderColor: "#01479b",
+          borderColor: "#46aadd",
           boxShadow: "0px 0px 10px 0px rgb(0 0 0 / 15%)",
           display: "block",
           ml: { md: 25 },

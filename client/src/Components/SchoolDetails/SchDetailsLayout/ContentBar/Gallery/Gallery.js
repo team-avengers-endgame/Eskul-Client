@@ -6,7 +6,7 @@ const Gallery = () => {
       <Box
         sx={{
           p: "10px 100px 10px 15px",
-          backgroundColor: "#01479b",
+          backgroundColor: "#46aadd",
           borderRadius: "0px 100px 0px 0px",
           width: "10%",
           mt: 17,
