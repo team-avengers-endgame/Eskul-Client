@@ -7,33 +7,33 @@ const WhyChooseUsData = [
     {
         id: 1,
         title: 'Perfect Information',
-        dis: 'Children are comfortable and confident in their home, feeling safe and secure to explore and learn.'
+        dis: 'Parents can search their desired school informations.'
     },
     {
         id: 2,
-        title: 'Loving Language',
-        dis: '90% success rate of children reading before they go to school for children attending more than 12 months.'
+        title: 'Online tuition',
+        dis: 'We provide online tuition system for students where they can choose their teacher.'
     },
     {
         id: 3,
-        title: '30 Day Moneyback Guarantee',
-        dis: 'If you’re not completely satisfied we will refund your money, no questions asked.'
+        title: 'Online buying books',
+        dis: 'Students can buy thier selected books and pay for them in online.'
     },
     {
-        
+
         id: 4,
-        title: 'Culture of Honour',
-        dis: 'We aim to help all people that come into contact with ChildiT to feel Significant, Appreciated and Understood.'
+        title: 'Transport',
+        dis: 'We have our own transport system for students.'
     },
     {
         id: 5,
-        title: 'Orientation Process',
-        dis: 'Makes the process of you and your child settling into care with ChildiT that much smoother.'
+        title: 'Download Notes',
+        dis: 'Students can find their important notes here and can download the PDF.'
     },
     {
         id: 6,
-        title: 'Quality Educators',
-        dis: 'Trusted, highly trained and hand-picked Educators. We believe that educators play a huge role in quality child care.'
+        title: 'Donation System',
+        dis: 'Anyone can donate money to any institute through us.'
     },
 ]
 const WhyChooseUs = () => {
@@ -71,7 +71,7 @@ const WhyChooseUs = () => {
                                         </Typography>
                                     </Box>
                                     <Box>
-                                        <Typography variant='h5'>
+                                        <Typography variant='h5' sx={{ color: 'black', pb: 2, fontFamily: 'Georgia', fontStyle: 'italic', fontWeight: '600', textAlign: 'center', margin: '5px' }}>
                                             {data.title}
 
                                         </Typography>

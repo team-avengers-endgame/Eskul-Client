@@ -29,7 +29,7 @@ const Testimonial = () => {
             style={{ display: "flex", justifyContent: "center", marginTop: 50 }}
         >
             <div style={{ width: "50%", textAlign: "center" }}>
-                <h1 style={{ marginBottom: 20 }}>TESTIMONIALS</h1>
+                <h1 style={{ color: '#46AADC', pb: 2, fontFamily: 'Georgia', fontStyle: 'italic', fontWeight: '500', marginBottom: 20 }}>TESTIMONIALS</h1>
                 <Slider prevArrow={<PreviousBtn />} nextArrow={<NextBtn />} dots>
                     <Card img="https://www.tutorialrepublic.com/examples/images/clients/1.jpg" />
                     <Card img="https://www.tutorialrepublic.com/examples/images/clients/1.jpg" />

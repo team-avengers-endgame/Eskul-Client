@@ -5,10 +5,10 @@ import Marquee from "react-fast-marquee";
 
 const Covid = () => {
     return (
-        <Box sx={{ backgroundColor: 'yellow' }}>
+        <Box sx={{ bgcolor: '#bbdefb' }}>
             <Marquee direction='right'>
                 <CoronavirusIcon sx={{ color: 'red' }} />
-                <Typography> <a style={{ textDecoration: "none", color: 'red', fontWeight: 'bold' }} href="https://docs.google.com/forms/d/e/1FAIpQLSfvFQyfZbgWwUW8GE8tM1vCa3-44nj1GlDtVRmoM1aaWlediA/viewform"
+                <Typography> <a style={{ textDecoration: "none", color: 'black', fontWeight: 'bold' }} href="https://docs.google.com/forms/d/e/1FAIpQLSfvFQyfZbgWwUW8GE8tM1vCa3-44nj1GlDtVRmoM1aaWlediA/viewform"
                 >Student Can find out Covid-19 vaccine form here.Just click</a></Typography>
                 <CoronavirusIcon sx={{ color: 'red' }} />
             </Marquee>
