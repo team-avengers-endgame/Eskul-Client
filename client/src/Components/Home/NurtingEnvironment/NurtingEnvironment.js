@@ -23,7 +23,7 @@ const NurtingEnvironment = () => {
                                 data-aos-easing="ease-out-cubic"
                                 data-aos-duration="2000"
                                 variant='h4' sx={{ fontWeight: 'bold' }}>
-                                We Create a Helpfull Environment <br />
+                                We Create a Helpfull Website <br />
                                 <span style={{ color: 'rgb(70, 170, 220)' }}>for Each Child</span>
                             </Typography>
                             <Typography
@@ -31,7 +31,8 @@ const NurtingEnvironment = () => {
                                 data-aos-easing="ease-out-cubic"
                                 data-aos-duration="2000"
                                 variant='body'>
-                                Thought open ended play based experiences children flourish, and grow to love their school, taking pride in belonging to a community
+                                Where parents and students can find out all the information and facilities about schools they need!!
+
                             </Typography>
                             <br /><br />
                             <Button sx={{ borderRadius: '50%', height: '60px', width: '60px', backgroundColor: 'rgb(70, 170, 220)', color: 'white' }}>
