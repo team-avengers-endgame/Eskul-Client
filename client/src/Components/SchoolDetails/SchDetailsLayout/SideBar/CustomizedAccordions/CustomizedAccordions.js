@@ -78,43 +78,43 @@ export default function CustomizedAccordions() {
           <ListItem>
             {" "}
             <CircleIcon sx={{ fontSize: "14px", px: 2 }} />
-            <Typography sx={{ fontSize: "20px" }}>Board Result</Typography>
+            <Typography sx={{ fontSize: "20px", cursor: "pointer"  }}>Board Result</Typography>
           </ListItem>
 
           <ListItem>
             {" "}
             <CircleIcon sx={{ fontSize: "14px", px: 2 }} />
-            <Typography sx={{ fontSize: "20px" }}>Term Result</Typography>
+            <Typography sx={{ fontSize: "20px", cursor: "pointer"  }}>Term Result</Typography>
           </ListItem>
           <ListItem>
             {" "}
             <CircleIcon sx={{ fontSize: "14px", px: 2 }} />
-            <Typography sx={{ fontSize: "20px" }}>Notice</Typography>
+            <Typography sx={{ fontSize: "20px", cursor: "pointer"  }}>Notice</Typography>
           </ListItem>
           <ListItem>
             {" "}
             <CircleIcon sx={{ fontSize: "14px", px: 2 }} />
-            <Typography sx={{ fontSize: "20px" }}>People</Typography>
+            <Typography sx={{ fontSize: "20px", cursor: "pointer"  }}>People</Typography>
           </ListItem>
           <ListItem>
             {" "}
             <CircleIcon sx={{ fontSize: "14px", px: 2 }} />
-            <Typography sx={{ fontSize: "20px" }}>Gallery</Typography>
+            <Typography sx={{ fontSize: "20px", cursor: "pointer"  }}>Gallery</Typography>
           </ListItem>
           <ListItem>
             {" "}
             <CircleIcon sx={{ fontSize: "14px", px: 2 }} />
-            <Typography sx={{ fontSize: "20px" }}>Feedback</Typography>
+            <Typography sx={{ fontSize: "20px", cursor: "pointer"  }}>Feedback</Typography>
           </ListItem>
           <ListItem>
             {" "}
             <CircleIcon sx={{ fontSize: "14px", px: 2 }} />
-            <Typography sx={{ fontSize: "20px" }}>Message</Typography>
+            <Typography sx={{ fontSize: "20px", cursor: "pointer"  }}>Message</Typography>
           </ListItem>
           <ListItem>
             {" "}
             <CircleIcon sx={{ fontSize: "14px", px: 2 }} />
-            <Typography sx={{ fontSize: "20px" }}>Contact</Typography>
+            <Typography sx={{ fontSize: "20px", cursor: "pointer"  }}>Contact</Typography>
           </ListItem>
         </AccordionDetails>
       </Accordion>

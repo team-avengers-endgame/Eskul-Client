@@ -7,6 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Box } from "@mui/material";
 // Experience
 const Experience = () => {
+  
   const [expanded, setExpanded] = React.useState("panel1");
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -40,13 +41,12 @@ const Experience = () => {
             gutterBottom
             component="div"
           >
-            English Lession
+            Teaching Student
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          Donec sed odio tempor, varius elit eu, consequat urna. Morbi bibendum
-          vestibulum maximus. Vestibulum ut nibh ex. Quisque nulla ante,
-          tristique in efficitur eu, ultrices a justo.
+        Teaching students is a prime responsibility for any teacher. I have  8 years +  experience teaching students. 
+
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -71,9 +71,7 @@ const Experience = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Donec sed odio tempor, varius elit eu, consequat urna. Morbi
-            bibendum vestibulum maximus. Vestibulum ut nibh ex. Quisque nulla
-            ante, tristique in efficitur eu, ultrices a justo.
+          Student management is another prime responsibility for any teacher. I have  5 years +  experience managing students.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -99,9 +97,7 @@ const Experience = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Donec sed odio tempor, varius elit eu, consequat urna. Morbi
-            bibendum vestibulum maximus. Vestibulum ut nibh ex. Quisque nulla
-            ante, tristique in efficitur eu, ultrices a justo.
+          As a teacher , every teacher should do research based on his own perspective. I have done a lot of research on my profession which gave me extra value in my teaching profession.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -127,9 +123,7 @@ const Experience = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Donec sed odio tempor, varius elit eu, consequat urna. Morbi
-            bibendum vestibulum maximus. Vestibulum ut nibh ex. Quisque nulla
-            ante, tristique in efficitur eu, ultrices a justo.
+          Plan managing is another prime skill for any teacher.  I have  3 years +  experience managing plans.  
           </Typography>
         </AccordionDetails>
       </Accordion>
