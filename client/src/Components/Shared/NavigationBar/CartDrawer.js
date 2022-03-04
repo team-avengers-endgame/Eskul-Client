@@ -69,7 +69,7 @@ export default function CartDrawer() {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={cart.length || 0} color="error">
+          <Badge badgeContent={cart.length || "0"} color="error">
             <AddShoppingCartIcon sx={{ color: "#46aadd" }} />
           </Badge>
         </IconButton>
