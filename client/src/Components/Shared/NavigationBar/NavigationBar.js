@@ -20,8 +20,6 @@ import DropdownMenuGallery from "./DropdownMenuGallery";
 import NotificationIcon from "./NotificationIcon";
 import CartDrawer from "./CartDrawer";
 
-
-
 const NavigationBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -29,7 +27,7 @@ const NavigationBar = () => {
 
   const { user, admin, logOut } = useAuth();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -94,7 +92,6 @@ const NavigationBar = () => {
                 home
               </Button>
             </Link>
-
 
             <Link to="/schools" style={LinkStyle}>
               <Button
@@ -173,7 +170,7 @@ const NavigationBar = () => {
               }}
             >
               {/* mobile device menus */}
-              <Box  >
+              <Box>
                 <Tooltip title="Open settings" arrow placement="left-end">
                   <IconButton onClick={handleOpenUserMenu} sx={{ ml: 1, p: 0 }}>
                     <Avatar
@@ -239,11 +236,10 @@ const NavigationBar = () => {
             />
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
-
             <CartDrawer />
             <NotificationIcon />
 
-            <Box sx={{ display: { xs: 'none', sm: 'inline', md: 'inline' } }} >
+            <Box sx={{ display: { xs: "none", sm: "inline", md: "inline" } }}>
               <Tooltip title="Open settings" arrow placement="left-end">
                 <IconButton onClick={handleOpenUserMenu} sx={{ ml: 1, p: 0 }}>
                   <Avatar
@@ -270,12 +266,17 @@ const NavigationBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {user.displayName && <span>
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center"> {user?.displayName}</Typography>
-                </MenuItem>  <Divider />
-              </span>}
-
+              {user.displayName && (
+                <span>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">
+                      {" "}
+                      {user?.displayName}
+                    </Typography>
+                  </MenuItem>{" "}
+                  <Divider />
+                </span>
+              )}
 
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Profile</Typography>
@@ -284,14 +285,16 @@ const NavigationBar = () => {
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Account</Typography>
               </MenuItem>
-              {admin && <span>
-                <Divider />
-                <NavLink to="/dashboard" style={LinkStyle}>
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Dashboard</Typography>
-                  </MenuItem>
-                </NavLink>
-              </span>}
+              {admin && (
+                <span>
+                  <Divider />
+                  <NavLink to="/dashboard" style={LinkStyle}>
+                    <MenuItem onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">Dashboard</Typography>
+                    </MenuItem>
+                  </NavLink>
+                </span>
+              )}
               <Divider />
               {user?.email ? (
                 <MenuItem
