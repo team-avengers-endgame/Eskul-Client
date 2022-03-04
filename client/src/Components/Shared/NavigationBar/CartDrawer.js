@@ -12,14 +12,10 @@ import MailIcon from '@mui/icons-material/Mail';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Badge, IconButton } from '@mui/material';
 export default function CartDrawer() {
-    const [state, setState] = React.useState({
-        top: false,
-        left: false,
-        bottom: false,
-        right: false,
-    });
+    const [state, setState] = React.useState(false);
 
-    const toggleDrawer = (anchor, open) => (event) => {
+    const toggleDrawer = (open) => (event) => {
+        console.log(open)
         if (
             event &&
             event.type === 'keydown' &&
@@ -28,15 +24,15 @@ export default function CartDrawer() {
             return;
         }
 
-        setState({ ...state, [anchor]: open });
+        setState(open);
     };
 
-    const list = (anchor) => (
+    const list = () => (
         <Box
-
+            sx={{ width: { sm: 400, md: 500 } }}
             role="presentation"
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
         >
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -64,30 +60,30 @@ export default function CartDrawer() {
 
     return (
         <Box sx={{ display: 'inline' }}>
-            {['right'].map((anchor) => (
-                <React.Fragment key={anchor}>
-                    <IconButton
-                        onClick={toggleDrawer(anchor, true)}
-                        size="large"
-                        aria-label="show 17 new notifications"
-                        color="inherit"
-                    >
-                        <Badge badgeContent={10} color="error">
-                            <AddShoppingCartIcon sx={{ color: '#46aadd' }} />
-                        </Badge>
 
-                    </IconButton>
+            <React.Fragment>
+                <IconButton
+                    onClick={toggleDrawer(true)}
+                    size="large"
+                    aria-label="show 17 new notifications"
+                    color="inherit"
+                >
+                    <Badge badgeContent={10} color="error">
+                        <AddShoppingCartIcon sx={{ color: '#46aadd' }} />
+                    </Badge>
 
-                    <SwipeableDrawer
-                        anchor={anchor}
-                        open={state[anchor]}
-                        onClose={toggleDrawer(anchor, false)}
-                        onOpen={toggleDrawer(anchor, true)}
-                    >
-                        {list(anchor)}
-                    </SwipeableDrawer>
-                </React.Fragment>
-            ))}
+                </IconButton>
+
+                <SwipeableDrawer
+                    anchor="right"
+                    open={state}
+                    onClose={toggleDrawer(false)}
+                    onOpen={toggleDrawer(true)}
+                >
+                    {list()}
+                </SwipeableDrawer>
+            </React.Fragment>
+
         </Box>
     );
 }

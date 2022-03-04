@@ -1,19 +1,14 @@
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, Grid, IconButton, Paper, Typography } from '@mui/material';
+import { Box, Button, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { api } from '../../Hooks/Api';
 import SearchBar from '../Shared/SearchBar/SearchBar';
 import SharedBanner from '../Shared/SharedBanner/SharedBanner';
 import Footer from '../Shared/Footer/Footer';
 import { ButtonStyle } from '../../Hooks/useStyle';
-<<<<<<< HEAD
 import { NavLink } from 'react-router-dom';
-=======
-import { Link, NavLink } from 'react-router-dom';
 import StarRateIcon from '@mui/icons-material/StarRate';
 
->>>>>>> 5a5686a4c336b96cf2640536a89270bcc3083ba0
 
 
 const BookList = () => {
@@ -62,11 +57,11 @@ const BookList = () => {
 
                                         <CardMedia
                                             component="img"
-                                            sx={{ objectFit: 'cover', height:200, width: 200 }} alt="complex" src={single?.bookImg} />
-                                      
+                                            sx={{ objectFit: 'cover', height: 200, width: 200 }} alt="complex" src={single?.bookImg} />
+
 
                                     </Grid>
-                                    <Grid item xs={2} sm={4} md={8}  pl={2} my={3}>
+                                    <Grid item xs={2} sm={4} md={8} pl={2} my={3}>
 
                                         <Box>
                                             <Typography variant='h6'   >
@@ -74,7 +69,7 @@ const BookList = () => {
                                             </Typography>
 
                                             <Typography variant="body" >
-                                                <span  style={{ fontWeight: 700 }}> লেখক: </span> <span >{single?.author}</span>
+                                                <span style={{ fontWeight: 700 }}> লেখক: </span> <span >{single?.author}</span>
                                             </Typography>
                                             <br />
 
@@ -83,14 +78,14 @@ const BookList = () => {
                                             </Typography>
                                             <br />
                                             <Typography variant='body1'>
-                                    <StarRateIcon/><StarRateIcon/><StarRateIcon/><StarRateIcon/><StarRateIcon/>
-                                          </Typography>
+                                                <StarRateIcon /><StarRateIcon /><StarRateIcon /><StarRateIcon /><StarRateIcon />
+                                            </Typography>
                                         </Box>
                                         <br />
                                         <NavLink
                                             to={`/bookDetails/${single._id}`}
                                             style={{ textDecoration: "none", marginRight: "5px" }}
-                                        
+
                                         >
                                             <Button size='small' sx={ButtonStyle}>Details</Button>
 
