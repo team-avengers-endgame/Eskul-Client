@@ -1,5 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Box, Button, CardMedia, Container, Grid, Paper, Rating, Typography, } from "@mui/material";
+import React, { useState, useEffect, useContext } from "react";
+import {
+  Box,
+  Button,
+  CardMedia,
+  Container,
+  Grid,
+  Paper,
+  Rating,
+  Typography,
+} from "@mui/material";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import { api } from "../../Hooks/Api";
 import SearchBar from "../Shared/SearchBar/SearchBar";
@@ -8,6 +17,7 @@ import Footer from "../Shared/Footer/Footer";
 import { ButtonStyle } from "../../Hooks/useStyle";
 import { NavLink } from "react-router-dom";
 import StarRateIcon from "@mui/icons-material/StarRate";
+import { CartContext } from "../Context/CartContext";
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
@@ -29,6 +39,12 @@ const BookList = () => {
       (s) => s.bookName.includes(value) || s.author.includes(value)
     );
     setSearchValue(newValue);
+  };
+  const [cart, setCart] = useContext(CartContext);
+
+  const handleAddToCart = (book) => {
+    localStorage.setItem("cart", JSON.stringify([...cart, book]));
+    setCart((prev) => [...prev, book]);
   };
   const placeholder = "Search by Book Name or Author Name";
   return (
@@ -79,7 +95,12 @@ const BookList = () => {
                         {single?.bookPrice}
                       </Typography>
                       <br />
-                      <Rating name="half-rating-read" defaultValue={single?.rating} precision={0.5} readOnly />
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={single?.rating}
+                        precision={0.5}
+                        readOnly
+                      />
                     </Box>
                     <br />
                     <NavLink
@@ -90,8 +111,12 @@ const BookList = () => {
                         Details
                       </Button>
                     </NavLink>
-                    <Button size="small" sx={ButtonStyle}>
-                      Purchase
+                    <Button
+                      size="small"
+                      sx={ButtonStyle}
+                      onClick={() => handleAddToCart(single)}
+                    >
+                      Add to cart
                     </Button>
                   </Grid>
                 </Grid>
