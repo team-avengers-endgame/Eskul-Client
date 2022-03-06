@@ -47,6 +47,8 @@ const AboutHeroSection = () => {
             world. We’re a warm and loving community of preschoolers, teachers,
             and parents.
           </Typography>
+
+
           <br />
           <Typography
             sx={{ fontSize: 15, color: "#777" }}
