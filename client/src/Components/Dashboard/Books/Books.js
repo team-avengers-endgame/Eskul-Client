@@ -64,6 +64,7 @@ export default function Books() {
   const handleOnChange = (e) => {
     const value = e.target.value;
     const newValue = books?.filter(s => s.bookName.includes(value) || s.author.includes(value))
+    newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
     setSearchValue(newValue)
   }
   const placeholder = 'Search by Book Name or Author Name';

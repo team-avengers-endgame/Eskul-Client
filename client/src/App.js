@@ -35,6 +35,8 @@ import NotFound from "./Components/NotFound/NotFound";
 import TeacherDetails from "./Components/TeacherDetails/TeacherDetails";
 import TransportHome from "./Components/Transport/TransportHome";
 import CartContextProvider from "./Components/Context/CartContext";
+import BookOrderReview from "./Components/BookOrderReview/BookOrderReview";
+import Payment from "./Components/Payment/Payment";
 const Dashboard = lazy(() => {
   return new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
     import("./Components/Dashboard/Dashboard")
@@ -61,6 +63,8 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="about" element={<About />} />
             <Route path="books" element={<BookList />} />
+            <Route path="books/bookOrderReview" element={<BookOrderReview />} />
+            <Route path="payment" element={<Payment />} />
             <Route
               path="bookDetails/:id"
               element={
