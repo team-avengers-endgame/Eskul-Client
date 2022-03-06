@@ -3,12 +3,13 @@ import NavigationBar from '../Shared/NavigationBar/NavigationBar'
 import Footer from '../Shared/Footer/Footer'
 import Cart from '../Shared/Cart/Cart';
 import { styled } from '@mui/material/styles';
-import { Grid, Container, Button, Paper, ButtonBase, Typography, Rating} from '@mui/material';
+import { Grid, Container, Button, Paper, ButtonBase, Typography, Rating } from '@mui/material';
 import { ButtonStyle } from '../../Hooks/useStyle';
 import { CartContext } from '../Context/CartContext';
 import { Box } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
 import SharedBanner from '../Shared/SharedBanner/SharedBanner';
+import Swal from 'sweetalert2';
 
 
 const Img = styled('img')({
@@ -22,11 +23,32 @@ const BookOrderReview = () => {
     const [cart, setCart] = useContext(CartContext);
 
     const handleRemoveToCart = (id) => {
-        const getDb = localStorage.getItem('cart');
-        const removeCartParse = JSON.parse(getDb);
-        const newCart = removeCartParse.filter(product => product._id !== id);
-        localStorage.setItem("cart", JSON.stringify(newCart));
-        setCart(() => newCart)
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Remove it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const getDb = localStorage.getItem('cart');
+                const removeCartParse = JSON.parse(getDb);
+                const newCart = removeCartParse.filter(product => product._id !== id);
+                localStorage.setItem("cart", JSON.stringify(newCart));
+                setCart(() => newCart)
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+
+
+
 
     }
     const navigate = useNavigate();
@@ -38,14 +60,13 @@ const BookOrderReview = () => {
         <>
             <NavigationBar />
             <SharedBanner pageName={'Review My Order'} />
-          
             <Container>
-                
+
                 <Grid container spacing={{ xs: 2, md: 3 }}
                     columns={{ xs: 4, sm: 8, md: 12 }}>
 
                     <Grid item xs={4} sm={5} md={8} >
-                      {
+                        {
                             !cart.length &&
                             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <Typography>Note Found your Order</Typography>
@@ -112,7 +133,7 @@ const BookOrderReview = () => {
                                 </Grid>
                             )
                         }
-                      
+
                     </Grid>
 
                     <Grid item xs={4} sm={3} md={4} >

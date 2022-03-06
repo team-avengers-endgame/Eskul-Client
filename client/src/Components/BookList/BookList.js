@@ -55,9 +55,11 @@ const BookList = () => {
     } else {
       book.quantity = 1;
       newCart = [...cart, book]
+      
     }
     localStorage.setItem("cart", JSON.stringify(newCart));
     setCart(() => newCart);
+    alert('success','Success','Add to Cart Successfully')
   };
 
  
