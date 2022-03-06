@@ -41,6 +41,8 @@ const AboutHeroSection = () => {
             variant="body2"
             gutterBottom
           >
+
+
             We provide a warm and encouraging atmosphere that enhances
             self-concept, instills basic moral values, encourages social
             interaction, and enriches awareness of the natural and cultural
