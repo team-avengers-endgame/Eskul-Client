@@ -7,13 +7,9 @@ import SearchBar from '../Shared/SearchBar/SearchBar';
 import SharedBanner from '../Shared/SharedBanner/SharedBanner';
 import Footer from '../Shared/Footer/Footer';
 import { ButtonStyle } from '../../Hooks/useStyle';
-<<<<<<< HEAD
-import { NavLink } from 'react-router-dom';
-=======
 import { Link, NavLink } from 'react-router-dom';
 import StarRateIcon from '@mui/icons-material/StarRate';
 
->>>>>>> 5a5686a4c336b96cf2640536a89270bcc3083ba0
 
 
 const BookList = () => {
