@@ -1,8 +1,8 @@
-import { Box,Button, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
+import { Box, Button, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { api } from '../../../Hooks/Api';
-import { ButtonStyle } from '../../../Hooks/useStyle';
+import { alert, ButtonStyle } from '../../../Hooks/useStyle';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 import SearchBar from '../../Shared/SearchBar/SearchBar';
@@ -24,6 +24,7 @@ const PrivateTuor = () => {
     const handleOnChange = (e) => {
         const value = e.target.value;
         const newValue = teachers?.filter(s => s.subject.toLowerCase().includes(value.toLowerCase()) || s.location.toLowerCase().includes(value.toLowerCase()))
+        newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
         setSearchValue(newValue)
     }
 
@@ -55,7 +56,7 @@ const PrivateTuor = () => {
                                         <CardMedia
                                             component="img"
                                             sx={{ objectFit: 'cover', objectPosition: '15% 100%', borderRadius: '50%' }} alt="complex" src={single?.teacherPhoto} />
-                                        
+
 
                                     </Grid>
                                     <Grid item xs={2} sm={4} md={8}>

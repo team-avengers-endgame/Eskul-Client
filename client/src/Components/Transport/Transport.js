@@ -90,7 +90,7 @@ const Transport = () => {
                   gutterBottom
                   component="div"
                 >
-                  <span style={{ fontWeight: "800" }}>Time:</span> {dt?.time}
+                  <span style={{ fontWeight: "800" }}>Schedule:</span> {dt?.time}
                 </Typography>
                 <Typography
                   sx={{
@@ -106,20 +106,7 @@ const Transport = () => {
                   <span style={{ fontWeight: "800" }}>Rent Fee: </span>
                   {dt?.rent}
                 </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    margin: "0 0 8px",
-                    color: "#3B4757",
-                    fontWeight: "400",
-                  }}
-                  variant="subtitle2"
-                  gutterBottom
-                  component="div"
-                >
-                  <span style={{ fontWeight: "800" }}>Schedule:</span>
-                  {dt?.time}
-                </Typography>
+                
                 
                 <Typography
                   sx={{
