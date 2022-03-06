@@ -11,9 +11,7 @@ const NotesList = () => {
             .then(res => res.json())
             .then(data => setNotes(data))
     }, [])
-
-
-
+    // noteslist
     return (
 
         <Container>
