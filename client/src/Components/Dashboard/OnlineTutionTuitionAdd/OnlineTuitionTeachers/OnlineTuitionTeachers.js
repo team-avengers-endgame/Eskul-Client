@@ -16,6 +16,7 @@ import OnlineTuitionTeachersEdit from './OnlineTuitionTeachersEdit';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import SearchBar from '../../../Shared/SearchBar/SearchBar';
+import { alert } from '../../../../Hooks/useStyle';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -66,6 +67,7 @@ const OnlineTuitionTeachers = () => {
     const handleOnChange = (e) => {
         const value = e.target.value;
         const newValue = teachers?.filter(s => s.subject.toLowerCase().includes(value.toLowerCase()) || s.location.toLowerCase().includes(value.toLowerCase()) || s.teacherName.toLowerCase().includes(value.toLowerCase()));
+        newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
         setSearchValue(newValue)
     }
     const placeholder = 'Search by Teacher Name || Subject || Location';

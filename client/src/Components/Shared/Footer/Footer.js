@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import FacebookIcon from './img/facebook.svg';
 import TwitterIcon from './img/twitter.svg';
 import InstagramIcon from './img/instagram.svg';
+import Logo from './img/logo.png'
 const Footer = () => {
 
     // Email handler =============
@@ -17,7 +18,7 @@ const Footer = () => {
                 <Container >
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                         <Grid sx={{ mt: 5, textAlign: "left" }} item="true" xs={12} sm={4} md={4}>
-                            <img width={192} height={54} src="http://localhost:3000/static/media/logo.277198595eafeb31fb5a.png" alt="" />
+                            <img width={192} height={54} src={Logo} alt="" />
 
                             <Typography sx={{
                                 mt: 5, color: 'black',

@@ -14,14 +14,14 @@ import { api } from "../../Hooks/Api";
 import SearchBar from "../Shared/SearchBar/SearchBar";
 import SharedBanner from "../Shared/SharedBanner/SharedBanner";
 import Footer from "../Shared/Footer/Footer";
-import { ButtonStyle } from "../../Hooks/useStyle";
+import { alert, ButtonStyle } from "../../Hooks/useStyle";
 import { NavLink } from "react-router-dom";
-import StarRateIcon from "@mui/icons-material/StarRate";
 import { CartContext } from "../Context/CartContext";
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
+  const [cart, setCart] = useContext(CartContext);
   useEffect(() => {
     fetch(`${api}/books`)
       .then((res) => res.json())
@@ -30,7 +30,7 @@ const BookList = () => {
         setSearchValue(data?.data?.data);
       });
   }, []);
-  console.log(books);
+
 
   /*************** searching *****************/
   const handleOnChange = (e) => {
@@ -38,14 +38,29 @@ const BookList = () => {
     const newValue = books?.filter(
       (s) => s.bookName.includes(value) || s.author.includes(value)
     );
+    newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
     setSearchValue(newValue);
   };
-  const [cart, setCart] = useContext(CartContext);
+
+
 
   const handleAddToCart = (book) => {
-    localStorage.setItem("cart", JSON.stringify([...cart, book]));
-    setCart((prev) => [...prev, book]);
+
+    const exists = cart.find(pd => pd._id === book._id);
+    let newCart = [];
+    if (exists) {
+      const rest = cart.filter(pd => pd._id !== book._id);
+      exists.quantity = exists.quantity + 1;
+      newCart = [...rest, book];
+    } else {
+      book.quantity = 1;
+      newCart = [...cart, book]
+    }
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    setCart(() => newCart);
   };
+
+ 
   const placeholder = "Search by Book Name or Author Name";
   return (
     <>
