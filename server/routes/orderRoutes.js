@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 const SSLCommerzPayment = require("sslcommerz");
 const Order = require("../models/OrderModel");
 
+require('dotenv').config();
 // all order products get ==============================================
 router.get("/allOrder", async (req, res) => {
   const products = await Order.find({});
