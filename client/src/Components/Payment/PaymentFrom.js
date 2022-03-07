@@ -21,16 +21,16 @@ const PaymentFrom = () => {
     }, [reset, user.displayName, user.email])
 
 
-    const onSubmit = async (data) => {
-        const paymentData = await { ...data, total_amount: grandtotal, cartBooks: [cartBooks], status: "pending" }
-        await axios.post(`${api}/init`, paymentData)
+    const onSubmit = (data) => {
+        const paymentData = { ...data, total_amount: grandtotal, cartBooks: [cartBooks], status: "pending" }
+       /*  axios.post(`${api}/init`, paymentData)
             .then(res => {
                 console.log(res)
             }).catch((error) => {
                 console.log(error)
-            })
+            }) */
 
-        // console.log(paymentData)
+        console.log(paymentData)
     };
 
 

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
 const SSLCommerzPayment = require("sslcommerz");
-const Order = require("../models/OrderModel");
+const Order = require("../models/orderModel");
 
 require('dotenv').config();
 // all order products get ==============================================
@@ -42,7 +42,6 @@ router.put("/statusUpdate/:id", async (req, res) => {
   await Order.updateOne(filter, {
     $set: {
       status: status,
-      color: color,
     },
   }).then((result) => {
     res.send(result);
