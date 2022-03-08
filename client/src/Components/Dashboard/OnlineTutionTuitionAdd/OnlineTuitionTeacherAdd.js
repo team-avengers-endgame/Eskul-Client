@@ -52,9 +52,7 @@ const OnlineTuitionTeacherAdd = () => {
                     alert('error', 'Bad Request, Places Try again')
                 console.log(error);
             });
-
-
-        console.log(reacherData)
+      
         reset();
     };
 

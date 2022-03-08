@@ -57,7 +57,7 @@ const Subscribe = () => {
             fontSize: "15px",
             textTransform: "capitalize",
             letterSpacing: "0px",
-            backgroundColor: "#01479b",
+            backgroundColor: "#46aadd",
             borderStyle: "solid",
             borderWidth: "1px 1px 1px 1px",
             borderColor: "#01479b",
@@ -90,7 +90,7 @@ const Subscribe = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          color: "#01479b",
+          color: "#46aadd",
           mb: 5,
         }}
       >
