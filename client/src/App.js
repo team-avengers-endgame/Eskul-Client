@@ -37,6 +37,7 @@ import TransportHome from "./Components/Transport/TransportHome";
 import CartContextProvider from "./Components/Context/CartContext";
 import BookOrderReview from "./Components/BookOrderReview/BookOrderReview";
 import Payment from "./Components/Payment/Payment";
+import PaymentSuccessfullyPage from "./Components/Payment/PaymentSuccessfullyPage/PaymentSuccessfullyPage";
 const Dashboard = lazy(() => {
   return new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
     import("./Components/Dashboard/Dashboard")
@@ -56,7 +57,6 @@ function App() {
       <CartContextProvider>
         <BrowserRouter>
           <Routes>
-            {/*  */}
             <Route path="/" element={<Home />} />
             <Route path="home" element={<Home />} />
             <Route path="register" element={<Register />} />
@@ -64,6 +64,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="books" element={<BookList />} />
             <Route path="books/bookOrderReview" element={<BookOrderReview />} />
+            <Route path="paymentSuccessfully" element={<PaymentSuccessfullyPage />} />
             <Route path="payment" element={<Payment />} />
             <Route
               path="bookDetails/:id"
