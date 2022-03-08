@@ -1,7 +1,7 @@
 import { Button, CardMedia, Container, Grid, Paper, Rating, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { ButtonStyle } from '../../../Hooks/useStyle';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
@@ -50,6 +50,9 @@ const Books = [
 const PaymentSuccessfullyPage = () => {
 
     const [books, setBooks] = useState(Books)
+
+    const navigate = useNavigate();
+    const handlerGotoHome = () => navigate('/')
     return (
         <Box >
             <NavigationBar />
@@ -68,7 +71,7 @@ const PaymentSuccessfullyPage = () => {
                                 <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
 
                                     <Grid item xs={2} sm={4} md={8} pl={2} my={3}>
-                                        <Toolbar/>
+                                        <Toolbar />
                                         <Box>
                                             <img src={Logo} alt="" />
                                             <Typography variant="h6"><span style={{ fontSize: '30px', color: 'orange' }}>
@@ -76,11 +79,13 @@ const PaymentSuccessfullyPage = () => {
                                             </span> <br /> Payment Success Fully</Typography>
 
                                             <Toolbar />
-                                            <Button size="small" sx={{...ButtonStyle,mr:2}}>
+                                            <Button
+                                                onClick={handlerGotoHome}
+                                                size="small" sx={{ ...ButtonStyle, mr: 2 }}>
                                                 Go to Home
                                             </Button>
                                             <Button size="small" sx={ButtonStyle}>
-                                                Details
+                                                My Order
                                             </Button>
 
                                         </Box>
