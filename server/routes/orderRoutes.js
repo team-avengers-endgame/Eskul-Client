@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
 const SSLCommerzPayment = require("sslcommerz");
-const Order = require("../models/OrderModel");
+const Order = require("../models/orderModel");
 
 // all order products get ==============================================
 router.get("/allOrder", async (req, res) => {
@@ -22,7 +22,7 @@ router.delete("/myOrderDelete/:id", async (req, res) => {
 // order Product ==================================================
 router.post("/addToCartProduct", async (req, res) => {
   const product = req.body;
-  const result = await Order.insertOne(product);
+  const result = await Order.create(product);
   res.json(result);
 });
 // email get my Order==============================================
@@ -49,6 +49,8 @@ router.put("/statusUpdate/:id", async (req, res) => {
 });
 //sslcommerz init
 router.post("/init", async (req, res) => {
+  console.log(req.body);
+  return res.json({ name: "Rupok Koiry" });
   const data = {
     total_amount: req.body.total_amount,
     currency: "BDT",
@@ -88,7 +90,7 @@ router.post("/init", async (req, res) => {
     value_c: "ref003_C",
     value_d: "ref004_D",
   };
-  const order = await Order.insertOne(data);
+  const order = await Order.create(data);
 
   const sslcommer = new SSLCommerzPayment(
     process.env.STORE_ID,
@@ -117,11 +119,7 @@ router.post("/success", async (req, res) => {
       },
     }
   );
-  res
-    .status(200)
-    .redirect(
-      `http://localhost:3000/success/${req.body.tran_id}`
-    );
+  res.status(200).redirect(`http://localhost:3000/success/${req.body.tran_id}`);
 });
 router.post("/fail", async (req, res) => {
   const result = await Order.deleteOne({
