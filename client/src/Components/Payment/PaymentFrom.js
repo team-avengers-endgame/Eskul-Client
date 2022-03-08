@@ -38,13 +38,13 @@ const PaymentFrom = () => {
     axios
       .post(`${api}/init`, paymentData)
       .then((res) => {
-        window.location.replace(res.data);
+        window.location.replace(res?.data);
+        localStorage.removeItem('cart');
       })
       .catch((error) => {
         console.log(error);
       });
 
-    console.log(paymentData);
   };
 
   useEffect(() => {

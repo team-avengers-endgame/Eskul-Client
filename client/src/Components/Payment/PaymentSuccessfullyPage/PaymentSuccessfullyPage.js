@@ -1,56 +1,30 @@
 import { Button, CardMedia, Container, Grid, Paper, Rating, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { ButtonStyle } from '../../../Hooks/useStyle';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 import './PaymentSuccessFullyPage.css'
 import Logo from './Img/logo.png'
-const Books = [
-    {
-        _id: '621c6b48214766293bff0410',
-        type
-            : "Novel",
-        bookName
-            : "বহুব্রীহি",
-        author
-            : "হুমায়ূন আহমেদ",
-        bookDescription: "আমার নাটক এবং সিনেমার গল্পটা আগে লেখি। সেখান থেকে চিত্রনাট্য তৈরি করে ...",
-        bookPrice
-            : 155,
-        bookImg: "https://i.ibb.co/wyF8wdM/e36702381-1211.jpg",
-        publishedDate: "2/26/2022",
-        publisher: "আফসার ব্রাদার্স",
-        rating: 3.5
-    },
-    {
-        _id
-            : "621c8e496deed1b7d40cd375",
-        type
-            : "Translation",
-        bookName
-            : "সন্তান গড়ার কৌশল",
-        author
-            : "জামিলা হো",
-        bookDescription
-            : " বাগানে ফুল ফুটুক, পাখি ডাকুক, এটা সকল মালীই চায়। কেন চাইবে না বলুন? ব...",
-        bookPrice
-            : 150,
-        bookImg
-            : "https://i.ibb.co/qr4jMFM/download.jpg",
-        publishedDate
-            : "1905-02-02T18:06:40.000Z",
-        publisher
-            : "জামিলা হো",
-        rating
-            : 5
-    }
-]
+import { api } from '../../../Hooks/Api';
+
 const PaymentSuccessfullyPage = () => {
 
-    const [books, setBooks] = useState(Books)
+    const [books, setBooks] = useState([]);
+    const [book, setBook] = useState({});
+    const { id } = useParams();
 
+    useEffect(() => {
+        fetch(`${api}/order/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setBook(data);
+                data?.cartBooks.map(book => setBooks(book));
+            })
+    }, [id])
+
+    console.log(books)
     const navigate = useNavigate();
     const handlerGotoHome = () => navigate('/')
     return (
@@ -77,8 +51,21 @@ const PaymentSuccessfullyPage = () => {
                                             <Typography variant="h6"><span style={{ fontSize: '30px', color: 'orange' }}>
                                                 Congratulations
                                             </span> <br /> Payment Success Fully</Typography>
+                                            <Typography variant='h5'>
+                                                {book?.cus_name}
+                                            </Typography>
+                                            <Typography variant='body'>
+                                                Email:   {book?.cus_email}
+                                            </Typography>
+                                            <Typography variant='h5'>
+                                                Total Amount:
 
-                                            <Toolbar />
+                                                <span style={{ color: 'red',paddingLeft:'2px' }}>
+                                                    $({book?.total_amount})
+                                                </span>
+
+                                            </Typography>
+                                           
                                             <Button
                                                 onClick={handlerGotoHome}
                                                 size="small" sx={{ ...ButtonStyle, mr: 2 }}>
@@ -135,6 +122,11 @@ const PaymentSuccessfullyPage = () => {
                                                         <Typography variant="body">
                                                             <span style={{ fontWeight: 700 }}> মূল্যঃ ৳</span>{" "}
                                                             {single?.bookPrice}
+                                                        </Typography>
+                                                        <br />
+                                                        <Typography variant="body">
+                                                            <span style={{ fontWeight: 700 }}> Quantity:</span>{" "}
+                                                            {single?.quantity}
                                                         </Typography>
                                                         <br />
                                                         <Rating
