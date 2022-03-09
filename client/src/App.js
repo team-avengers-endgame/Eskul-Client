@@ -37,6 +37,7 @@ import TransportHome from "./Components/Transport/TransportHome";
 import CartContextProvider from "./Components/Context/CartContext";
 import BookOrderReview from "./Components/BookOrderReview/BookOrderReview";
 import Payment from "./Components/Payment/Payment";
+import Donation from "./Components/Donation/Donation";
 const Dashboard = lazy(() => {
   return new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
     import("./Components/Dashboard/Dashboard")
@@ -83,6 +84,7 @@ function App() {
               element={
                 <PrivateRoute>
                   <SchoolDetails />
+                  <Donation />
                 </PrivateRoute>
               }
             />
