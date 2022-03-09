@@ -44,6 +44,7 @@ import ManageOrder from "./Components/Dashboard/ManageOrder/ManageOrder";
 import WebsiteReviewFrom from "./Components/Dashboard/UserDashboardHome/WebsiteReviewFrom/WebsiteReviewFrom";
 
 
+import Donation from "./Components/Donation/Donation";
 const Dashboard = lazy(() => {
   return new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
     import("./Components/Dashboard/Dashboard")
@@ -131,15 +132,31 @@ function App() {
                 </AdminRoute>
               }
             />
+            <Route path="notes" element={<NotesPage />} />
+            <Route path="schDetails" element={<SchoolDetails />} />
+            <Route path="contacts" element={<Contacts />} />
+            <Route path="schools" element={<Schools />} />
+            <Route path="transport" element={<TransportHome />} />
+
+            <Route path="donation" element={
+              <PrivateRoute>
+                <Donation />
+              </PrivateRoute>
+            } />
+
             <Route
               path="manageOrder"
               element={
                 <PrivateRoute>
                   <ManageOrder />
+
                 </PrivateRoute>
               }
             />
 
+            <Route path="teacherDetails/:id" element={<TeacherDetails />} />
+            <Route path="basic" element={<BasicSection />} />
+            <Route path="privateTutor" element={<PrivateTuor />} />
             <Route
               path="schools"
               element={
