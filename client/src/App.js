@@ -80,12 +80,11 @@ function App() {
             <Route path="contacts" element={<Contacts />} />
             <Route path="schools" element={<Schools />} />
             <Route path="transport" element={<TransportHome />} />
+
             <Route path="donation" element={
               <PrivateRoute>
                 <Donation />
               </PrivateRoute>
-
-
             } />
 
             <Route
