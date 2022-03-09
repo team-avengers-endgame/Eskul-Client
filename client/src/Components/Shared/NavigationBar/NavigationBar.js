@@ -25,7 +25,7 @@ const NavigationBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [navbar, setNavbar] = React.useState(false);
 
-  const { user, admin, logOut } = useAuth();
+  const { user,logOut } = useAuth();
 
   const navigate = useNavigate();
 
@@ -285,7 +285,9 @@ const NavigationBar = () => {
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Account</Typography>
               </MenuItem>
-              {admin && (
+
+              {
+                user.email &&
                 <span>
                   <Divider />
                   <NavLink to="/dashboard" style={LinkStyle}>
@@ -294,7 +296,8 @@ const NavigationBar = () => {
                     </MenuItem>
                   </NavLink>
                 </span>
-              )}
+              }
+
               <Divider />
               {user?.email ? (
                 <MenuItem

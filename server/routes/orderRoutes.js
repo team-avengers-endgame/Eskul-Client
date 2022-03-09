@@ -30,7 +30,7 @@ router.post("/addToCartProduct", async (req, res) => {
 router.get("/myOrder/:email", async (req, res) => {
   const email = req.params.email;
   const query = { cus_email: email };
-  const myOrder = await Order.findOne(query);
+  const myOrder = await Order.find(query);
   res.send(myOrder);
 });
 // approve api-------------------

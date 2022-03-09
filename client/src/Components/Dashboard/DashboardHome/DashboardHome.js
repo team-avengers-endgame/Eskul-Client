@@ -1,7 +1,8 @@
 import { Box, Grid, Toolbar } from '@mui/material';
 import React from 'react';
 import { Budget } from './DeashboardHomeComponet/Budget';
-import { LatestOrders } from './DeashboardHomeComponet/Latest-orders';
+import LatestOrders from './DeashboardHomeComponet/Latest-orders';
+
 import { LatestProducts } from './DeashboardHomeComponet/Latest-products';
 import { Sales } from './DeashboardHomeComponet/Sales';
 import { TasksProgress } from './DeashboardHomeComponet/Tasks-progress';
