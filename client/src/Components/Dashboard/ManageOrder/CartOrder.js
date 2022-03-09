@@ -5,11 +5,11 @@ import { NavLink } from 'react-router-dom';
 import { ButtonStyle } from '../../../Hooks/useStyle';
 
 const CartOrder = ({ cart }) => {
-    
+
     return (
         <Box>
             {cart?.map((single) => (
-                <Box sx={{ py: 3 }} key={single._id} >
+                <Box sx={{ pb: 3 }} key={single._id} >
                     <Paper
                         sx={{
                             p: 1,
@@ -20,31 +20,33 @@ const CartOrder = ({ cart }) => {
                         }}
                     >
                         <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-                            <Grid item xs={4} sm={4} md={4}>
+                            <Grid item xs={2} sm={4} md={4}>
                                 <CardMedia
                                     component="img"
-                                    sx={{ objectFit: "cover", height: 200, width: 200 }}
+                                    sx={{ objectFit: "cover", height: 200, width: "auto" }}
                                     alt="complex"
                                     src={single?.bookImg}
                                 />
                             </Grid>
                             <Grid item xs={2} sm={4} md={8} pl={2} my={3}>
                                 <Box>
-                                    <Typography variant="h6">{single?.bookName}</Typography>
+                                    <Typography variant="h6"
+                                        sx={{ fontSize: '12px', fontWeight: 900 }}
+                                    >{single?.bookName}</Typography>
 
-                                    <Typography variant="body">
-                                        <span style={{ fontWeight: 700 }}> লেখক: </span>{" "}
+                                    <Typography variant="body" sx={{ fontSize: '12px' }}>
+                                        <span> লেখক: </span>
                                         <span>{single?.author}</span>
                                     </Typography>
                                     <br />
 
                                     <Typography variant="body">
-                                        <span style={{ fontWeight: 700 }}> মূল্যঃ ৳</span>{" "}
+                                        <span style={{ fontWeight: 700 }}> মূল্যঃ ৳</span>
                                         {single?.bookPrice}
                                     </Typography>
                                     <br />
                                     <Typography variant="body">
-                                        <span style={{ fontWeight: 700 }}> Quantity:</span>{" "}
+                                        <span style={{ fontWeight: 700 }}> Quantity:</span>
                                         {single?.quantity}
                                     </Typography>
                                     <br />
@@ -55,7 +57,7 @@ const CartOrder = ({ cart }) => {
                                         readOnly
                                     />
                                 </Box>
-                                <br />
+
                                 <NavLink
                                     to={`/bookDetails/${single._id}`}
                                     style={{ textDecoration: "none", marginRight: "5px" }}

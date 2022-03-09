@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { BadgeRoot, Box, Button, CardMedia, Container, Grid, Paper, Rating, Toolbar, Typography } from '@mui/material';
+import { Box, Chip, Container, Divider, Grid, Toolbar } from '@mui/material';
 import { api } from '../../../Hooks/Api';
-import { ButtonStyle } from '../../../Hooks/useStyle';
-import { NavLink } from 'react-router-dom';
 import CartOrder from './CartOrder';
-
+import CustomerAddress from './CustomerAddress';
+import axios from 'axios';
 const ManageOrder = () => {
-  const [orders, setOrder] = useState([])
+  const [orders, setOrder] = useState([]);
+
 
   useEffect(() => {
     fetch(`${api}/allOrder`)
@@ -16,49 +16,72 @@ const ManageOrder = () => {
 
       });
   }, [])
-  // console.log('order', orders)
-  // console.log('books', books)
+
+  const handleUpdateStatus = (status, id) => {
+      
+    axios.put(`${api}/statusUpdate/${id}`,{ status } )
+      .then(res => {
+        console.log(res)
+      }).catch(err=>{
+        console.log(err)
+      })
+  }
+  const handleDelete = (id) => {
+    axios.delete(`${api}/statusUpdate/${id}`)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+  }
+
+
   return (
     <Container>
       <Toolbar />
-
+      <Divider>
+        <Chip label="Manage Order" />
+      </Divider>
       {
         orders.map(order =>
-          <Grid
-            key={order?._id}
-            container
-            spacing={2}
-            sx={{ mt: 6 }}
-            columns={{ xs: 4, sm: 8, md: 12 }}
-          >
+          <Box key={order?._id}>
 
-            <Grid sx={{ py: 3 }} item xs={4} sm={8} md={7}>
-             
-                <Box >
-                  <h5>{order.cus_name}</h5>
-                  <h5>{order.cus_email}</h5>
-                  <h5>{order.cus_phone}</h5>
-                </Box>
-             
+            <Grid
+              container
+              spacing={2}
+              sx={{ mt: 6 }}
+              columns={{ xs: 4, sm: 8, md: 12 }}
+            >
+
+              <Grid item xs={4} sm={8} md={7}>
+
+                <CustomerAddress
+                  order={order}
+                  handleUpdateStatus={handleUpdateStatus}
+                  handleDelete={handleDelete}
+                />
+
+              </Grid>
+
+              <Grid sx={{ py: 3 }} item xs={4} sm={8} md={5}>
+
+                <CartOrder
+                  cart={order.cartBooks[0]}
+
+                />
+              </Grid>
+
             </Grid>
 
-            <Grid sx={{ py: 3 }} item xs={4} sm={8} md={5}>
-              <CartOrder cart={order.cartBooks[0]} />
-            </Grid>
+            <Divider >
+              <Chip label="CHIP" />
 
-          </Grid>
+            </Divider>
+          </Box>
         )
       }
 
-
-
-
-
-
-
-
-
-      <h1> Manage Order</h1>
     </Container>
   );
 };

@@ -37,11 +37,11 @@ router.get("/myOrder/:email", async (req, res) => {
 router.put("/statusUpdate/:id", async (req, res) => {
   const id = req.params.id;
   const status = req.body.status;
-  const color = req.body.color;
+  console.log(id, status)
   const filter = { _id: ObjectId(id) };
   await Order.updateOne(filter, {
     $set: {
-      status: status,
+      status: status
     },
   }).then((result) => {
     res.send(result);
