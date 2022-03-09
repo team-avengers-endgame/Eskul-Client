@@ -38,6 +38,7 @@ import CartContextProvider from "./Components/Context/CartContext";
 import BookOrderReview from "./Components/BookOrderReview/BookOrderReview";
 import Payment from "./Components/Payment/Payment";
 import PaymentSuccessfullyPage from "./Components/Payment/PaymentSuccessfullyPage/PaymentSuccessfullyPage";
+import Donation from "./Components/Donation/Donation";
 const Dashboard = lazy(() => {
   return new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
     import("./Components/Dashboard/Dashboard")
@@ -79,14 +80,24 @@ function App() {
             <Route path="contacts" element={<Contacts />} />
             <Route path="schools" element={<Schools />} />
             <Route path="transport" element={<TransportHome />} />
+            <Route path="donation" element={
+              <PrivateRoute>
+                <Donation />
+              </PrivateRoute>
+
+
+            } />
+
             <Route
               path="details/:id"
               element={
                 <PrivateRoute>
                   <SchoolDetails />
+
                 </PrivateRoute>
               }
             />
+
             <Route path="teacherDetails/:id" element={<TeacherDetails />} />
             <Route path="basic" element={<BasicSection />} />
             <Route path="privateTutor" element={<PrivateTuor />} />
