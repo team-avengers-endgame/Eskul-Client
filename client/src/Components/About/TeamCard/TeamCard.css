@@ -15,8 +15,8 @@ img{
 	position: relative;
 	overflow: hidden;
 	transition: all 0.3s ease-out;
-	background:rgb(158, 237, 243);
-	border: 1px solid rgb(158, 237, 243);
+	background:rgb(255, 255, 255);
+	border: 1px solid rgb(255, 255, 255);
 	border-radius: 5%;
 }
 

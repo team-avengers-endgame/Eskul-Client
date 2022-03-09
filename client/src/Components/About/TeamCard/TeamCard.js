@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './TeamCard.css';
-import { Container, Grid, Box, Typography, Divider } from '@mui/material';
+import { Container, Grid, Box, Typography } from '@mui/material';
 import Aos from 'aos';
 
 

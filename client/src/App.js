@@ -84,7 +84,7 @@ function App() {
               element={
                 <PrivateRoute>
                   <SchoolDetails />
-                  <Donation />
+
                 </PrivateRoute>
               }
             />
