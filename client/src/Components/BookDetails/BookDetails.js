@@ -5,12 +5,12 @@ import {
   Container,
   Grid,
   Paper,
+  Rating,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import DateRangeIcon from "@mui/icons-material/DateRange";
-import HowToRegIcon from "@mui/icons-material/HowToReg";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import PaidIcon from "@mui/icons-material/Paid";
 import ReviewsIcon from "@mui/icons-material/Reviews";
@@ -19,12 +19,13 @@ import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import Footer from "../Shared/Footer/Footer";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import PublishIcon from "@mui/icons-material/Publish";
-import StarRateIcon from "@mui/icons-material/StarRate";
-import { ButtonStyle } from "../../Hooks/useStyle";
+import { alert, ButtonStyle } from "../../Hooks/useStyle";
+import { CartContext } from "../Context/CartContext";
 
-// import background from '../../../Assets/Images/tutor-background.jpg'
+
 const BookDetails = () => {
   const [book, setBook] = useState({});
+  const [cart, setCart] = useContext(CartContext);
   const { id } = useParams();
   useEffect(() => {
     fetch(`${api}/books/${id}`)
@@ -32,6 +33,24 @@ const BookDetails = () => {
       .then((data) => setBook(data?.data?.data));
   }, [id]);
 
+  const handleAddToCart = (book) => {
+
+    const exists = cart.find(pd => pd._id === book._id);
+    let newCart = [];
+    if (exists) {
+      const rest = cart.filter(pd => pd._id !== book._id);
+      exists.quantity = exists.quantity + 1;
+      newCart = [...rest, book];
+    } else {
+      book.quantity = 1;
+      newCart = [...cart, book]
+
+    }
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    setCart(() => newCart);
+    alert('success', 'Success', 'Add to Cart Successfully')
+  };
+  console.log(book)
   const iconStyle = { display: "flex", alignItems: "center" };
   return (
     <>
@@ -67,13 +86,15 @@ const BookDetails = () => {
 
               <br />
 
-              <Typography variant="body1">
-                <StarRateIcon />
-                <StarRateIcon />
-                <StarRateIcon />
-                <StarRateIcon />
-                <StarRateIcon />
-              </Typography>
+              {
+                book?.rating &&
+                <Rating
+                  name="half-rating-read"
+                  defaultValue={book?.rating}
+                  precision={0.5}
+                  readOnly
+                />
+              }
             </Box>
           </Grid>
 
@@ -129,8 +150,8 @@ const BookDetails = () => {
                 </span>
                 <br />
                 <Box sx={{ textAlign: "center" }}>
-                  <Button size="small" sx={ButtonStyle}>
-                    Purchase
+                  <Button onClick={() => handleAddToCart(book)} size="small" sx={ButtonStyle}>
+                    Add To Cart
                   </Button>
                 </Box>
               </Grid>

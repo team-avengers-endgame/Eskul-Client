@@ -67,7 +67,7 @@ const AddATreacher = () => {
       .catch((error) => {
         console.log(error);
         !error.status === 201 &&
-          alert("error", "Bad Request, Places Try again");
+          alert("success", "Success", "Add a Teachers in School Successfully");
       });
     reset();
   };

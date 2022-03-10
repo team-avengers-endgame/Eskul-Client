@@ -41,13 +41,16 @@ const AboutHeroSection = () => {
             variant="body2"
             gutterBottom
           >
+
+
             We provide a warm and encouraging atmosphere that enhances
             self-concept, instills basic moral values, encourages social
             interaction, and enriches awareness of the natural and cultural
             world. We’re a warm and loving community of preschoolers, teachers,
-            and parents who inspire imagination, creativity, and play for every
-            learner.
+            and parents.
           </Typography>
+
+
           <br />
           <Typography
             sx={{ fontSize: 15, color: "#777" }}

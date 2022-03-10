@@ -200,7 +200,10 @@ const DifferenceSection = () => {
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={12} md={3}>
+          <Grid
+            data-aos="fade-right"
+            data-aos-duration="3000"
+            item xs={12} sm={12} md={3}>
             {/* box-4 */}
 
             <Box

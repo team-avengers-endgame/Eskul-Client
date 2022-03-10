@@ -132,7 +132,7 @@ const Features = () => {
                 </Grid>
                 <Grid item xs={12} sm={4} md={4}>
                   <CardActionArea>
-                    <Link to="/" style={{ textDecoration: "none" }}>
+                    <Link to="/donation" style={{ textDecoration: "none" }}>
                       <Card
                         data-aos="fade-left"
                         data-aos-offset="300"
