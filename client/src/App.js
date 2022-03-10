@@ -92,11 +92,9 @@ function App() {
               element={
                 <PrivateRoute>
                   <SchoolDetails />
-
                 </PrivateRoute>
               }
             />
-
             <Route path="teacherDetails/:id" element={<TeacherDetails />} />
             <Route path="basic" element={<BasicSection />} />
             <Route path="privateTutor" element={<PrivateTuor />} />
