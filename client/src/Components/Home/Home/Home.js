@@ -21,8 +21,8 @@ const Home = () => {
       <Banner />
       <Covid />
       <NurtingEnvironment />
-      <WhyChooseUs />
       <Features />
+      <WhyChooseUs />
       <TopList />
       <Testimonial />
       <Gallery />

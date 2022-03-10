@@ -17,7 +17,6 @@ const CustomerAddress = ({ order, handleUpdateStatus, handleDelete }) => {
   const [status, setStatus] = useState(order?.status);
   const handleChange = (event) => {
     setStatus(event.target.value);
-    console.log(event.target.value);
     handleUpdateStatus(status, order?._id);
   };
 
@@ -216,7 +215,7 @@ const CustomerAddress = ({ order, handleUpdateStatus, handleDelete }) => {
               <MenuItem value={status}>{status}</MenuItem>
               <MenuItem value="Approved">Approved</MenuItem>
               <MenuItem value="Shipped">Shipped</MenuItem>
-              <MenuItem value="Shipped">Delivered</MenuItem>
+              <MenuItem value="Delivered">Delivered</MenuItem>
             </Select>
           </FormControl>
         )}

@@ -10,10 +10,11 @@
 .congratulation-card {
     padding: 10px;
     text-align: center;
-    height: 400px;
+    height: 500px;
     box-shadow: "0px 14px 22px rgb(42 135 158 / 10%)";
     background-color: white;
-    border-top-right-radius: 100%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 30%;
     display: flex;
     justify-items: center;
     

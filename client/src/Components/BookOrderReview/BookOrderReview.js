@@ -2,22 +2,15 @@ import React, { useContext } from 'react';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar'
 import Footer from '../Shared/Footer/Footer'
 import Cart from '../Shared/Cart/Cart';
-import { styled } from '@mui/material/styles';
-import { Grid, Container, Button, Paper, ButtonBase, Typography, Rating } from '@mui/material';
+import { Grid, Container, Button, Paper, Typography, Rating, CardMedia, Box } from '@mui/material';
 import { ButtonStyle } from '../../Hooks/useStyle';
 import { CartContext } from '../Context/CartContext';
-import { Box } from '@mui/system';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import SharedBanner from '../Shared/SharedBanner/SharedBanner';
 import Swal from 'sweetalert2';
 
 
-const Img = styled('img')({
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-});
+
 const BookOrderReview = () => {
 
     const [cart, setCart] = useContext(CartContext);
@@ -75,62 +68,73 @@ const BookOrderReview = () => {
                         {
 
                             cart.map(cart =>
-                                <Grid container key={cart._id} spacing={{ xs: 2, md: 3 }}
-                                    columns={{ xs: 4, sm: 8, md: 12 }}
-                                    sx={{ pb: 2 }}
-                                >
-                                    <Grid item xs={4} sm={8} md={12} >
-                                        <Paper
-                                            sx={{
-                                                p: 2,
-                                                margin: 'auto',
-
-                                                flexGrow: 1,
-                                                backgroundColor: (theme) =>
-                                                    theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-                                            }}
-                                        >
-                                            <Grid container spacing={2}>
-                                                <Grid item>
-                                                    <ButtonBase sx={{ width: 128, height: 128 }}>
-                                                        <Img alt="complex" src={cart?.bookImg} />
-                                                    </ButtonBase>
-                                                </Grid>
-                                                <Grid item xs={12} sm container>
-                                                    <Grid item xs container direction="column" spacing={2}>
-                                                        <Grid item xs>
-                                                            <Typography gutterBottom variant="subtitle1" component="div">
-                                                                {cart?.bookName}
-                                                            </Typography>
-                                                            <Typography variant="body2" gutterBottom>
-                                                                {cart?.bookDescription}
-                                                            </Typography>
-                                                            <Typography variant="body2" color="text.secondary">
-                                                                Quantity:{cart?.quantity}
-                                                            </Typography>
-                                                            <Rating
-                                                                name="half-rating-read"
-                                                                defaultValue={cart?.rating}
-                                                                precision={0.5}
-                                                                readOnly
-                                                            />
-                                                        </Grid>
-                                                        <Grid item>
-                                                            <Button onClick={() => handleRemoveToCart(cart._id)} variant='secondary'>
-                                                                Remove
-                                                            </Button>
-                                                        </Grid>
-                                                    </Grid>
-                                                    <Grid item>
-                                                        <Typography variant="subtitle1" component="div">
-                                                            ৳{cart?.bookPrice}
-                                                        </Typography>
-                                                    </Grid>
-                                                </Grid>
+                                <Box sx={{ pb: 3 }} key={cart._id} >
+                                    <Paper
+                                        sx={{
+                                            p: 1,
+                                            margin: "auto",
+                                            maxWidth: 500,
+                                            flexGrow: 1,
+                                            boxShadow: "0px 14px 22px rgb(42 135 158 / 10%)",
+                                        }}
+                                    >
+                                        <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+                                            <Grid item xs={2} sm={4} md={4}>
+                                                <CardMedia
+                                                    component="img"
+                                                    sx={{ objectFit: "cover", height: 200, width: "auto" }}
+                                                    alt="complex"
+                                                    src={cart?.bookImg}
+                                                />
                                             </Grid>
-                                        </Paper>
-                                    </Grid>
-                                </Grid>
+                                            <Grid item xs={2} sm={4} md={8} pl={2} my={3}>
+                                                <Box>
+                                                    <Typography variant="h6"
+                                                        sx={{ fontSize: '12px', fontWeight: 900 }}
+                                                    >{cart?.bookName}</Typography>
+
+                                                    <Typography variant="body" sx={{ fontSize: '12px' }}>
+                                                        <span> লেখক: </span>
+                                                        <span>{cart?.author}</span>
+                                                    </Typography>
+                                                    <br />
+
+                                                    <Typography variant="body">
+                                                        <span style={{ fontWeight: 700 }}> মূল্যঃ ৳</span>
+                                                        {cart?.bookPrice}
+                                                    </Typography>
+                                                    <br />
+                                                    <Typography variant="body">
+                                                        <span style={{ fontWeight: 700 }}> Quantity:</span>
+                                                        {cart?.quantity}
+                                                    </Typography>
+                                                    <br />
+                                                    <Rating
+                                                        name="half-rating-read"
+                                                        defaultValue={cart?.rating}
+                                                        precision={0.5}
+                                                        readOnly
+                                                    />
+                                                </Box>
+
+                                                <NavLink
+                                                    to={`/bookDetails/${cart._id}`}
+                                                    style={{ textDecoration: "none", marginRight: "5px" }}
+                                                >
+                                                    <Button size="small" sx={ButtonStyle}>
+                                                        Details
+                                                    </Button>
+                                                </NavLink>
+                                                <Button 
+                                                onClick={() =>handleRemoveToCart(cart._id)}
+                                                color="error"
+                                                >
+                                                    Remove
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Paper>
+                                </Box>
                             )
                         }
 

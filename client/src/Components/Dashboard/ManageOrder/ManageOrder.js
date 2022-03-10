@@ -29,8 +29,8 @@ const ManageOrder = () => {
   }, []);
 
   const handleUpdateStatus = (status, id) => {
-    // console.log(`${api}/statusUpdate/${id}`, status);
-    axios
+    console.log(status,id)
+      axios
       .patch(`${api}/statusUpdate/${id}`, { status })
       .then((res) => {
         console.log(res);

@@ -26,6 +26,9 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import HomeIcon from '@mui/icons-material/Home';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import PreviewIcon from '@mui/icons-material/Preview';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+
 const drawerWidth = 240;
 function Dashboard(props) {
     const { user, logOut, admin } = useAuth();
@@ -63,13 +66,23 @@ function Dashboard(props) {
                     </ListItem>
                 </NavLink>
                 <Divider />
-                <Divider />
+
                 <NavLink to='/dashboard' style={LinkStyle}>
                     <ListItem button >
                         <ListItemIcon>
                             <DashboardIcon />
                         </ListItemIcon>
                         Dashboard
+                    </ListItem>
+                </NavLink>
+
+                <Divider />
+                <NavLink to='/dashboard/profile' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <AccountCircleIcon />
+                        </ListItemIcon>
+                        Profile
                     </ListItem>
                 </NavLink>
                 <Divider />

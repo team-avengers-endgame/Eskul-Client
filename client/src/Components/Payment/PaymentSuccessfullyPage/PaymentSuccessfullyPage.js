@@ -2,7 +2,7 @@ import { Button, CardMedia, Container, Grid, Paper, Rating, Toolbar, Typography 
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
-import { ButtonStyle } from '../../../Hooks/useStyle';
+import { ButtonStyle, LinkStyle } from '../../../Hooks/useStyle';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 import './PaymentSuccessFullyPage.css'
@@ -24,9 +24,10 @@ const PaymentSuccessfullyPage = () => {
             })
     }, [id])
 
-    console.log(books)
+
     const navigate = useNavigate();
-    const handlerGotoHome = () => navigate('/')
+    const handlerGotoHome = () => navigate('/');
+    const handlerGoToMyOrder = () => navigate('/dashboard/myOrder');
     return (
         <Box >
             <NavigationBar />
@@ -35,54 +36,49 @@ const PaymentSuccessfullyPage = () => {
                 <Container >
                     <Grid
                         container
-                        spacing={2}
                         sx={{ mt: 2 }}
                         columns={{ xs: 4, sm: 8, md: 12 }}
                     >
-                        <Grid item xs={4} sm={4} md={4} >
+                        <Grid item xs={4} sm={4} md={6} >
 
                             <Box className='congratulation-card'>
-                                <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+                                <Box>
+                                    <Toolbar />
+                                    <img style={{width:'70%'}} src={Logo} alt="" />
+                                    <Typography variant="h6"><span style={{ fontSize: '30px', color: 'orange' }}>
+                                        Congratulations
+                                    </span> <br /> Payment Success Fully</Typography>
+                                    <Typography variant='h5'>
+                                        {book?.cus_name}
+                                    </Typography>
+                                    <Typography variant='body'>
+                                        Email:   {book?.cus_email}
+                                    </Typography>
+                                    <Typography variant='h5'>
+                                        Total Amount:
 
-                                    <Grid item xs={2} sm={4} md={8} pl={2} my={3}>
-                                        <Toolbar />
-                                        <Box>
-                                            <img src={Logo} alt="" />
-                                            <Typography variant="h6"><span style={{ fontSize: '30px', color: 'orange' }}>
-                                                Congratulations
-                                            </span> <br /> Payment Success Fully</Typography>
-                                            <Typography variant='h5'>
-                                                {book?.cus_name}
-                                            </Typography>
-                                            <Typography variant='body'>
-                                                Email:   {book?.cus_email}
-                                            </Typography>
-                                            <Typography variant='h5'>
-                                                Total Amount:
+                                        <span style={{ color: 'red', paddingLeft: '2px' }}>
+                                            $({book?.total_amount})
+                                        </span>
 
-                                                <span style={{ color: 'red',paddingLeft:'2px' }}>
-                                                    $({book?.total_amount})
-                                                </span>
+                                    </Typography>
+<br />
+                                    <Button
+                                        onClick={handlerGotoHome}
+                                        size="small" sx={{ ...ButtonStyle, mr: 2 }}>
+                                        Go to Home
+                                    </Button>
 
-                                            </Typography>
-                                           
-                                            <Button
-                                                onClick={handlerGotoHome}
-                                                size="small" sx={{ ...ButtonStyle, mr: 2 }}>
-                                                Go to Home
-                                            </Button>
-                                            <Button size="small" sx={ButtonStyle}>
-                                                My Order
-                                            </Button>
+                                    <Button onClick={handlerGoToMyOrder} size="small" sx={ButtonStyle}>
+                                        My Order
+                                    </Button>
 
-                                        </Box>
-                                    </Grid>
-                                </Grid>
+
+                                </Box>
+
                             </Box>
-
-
                         </Grid>
-                        <Grid item xs={4} sm={4} md={8}>
+                        <Grid item xs={4} sm={4} md={6}>
                             <Grid
                                 container
                                 spacing={2}
@@ -90,7 +86,7 @@ const PaymentSuccessfullyPage = () => {
                                 columns={{ xs: 4, sm: 8, md: 12 }}
                             >
                                 {books?.map((single) => (
-                                    <Grid sx={{ py: 3 }} key={single._id} item xs={4} sm={8} md={6}>
+                                    <Grid sx={{ py: 3 }} key={single._id} item xs={4} sm={8} md={12}>
                                         <Paper
                                             sx={{
                                                 p: 1,
@@ -104,28 +100,30 @@ const PaymentSuccessfullyPage = () => {
                                                 <Grid item xs={2} sm={4} md={4}>
                                                     <CardMedia
                                                         component="img"
-                                                        sx={{ objectFit: "cover", height: 200, width: 200 }}
+                                                        sx={{ objectFit: "cover", height: 200, width: "auto" }}
                                                         alt="complex"
                                                         src={single?.bookImg}
                                                     />
                                                 </Grid>
                                                 <Grid item xs={2} sm={4} md={8} pl={2} my={3}>
                                                     <Box>
-                                                        <Typography variant="h6">{single?.bookName}</Typography>
+                                                        <Typography variant="h6"
+                                                            sx={{ fontSize: '12px', fontWeight: 900 }}
+                                                        >{single?.bookName}</Typography>
 
-                                                        <Typography variant="body">
-                                                            <span style={{ fontWeight: 700 }}> লেখক: </span>{" "}
+                                                        <Typography variant="body" sx={{ fontSize: '12px' }}>
+                                                            <span> লেখক: </span>
                                                             <span>{single?.author}</span>
                                                         </Typography>
                                                         <br />
 
                                                         <Typography variant="body">
-                                                            <span style={{ fontWeight: 700 }}> মূল্যঃ ৳</span>{" "}
+                                                            <span style={{ fontWeight: 700 }}> মূল্যঃ ৳</span>
                                                             {single?.bookPrice}
                                                         </Typography>
                                                         <br />
                                                         <Typography variant="body">
-                                                            <span style={{ fontWeight: 700 }}> Quantity:</span>{" "}
+                                                            <span style={{ fontWeight: 700 }}> Quantity:</span>
                                                             {single?.quantity}
                                                         </Typography>
                                                         <br />
@@ -136,7 +134,7 @@ const PaymentSuccessfullyPage = () => {
                                                             readOnly
                                                         />
                                                     </Box>
-                                                    <br />
+
                                                     <NavLink
                                                         to={`/bookDetails/${single._id}`}
                                                         style={{ textDecoration: "none", marginRight: "5px" }}
