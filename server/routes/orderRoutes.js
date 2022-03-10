@@ -49,7 +49,7 @@ router.put("/statusUpdate/:id", async (req, res) => {
 });
 //sslcommerz init
 router.post("/init", async (req, res) => {
-  console.log(req.body)
+
   const data = {
     total_amount: req.body.total_amount,
     currency: req.body.currency,
@@ -59,9 +59,9 @@ router.post("/init", async (req, res) => {
     cancel_url: 'http://localhost:8000/api/cancel',
     ipn_url: 'http://localhost:8000/api/ipn',
     shipping_method: 'Courier',
-    product_name: "req.body.product_name",
-    product_category: 'Electronic',
-    product_profile: "req.body.product_profile",
+    product_name: "Book",
+    product_category: 'Books',
+    product_profile: "Books",
     cus_name: req.body.cus_name,
     cus_email: req.body.cus_email,
     date: req.body.date,
@@ -69,25 +69,13 @@ router.post("/init", async (req, res) => {
     cartBooks: req.body.cartBooks,
     product_image: 'https://i.ibb.co/t8Xfymf/logo-277198595eafeb31fb5a.png',
     cus_add1: req.body.cus_add1,
-    cus_add2: 'Dhaka',
     cus_city: req.body.cus_city,
     cus_state: req.body.cus_state,
     cus_postcode: req.body.cus_postcode,
     cus_country: req.body.cus_country,
     cus_phone: req.body.cus_phone,
-    cus_fax: '01711111111',
-    ship_name: 'Customer Name',
-    ship_add1: 'Dhaka',
-    ship_add2: 'Dhaka',
-    ship_city: 'Dhaka',
-    ship_state: 'Dhaka',
-    ship_postcode: 1000,
-    ship_country: 'Bangladesh',
-    multi_card_name: 'mastercard',
     value_a: 'ref001_A',
-    value_b: 'ref002_B',
-    value_c: 'ref003_C',
-    value_d: 'ref004_D'
+
   };
   const order = await Order.create(data);
 

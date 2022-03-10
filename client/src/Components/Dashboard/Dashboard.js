@@ -37,7 +37,7 @@ function Dashboard(props) {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-    console.log(admin)
+
 
     const drawer = (
         <div>

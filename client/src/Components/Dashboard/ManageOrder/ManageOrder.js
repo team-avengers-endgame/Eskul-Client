@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Chip, Container, Divider, Grid, Toolbar } from '@mui/material';
+import { Box, Chip, Container, Divider, Fab, Grid, Toolbar } from '@mui/material';
 import { api } from '../../../Hooks/Api';
 import CartOrder from './CartOrder';
 import CustomerAddress from './CustomerAddress';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+
 import axios from 'axios';
+import Footer from '../../Shared/Footer/Footer';
 const ManageOrder = () => {
   const [orders, setOrder] = useState([]);
 
@@ -18,71 +21,77 @@ const ManageOrder = () => {
   }, [])
 
   const handleUpdateStatus = (status, id) => {
-      
-    axios.put(`${api}/statusUpdate/${id}`,{ status } )
-      .then(res => {
-        console.log(res)
-      }).catch(err=>{
-        console.log(err)
-      })
+
+    console.log(status)
+    // axios.put(`${api}/statusUpdate/${id}`,{ status } )
+    //   .then(res => {
+    //     console.log(res)
+    //   }).catch(err=>{
+    //     console.log(err)
+    //   })
   }
   const handleDelete = (id) => {
     axios.delete(`${api}/statusUpdate/${id}`)
       .then(res => {
         console.log(res)
       })
-      .catch(err=>{
+      .catch(err => {
         console.log(err)
       })
   }
 
 
   return (
-    <Container>
-      <Toolbar />
-      <Divider>
-        <Chip label="Manage Order" />
-      </Divider>
-      {
-        orders.map(order =>
-          <Box key={order?._id}>
+    <>
+      <Container>
+        <Toolbar />
+        <Divider>
+          <Fab variant="extended" size="small" color="primary" aria-label="add">
+            <AddShoppingCartIcon />  Manage Orders
+          </Fab>
+        </Divider>
+        {
+          orders.map(order =>
+            <Box key={order?._id}>
 
-            <Grid
-              container
-              spacing={2}
-              sx={{ mt: 6 }}
-              columns={{ xs: 4, sm: 8, md: 12 }}
-            >
+              <Grid
+                container
+                spacing={2}
+                sx={{ mt: 6 }}
+                columns={{ xs: 4, sm: 8, md: 12 }}
+              >
 
-              <Grid item xs={4} sm={8} md={7}>
+                <Grid item xs={4} sm={8} md={7}>
 
-                <CustomerAddress
-                  order={order}
-                  handleUpdateStatus={handleUpdateStatus}
-                  handleDelete={handleDelete}
-                />
+                  <CustomerAddress
+                    order={order}
+                    handleUpdateStatus={handleUpdateStatus}
+                    handleDelete={handleDelete}
+                  />
+
+                </Grid>
+
+                <Grid sx={{ py: 3 }} item xs={4} sm={8} md={5}>
+
+                  <CartOrder
+                    cart={order.cartBooks[0]}
+
+                  />
+                </Grid>
 
               </Grid>
 
-              <Grid sx={{ py: 3 }} item xs={4} sm={8} md={5}>
+              <Divider >
+                <Chip label={<AddShoppingCartIcon />} />
 
-                <CartOrder
-                  cart={order.cartBooks[0]}
+              </Divider>
+            </Box>
+          )
+        }
 
-                />
-              </Grid>
-
-            </Grid>
-
-            <Divider >
-              <Chip label="CHIP" />
-
-            </Divider>
-          </Box>
-        )
-      }
-
-    </Container>
+      </Container>
+      <Footer />
+    </>
   );
 };
 
