@@ -117,20 +117,20 @@ const NavigationBar = () => {
                 Books
               </Button>
             </Link>
-            <Link to="/" style={LinkStyle}>
+            {/* <Link to="/" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
               >
                 programs
               </Button>
-            </Link>
-            <Link to="/" style={LinkStyle}>
+            </Link> */}
+            <Link to="/contacts" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
               >
-                parent info
+               Contact Us
               </Button>
             </Link>
             <DropdownMenuGallery />

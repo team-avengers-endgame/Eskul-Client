@@ -42,6 +42,8 @@ import UserDashboardHome from "./Components/Dashboard/UserDashboardHome/UserDash
 import MyOrder from "./Components/Dashboard/UserDashboardHome/MyOrder/MyOrder";
 import ManageOrder from "./Components/Dashboard/ManageOrder/ManageOrder";
 import WebsiteReviewFrom from "./Components/Dashboard/UserDashboardHome/WebsiteReviewFrom/WebsiteReviewFrom";
+import Faq from "./Components/Faq/Faq";
+
 
 
 import Donation from "./Components/Donation/Donation";
@@ -67,6 +69,7 @@ function App() {
           <Route element={App} />
           <Route path="/" element={<Home />} />
           <Route path="home" element={<Home />} />
+          <Route path="faq" element={<Faq/>}/>
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
@@ -252,6 +255,7 @@ function App() {
             />
           </Route>
           {/***************** Dashboard route  End*****************/}
+          
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

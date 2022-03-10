@@ -2,8 +2,6 @@ import React from "react";
 import Covid from "../../Dashboard/Covid/Covid";
 import Footer from "../../Shared/Footer/Footer";
 import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
-import Subscribe from "../../Subscribe/Subscribe";
-import Faq from "../../Faq/Faq";
 import Banner from "../Banner/Banner";
 import Features from "../Features/Features";
 import Gallery from "../Gallery/Gallery";
@@ -20,16 +18,14 @@ const Home = () => {
       <NavigationBar />
       <Banner />
       <Covid />
-      <NurtingEnvironment />
-      <WhyChooseUs />
       <Features />
+      <NurtingEnvironment />
+      <WhyChooseUs /> 
       <TopList />
       <Testimonial />
       <Gallery />
-      <Partners />
-      <Faq />
+      <Partners />    
       <QuickScroll />
-      <Subscribe />
       <Footer />
     </>
   );
