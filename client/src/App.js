@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import AuthProvider from "./Components/Context/AuthProvider";
 import Home from "./Components/Home/Home/Home";
 import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Register/Register";
@@ -35,10 +34,21 @@ import NotesPage from "./Components/Notes/NotesPage";
 import BookDetails from "./Components/BookDetails/BookDetails";
 import NotFound from "./Components/NotFound/NotFound";
 import TeacherDetails from "./Components/TeacherDetails/TeacherDetails";
-
-
-import TransportHome from "./Components/Transport/TransportDetails/TransportHome";
+// import TransportHome from "./Components/Transport/TransportHome";
+import CartContextProvider from "./Components/Context/CartContext";
+import BookOrderReview from "./Components/BookOrderReview/BookOrderReview";
+import Payment from "./Components/Payment/Payment";
+import PaymentSuccessfullyPage from "./Components/Payment/PaymentSuccessfullyPage/PaymentSuccessfullyPage";
+import useAuth from "./Hooks/useAuth";
+import UserDashboardHome from "./Components/Dashboard/UserDashboardHome/UserDashoardHome";
+import MyOrder from "./Components/Dashboard/UserDashboardHome/MyOrder/MyOrder";
+import ManageOrder from "./Components/Dashboard/ManageOrder/ManageOrder";
+import WebsiteReviewFrom from "./Components/Dashboard/UserDashboardHome/WebsiteReviewFrom/WebsiteReviewFrom";
+import Donation from "./Components/Donation/Donation";
 import TransportHomeDetails from "./Components/Transport/TransportHomeDetails";
+import TransportHome from "./Components/Transport/TransportDetails/TransportHome";
+import Faq from "./Components/Faq/Faq";
+
 
 
 const Dashboard = lazy(() => {
@@ -54,18 +64,23 @@ function App() {
       easing: "ease",
     });
   });
-
+  const { user, admin } = useAuth();
   return (
-    <AuthProvider>
+
+    <CartContextProvider>
       <BrowserRouter>
         <Routes>
-          {/*  */}
+          <Route element={App} />
           <Route path="/" element={<Home />} />
           <Route path="home" element={<Home />} />
+          <Route path="faq" element={<Faq/>}/>
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
           <Route path="books" element={<BookList />} />
+          <Route path="books/bookOrderReview" element={<BookOrderReview />} />
+          <Route path="success/:id" element={<PaymentSuccessfullyPage />} />
+          <Route path="payment" element={<Payment />} />
           <Route
             path="bookDetails/:id"
             element={
@@ -100,19 +115,28 @@ function App() {
               </PrivateRoute>
             }
           />
-
+          <Route path="donation" element={
+            <PrivateRoute>
+              <Donation />
+            </PrivateRoute>
+          } />
           {/****************** Dashboard route  start******************/}
           <Route
             path="dashboard"
             element={
               <Suspense fallback={<LoadingPage />}>
-                <AdminRoute>
+                <PrivateRoute>
                   <Dashboard />
-                </AdminRoute>
+                </PrivateRoute>
               </Suspense>
             }
           >
-            <Route index element={<DashboardHome />} />
+            {<Route index element={admin ?
+              <DashboardHome /> :
+              user.email &&
+              <UserDashboardHome />} />}
+
+
             <Route
               path="addASchool"
               element={
@@ -121,7 +145,23 @@ function App() {
                 </AdminRoute>
               }
             />
+            <Route path="notes" element={<NotesPage />} />
+            <Route path="schDetails" element={<SchoolDetails />} />
+            <Route path="contacts" element={<Contacts />} />
+            <Route path="transport" element={<TransportHome />} />
 
+
+            <Route
+              path="manageOrder"
+              element={
+                <PrivateRoute>
+                  <ManageOrder />
+                </PrivateRoute>
+              }
+            />
+            <Route path="teacherDetails/:id" element={<TeacherDetails />} />
+            <Route path="basic" element={<BasicSection />} />
+            <Route path="privateTutor" element={<PrivateTuor />} />
             <Route
               path="schools"
               element={
@@ -199,12 +239,30 @@ function App() {
                 </AdminRoute>
               }
             />
+            <Route
+              path="myOrder"
+              element={
+                <PrivateRoute>
+                  <MyOrder />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="webSiteReviewFrom"
+              element={
+                <PrivateRoute>
+                  <WebsiteReviewFrom />
+                </PrivateRoute>
+              }
+            />
           </Route>
           {/***************** Dashboard route  End*****************/}
+          
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
-    </AuthProvider>
+    </CartContextProvider>
+
   );
 }
 

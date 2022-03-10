@@ -9,11 +9,12 @@ export const ButtonStyle = {
 }
 export const ButtonHover = { backgroundImage: `linear-gradient(to left,#00bccf, #005593)` }
 
-export const alert = (icon, title) => {
+export const alert = (icon, title, text) => {
     Swal.fire({
         position: 'center',
         icon: icon,
         title: title,
+        text: text,
         showConfirmButton: false,
         timer: 1500
     })

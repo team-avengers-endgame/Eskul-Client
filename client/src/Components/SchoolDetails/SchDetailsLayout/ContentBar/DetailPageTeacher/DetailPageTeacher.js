@@ -2,7 +2,7 @@ import { ButtonBase, Grid, Paper, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import { api } from "../../../../../Hooks/Api";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 const Img = styled("img")({
   margin: "auto",
   display: "block",
@@ -10,12 +10,13 @@ const Img = styled("img")({
   maxHeight: "100%",
 });
 const DetailPageTeacher = () => {
+  const { id } = useParams();
   const [teachers, setTeachers] = useState([]);
   useEffect(() => {
-    fetch(`${api}/teachers`)
+    fetch(`${api}/schools/${id}`)
       .then((res) => res.json())
-      .then((data) => setTeachers(data?.data?.data));
-  }, []);
+      .then((data) => setTeachers(data?.data?.data.teachers));
+  }, [id]);
   return (
     <div>
       <Grid container spacing={2}>

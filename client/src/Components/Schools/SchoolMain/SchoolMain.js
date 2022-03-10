@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import { api } from "../../../Hooks/Api";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
-import { ButtonStyle } from "../../../Hooks/useStyle";
+import { alert, ButtonStyle } from "../../../Hooks/useStyle";
 import SearchBar from "../../Shared/SearchBar/SearchBar";
 const SchoolMain = () => {
   const [schools, setSchools] = useState([]);
@@ -24,6 +24,7 @@ const SchoolMain = () => {
   const handleOnChange = (e) => {
     const value = e.target.value;
     const newValue = schools?.filter(s => s.schoolName.toLowerCase().includes(value.toLowerCase()) || s.location.toLowerCase().includes(value.toLowerCase()))
+    newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
     setSearchValue(newValue)
   }
 

@@ -1,93 +1,87 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { Badge, IconButton } from '@mui/material';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import List from "@mui/material/List";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { Badge, Button, IconButton} from "@mui/material";
+import { CartContext } from "../../Context/CartContext";
+import Cart from "../Cart/Cart";
+import { ButtonStyle } from "../../../Hooks/useStyle";
+import {useNavigate } from "react-router-dom";
 export default function CartDrawer() {
-    const [state, setState] = React.useState({
-        top: false,
-        left: false,
-        bottom: false,
-        right: false,
-    });
+  const [state, setState] = React.useState(false);
+  const cartBooks = React.useContext(CartContext)[0];
 
-    const toggleDrawer = (anchor, open) => (event) => {
-        if (
-            event &&
-            event.type === 'keydown' &&
-            (event.key === 'Tab' || event.key === 'Shift')
-        ) {
-            return;
-        }
+  let totalQuantity = 0;
 
-        setState({ ...state, [anchor]: open });
-    };
+  for (const product of cartBooks) {
+    if (!product.quantity) {
+      product.quantity = 1;
+    }
 
-    const list = (anchor) => (
-        <Box
+    totalQuantity = totalQuantity + product.quantity;
+  }
 
-            role="presentation"
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
+
+  const toggleDrawer = (open) => (event) => {
+
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState(open);
+  };
+  
+
+  let navigate = useNavigate();
+  const bookOrderReview=()=>{
+   return navigate('/books/bookOrderReview')
+  }
+
+  const list = () => (
+    <Box
+      sx={{ width: { sm: 400, md: 500 } }}
+      role="presentation"
+
+    >
+      <List sx={{ pt: 0 }}>
+        <Cart>
+         
+            <Button onClick={bookOrderReview} sx={{ ...ButtonStyle, width: 1 }}>Review</Button>
+         
+        </Cart>
+      </List>
+
+    </Box>
+  );
+
+  return (
+    <Box sx={{ display: "inline" }}>
+      <React.Fragment>
+        <IconButton
+          onClick={toggleDrawer(true)}
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
         >
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    );
+          <Badge badgeContent={totalQuantity || 0} color="error">
+            <AddShoppingCartIcon sx={{ color: "#46aadd" }} />
+          </Badge>
+        </IconButton>
 
-    return (
-        <Box sx={{ display: 'inline' }}>
-            {['right'].map((anchor) => (
-                <React.Fragment key={anchor}>
-                    <IconButton
-                        onClick={toggleDrawer(anchor, true)}
-                        size="large"
-                        aria-label="show 17 new notifications"
-                        color="inherit"
-                    >
-                        <Badge badgeContent={10} color="error">
-                            <AddShoppingCartIcon sx={{ color: '#46aadd' }} />
-                        </Badge>
-
-                    </IconButton>
-
-                    <SwipeableDrawer
-                        anchor={anchor}
-                        open={state[anchor]}
-                        onClose={toggleDrawer(anchor, false)}
-                        onOpen={toggleDrawer(anchor, true)}
-                    >
-                        {list(anchor)}
-                    </SwipeableDrawer>
-                </React.Fragment>
-            ))}
-        </Box>
-    );
+        <SwipeableDrawer
+          anchor={'right'}
+          open={state}
+          onClose={toggleDrawer(false)}
+          onOpen={toggleDrawer(true)}
+        >
+          {list()}
+        </SwipeableDrawer>
+      </React.Fragment>
+    </Box>
+  );
 }

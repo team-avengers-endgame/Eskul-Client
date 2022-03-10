@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import { api } from "../../../Hooks/Api";
 import EditSchoolDataForm from "./EditSchoolDataForm/EditSchoolDataForm";
 import SearchBar from "../../Shared/SearchBar/SearchBar";
+import { alert } from "../../../Hooks/useStyle";
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -65,6 +66,7 @@ export default function Schools() {
   const handleOnChange = (e) => {
     const value = e.target.value;
     const newValue = schools?.filter(s => s.schoolName.toLowerCase().includes(value.toLowerCase()) || s.location.toLowerCase().includes(value.toLowerCase()))
+    newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result");
     setSearchValue(newValue)
   }
 

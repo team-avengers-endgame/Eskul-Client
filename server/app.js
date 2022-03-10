@@ -14,6 +14,7 @@ const bookRouter = require("./routes/bookRoutes");
 const teacherRouter = require("./routes/teacherRoutes");
 const privateTeacherRouter = require("./routes/privateTeacherRoutes");
 const orderRouter = require("./routes/orderRoutes");
+const reviewRouter = require("./routes/reviewRoutes");
 const app = express();
 
 /* === GLOBAL MIDDLEWARE ===*/
@@ -51,7 +52,8 @@ app.use("/api/schools", schoolRouter);
 app.use("/api/books", bookRouter);
 app.use("/api/teachers", teacherRouter);
 app.use("/api/privateTeachers", privateTeacherRouter);
-app.use("/", orderRouter);
+app.use("/api/reviews", reviewRouter);
+app.use("/api", orderRouter);
 
 //For serving static files
 if (process.env.NODE_ENV == "production") {

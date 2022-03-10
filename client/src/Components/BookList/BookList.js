@@ -1,17 +1,27 @@
-import React, { useState, useEffect } from "react";
-import {Box,Button,CardMedia,Container,Grid,Paper,Typography,} from "@mui/material";
+import React, { useState, useEffect, useContext } from "react";
+import {
+  Box,
+  Button,
+  CardMedia,
+  Container,
+  Grid,
+  Paper,
+  Rating,
+  Typography,
+} from "@mui/material";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import { api } from "../../Hooks/Api";
 import SearchBar from "../Shared/SearchBar/SearchBar";
 import SharedBanner from "../Shared/SharedBanner/SharedBanner";
 import Footer from "../Shared/Footer/Footer";
-import { ButtonStyle } from "../../Hooks/useStyle";
+import { alert, ButtonStyle } from "../../Hooks/useStyle";
 import { NavLink } from "react-router-dom";
-import StarRateIcon from "@mui/icons-material/StarRate";
+import { CartContext } from "../Context/CartContext";
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
+  const [cart, setCart] = useContext(CartContext);
   useEffect(() => {
     fetch(`${api}/books`)
       .then((res) => res.json())
@@ -20,7 +30,7 @@ const BookList = () => {
         setSearchValue(data?.data?.data);
       });
   }, []);
-  console.log(books);
+
 
   /*************** searching *****************/
   const handleOnChange = (e) => {
@@ -28,8 +38,31 @@ const BookList = () => {
     const newValue = books?.filter(
       (s) => s.bookName.includes(value) || s.author.includes(value)
     );
+    newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
     setSearchValue(newValue);
   };
+
+
+
+  const handleAddToCart = (book) => {
+
+    const exists = cart.find(pd => pd._id === book._id);
+    let newCart = [];
+    if (exists) {
+      const rest = cart.filter(pd => pd._id !== book._id);
+      exists.quantity = exists.quantity + 1;
+      newCart = [...rest, book];
+    } else {
+      book.quantity = 1;
+      newCart = [...cart, book]
+      
+    }
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    setCart(() => newCart);
+    alert('success','Success','Add to Cart Successfully')
+  };
+
+ 
   const placeholder = "Search by Book Name or Author Name";
   return (
     <>
@@ -79,13 +112,12 @@ const BookList = () => {
                         {single?.bookPrice}
                       </Typography>
                       <br />
-                      <Typography variant="body1">
-                        <StarRateIcon />
-                        <StarRateIcon />
-                        <StarRateIcon />
-                        <StarRateIcon />
-                        <StarRateIcon />
-                      </Typography>
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={single?.rating}
+                        precision={0.5}
+                        readOnly
+                      />
                     </Box>
                     <br />
                     <NavLink
@@ -96,8 +128,12 @@ const BookList = () => {
                         Details
                       </Button>
                     </NavLink>
-                    <Button size="small" sx={ButtonStyle}>
-                      Purchase
+                    <Button
+                      size="small"
+                      sx={ButtonStyle}
+                      onClick={() => handleAddToCart(single)}
+                    >
+                      Add to cart
                     </Button>
                   </Grid>
                 </Grid>

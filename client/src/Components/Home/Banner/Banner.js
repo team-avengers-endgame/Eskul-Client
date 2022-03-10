@@ -11,7 +11,7 @@ import ico2 from '../../../Assets/Slider/slider-ico-2.svg';
 
 const slideImages = [
     { id: 1, slideImg: img1, text1: 'Looking for a Website where', text2: 'You can find your ideal School', icon: ico1 },
-    { id: 2, slideImg: img2, text1: 'Where Fun Happens!', text2: 'Explore the new searchs', icon: ico2 },
+    { id: 2, slideImg: img2, text1: 'Where Fun Happens!', text2: 'Explore the new Schools', icon: ico2 },
 ]
 
 

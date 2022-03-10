@@ -18,7 +18,7 @@ const DropdownMenuGallery = () => {
                 onClick={handleOpenUserMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
             >
-                Gallery
+                Features
             </Button>
             <Menu
                 sx={{ mt: "45px" }}
@@ -37,21 +37,21 @@ const DropdownMenuGallery = () => {
                 onClose={handleCloseUserMenu}
             >
 
-                <Link to="/" style={LinkStyle}>
+                <Link to="/donation" style={LinkStyle}>
                     <MenuItem onClick={handleCloseUserMenu}>
-                        <Typography textAlign="center">Gallery</Typography>
+                        <Typography textAlign="center">Donation</Typography>
                     </MenuItem>
                 </Link>
                 <Divider />
-                <Link to="/" style={LinkStyle}>
+                <Link to="/notes" style={LinkStyle}>
                     <MenuItem onClick={handleCloseUserMenu}>
-                        <Typography textAlign="center">Gallery</Typography>
+                        <Typography textAlign="center">Notes</Typography>
                     </MenuItem>
                 </Link>
                 <Divider />
-                <Link to="/" style={LinkStyle}>
+                <Link to="/transport" style={LinkStyle}>
                     <MenuItem onClick={handleCloseUserMenu}>
-                        <Typography textAlign="center">Gallery</Typography>
+                        <Typography textAlign="center">Transport</Typography>
                     </MenuItem>
                 </Link>
             </Menu>
