@@ -2,6 +2,7 @@ import React from "react";
 import Covid from "../../Dashboard/Covid/Covid";
 import Footer from "../../Shared/Footer/Footer";
 import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
+// import Subscribe from "../../Subscribe/Subscribe";
 import Banner from "../Banner/Banner";
 import Features from "../Features/Features";
 import Gallery from "../Gallery/Gallery";
@@ -24,6 +25,7 @@ const Home = () => {
       <TopList />
       <Testimonial />
       <Gallery />
+      {/* <Subscribe/> */}
       <Partners />    
       <QuickScroll />
       <Footer />
