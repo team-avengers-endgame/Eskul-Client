@@ -1,4 +1,6 @@
 import { Suspense, useEffect, lazy } from "react";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -33,7 +35,12 @@ import NotesPage from "./Components/Notes/NotesPage";
 import BookDetails from "./Components/BookDetails/BookDetails";
 import NotFound from "./Components/NotFound/NotFound";
 import TeacherDetails from "./Components/TeacherDetails/TeacherDetails";
-import TransportHome from "./Components/Transport/TransportHome";
+
+
+import TransportHome from "./Components/Transport/TransportDetails/TransportHome";
+import TransportHomeDetails from "./Components/Transport/TransportHomeDetails";
+
+
 const Dashboard = lazy(() => {
   return new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
     import("./Components/Dashboard/Dashboard")
@@ -69,9 +76,11 @@ function App() {
           />
           <Route path="notes" element={<NotesPage />} />
           <Route path="schDetails" element={<SchoolDetails />} />
+          <Route path="transport" element={<TransportHomeDetails />} />
+          <Route path="transportDetails/:tpid" element={<TransportHome />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="schools" element={<Schools />} />
-          <Route path="transport" element={<TransportHome />} />
+          
           <Route
             path="details/:id"
             element={

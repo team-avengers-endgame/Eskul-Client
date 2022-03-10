@@ -1,149 +1,115 @@
 import {
   Box,
  
+  Button,
+ 
+  Card,
+ 
+  CardActionArea,
+ 
+  CardContent,
+ 
+  CardMedia,
+ 
   Container,
   Grid,
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-
+import { NavLink } from "react-router-dom";
+import TransportCard from "./TransportCard";
+import wavepink from "../../Assets/Images/wave-pink.svg";
 const Transport = () => {
   const [transports, setTransports] = useState([]);
   useEffect(() => {
-    fetch("/transportdata.json")
+    fetch("https://raw.githubusercontent.com/Nazninkamal/fakedata/main/something.json")
       .then((res) => res.json())
       .then((data) => setTransports(data));
   }, []);
 
   return (
-    <Container>
-      <Typography sx={{textAlign:"center",py:5,color:"#0c4b65"}} variant="h4"
+    <Box sx={{
+      backgroundImage: `url(${wavepink})`,
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      py: 20,
+    }}>
+      <Typography sx={{textAlign:"center",color:"#0c4b65"}} variant="h4"
                   gutterBottom
                   component="div">Our Trasportation Facilities</Typography>
-      <Grid container spacing={2}>
+      <Container>
+      <Grid container spacing={6}>
+       
         
-        {transports.map((dt) => (
-          <Grid key={dt._id} item xs={12} sm={12} md={12}>
-            <Grid container spacing={12}>
-              <Grid item xs={12} sm={12} md={6}>
-                <Box
-                  sx={{
-                    width: "100%",
-                    transition: "transform .5s ease",
-                    "&:hover": {
-                      transform: "scale(1.1)",
-                    },
-                  }}
-                >
-                  <img
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      maxWidth: "100%",
-                      verticalAlign: "top",
-                      borderRadius: "10px",
-                      margin:"auto",
-                      aspectRatio: "auto 1200 / 1200",
-                    }}
-                    src={dt.busImg}
-                    alt=""
-                  />
-                </Box>
-              </Grid>
-              <Grid item xs={12} sm={12} md={6}>
-                <Typography
-                  sx={{
-                    fontSize: "26px",
-                    margin: "0 0 8px",
-                    color: "#0c4b65",
-                    fontWeight: "800",
-                  }}
-                  variant="h6"
-                  gutterBottom
-                  component="div"
-                >
-                  {dt?.name}
-                </Typography>
-               
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    margin: "0 0 8px",
-                    color: "#3B4757",
-                    fontWeight: "400",
-                  }}
-                  variant="subtitle2"
-                  gutterBottom
-                  component="div"
-                >
-                  <span style={{ fontWeight: "800" }}>Location:</span>{" "}
-                  {dt?.location}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    margin: "0 0 8px",
-                    color: "#3B4757",
-                    fontWeight: "400",
-                  }}
-                  variant="subtitle2"
-                  gutterBottom
-                  component="div"
-                >
-                  <span style={{ fontWeight: "800" }}>Schedule:</span> {dt?.time}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    margin: "0 0 8px",
-                    color: "#3B4757",
-                    fontWeight: "400",
-                  }}
-                  variant="subtitle2"
-                  gutterBottom
-                  component="div"
-                >
-                  <span style={{ fontWeight: "800" }}>Rent Fee: </span>
-                  {dt?.rent}
-                </Typography>
-                
-                
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    margin: "0 0 8px",
-                    color: "#3B4757",
-                    fontWeight: "400",
-                  }}
-                  variant="subtitle2"
-                  gutterBottom
-                  component="div"
-                >
-                  <span style={{ fontWeight: "800" }}>Driver Name:</span>
-                  {dt?.driverName}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    margin: "0 0 8px",
-                    color: "#3B4757",
-                    fontWeight: "400",
-                  }}
-                  variant="subtitle2"
-                  gutterBottom
-                  component="div"
-                >
-                  <span style={{ fontWeight: "800" }}>Driver Phone Number:</span>
-                  {dt?.phone}
-                </Typography>
-                <img style={{width:"25%",height:"25%",objectFit:'cover',borderRadius:"50px 0px 50px 0px",marginBottom:"10%"}} src={dt?.driverImg} alt="" />
-              </Grid>
-            </Grid>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+       {transports.map((dt) =>  (
+         <Grid key={dt.id} item xs={12} sm={12} md={4}>
+           
+             <Card sx={{  background: "#fff",
+               w: "25%",
+               p: "20px 15px",
+               boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)",
+               borderRadius: "12px",
+                }}>
+               <CardActionArea>
+                 <Box
+                 sx={{transition: "transform .5s ease",
+                 "&:hover": {
+                   transform: "scale(1.1)",
+                 },}}
+                 ><CardMedia
+                   component="img"
+                   sx={{  width: "100%",
+                   height: "auto",
+                   maxWidth: "100%",
+                   verticalAlign: "top",
+                   borderRadius: "10px",
+                   margin:"auto",
+                   aspectRatio: "auto 1200 / 1200" }}
+                   image={dt?.busImg}
+                   alt="green iguana"
+                 /></Box>
+                 <CardContent>
+                   <Typography
+                     sx={{ color: "#3B4757", textAlign: "center" }}
+                     gutterBottom
+                     variant="h5"
+                     component="div"
+                   >
+                     {dt?.name}
+                   </Typography>
+                   <Typography
+                     sx={{
+                       color: "#777",
+                       fontSize: "15px",
+                       textAlign: "center",
+                     }}
+                     variant="body2"
+                     color="text.secondary"
+                   >
+                    Location: {dt?.location}
+                   </Typography>
+                   
+                   <NavLink
+                       to={`/transportDetails/${dt?.id}`}
+                       style={{ textDecoration: "none" }}
+                     >
+                       <Box sx={{ display: "flex", justifyContent: "center",mt:3 }}>
+                         <Button variant="outlined" size="small">More Info</Button>
+                       </Box>
+                     </NavLink>
+                 </CardContent>
+               </CardActionArea>
+             </Card>
+             
+         </Grid> 
+       ))}
+     </Grid>
+      </Container>
+
+    </Box>
   );
 };
 
 export default Transport;
+
+        
