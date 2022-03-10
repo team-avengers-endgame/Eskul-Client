@@ -33,7 +33,7 @@ const PaymentFrom = () => {
       ...data,
       total_amount: grandtotal,
       cartBooks: [cartBooks],
-      status: "pending",
+      status: "Pending",
     };
     axios
       .post(`${api}/init`, paymentData)

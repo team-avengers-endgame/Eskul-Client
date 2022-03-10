@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
+import AuthProvider from "./Components/Context/AuthProvider";
 const App = React.lazy(() => {
   return new Promise(resolve => setTimeout(resolve, 1000)).then(
     () => import("./App")
@@ -13,7 +14,9 @@ const App = React.lazy(() => {
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={<LoadingPage />}>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </Suspense>
   </React.StrictMode>,
   document.getElementById("root")
