@@ -9,11 +9,11 @@ const FacilitySection = () => {
         backgroundImage: `url(${countbg})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-
+        marginTop: '20px',
         py: 20,
       }}
     >
-      <Container>
+      <Container >
         <Grid container spacing={2}>
           {/* box-1 */}
           <Grid item xs={12} sm={12} md={3}>

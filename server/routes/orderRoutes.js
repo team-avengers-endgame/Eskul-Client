@@ -30,18 +30,18 @@ router.post("/addToCartProduct", async (req, res) => {
 router.get("/myOrder/:email", async (req, res) => {
   const email = req.params.email;
   const query = { cus_email: email };
-  const myOrder = await Order.findOne(query);
+  const myOrder = await Order.find(query);
   res.send(myOrder);
 });
 // approve api-------------------
 router.put("/statusUpdate/:id", async (req, res) => {
   const id = req.params.id;
   const status = req.body.status;
-  const color = req.body.color;
+  console.log(id, status)
   const filter = { _id: ObjectId(id) };
   await Order.updateOne(filter, {
     $set: {
-      status: status,
+      status: status
     },
   }).then((result) => {
     res.send(result);
@@ -49,7 +49,6 @@ router.put("/statusUpdate/:id", async (req, res) => {
 });
 //sslcommerz init
 router.post("/init", async (req, res) => {
-  console.log(req.body)
   const data = {
     total_amount: req.body.total_amount,
     currency: req.body.currency,

@@ -16,12 +16,13 @@ const About = () => {
       <NavigationBar />
       <SharedBanner pageName={"About Us"} />
       <AboutHeroSection />
-      <ChildEducation />
+      {/* <ChildEducation /> */}
       <VisionMissionSection />
+      <TeamCard></TeamCard>
       <DifferenceSection />
       <FacilitySection />
-      <Principles />
-      <TeamCard></TeamCard>
+      {/* <Principles /> */}
+
       <Footer />
     </div>
   );

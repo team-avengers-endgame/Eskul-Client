@@ -8,13 +8,16 @@
 img{
 	max-width: 100%;
 	
+	
 }
 .ui-card{
 	width: 350px;
 	position: relative;
 	overflow: hidden;
 	transition: all 0.3s ease-out;
-	background:radial-gradient(#111 50%, #000 100%);
+	background:rgb(255, 255, 255);
+	border: 1px solid rgb(255, 255, 255);
+	border-radius: 5%;
 }
 
 .ui-card img{
@@ -22,8 +25,12 @@ img{
 	transition: all 0.3s ease-out;
 	width: 200px;
 	height: 200px;
-	border: 1px solid black;
-	border-radius: 50%;
+	align-items: center;
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid rgb(158, 237, 243);
+
 }
 .ui-card:hover img{
 	transform: scale(1.1) translateY(-20px); 
@@ -36,7 +43,7 @@ img{
 	padding: 15px;
 	width: 100%;
 	text-align: center;
-	color: #fff;
+	color: rgb(5, 126, 116);
 	font-size: 18px;
 }
 .ui-card .description h3{
@@ -55,7 +62,7 @@ img{
 }
 .ui-card .description a{
 	color: #fff;
-	background:#34aff3;
+	background:#0c5061;
 	display: inline-block;
 	padding: 10px 25px;
 	border-radius: 5px;
