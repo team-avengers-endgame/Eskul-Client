@@ -88,14 +88,11 @@ export default function CustomizedAccordions() {
         class={expanded === "panel1" && "panel-active"}
       >
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>Collapsible Group Item ?</Typography>
+          <Typography>What type of website is "ESKUL"?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+            ESKUl is a complete website about schools information for parents & students. Here user can find out any type school information. They can find out any school teacher information easily. We impleament many features for students and parents. These feature make their life easy.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -109,14 +106,11 @@ export default function CustomizedAccordions() {
         class={expanded === "panel2" && "panel-active"}
       >
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>Collapsible Group Item ?</Typography>
+          <Typography>How can I send my donation any school for poor students?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+           That is very easy. At first you have to go donation page. Then fullfill all requrements and click the submit button. Then open up ssl form.just give all information. And it's done!!
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -130,14 +124,11 @@ export default function CustomizedAccordions() {
         class={expanded === "panel3" && "panel-active"}
       >
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography>Collapsible Group Item ?</Typography>
+          <Typography>How can User reviwes this website?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+           At first you have to login. If you are a new user in our page, then you have to create a account. Then you can see user dashboard. Here you can find out user review section. Feel free to review our website!!
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -151,14 +142,11 @@ export default function CustomizedAccordions() {
         class={expanded === "panel4" && "panel-active"}
       >
         <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
-          <Typography>Collapsible Group Item ?</Typography>
+          <Typography>Can  this website provides online private tutor ?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+           Yes, of course.Our website provides skillful, experience online tutor . We incluede all type of information them ,what you needed. Also included their contact information. You can contact them directly. 
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -172,14 +160,11 @@ export default function CustomizedAccordions() {
         class={expanded === "panel5" && "panel-active"}
       >
         <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
-          <Typography>Collapsible Group Item ?</Typography>
+          <Typography>Can we contact "ESKUL" website developers for google adsense?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+           Yeah sure. Welcome. You can contact our developers very easily using by Contact Us section.
           </Typography>
         </AccordionDetails>
       </Accordion>
