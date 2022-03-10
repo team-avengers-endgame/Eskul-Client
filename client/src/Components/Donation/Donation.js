@@ -70,15 +70,7 @@ const Donation = () => {
                                 variant="standard"
                             />
                         </Grid>
-                        {/* <Grid item xs={12} sm={6}>
-                            <TextField
-                                id="state"
-                                name="state"
-                                label="State/Province/Region"
-                                fullWidth
-                                variant="standard"
-                            />
-                        </Grid> */}
+
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 required
@@ -101,12 +93,7 @@ const Donation = () => {
                                 variant="standard"
                             />
                         </Grid>
-                        <Grid item xs={12}>
-                            {/* <FormControlLabel
-                                control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-                                label="Use this address for payment details"
-                            /> */}
-                        </Grid>
+
                     </Grid>
                     <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                         Payment method
