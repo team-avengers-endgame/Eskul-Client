@@ -47,6 +47,7 @@ import WebsiteReviewFrom from "./Components/Dashboard/UserDashboardHome/WebsiteR
 import Donation from "./Components/Donation/Donation";
 import TransportHomeDetails from "./Components/Transport/TransportHomeDetails";
 import TransportHome from "./Components/Transport/TransportDetails/TransportHome";
+import Faq from "./Components/Faq/Faq";
 
 
 
@@ -72,6 +73,7 @@ function App() {
           <Route element={App} />
           <Route path="/" element={<Home />} />
           <Route path="home" element={<Home />} />
+          <Route path="faq" element={<Faq/>}/>
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
@@ -255,6 +257,7 @@ function App() {
             />
           </Route>
           {/***************** Dashboard route  End*****************/}
+          
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

@@ -5,8 +5,15 @@ import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import { Box, Container } from "@mui/material";
+import { Box, Button, Container, Grid, TextField } from "@mui/material";
+
 import "./Faq.css";
+import NavigationBar from "../Shared/NavigationBar/NavigationBar";
+import Footer from "../Shared/Footer/Footer";
+import SharedBanner from "../Shared/SharedBanner/SharedBanner";
+import { ButtonStyle } from "../../Hooks/useStyle";
+import SendIcon from '@mui/icons-material/Send';
+
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -51,22 +58,27 @@ export default function CustomizedAccordions() {
   };
 
   return (
+    <>
+    <NavigationBar/>
+    <SharedBanner pageName={"FAQs"} />
     <Container
-      sx={{
-        py: 15,
-      }}
+     
     >
-      <Box sx={{ textAlign: "center", py: 3 }}>
+      <Box sx={{ textAlign: "center", py: 5 }}>
+        <Typography variant="h6" sx={{color: "#46AADD"}}>
+          Here are answers to your questions
+        </Typography>
         <Typography
           variant="h3"
           gutterBottom
           component="div"
           sx={{ fontWeight: "500", color: "#3B4757" }}
         >
-          <span style={{ color: "#46AADC" }}>FAQ</span>
+         Frequently Asked Questions
         </Typography>
       </Box>
-      <Accordion
+    <Box sx={{width: '75%', mx: "auto"}}>
+    <Accordion
         style={{
           margin: "26px 0",
           boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
@@ -171,6 +183,83 @@ export default function CustomizedAccordions() {
           </Typography>
         </AccordionDetails>
       </Accordion>
+    </Box>
+
+
+    
+
+    
+   <Container>
+   <Box sx={{ textAlign: "center", mt: 15 }}>
+    <Typography
+          variant="h3"
+          gutterBottom
+          component="div"
+          sx={{ fontWeight: "500", color: "#3B4757" }}
+        >
+        Do You Have Any Question?
+        </Typography>
+    </Box>
+   <Grid  container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}
+   sx={{px: {xs: 0,sm: 3 ,md: 15}}}
+   >
+    <Grid item xs={4} sm={4} md={6} >
+    <TextField 
+    fullWidth
+     id="outlined-basic"
+     label="Your Name" 
+     variant="outlined" />
+        </Grid>
+        <Grid item  xs={4} sm={4} md={6} >
+        <TextField 
+        fullWidth
+        id="outlined-basic"
+        label="Your Email" 
+        variant="outlined" />
+         </Grid>
+        
+        
+        <Grid item  xs={4} sm={4} md={6} >
+        <TextField
+         fullWidth
+          id="outlined-number"
+          label="Number"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+          </Grid>
+        <Grid item  xs={4} sm={4} md={6} >
+        <TextField
+         fullWidth
+          id="outlined-basic"
+          label="Subject"
+         
+        
+        />
+          </Grid>
+        
+        <Grid item  xs={4} sm={8} md={12} >
+        <TextField fullWidth
+                   id="outlined-basic"
+                   label="Your Name" 
+                   variant="outlined"
+                    multiline
+                    rows={4}
+
+                   /> <br />
+    </Grid>
+   <Box sx={{width:"25%", mx:"auto", mt:3}}>
+   <Button type="submit" fullWidth variant="contained" sx={ButtonStyle} endIcon={<SendIcon />}> Send</Button>
+   </Box>
+    </Grid>
+    
+   
+   </Container>
+  
     </Container>
+    <Footer/>
+    </>
   );
 }
