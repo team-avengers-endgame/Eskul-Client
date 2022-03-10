@@ -1,0 +1,15 @@
+.subscribe-section {
+  background-image: url("http://entiretimes.com/html/school/images/inner_title_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+}
+.subscribe-section input {
+  border-color: #fff !important;
+}
+.MuiFormLabel-root.Mui-focused {
+  color: #212121 !important;
+}
