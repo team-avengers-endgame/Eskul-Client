@@ -34,18 +34,10 @@ router.get("/myOrder/:email", async (req, res) => {
   res.send(myOrder);
 });
 // approve api-------------------
-router.put("/statusUpdate/:id", async (req, res) => {
-  const id = req.params.id;
+router.patch("/statusUpdate/:id", async (req, res) => {
   const status = req.body.status;
-  console.log(id, status)
-  const filter = { _id: ObjectId(id) };
-  await Order.updateOne(filter, {
-    $set: {
-      status: status
-    },
-  }).then((result) => {
-    res.send(result);
-  });
+  const result = await Order.findByIdAndUpdate(req.params.id, { status });
+  res.send(result);
 });
 //sslcommerz init
 router.post("/init", async (req, res) => {
@@ -53,58 +45,61 @@ router.post("/init", async (req, res) => {
     total_amount: req.body.total_amount,
     currency: req.body.currency,
     tran_id: uuidv4(),
-    success_url: 'http://localhost:8000/api/success',
-    fail_url: 'http://localhost:8000/api/fail',
-    cancel_url: 'http://localhost:8000/api/cancel',
-    ipn_url: 'http://localhost:8000/api/ipn',
-    shipping_method: 'Courier',
+    success_url: "http://localhost:8000/api/success",
+    fail_url: "http://localhost:8000/api/fail",
+    cancel_url: "http://localhost:8000/api/cancel",
+    ipn_url: "http://localhost:8000/api/ipn",
+    shipping_method: "Courier",
     product_name: "req.body.product_name",
-    product_category: 'Electronic',
+    product_category: "Electronic",
     product_profile: "req.body.product_profile",
     cus_name: req.body.cus_name,
     cus_email: req.body.cus_email,
     date: req.body.date,
     status: req.body.status,
     cartBooks: req.body.cartBooks,
-    product_image: 'https://i.ibb.co/t8Xfymf/logo-277198595eafeb31fb5a.png',
+    product_image: "https://i.ibb.co/t8Xfymf/logo-277198595eafeb31fb5a.png",
     cus_add1: req.body.cus_add1,
-    cus_add2: 'Dhaka',
+    cus_add2: "Dhaka",
     cus_city: req.body.cus_city,
     cus_state: req.body.cus_state,
     cus_postcode: req.body.cus_postcode,
     cus_country: req.body.cus_country,
     cus_phone: req.body.cus_phone,
-    cus_fax: '01711111111',
-    ship_name: 'Customer Name',
-    ship_add1: 'Dhaka',
-    ship_add2: 'Dhaka',
-    ship_city: 'Dhaka',
-    ship_state: 'Dhaka',
+    cus_fax: "01711111111",
+    ship_name: "Customer Name",
+    ship_add1: "Dhaka",
+    ship_add2: "Dhaka",
+    ship_city: "Dhaka",
+    ship_state: "Dhaka",
     ship_postcode: 1000,
-    ship_country: 'Bangladesh',
-    multi_card_name: 'mastercard',
-    value_a: 'ref001_A',
-    value_b: 'ref002_B',
-    value_c: 'ref003_C',
-    value_d: 'ref004_D'
+    ship_country: "Bangladesh",
+    multi_card_name: "mastercard",
+    value_a: "ref001_A",
+    value_b: "ref002_B",
+    value_c: "ref003_C",
+    value_d: "ref004_D",
   };
   const order = await Order.create(data);
 
-  const sslcommer = new SSLCommerzPayment(process.env.STORE_ID, process.env.STORE_PASS, false) //true for live default false for sandbox
-  sslcommer.init(data).then(data => {
-    //process the response that got from sslcommerz 
+  const sslcommer = new SSLCommerzPayment(
+    process.env.STORE_ID,
+    process.env.STORE_PASS,
+    false
+  ); //true for live default false for sandbox
+  sslcommer.init(data).then((data) => {
+    //process the response that got from sslcommerz
     //https://developer.sslcommerz.com/doc/v4/#returned-parameters
 
     if (data.GatewayPageURL) {
-
-      res.json(data.GatewayPageURL)
+      res.json(data.GatewayPageURL);
     } else {
       return res.status(400).json({
-        message: 'Payment session failed'
-      })
+        message: "Payment session failed",
+      });
     }
   });
-})
+});
 
 router.post("/success", async (req, res) => {
   const result = await Order.updateOne(
