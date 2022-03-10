@@ -18,9 +18,15 @@ const Home = () => {
       <NavigationBar />
       <Banner />
       <Covid />
+<<<<<<< HEAD
       <Features />
       <NurtingEnvironment />
       <WhyChooseUs /> 
+=======
+      <NurtingEnvironment />
+      <Features />
+      <WhyChooseUs />
+>>>>>>> programer
       <TopList />
       <Testimonial />
       <Gallery />

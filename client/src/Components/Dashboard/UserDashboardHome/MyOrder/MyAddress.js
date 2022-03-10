@@ -10,7 +10,7 @@ import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlin
 const CustomerAddress = ({ order, handleDelete }) => {
 
     const addressStyle = { display: 'flex', justifyContent: 'space-between' };
-
+    console.log(order)
     return (
         <Box>
 
@@ -153,7 +153,7 @@ const CustomerAddress = ({ order, handleDelete }) => {
                             {order?.status}
                         </Fab>
                     </Tooltip>
-                    <Tooltip title={order?.status} arrow placement="top">
+                    <Tooltip title='Delete' arrow placement="top">
                         <Fab onClick={() => handleDelete(order._id)} variant="extended" size="small" color="error" aria-label="add">
                             <DeleteIcon sx={{ mr: 1 }} />
                             Delete

@@ -6,9 +6,11 @@ import axios from 'axios';
 import { api } from '../../../../Hooks/Api';
 import useAuth from '../../../../Hooks/useAuth';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Swal from 'sweetalert2';
 const MyOrder = () => {
     const [orders, setOrder] = useState([]);
     const { user } = useAuth();
+
 
     useEffect(() => {
         fetch(`${api}/myOrder/${user?.email}`)
@@ -19,23 +21,33 @@ const MyOrder = () => {
             });
     }, [user?.email])
 
-    const handleUpdateStatus = (status, id) => {
 
-        axios.put(`${api}/statusUpdate/${id}`, { status })
-            .then(res => {
-                console.log(res)
-            }).catch(err => {
-                console.log(err)
-            })
-    }
     const handleDelete = (id) => {
-        axios.delete(`${api}/statusUpdate/${id}`)
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`${api}/manageAllOrderDelete/${id}`)
+                    .then((response) => {
+                        response.status === 204 &&
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        const deleted = orders.filter((d) => d._id !== id);
+                        setOrder(deleted)
+                    }).catch((err) => {
+                        console.log(err);
+                    })
+            }
+        })
     }
 
 
@@ -44,7 +56,7 @@ const MyOrder = () => {
             <Toolbar />
             <Divider>
                 <Fab variant="extended" size="small" color="primary" aria-label="add">
-                  <AddShoppingCartIcon/>  MY Order
+                    <AddShoppingCartIcon />  MY Order
                 </Fab>
             </Divider>
             {
@@ -62,7 +74,6 @@ const MyOrder = () => {
 
                                 <CustomerAddress
                                     order={order}
-                                    handleUpdateStatus={handleUpdateStatus}
                                     handleDelete={handleDelete}
                                 />
 
@@ -79,7 +90,7 @@ const MyOrder = () => {
                         </Grid>
 
                         <Divider >
-                            <Chip label="CHIP" />
+                            <Chip label={<AddShoppingCartIcon />} />
 
                         </Divider>
                     </Box>

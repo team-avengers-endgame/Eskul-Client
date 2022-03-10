@@ -1,5 +1,5 @@
 import { Suspense, useEffect, lazy } from "react";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AOS from "aos";
@@ -48,6 +48,7 @@ import Donation from "./Components/Donation/Donation";
 import TransportHomeDetails from "./Components/Transport/TransportHomeDetails";
 import TransportHome from "./Components/Transport/TransportDetails/TransportHome";
 import Faq from "./Components/Faq/Faq";
+import Profile from "./Components/Dashboard/Profile/Profile";
 
 
 
@@ -95,7 +96,7 @@ function App() {
           <Route path="transportDetails/:tpid" element={<TransportHome />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="schools" element={<Schools />} />
-          
+
           <Route
             path="details/:id"
             element={
@@ -245,6 +246,12 @@ function App() {
                 <PrivateRoute>
                   <MyOrder />
                 </PrivateRoute>
+              }
+            />
+            <Route
+              path="profile"
+              element={
+                <Profile />
               }
             />
             <Route
