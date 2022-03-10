@@ -4,9 +4,8 @@ import "./index.css";
 import LoadingPage from "./Components/Shared/LoadingPage/LoadingPage";
 import AuthProvider from "./Components/Context/AuthProvider";
 const App = React.lazy(() => {
-  return new Promise(resolve => setTimeout(resolve, 1000)).then(
-    () => import("./App")
-
+  return new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
+    import("./App")
   );
 });
 // import reportWebVitals from './reportWebVitals';

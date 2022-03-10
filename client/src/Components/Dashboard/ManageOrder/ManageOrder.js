@@ -1,45 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Chip, Container, Divider, Fab, Grid, Toolbar } from '@mui/material';
-import { api } from '../../../Hooks/Api';
-import CartOrder from './CartOrder';
-import CustomerAddress from './CustomerAddress';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import React, { useEffect, useState } from "react";
+import {
+  Box,
+  Chip,
+  Container,
+  Divider,
+  Fab,
+  Grid,
+  Toolbar,
+} from "@mui/material";
+import { api } from "../../../Hooks/Api";
+import CartOrder from "./CartOrder";
+import CustomerAddress from "./CustomerAddress";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
-import axios from 'axios';
-import Footer from '../../Shared/Footer/Footer';
+import axios from "axios";
+import Footer from "../../Shared/Footer/Footer";
 const ManageOrder = () => {
   const [orders, setOrder] = useState([]);
-
-
-  useEffect(() => {
+  const fetchOrders = () => {
     fetch(`${api}/allOrder`)
-      .then(res => res.json())
-      .then(data => {
-        setOrder(data)
-
+      .then((res) => res.json())
+      .then((data) => {
+        setOrder(data);
       });
-  }, [])
+  };
+  useEffect(() => {
+    fetchOrders();
+  }, []);
 
   const handleUpdateStatus = (status, id) => {
-
-    console.log(status)
-    // axios.put(`${api}/statusUpdate/${id}`,{ status } )
-    //   .then(res => {
-    //     console.log(res)
-    //   }).catch(err=>{
-    //     console.log(err)
-    //   })
-  }
+    // console.log(`${api}/statusUpdate/${id}`, status);
+    axios
+      .patch(`${api}/statusUpdate/${id}`, { status })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const handleDelete = (id) => {
-    axios.delete(`${api}/statusUpdate/${id}`)
-      .then(res => {
-        console.log(res)
+    axios
+      .delete(`${api}/manageAllOrderDelete/${id}`)
+      .then((res) => {
+        fetchOrders();
       })
-      .catch(err => {
-        console.log(err)
-      })
-  }
-
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -47,48 +56,35 @@ const ManageOrder = () => {
         <Toolbar />
         <Divider>
           <Fab variant="extended" size="small" color="primary" aria-label="add">
-            <AddShoppingCartIcon />  Manage Orders
+            <AddShoppingCartIcon /> Manage Orders
           </Fab>
         </Divider>
-        {
-          orders.map(order =>
-            <Box key={order?._id}>
-
-              <Grid
-                container
-                spacing={2}
-                sx={{ mt: 6 }}
-                columns={{ xs: 4, sm: 8, md: 12 }}
-              >
-
-                <Grid item xs={4} sm={8} md={7}>
-
-                  <CustomerAddress
-                    order={order}
-                    handleUpdateStatus={handleUpdateStatus}
-                    handleDelete={handleDelete}
-                  />
-
-                </Grid>
-
-                <Grid sx={{ py: 3 }} item xs={4} sm={8} md={5}>
-
-                  <CartOrder
-                    cart={order.cartBooks[0]}
-
-                  />
-                </Grid>
-
+        {orders.map((order) => (
+          <Box key={order?._id}>
+            <Grid
+              container
+              spacing={2}
+              sx={{ mt: 6 }}
+              columns={{ xs: 4, sm: 8, md: 12 }}
+            >
+              <Grid item xs={4} sm={8} md={7}>
+                <CustomerAddress
+                  order={order}
+                  handleUpdateStatus={handleUpdateStatus}
+                  handleDelete={handleDelete}
+                />
               </Grid>
 
-              <Divider >
-                <Chip label={<AddShoppingCartIcon />} />
+              <Grid sx={{ py: 3 }} item xs={4} sm={8} md={5}>
+                <CartOrder cart={order.cartBooks[0]} />
+              </Grid>
+            </Grid>
 
-              </Divider>
-            </Box>
-          )
-        }
-
+            <Divider>
+              <Chip label={<AddShoppingCartIcon />} />
+            </Divider>
+          </Box>
+        ))}
       </Container>
       <Footer />
     </>
