@@ -288,7 +288,6 @@ const PaymentFrom = () => {
           Submit
         </Button>
       </form>
-      <Button onClick={handleSuccess}>Success</Button>
     </Box>
   );
 };
