@@ -18,10 +18,7 @@ const HeroSection = () => {
   Localized Trasport
       </Typography>
       <Typography sx={{color:"#0c4b65",fontSize:"14px",fontWeight:400}} variant="subtitle1" gutterBottom component="div">
-      Integer in justo euismod nulla feugiat lacinia non porta velit. Vestibulum vulputate purus sit amet vestibulum ultrices mauris malesuada.
-      
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum sem ligula. Phasellus eleifend vel justo sit amet volutpat. Duis vitae maximus ligula, nec mattis libero. Donec eget felis odio.
+      Our website provides transport facilities for their child.This is the page. We have given the location of the bus here with the charge, time and driver's number Where users can choose the transport of their choice according to their location. Our website provides transport facilities for their child.This is the page. We have given the location of the bus here with the charge, time and driver's number Where users can choose the transport of their choice according to their location.
       </Typography>
       <Button sx={{padding:"10px 40px",color:"#0c4b65",border:"0.5px solid #ffaf5f",mt:4,fontWeight:"semibold","&:hover":{
         backgroundColor:"#0c4b65", color:"#fff"
