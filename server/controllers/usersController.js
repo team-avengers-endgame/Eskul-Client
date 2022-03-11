@@ -1,20 +1,29 @@
-const UserModel = require("../models/userModel");
-const { createOne, updateOne } = require("./handlerFactory");
+const User = require("../models/userModel");
+const handlerFactory = require("./handlerFactory");
 
-const createUser = createOne(UserModel);
+const createUser = handlerFactory.createOne(User);
+const updateUser = handlerFactory.updateOne(User);
+const deleteUser = handlerFactory.deleteOne(User);
+const getAllUsers = handlerFactory.getAll(User);
+
+const getMe = async (req, res) => {
+  console.log(req.params.email);
+  const result = await User.findOne({ email: req.params.email });
+  res.json(result);
+};
 
 const makeAdmin = async (req, res) => {
   const user = req.body;
   const filter = { email: user.email };
   const updateDoc = { $set: { role: "admin" } };
-  const result = await UserModel.updateOne(filter, updateDoc);
+  const result = await User.updateOne(filter, updateDoc);
   res.json(result);
 };
 
 const checkIsAdmin = async (req, res) => {
   const email = req.params.email;
-  console.log(email)
-  const user = await UserModel.findOne({ email: email });
+  console.log(email);
+  const user = await User.findOne({ email: email });
   let isAdmin = false;
 
   if (user?.role === "admin") {
@@ -28,8 +37,17 @@ const updateOrInsertUser = async (req, res) => {
   const filter = { email: user.email };
   const options = { upsert: true };
   const updateDoc = { $set: user };
-  const result = await UserModel.updateOne(filter, updateDoc, options);
+  const result = await User.updateOne(filter, updateDoc, options);
   res.json(result);
 };
 
-module.exports = { checkIsAdmin, createUser, updateOrInsertUser, makeAdmin };
+module.exports = {
+  checkIsAdmin,
+  createUser,
+  updateOrInsertUser,
+  makeAdmin,
+  getMe,
+  deleteUser,
+  updateUser,
+  getAllUsers,
+};
