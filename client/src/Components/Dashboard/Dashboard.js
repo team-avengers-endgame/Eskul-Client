@@ -24,6 +24,10 @@ import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import HomeIcon from '@mui/icons-material/Home';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import PreviewIcon from '@mui/icons-material/Preview';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 
 const drawerWidth = 240;
 function Dashboard(props) {
@@ -36,7 +40,7 @@ function Dashboard(props) {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-    console.log(admin)
+
 
     const drawer = (
         <div>
@@ -62,7 +66,7 @@ function Dashboard(props) {
                     </ListItem>
                 </NavLink>
                 <Divider />
-                <Divider />
+
                 <NavLink to='/dashboard' style={LinkStyle}>
                     <ListItem button >
                         <ListItemIcon>
@@ -71,70 +75,116 @@ function Dashboard(props) {
                         Dashboard
                     </ListItem>
                 </NavLink>
-                <Divider />
-                <NavLink to='/dashboard/addASchool' style={LinkStyle}>
-                    <ListItem button >
-                        <ListItemIcon>
-                            <SchoolIcon />
-                        </ListItemIcon>
-                        Add A School
-                    </ListItem>
-                </NavLink>
-                <Divider />
-                <NavLink to='/dashboard/schools' style={LinkStyle}>
-                    <ListItem button >
-                        <ListItemIcon>
-                            <SchoolIcon />
-                        </ListItemIcon>
-                        Schools
-                    </ListItem>
-                </NavLink>
-                <Divider />
-                <NavLink to='/dashboard/addOnlineTuition' style={LinkStyle}>
-                    <ListItem button >
-                        <ListItemIcon>
-                            <AddCardIcon />
-                        </ListItemIcon>
-                        Add a Online Tuition
-                    </ListItem>
-                </NavLink>
-                <Divider />
-                <NavLink to='/dashboard/onlineTuitionTeachers' style={LinkStyle}>
-                    <ListItem button >
-                        <ListItemIcon>
-                            <AddCardIcon />
-                        </ListItemIcon>
-                        Tuition Teachers
-                    </ListItem>
-                </NavLink>
-                <Divider />
-                <NavLink to='/dashboard/addABook' style={LinkStyle}>
-                    <ListItem button >
-                        <ListItemIcon>
-                            <AddCardIcon />
-                        </ListItemIcon>
-                        Add a Book
-                    </ListItem>
-                </NavLink>
-                <Divider />
-                <NavLink to='/dashboard/books' style={LinkStyle}>
-                    <ListItem button >
-                        <ListItemIcon>
-                            <MenuBookIcon />
-                        </ListItemIcon>
-                        Books
-                    </ListItem>
-                </NavLink>
-                <Divider />
-                <NavLink to='/dashboard/makeAdmin' style={LinkStyle}>
-                    <ListItem button >
-                        <ListItemIcon>
-                            <AdminPanelSettingsIcon />
-                        </ListItemIcon>
-                        Make a Admin
-                    </ListItem>
-                </NavLink>
 
+                <Divider />
+                <NavLink to='/dashboard/profile' style={LinkStyle}>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <AccountCircleIcon />
+                        </ListItemIcon>
+                        Profile
+                    </ListItem>
+                </NavLink>
+                <Divider />
+                {admin && <span>
+                    <NavLink to='/dashboard/addASchool' style={LinkStyle}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <SchoolIcon />
+                            </ListItemIcon>
+                            Add A School
+                        </ListItem>
+                    </NavLink>
+                    <Divider />
+                    <NavLink to='/dashboard/schools' style={LinkStyle}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <SchoolIcon />
+                            </ListItemIcon>
+                            Schools
+                        </ListItem>
+                    </NavLink>
+                    <Divider />
+                    <NavLink to='/dashboard/addOnlineTuition' style={LinkStyle}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <AddCardIcon />
+                            </ListItemIcon>
+                            Add a Online Tuition
+                        </ListItem>
+                    </NavLink>
+                    <Divider />
+                    <NavLink to='/dashboard/onlineTuitionTeachers' style={LinkStyle}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <AddCardIcon />
+                            </ListItemIcon>
+                            Tuition Teachers
+                        </ListItem>
+                    </NavLink>
+                    <Divider />
+                    <NavLink to='/dashboard/addABook' style={LinkStyle}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <AddCardIcon />
+                            </ListItemIcon>
+                            Add a Book
+                        </ListItem>
+                    </NavLink>
+                    <Divider />
+                    <NavLink to='/dashboard/books' style={LinkStyle}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <MenuBookIcon />
+                            </ListItemIcon>
+                            Books
+                        </ListItem>
+                    </NavLink>
+                    <Divider />
+                    <NavLink to='/dashboard/manageOrder' style={LinkStyle}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <AddShoppingCartIcon />
+                            </ListItemIcon>
+                            Manage Order
+                        </ListItem>
+                    </NavLink>
+                    <Divider />
+                    <NavLink to='/dashboard/makeAdmin' style={LinkStyle}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <AdminPanelSettingsIcon />
+                            </ListItemIcon>
+                            Make a Admin
+                        </ListItem>
+                    </NavLink>
+                </span>
+
+                }
+                {
+                    user.email && !admin &&
+                    <span>
+                        <Divider />
+                        <NavLink to='/dashboard/myOrder' style={LinkStyle}>
+                            <ListItem button >
+                                <ListItemIcon>
+                                    <AddShoppingCartIcon />
+                                </ListItemIcon>
+                                My Order
+                            </ListItem>
+                        </NavLink>
+                        <Divider />
+                        <NavLink to='/dashboard/webSiteReviewFrom' style={LinkStyle}>
+                            <ListItem button >
+                                <ListItemIcon>
+                                    <PreviewIcon />
+                                </ListItemIcon>
+                                Review
+                            </ListItem>
+                        </NavLink>
+
+                    </span>
+                }
                 <Divider />
 
                 {user.email ?

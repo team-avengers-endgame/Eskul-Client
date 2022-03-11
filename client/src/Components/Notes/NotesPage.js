@@ -9,6 +9,8 @@ const NotesPage = () => {
             <NavigationBar />
             <SharedBanner pageName={"Notes"} />
             <NotesList />
+
+
         </div>
     );
 };

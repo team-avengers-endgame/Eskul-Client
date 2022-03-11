@@ -1,10 +1,8 @@
 import React from "react";
-import ChildEducation from "../../Home/ChildEducation/ChildEducation";
 import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 import AboutHeroSection from "../AboutHeroSection/AboutHeroSection";
 import DifferenceSection from "../DifferenceSection/DifferenceSection";
 import FacilitySection from "../FacilitySection/FacilitySection";
-import Principles from "../Principles/Principles";
 import VisionMissionSection from "../VisionMissionSection/VisionMissionSection";
 import SharedBanner from "../../Shared/SharedBanner/SharedBanner";
 import Footer from "../../Shared/Footer/Footer";
@@ -16,12 +14,13 @@ const About = () => {
       <NavigationBar />
       <SharedBanner pageName={"About Us"} />
       <AboutHeroSection />
-      <ChildEducation />
+      {/* <ChildEducation /> */}
       <VisionMissionSection />
+      <TeamCard></TeamCard>
       <DifferenceSection />
       <FacilitySection />
-      <Principles />
-      <TeamCard></TeamCard>
+      {/* <Principles /> */}
+
       <Footer />
     </div>
   );

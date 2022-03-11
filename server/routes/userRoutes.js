@@ -5,15 +5,16 @@ const {
   checkIsAdmin,
   updateOrInsertUser,
   makeAdmin,
+  getMe,
+  deleteUser,
+  updateUser,
+  getAllUsers,
 } = require("../controllers/usersController");
-const authController = require("../controllers/authController");
 
-// router.post("/signup", authController.signup);
-// router.post("/login", authController.login);
-// router.get("/logout", authController.logout);
-
-router.route("/").post(createUser).patch(updateOrInsertUser);
+router.route("/").get(getAllUsers).post(createUser).patch(updateOrInsertUser);
 router.route("/:email").get(checkIsAdmin);
 router.route("/admin").patch(makeAdmin);
+router.route("/me/:email").get(getMe);
+router.route("/:id").patch(updateUser).delete(deleteUser);
 
 module.exports = router;

@@ -119,7 +119,7 @@ const Teachers = () => {
     return (
         <Box sx={{ p: 3 }}>
             <Typography variant='h5' sx={{ pb: 3 }}>
-                Online Tuition Teachers
+                School Teachers
             </Typography>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
