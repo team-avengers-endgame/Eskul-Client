@@ -1,5 +1,6 @@
 import React from "react";
 import Covid from "../../Dashboard/Covid/Covid";
+import Reviews from "../../Reviews/Reviews";
 import Footer from "../../Shared/Footer/Footer";
 import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 import Banner from "../Banner/Banner";
@@ -26,6 +27,7 @@ const Home = () => {
       <Gallery />
       <Partners />    
       <QuickScroll />
+      <Reviews/>
       <Footer />
     </>
   );
