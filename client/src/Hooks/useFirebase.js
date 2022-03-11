@@ -113,6 +113,24 @@ const useFirebase = () => {
       });
   };
 
+
+const updateUserProfile=(name,photo)=>{
+  setIsLoading(true);
+  updateProfile(auth.currentUser, {
+    displayName: name, photoURL: photo
+  }).then(() => {
+    // Profile updated!
+    // ...
+  }).catch((error) => {
+    // An error occurred
+    // ...
+  }).finally(()=>{
+    setIsLoading(false)
+  })
+}
+
+
+
   //logout-----------------
 
   const logOut = (navigate) => {
@@ -173,6 +191,7 @@ const useFirebase = () => {
     signInWithGoogle,
     registerUser,
     loginUser,
+    updateUserProfile,
     isLoading,
     setIsLoading,
     logOut,
