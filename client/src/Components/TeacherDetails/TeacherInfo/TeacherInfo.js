@@ -14,6 +14,7 @@ const TeacherInfo = () => {
       .then((res) => res.json())
       .then((data) => setTeacherInfos(data.data.data));
   }, []);
+  // teacher info is
   return (
     <Container sx={{ py: 2, mr: 10 }}>
       <Grid container spacing={2}>

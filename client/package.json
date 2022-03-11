@@ -29,6 +29,7 @@
     "react-fast-marquee": "^1.3.1",
     "react-hook-form": "^7.27.0",
     "react-perfect-scrollbar": "^1.5.8",
+    "react-ratings": "^1.0.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "react-slick": "^0.28.1",

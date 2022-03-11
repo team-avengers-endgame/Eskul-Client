@@ -1,5 +1,6 @@
 import React from "react";
 import Covid from "../../Dashboard/Covid/Covid";
+import Reviews from "../../Reviews/Reviews";
 import Footer from "../../Shared/Footer/Footer";
 import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 // import Subscribe from "../../Subscribe/Subscribe";
@@ -28,6 +29,7 @@ const Home = () => {
       {/* <Subscribe/> */}
       <Partners />    
       <QuickScroll />
+      <Reviews/>
       <Footer />
     </>
   );
