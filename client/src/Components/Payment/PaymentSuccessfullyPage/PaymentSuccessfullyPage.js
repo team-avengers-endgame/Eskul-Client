@@ -2,7 +2,7 @@ import { Button, CardMedia, Container, Grid, Paper, Rating, Toolbar, Typography 
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
-import { ButtonStyle, LinkStyle } from '../../../Hooks/useStyle';
+import { ButtonStyle } from '../../../Hooks/useStyle';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 import './PaymentSuccessFullyPage.css'
@@ -44,7 +44,7 @@ const PaymentSuccessfullyPage = () => {
                             <Box className='congratulation-card'>
                                 <Box>
                                     <Toolbar />
-                                    <img style={{width:'70%'}} src={Logo} alt="" />
+                                    <img style={{ width: '70%' }} src={Logo} alt="" />
                                     <Typography variant="h6"><span style={{ fontSize: '30px', color: 'orange' }}>
                                         Congratulations
                                     </span> <br /> Payment Success Fully</Typography>
@@ -62,7 +62,7 @@ const PaymentSuccessfullyPage = () => {
                                         </span>
 
                                     </Typography>
-<br />
+                                    <br />
                                     <Button
                                         onClick={handlerGotoHome}
                                         size="small" sx={{ ...ButtonStyle, mr: 2 }}>

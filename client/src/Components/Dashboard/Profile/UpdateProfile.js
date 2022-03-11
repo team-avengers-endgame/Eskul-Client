@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -13,7 +13,7 @@ import {
     TextField,
 } from "@mui/material";
 
-import { ButtonStyle, alert } from "../../../Hooks/useStyle";
+import { ButtonStyle } from "../../../Hooks/useStyle";
 import { useForm } from "react-hook-form";
 
 import useAuth from "../../../Hooks/useAuth";
@@ -66,7 +66,7 @@ const UpdateProfile = ({ handleClose, open, scroll }) => {
 
 
 
-    const onSubmit = async (data,e) => {
+    const onSubmit = async (data, e) => {
         e.preventDefault()
         const newUser = { ...data, photoURL: bookImg || user.photoURL };
         updateUserProfile(newUser?.displayName, newUser?.photoURL);

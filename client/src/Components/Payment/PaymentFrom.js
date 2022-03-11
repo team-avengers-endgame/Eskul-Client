@@ -8,7 +8,7 @@ import { countries } from "./CountryData/CountryData";
 import Calculation from "../../Hooks/useCalculation";
 import axios from "axios";
 import { api } from "../../Hooks/Api";
-import { useNavigate } from "react-router-dom";
+
 const PaymentFrom = () => {
   const { cartBooks, grandtotal } = Calculation();
   const [currency, setCurrency] = useState();
@@ -53,8 +53,8 @@ const PaymentFrom = () => {
       .then((data) => setCurrency(data));
   }, []);
 
-  const navigate = useNavigate();
-  const handleSuccess = () => navigate("/paymentSuccessfully");
+
+
 
   return (
     <Box>
