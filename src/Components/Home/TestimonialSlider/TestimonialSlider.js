@@ -1,6 +1,7 @@
 import { Avatar, Box, Container, Rating, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
+import { api } from '../../../Hooks/Api';
 
 const TestimonialSlider = () => {
     const settings = {
@@ -44,7 +45,7 @@ const TestimonialSlider = () => {
       };
       const [reviews,setReviews] = useState([])
       useEffect(()=>{
-          fetch("http://localhost:8000/api/reviews")
+          fetch(`${api}/reviews`)
           .then(res=>res.json())
           .then(data=>setReviews(data.data.data))
       },[])
