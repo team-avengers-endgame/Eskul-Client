@@ -51,7 +51,7 @@ const DropdownMenuPage = () => {
           </MenuItem>
         </Link>
         <Divider />
-        <Link to="/contacts us" style={LinkStyle}>
+        <Link to="/contacts" style={LinkStyle}>
           <MenuItem onClick={handleCloseUserMenu}>
             <Typography textAlign="center">Contacts</Typography>
           </MenuItem>
