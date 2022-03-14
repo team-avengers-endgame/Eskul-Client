@@ -1,17 +1,19 @@
 import Makeadmin from './MakeAdmin'
 import ReactDOM from 'react-dom'
-import { fireEvent } from '@testing-library/react';
-describe('Make Admin testing', () => {
+import { fireEvent, render, screen } from '@testing-library/react';
+
+
+    describe('Make Admin testing', () => {
     test('Rendaring without pain',() => {
         const Box = document.createElement('Box');
         ReactDOM.render(<Makeadmin />, Box);
     })
  
-    //    test("checking first", () => {
-    //       render(<Makeadmin />);
-    //       const page = screen.getByText("Make a admin form");
-    //        expect(page).toBeInTheDocument();
-    //    })
+       test("checking first", () => {
+           render(<Makeadmin />);
+           const page = screen.getByText("Make an admin form");
+            expect(page).toBeInTheDocument();
+       })
     test('input field find', () => {
         const container = document.createElement('Box');
         document.body.appendChild(container);

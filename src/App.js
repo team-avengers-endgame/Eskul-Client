@@ -34,7 +34,6 @@ import NotesPage from "./Components/Notes/NotesPage";
 import BookDetails from "./Components/BookDetails/BookDetails";
 import NotFound from "./Components/NotFound/NotFound";
 import TeacherDetails from "./Components/TeacherDetails/TeacherDetails";
-// import TransportHome from "./Components/Transport/TransportHome";
 import CartContextProvider from "./Components/Context/CartContext";
 import BookOrderReview from "./Components/BookOrderReview/BookOrderReview";
 import Payment from "./Components/Payment/Payment";

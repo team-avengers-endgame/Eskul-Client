@@ -38,11 +38,9 @@ const TeamCard = () => {
                                 className="ui-card">
                                 <img src={team.img} alt="" />
                                 <div className='description'>
-                                    <h3>{team.name}</h3>
-                                    <p>{team.description}</p>
                                     <a href={team.contact}>Resume</a>
                                 </div>
-
+                                
                             </div>
                         </Grid>
                     ))}

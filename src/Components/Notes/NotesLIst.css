@@ -84,9 +84,9 @@
 	opacity: 1;
 }
 
-.anchor{
+ .anchor{
 	background-color: #d6e6c4;
-	color: rgb(63, 33, 33);
+	color: black;
 	margin: 0 auto;
 	border-radius: 5px;
 	text-align: center;
