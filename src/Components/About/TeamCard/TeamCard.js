@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './TeamCard.css';
-import { Container, Grid, Box, Typography } from '@mui/material';
+import { Container, Grid, Box, Typography, Avatar, ButtonBase } from '@mui/material';
 import Aos from 'aos';
+import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
+import WhatsappRoundedIcon from "@mui/icons-material/WhatsappRounded";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
 
 
 
@@ -33,15 +37,47 @@ const TeamCard = () => {
 
                             item xs={12} sm={4} md={4} key={team.name}
                         >
-                            <div
-                                data-aos="zoom-in"
-                                className="ui-card">
-                                <img src={team.img} alt="" />
-                                <div className='description'>
-                                    <a href={team.contact}>Resume</a>
-                                </div>
-                                
-                            </div>
+                             <Box sx={{background: "#fff",boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)",borderRadius: "12px"}}>
+                  <Box >
+                  <Avatar
+               
+                src={team?.img}
+                style={{
+                    width: 180,
+                    height: 180,
+                    objectFit:"cover",
+                    border: "1px solid lightgray",
+                    marginTop:10,
+                    backgroundColor: "pink",
+                    margin:" 0px  auto "
+                }}
+            />
+                  </Box>
+                  <Box>
+                  <Typography variant="body1" sx={{textAlign:"center",mt:4,color:"#0c4b65",fontSize:"24px",fontWeight:800}} gutterBottom>
+        {team?.title}
+      </Typography>
+      
+                  <Typography variant="body2" sx={{textAlign:"center",color:"#0c4b65",fontSize:"14px",fontWeight:500,mt:3}} gutterBottom> {team?.name}</Typography>
+                  <Typography variant="body2" sx={{textAlign:"center",color:"#0c4b65",fontSize:"14px",fontWeight:200,mt:1}} gutterBottom>{team?.description}</Typography>
+                 
+          <Box sx={{textAlign:"center",mt:3,color:"#0c4b65"}}>
+          <ButtonBase>
+          <FacebookRoundedIcon sx={{ fontSize: "20px", cursor: "pointer" }} />
+        </ButtonBase>
+        <ButtonBase>
+          <WhatsappRoundedIcon sx={{ fontSize: "20px", cursor: "pointer" }} />
+        </ButtonBase>
+        <ButtonBase>
+          <LinkedInIcon sx={{ fontSize: "20px", cursor: "pointer" }} />
+        </ButtonBase>
+        <ButtonBase>
+          <EmailIcon sx={{ fontSize: "20px", cursor: "pointer" }} />
+        </ButtonBase>
+</Box>
+
+                  </Box>
+                </Box>
                         </Grid>
                     ))}
                 </Grid>
