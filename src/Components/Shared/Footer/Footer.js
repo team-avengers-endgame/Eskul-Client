@@ -1,6 +1,8 @@
-import { Button, ButtonGroup, Container, Grid, Link, TextField, Typography } from '@mui/material';
+import { Button, Container, Grid, TextField, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import './Footer.css'
 import { useForm } from "react-hook-form";
 import FacebookIcon from './img/facebook.svg';
@@ -13,15 +15,17 @@ const Footer = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
-        <Box sx={{ flexGrow: 1, textAlign: 'center', py: 6 }}>
+        <Box sx={{ flexGrow: 1, textAlign: 'center'}}>
             <Box className="footer-Container">
                 <Container >
-                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                        <Grid sx={{ mt: 5, textAlign: "left" }} item="true" xs={12} sm={4} md={4}>
-                            <img width={192} height={54} src={Logo} alt="" />
+                    <Grid container spacing={{ xs: 2, sm: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                        <Grid item xs={4} sm={4} md={4}
+                            sx={{ textAlign: "left" }}
+                        >
+                            <img style={{ paddingBottom: 15 }} width={192} height={54} src={Logo} alt="" />
 
                             <Typography sx={{
-                                mt: 5, color: 'black',
+                                color: 'black',
                                 fontSize: 15, fontFamily: 'Roboto",sans-serif'
 
                             }} >
@@ -29,114 +33,136 @@ const Footer = () => {
                             </Typography>
                             <br />
                             <form onSubmit={handleSubmit(onSubmit)}>
-                                <ButtonGroup color="primary" aria-label="outlined primary button group">
-                                    <Button>
-                                        <TextField {...register("Newsletter")}
-                                            defaultValue='Newsletter Signup'
-                                            placeholder='Newsletter signup'
-                                            sx={{ backgroundColor: 'white' }}
-                                            size='small'
-                                        />
-                                    </Button>
-                                    <Button size='small' sx={{ color: '#fff', backgroundColor: '#46aadd' }} > </Button>
-                                </ButtonGroup>
+
+
+                                <TextField {...register("Newsletter")}
+                                    placeholder='Newsletter signup'
+                                    sx={{ backgroundColor: 'white' }}
+                                    size='small'
+                                />
+
+                                <Button color="info" variant="contained" type='submit'>Send</Button>
+
                             </form>
 
 
                         </Grid>
-                        <Grid sx={{ mt: 5, textAlign: "left" }} item="true" xs={12} sm={4} md={2}>
-                            <Typography variant="h5" sx={{ fontWeight: 'bold', fontSize: 21 }}>
+                        <Grid item xs={4} sm={4} md={4}>
+                            <Typography variant="h5"
+                                sx={{ fontWeight: 'bold', fontSize: 21, textAlign: 'left', pb: 3 }}>
                                 Quick Links
                             </Typography>
-                            <Box sx={{ mt: 5 }}>
+                            <Grid container
+                                spacing={{ xs: 2, sm: 2, md: 3 }}
+                                columns={{ sx: 4, sm: 12, md: 12 }}>
 
-                                <Link
-                                    className='footer-link'
-                                    sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }} href="#" underline="none">
-                                    About us
-                                </Link><br /><br />
+                                <Grid item xs={4} sm={6} md={6}
+                                    sx={{ textAlign: "left" }}>
 
-                                <Link
-                                    className='footer-link'
-                                    sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
-                                    href="#" underline="none">
-                                    Programs
-                                </Link><br /><br />
 
-                                <Link
-                                    className='footer-link'
-                                    sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
-                                    href="#" underline="none">
-                                    Parent Info
-                                </Link><br /><br />
+                                    <Link
+                                        to='/schools'
+                                        className='footer-link'
+                                        sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
+                                    >
+                                        Schools
+                                    </Link><br /><br />
 
-                                <Link
-                                    className='footer-link'
-                                    sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
-                                    href="#" underline="none">
-                                    Events
-                                </Link><br /><br />
+                                    <Link
+                                        to='/books'
+                                        className='footer-link'
+                                        sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
+                                    >
+                                        Books
+                                    </Link>
+                                    <br /><br />
 
-                                <Link
-                                    className='footer-link'
-                                    sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
-                                    href="#" underline="none">
-                                    Gallery
-                                </Link>
-                            </Box>
+                                    <Link
+                                        to='/privateTutor'
+                                        className='footer-link'
+                                        sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
+                                    >
+                                        PrivateTutor
+                                    </Link><br /><br />
+
+                                    <Link
+                                        to='/donation'
+                                        className='footer-link'
+                                        sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
+                                    >
+                                        Donation
+                                    </Link><br /><br />
+
+
+
+                                    <Link
+                                        to='/transport'
+                                        className='footer-link'
+                                        sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
+                                    >
+                                        Transport
+                                    </Link>
+
+                                </Grid>
+                                <Grid item xs={4} sm={6} md={6}
+                                    sx={{ textAlign: "left" }}
+                                >
+                                    <Link
+                                        to='/notes'
+                                        className='footer-link'
+                                        sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
+                                    >
+                                        Notes
+                                    </Link><br /><br />
+                                    <Link
+                                        to='/faq'
+                                        className='footer-link'
+                                        sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
+                                    >
+                                        FAQ
+                                    </Link><br /><br />
+
+
+
+
+                                    <HashLink
+                                        to='/#gallery'
+                                        scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'end' })}
+                                        className='footer-link'
+                                        sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
+                                    >
+                                        Gallery
+                                    </HashLink><br /><br />
+                                    <Link
+                                        to='/about'
+                                        className='footer-link'
+                                        sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
+                                        About us
+                                    </Link><br /><br />
+                                    <Link
+                                        to='/contacts'
+                                        className='footer-link'
+                                        sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
+                                    >
+                                        Contacts
+                                    </Link>
+
+
+                                </Grid>
+
+                            </Grid>
 
                         </Grid>
+
                         <Grid
+                            item xs={12} sm={4} md={4}
+                            sx={{ textAlign: "left" }}
+                        >
 
-                            sx={{ mt: 14, textAlign: "left" }}
-                            item="true" xs={12} sm={4} md={2}>
-
-
-                            <Link
-                                className='footer-link'
-                                sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
-                                href="#" underline="none">
-                                Prices
-                            </Link><br /><br />
-
-                            <Link
-                                className='footer-link'
-                                sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
-                                href="#" underline="none">
-                                FAQs
-                            </Link><br /><br />
-
-                            <Link
-                                className='footer-link'
-                                sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
-                                href="#" underline="none">
-                                Blog
-                            </Link><br /><br />
-
-                            <Link
-                                className='footer-link'
-                                sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
-                                href="#" underline="none">
-                                Testimonials
-                            </Link><br /><br />
-
-                            <Link
-                                className='footer-link'
-                                sx={{ color: 'black', fontSize: 15, fontFamily: 'Roboto",sans-serif' }}
-                                href="#" underline="none">
-                                Contacts
-                            </Link><br />
-
-
-                        </Grid>
-                        <Grid
-                            sx={{ mt: 5, textAlign: "left" }}
-                            item="true" xs={12} sm={4} md={4}>
-
-                            <Typography variant="h5" sx={{ fontWeight: 'bold', fontSize: 21 }}>
+                            <Typography variant="h5" sx={{ fontWeight: 'bold', fontSize: 21, pb: 3 }}>
                                 Our Contacts
                             </Typography>
-                            <Box sx={{ mt: 2 }}>
+                            <Box>
                                 <a
                                     className='footer-link'
                                     href="http://" target="_blank" rel="noopener noreferrer">
@@ -188,10 +214,11 @@ const Footer = () => {
 
                     <Grid item="true" xs={12} sm={4} md={6}>
                         <Link
+                            to='/'
                             className='footer-link'
                             sx={{ fontSize: 15, color: 'gray', textDecoration: 'none' }}
                             variant="h6" item="true">
-                            © 2022 Eskul. All Rights Reserved. Privacy Policy
+                            © {new Date().toLocaleString().slice()} Eskul. All Rights Reserved. Privacy Policy
                         </Link>
                     </Grid>
 
@@ -201,7 +228,9 @@ const Footer = () => {
                             variant="h6" >
                             Follow us:
                             <Box className='footer-icon'>
+                                <a href="https://www.facebook.com/ESKUL-111112171511275" target="_blank" rel="noopener noreferrer">
                                 <img src={FacebookIcon} alt="" />
+                                </a>
                             </Box>
                             <Box className='footer-icon'>
                                 <img src={TwitterIcon} alt="" />
@@ -216,6 +245,7 @@ const Footer = () => {
                 </Grid>
 
             </Container>
+            <Toolbar/>
         </Box>
     );
 };

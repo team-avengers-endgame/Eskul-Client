@@ -25,13 +25,13 @@ const Home = () => {
       <Features />
       <WhyChooseUs />
       <TopList />
-      <TestimonialSlider/>
+      <TestimonialSlider />
       <Gallery />
       {/* <Subscribe/> */}
-      <Partners />    
+      <Partners />
       <QuickScroll />
       {/* <Reviews/> */}
-     
+
       <Footer />
     </>
   );

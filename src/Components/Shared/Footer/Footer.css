@@ -2,13 +2,13 @@
     background-image: url(./img/footer-bg.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 130px 0;
+    padding: 160px 0;
 }
 
 .footer-link {
     color: #777777;
     text-decoration: none;
-    margin: 0 1px;
+    margin: 0 0 20px 0;
 }
 
 .footer-link:hover {
