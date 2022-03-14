@@ -117,24 +117,18 @@ const NavigationBar = () => {
                 Books
               </Button>
             </Link>
-            {/* <Link to="/" style={LinkStyle}>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "#211e1e", display: "block" }}
-              >
-                programs
-              </Button>
-            </Link> */}
+
+
+            <DropdownMenuGallery />
+            <DropdownMenuPage />
             <Link to="/contacts" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
               >
-               Contact Us
+                Contact Us
               </Button>
             </Link>
-            <DropdownMenuGallery />
-            <DropdownMenuPage />
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -317,7 +311,7 @@ const NavigationBar = () => {
                   </MenuItem>
                 </NavLink>
               )}
-              
+
             </Menu>
           </Box>
         </Toolbar>

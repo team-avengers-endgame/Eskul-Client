@@ -31,6 +31,7 @@
     "react-perfect-scrollbar": "^1.5.8",
     "react-ratings": "^1.0.1",
     "react-router-dom": "^6.2.1",
+    "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.0",
     "react-slick": "^0.28.1",
     "react-slideshow-image": "^3.7.0",
