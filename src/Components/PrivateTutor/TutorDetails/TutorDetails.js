@@ -41,8 +41,9 @@ const TutorDetails = () => {
           </Typography>
           <Typography> No reviews yet</Typography>
         </Box>
-        <Grid container columns={{ xs: 4, sm: 8, md: 12, lg: 12 }}>
-          <Grid item xs={4} sm={8} md={8} lg={8}>
+        <Grid container spacing={{ xs: 2, md: 3 }} 
+        columns={{ xs: 4, sm: 8, md: 12 }}>
+          <Grid item xs={4} sm={8} md={8}>
 
             <Grid container spacing={5} columns={{ xs: 4, sm: 8, md: 12 }}>
 
@@ -110,24 +111,19 @@ const TutorDetails = () => {
               </Typography>
             </Box>
 
-
-
-
           </Grid>
 
-          <Grid sx={{ ml: 4 }} columns={{ xs: 4, sm: 8, md: 4, lg: 4 }}>
+          <Grid item xs={4} sm={8} md={4}>
             <Paper
               sx={{
                 p: 1,
                 margin: "auto",
-                width: 350,
-                flexGrow: 1,
                 bgcolor: '#bbdefb'
 
               }}
             >
 
-              <Grid pl={2} my={3} columns={{ xs: 4, sm: 8, md: 4, lg: 4 }}>
+              <Box >
 
                 <span style={iconStyle}> <EmailIcon color="primary" /><Typography variant='body1' >     {tutor?.email}</Typography></span>
                 <br />
@@ -149,7 +145,7 @@ const TutorDetails = () => {
                 <br />
                 <span style={iconStyle}> <PaidIcon color="primary" /><Typography variant='body1' > Fee: ৳ {tutor?.monthlyFee} / per month</Typography></span>
 
-              </Grid>
+              </Box>
 
             </Paper>
           </Grid>
