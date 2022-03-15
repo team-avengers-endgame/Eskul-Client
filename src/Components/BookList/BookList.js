@@ -92,7 +92,7 @@ const BookList = () => {
                   <Grid item xs={2} sm={4} md={4}>
                     <CardMedia
                       component="img"
-                      sx={{ objectFit: "cover", height: 200, width: 200 }}
+                      sx={{ objectFit: "cover", height: 200 }}
                       alt="complex"
                       src={single?.bookImg}
                     />
