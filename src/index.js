@@ -8,7 +8,7 @@ const App = React.lazy(() => {
     import("./App")
   );
 });
-// import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from'./reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
