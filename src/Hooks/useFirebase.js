@@ -17,6 +17,7 @@ initializeAuthentication();
 const useFirebase = () => {
   const [admin, setAdmin] = useState(false);
   const [user, setUser] = useState({});
+  const [booksCount, setBooksCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const auth = getAuth();
 
@@ -185,6 +186,8 @@ const updateUserProfile=(name,photo)=>{
       .finally(() => { });
   }, [user.email]);
 
+  
+
   return {
     user,
     setUser,
@@ -197,6 +200,8 @@ const updateUserProfile=(name,photo)=>{
     logOut,
     authError,
     admin,
+    booksCount,
+    setBooksCount
   };
 };
 

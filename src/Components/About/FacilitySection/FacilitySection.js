@@ -2,7 +2,11 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import countbg from "../../../Assets/Images/AboutUs/count-bg.jpg";
 import cloud from "../../../Assets/Images/AboutUs/cloud.svg";
+import useAuth from "../../../Hooks/useAuth";
 const FacilitySection = () => {
+
+  const {booksCount} = useAuth();
+
   return (
     <Box
       sx={{
@@ -39,7 +43,7 @@ const FacilitySection = () => {
                   gutterBottom
                   component="div"
                 >
-                  15
+                  01
                 </Typography>
               </Box>
 
@@ -99,7 +103,7 @@ const FacilitySection = () => {
                 gutterBottom
                 component="div"
               >
-                Student Enrolled
+                Total School
               </Typography>
             </Box>
           </Grid>
@@ -143,7 +147,7 @@ const FacilitySection = () => {
                 gutterBottom
                 component="div"
               >
-                Qualified Teachers
+                Private Tutor
               </Typography>
             </Box>
           </Grid>
@@ -171,7 +175,7 @@ const FacilitySection = () => {
                   gutterBottom
                   component="div"
                 >
-                  12
+                  {booksCount}
                 </Typography>
               </Box>
 
@@ -187,7 +191,7 @@ const FacilitySection = () => {
                 gutterBottom
                 component="div"
               >
-                Total Groups
+               Total Books
               </Typography>
             </Box>
           </Grid>
