@@ -10,7 +10,7 @@ import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlin
 const CustomerAddress = ({ order, handleDelete }) => {
 
     const addressStyle = { display: 'flex', justifyContent: 'space-between' };
-    console.log(order)
+
     return (
         <Box>
 

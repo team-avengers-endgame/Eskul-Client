@@ -15,6 +15,7 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 import axios from "axios";
 import Footer from "../../Shared/Footer/Footer";
+import Swal from "sweetalert2";
 const ManageOrder = () => {
   const [orders, setOrder] = useState([]);
   const fetchOrders = () => {
@@ -29,7 +30,7 @@ const ManageOrder = () => {
   }, []);
 
   const handleUpdateStatus = (status, id) => {
-    console.log(status,id)
+  
       axios
       .patch(`${api}/statusUpdate/${id}`, { status })
       .then((res) => {
@@ -40,16 +41,41 @@ const ManageOrder = () => {
       });
   };
   const handleDelete = (id) => {
-    axios
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axios
       .delete(`${api}/manageAllOrderDelete/${id}`)
       .then((res) => {
+        res.status === 204 &&
+        Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+        )
         fetchOrders();
       })
       .catch((err) => {
         console.log(err);
       });
+    }
+
+  })
+    
+    
   };
 
+
+  /* 
+ 
+  */
   return (
     <>
       <Container>
@@ -76,7 +102,7 @@ const ManageOrder = () => {
               </Grid>
 
               <Grid sx={{ py: 3 }} item xs={4} sm={8} md={5}>
-                <CartOrder cart={order.cartBooks[0]} />
+                <CartOrder cart={order.cartBooks} />
               </Grid>
             </Grid>
 

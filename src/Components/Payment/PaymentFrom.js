@@ -32,7 +32,7 @@ const PaymentFrom = () => {
     const paymentData = {
       ...data,
       total_amount: grandtotal,
-      cartBooks: [cartBooks],
+      cartBooks: [...cartBooks],
       status: "Pending",
     };
     axios

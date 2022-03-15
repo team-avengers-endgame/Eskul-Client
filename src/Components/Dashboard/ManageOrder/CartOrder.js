@@ -23,7 +23,7 @@ const CartOrder = ({ cart }) => {
                             <Grid item xs={2} sm={4} md={4}>
                                 <CardMedia
                                     component="img"
-                                    sx={{ objectFit: "cover", height: 200, width: "auto" }}
+                                    sx={{ height: 200 }}
                                     alt="complex"
                                     src={single?.bookImg}
                                 />

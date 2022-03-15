@@ -11,21 +11,21 @@ import { api } from '../../../Hooks/Api';
 
 const PaymentSuccessfullyPage = () => {
 
-    const [books, setBooks] = useState([]);
     const [book, setBook] = useState({});
+    const [books, setBooks] = useState([]);
     const { id } = useParams();
+
 
     useEffect(() => {
         fetch(`${api}/order/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBook(data);
-                data?.cartBooks.map(book => setBooks(book));
-                console.log(data)
+                setBooks(data?.cartBooks);
+
             })
     }, [id])
-
-
+    console.log(book);
     const navigate = useNavigate();
     const handlerGotoHome = () => navigate('/');
     const handlerGoToMyOrder = () => navigate('/dashboard/myOrder');

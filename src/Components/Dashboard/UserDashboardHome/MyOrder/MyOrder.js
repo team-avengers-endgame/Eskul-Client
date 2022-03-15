@@ -17,7 +17,7 @@ const MyOrder = () => {
             .then(res => res.json())
             .then(data => {
                 setOrder(data)
-
+                console.log(data)
             });
     }, [user?.email])
 
@@ -82,7 +82,7 @@ const MyOrder = () => {
                             <Grid sx={{ py: 3 }} item xs={4} sm={8} md={5}>
 
                                 <CartOrder
-                                    cart={order.cartBooks[0]}
+                                    cart={order.cartBooks}
 
                                 />
                             </Grid>
