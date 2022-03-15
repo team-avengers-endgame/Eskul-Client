@@ -73,7 +73,7 @@ function App() {
           <Route element={App} />
           <Route path="/" element={<Home />} />
           <Route path="home" element={<Home />} />
-          <Route path="faq" element={<Faq/>}/>
+          <Route path="faq" element={<Faq />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="about" element={<About />} />
@@ -134,7 +134,7 @@ function App() {
             {<Route index element={admin ?
               <DashboardHome /> :
               user.email &&
-              <UserDashboardHome />} />}
+              <Profile />} />}
 
 
             <Route
@@ -263,7 +263,7 @@ function App() {
             />
           </Route>
           {/***************** Dashboard route  End*****************/}
-          
+
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

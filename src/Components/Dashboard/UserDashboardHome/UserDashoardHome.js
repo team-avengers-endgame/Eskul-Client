@@ -1,12 +1,12 @@
-import { Toolbar } from '@mui/material';
+import { Box, Toolbar } from '@mui/material';
 import React from 'react';
 
 const UserDashboardHome = () => {
     return (
-        <div>
+        <Box>
             <Toolbar/>
             <h1>User dashboard home page</h1>
-        </div>
+        </Box>
     );
 };
 
