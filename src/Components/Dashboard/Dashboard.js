@@ -26,7 +26,7 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import HomeIcon from '@mui/icons-material/Home';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import PreviewIcon from '@mui/icons-material/Preview';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 
 
 const drawerWidth = 240;
@@ -76,15 +76,7 @@ function Dashboard(props) {
                     </ListItem>
                 </NavLink>
 
-                <Divider />
-                <NavLink to='/dashboard/profile' style={LinkStyle}>
-                    <ListItem button >
-                        <ListItemIcon>
-                            <AccountCircleIcon />
-                        </ListItemIcon>
-                        Profile
-                    </ListItem>
-                </NavLink>
+               
                 <Divider />
                 {admin && <span>
                     <NavLink to='/dashboard/addASchool' style={LinkStyle}>

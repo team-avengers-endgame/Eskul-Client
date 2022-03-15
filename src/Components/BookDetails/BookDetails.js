@@ -60,9 +60,13 @@ const BookDetails = () => {
           <Typography variant="h3">{book?.bookName}</Typography>
           <Typography variant="h6"> লেখক: {book?.author}</Typography>
         </Box>
-        <Grid container columns={{ xs: 4, sm: 8, md: 12, lg: 12 }}>
-          <Grid item xs={4} sm={8} md={8} lg={8}>
-            <Grid container spacing={5} columns={{ xs: 4, sm: 8, md: 12 }}>
+
+
+        <Grid container spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}>
+
+          <Grid item xs={4} sm={8} md={8} >
+            <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
               <Grid item xs={4} sm={4} md={8} sx={{ mb: 5 }}>
                 <Box sx={{ textAlign: "justify" }}>
                   <Typography variant="body">
@@ -72,15 +76,15 @@ const BookDetails = () => {
                 </Box>
               </Grid>
               <Grid item xs={4} sm={4} md={4}>
-                <CardMedia component="img" alt="complex" src={book?.bookImg} />
+                <CardMedia sx={{ width: '100%' }} component="img" alt="complex" src={book?.bookImg} />
               </Grid>
             </Grid>
             <hr />
 
             <Box sx={{ my: 5 }}>
               <span style={iconStyle}>
-                {" "}
-                <ReviewsIcon color="primary" />{" "}
+
+                <ReviewsIcon color="primary" />
                 <Typography variant="h5"> Reviews</Typography>
               </span>
 
@@ -98,19 +102,15 @@ const BookDetails = () => {
             </Box>
           </Grid>
 
-          <Grid sx={{ ml: 4 }} columns={{ xs: 4, sm: 8, md: 4, lg: 4 }}>
+          <Grid item xs={4} sm={8} md={4}>
             <Paper
               sx={{
                 p: 1,
-                margin: "auto",
-                width: 350,
-                flexGrow: 1,
                 bgcolor: "#bbdefb",
               }}
             >
-              <Grid pl={2} my={3} columns={{ xs: 4, sm: 8, md: 4, lg: 4 }}>
+              <Box >
                 <span style={iconStyle}>
-                  {" "}
                   <BorderColorIcon color="primary" />
                   <Typography variant="body1"> লেখক: {book?.author}</Typography>
                 </span>
@@ -154,9 +154,10 @@ const BookDetails = () => {
                     Add To Cart
                   </Button>
                 </Box>
-              </Grid>
+              </Box>
             </Paper>
           </Grid>
+
         </Grid>
       </Container>
 

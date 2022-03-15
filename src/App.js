@@ -39,7 +39,6 @@ import BookOrderReview from "./Components/BookOrderReview/BookOrderReview";
 import Payment from "./Components/Payment/Payment";
 import PaymentSuccessfullyPage from "./Components/Payment/PaymentSuccessfullyPage/PaymentSuccessfullyPage";
 import useAuth from "./Hooks/useAuth";
-import UserDashboardHome from "./Components/Dashboard/UserDashboardHome/UserDashoardHome";
 import MyOrder from "./Components/Dashboard/UserDashboardHome/MyOrder/MyOrder";
 import ManageOrder from "./Components/Dashboard/ManageOrder/ManageOrder";
 import WebsiteReviewFrom from "./Components/Dashboard/UserDashboardHome/WebsiteReviewFrom/WebsiteReviewFrom";
@@ -48,6 +47,7 @@ import TransportHomeDetails from "./Components/Transport/TransportHomeDetails";
 import TransportHome from "./Components/Transport/TransportDetails/TransportHome";
 import Faq from "./Components/Faq/Faq";
 import Profile from "./Components/Dashboard/Profile/Profile";
+import { Box } from "@mui/material";
 
 
 
@@ -67,95 +67,41 @@ function App() {
   const { user, admin } = useAuth();
   return (
 
-    <CartContextProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route element={App} />
-          <Route path="/" element={<Home />} />
-          <Route path="home" element={<Home />} />
-          <Route path="faq" element={<Faq/>}/>
-          <Route path="register" element={<Register />} />
-          <Route path="login" element={<Login />} />
-          <Route path="about" element={<About />} />
-          <Route path="books" element={<BookList />} />
-          <Route path="books/bookOrderReview" element={<BookOrderReview />} />
-          <Route path="success/:id" element={<PaymentSuccessfullyPage />} />
-          <Route path="payment" element={<Payment />} />
-          <Route
-            path="bookDetails/:id"
-            element={
-              <PrivateRoute>
-                <BookDetails />
-              </PrivateRoute>
-            }
-          />
-          <Route path="notes" element={<NotesPage />} />
-          <Route path="schDetails" element={<SchoolDetails />} />
-          <Route path="transport" element={<TransportHomeDetails />} />
-          <Route path="transportDetails/:tpid" element={<TransportHome />} />
-          <Route path="contacts" element={<Contacts />} />
-          <Route path="schools" element={<Schools />} />
-
-          <Route
-            path="details/:id"
-            element={
-              <PrivateRoute>
-                <SchoolDetails />
-              </PrivateRoute>
-            }
-          />
-          <Route path="teacherDetails/:id" element={<TeacherDetails />} />
-          <Route path="basic" element={<BasicSection />} />
-          <Route path="privateTutor" element={<PrivateTuor />} />
-          <Route
-            path="tutorDetails/:id"
-            element={
-              <PrivateRoute>
-                <TutorDetails />
-              </PrivateRoute>
-            }
-          />
-          <Route path="donation" element={
-            <PrivateRoute>
-              <Donation />
-            </PrivateRoute>
-          } />
-          {/****************** Dashboard route  start******************/}
-          <Route
-            path="dashboard"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <PrivateRoute>
-                  <Dashboard />
-                </PrivateRoute>
-              </Suspense>
-            }
-          >
-            {<Route index element={admin ?
-              <DashboardHome /> :
-              user.email &&
-              <UserDashboardHome />} />}
-
-
+    <Box sx={{ overflow: 'hidden' }}>
+      <CartContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={App} />
+            <Route path="/" element={<Home />} />
+            <Route path="home" element={<Home />} />
+            <Route path="faq" element={<Faq />} />
+            <Route path="register" element={<Register />} />
+            <Route path="login" element={<Login />} />
+            <Route path="about" element={<About />} />
+            <Route path="books" element={<BookList />} />
+            <Route path="books/bookOrderReview" element={<BookOrderReview />} />
+            <Route path="success/:id" element={<PaymentSuccessfullyPage />} />
+            <Route path="payment" element={<Payment />} />
             <Route
-              path="addASchool"
+              path="bookDetails/:id"
               element={
-                <AdminRoute>
-                  <AddASchool />
-                </AdminRoute>
+                <PrivateRoute>
+                  <BookDetails />
+                </PrivateRoute>
               }
             />
             <Route path="notes" element={<NotesPage />} />
             <Route path="schDetails" element={<SchoolDetails />} />
+            <Route path="transport" element={<TransportHomeDetails />} />
+            <Route path="transportDetails/:tpid" element={<TransportHome />} />
             <Route path="contacts" element={<Contacts />} />
-            <Route path="transport" element={<TransportHome />} />
-
+            <Route path="schools" element={<Schools />} />
 
             <Route
-              path="manageOrder"
+              path="details/:id"
               element={
                 <PrivateRoute>
-                  <ManageOrder />
+                  <SchoolDetails />
                 </PrivateRoute>
               }
             />
@@ -163,111 +109,167 @@ function App() {
             <Route path="basic" element={<BasicSection />} />
             <Route path="privateTutor" element={<PrivateTuor />} />
             <Route
-              path="schools"
-              element={
-                <AdminRoute>
-                  <DashboardSchools />
-                </AdminRoute>
-              }
-            />
-
-            <Route
-              path="addABook"
-              element={
-                <AdminRoute>
-                  <AddABook />
-                </AdminRoute>
-              }
-            />
-
-            <Route
-              path="books"
-              element={
-                <AdminRoute>
-                  <DashboardBooks />
-                </AdminRoute>
-              }
-            />
-
-            <Route
-              path="addOnlineTuition"
-              element={
-                <AdminRoute>
-                  <OnlineTuitionTeacherAdd />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path="onlineTuitionTeachers"
-              element={
-                <AdminRoute>
-                  <OnlineTuitionTeachers />
-                </AdminRoute>
-              }
-            />
-
-            <Route
-              path="addedSchoolDetailsForm/:id"
-              element={
-                <AdminRoute>
-                  <AddedSchoolDetailsForm />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path="teachers/:schoolId"
-              element={
-                <AdminRoute>
-                  <DashboardSchoolTeachers />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path="editBooks/:id"
-              element={
-                <AdminRoute>
-                  <EditBooks />
-                </AdminRoute>
-              }
-            />
-
-            <Route
-              path="makeAdmin"
-              element={
-                <AdminRoute>
-                  <MakeAdmin />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path="myOrder"
+              path="tutorDetails/:id"
               element={
                 <PrivateRoute>
-                  <MyOrder />
+                  <TutorDetails />
                 </PrivateRoute>
               }
             />
+            <Route path="donation" element={
+              <PrivateRoute>
+                <Donation />
+              </PrivateRoute>
+            } />
+            {/****************** Dashboard route  start******************/}
             <Route
-              path="profile"
+              path="dashboard"
               element={
-                <Profile />
+                <Suspense fallback={<LoadingPage />}>
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
+                </Suspense>
               }
-            />
-            <Route
-              path="webSiteReviewFrom"
-              element={
-                <PrivateRoute>
-                  <WebsiteReviewFrom />
-                </PrivateRoute>
-              }
-            />
-          </Route>
-          {/***************** Dashboard route  End*****************/}
-          
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </CartContextProvider>
+            >
+              {<Route index element={admin ?
+                <DashboardHome /> :
+                user.email &&
+                <Profile />} />}
+
+
+              <Route
+                path="addASchool"
+                element={
+                  <AdminRoute>
+                    <AddASchool />
+                  </AdminRoute>
+                }
+              />
+              <Route path="notes" element={<NotesPage />} />
+              <Route path="schDetails" element={<SchoolDetails />} />
+              <Route path="contacts" element={<Contacts />} />
+              <Route path="transport" element={<TransportHome />} />
+
+
+              <Route
+                path="manageOrder"
+                element={
+                  <PrivateRoute>
+                    <ManageOrder />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="teacherDetails/:id" element={<TeacherDetails />} />
+              <Route path="basic" element={<BasicSection />} />
+              <Route path="privateTutor" element={<PrivateTuor />} />
+              <Route
+                path="schools"
+                element={
+                  <AdminRoute>
+                    <DashboardSchools />
+                  </AdminRoute>
+                }
+              />
+
+              <Route
+                path="addABook"
+                element={
+                  <AdminRoute>
+                    <AddABook />
+                  </AdminRoute>
+                }
+              />
+
+              <Route
+                path="books"
+                element={
+                  <AdminRoute>
+                    <DashboardBooks />
+                  </AdminRoute>
+                }
+              />
+
+              <Route
+                path="addOnlineTuition"
+                element={
+                  <AdminRoute>
+                    <OnlineTuitionTeacherAdd />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="onlineTuitionTeachers"
+                element={
+                  <AdminRoute>
+                    <OnlineTuitionTeachers />
+                  </AdminRoute>
+                }
+              />
+
+              <Route
+                path="addedSchoolDetailsForm/:id"
+                element={
+                  <AdminRoute>
+                    <AddedSchoolDetailsForm />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="teachers/:schoolId"
+                element={
+                  <AdminRoute>
+                    <DashboardSchoolTeachers />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="editBooks/:id"
+                element={
+                  <AdminRoute>
+                    <EditBooks />
+                  </AdminRoute>
+                }
+              />
+
+              <Route
+                path="makeAdmin"
+                element={
+                  <AdminRoute>
+                    <MakeAdmin />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="myOrder"
+                element={
+                  <PrivateRoute>
+                    <MyOrder />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="profile"
+                element={
+                  <Profile />
+                }
+              />
+              <Route
+                path="webSiteReviewFrom"
+                element={
+                  <PrivateRoute>
+                    <WebsiteReviewFrom />
+                  </PrivateRoute>
+                }
+              />
+            </Route>
+            {/***************** Dashboard route  End*****************/}
+
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </CartContextProvider>
+    </Box>
 
   );
 }

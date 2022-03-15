@@ -55,14 +55,14 @@ const BookList = () => {
     } else {
       book.quantity = 1;
       newCart = [...cart, book]
-      
+
     }
     localStorage.setItem("cart", JSON.stringify(newCart));
     setCart(() => newCart);
-    alert('success','Success','Add to Cart Successfully')
+    alert('success', 'Success', 'Add to Cart Successfully')
   };
 
- 
+
   const placeholder = "Search by Book Name or Author Name";
   return (
     <>
@@ -85,14 +85,14 @@ const BookList = () => {
                   margin: "auto",
                   maxWidth: 500,
                   flexGrow: 1,
-                  boxShadow: "0px 14px 22px rgb(42 135 158 / 10%)",
+                  boxShadow: "0px 14px 22px rgb(42 135 158 / 10%)"
                 }}
               >
                 <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
                   <Grid item xs={2} sm={4} md={4}>
                     <CardMedia
                       component="img"
-                      sx={{height: 200}}
+                      sx={{ height: 200 }}
                       alt="complex"
                       src={single?.bookImg}
                     />
@@ -119,24 +119,25 @@ const BookList = () => {
                         readOnly
                       />
                     </Box>
-                    <br />
-                    <NavLink
-                      to={`/bookDetails/${single._id}`}
-                      style={{ textDecoration: "none", marginRight: "5px" }}
-                    >
-                      <Button size="small" sx={ButtonStyle}>
-                        Details
-                      </Button>
-                    </NavLink>
-                    <Button
-                      size="small"
-                      sx={ButtonStyle}
-                      onClick={() => handleAddToCart(single)}
-                    >
-                      Add to cart
-                    </Button>
                   </Grid>
                 </Grid>
+                <Box sx={{ display: 'flex', justifyContent: 'right' }}>
+                  <NavLink
+                    to={`/bookDetails/${single._id}`}
+                    style={{ textDecoration: "none", marginRight: "5px" }}
+                  >
+                    <Button size="small" sx={ButtonStyle}>
+                      Details
+                    </Button>
+                  </NavLink>
+                  <Button
+                    size="small"
+                    sx={ButtonStyle}
+                    onClick={() => handleAddToCart(single)}
+                  >
+                    Add to cart
+                  </Button>
+                </Box>
               </Paper>
             </Grid>
           ))}
