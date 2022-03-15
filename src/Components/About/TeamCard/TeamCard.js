@@ -3,7 +3,7 @@ import './TeamCard.css';
 import { Container, Grid, Box, Typography, Avatar, ButtonBase } from '@mui/material';
 import Aos from 'aos';
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
-import WhatsappRoundedIcon from "@mui/icons-material/WhatsappRounded";
+import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 
@@ -26,9 +26,13 @@ const TeamCard = () => {
     return (
         <Container sx={{ marginTop: '20px' }}>
             <Typography
-                sx={{ fontWeight: "600", fontSize: 44, color: "#3B4757", textAlign: "center", marginBottom: 16, marginTop: 14 }}
+                sx={{ fontWeight: "600", fontSize: 24, color: "#3B4757", textAlign: "center", marginBottom:3, marginTop: 14 }}
                 variant="h4"
-            >Meet our Teammates</Typography>
+            >BUILDING TEAM</Typography>
+             <Typography
+                sx={{ fontWeight: "600", fontSize: 38, color: "#3B4757", textAlign: "center", marginBottom: 16}}
+                variant="h4"
+            >The Talented People Behind The Scenes </Typography>
 
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -37,7 +41,7 @@ const TeamCard = () => {
 
                             item xs={12} sm={4} md={4} key={team.name}
                         >
-                             <Box sx={{background: "#fff",boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)",borderRadius: "12px"}}>
+                             <Box sx={{background: "#fff",boxShadow: "22px 14px 22px rgb(42 135 158 / 14%)",borderRadius: "12px"}}>
                   <Box >
                   <Avatar
                
@@ -49,6 +53,7 @@ const TeamCard = () => {
                     border: "1px solid lightgray",
                     marginTop:10,
                     backgroundColor: "pink",
+                  
                     margin:" 0px  auto "
                 }}
             />
@@ -58,21 +63,22 @@ const TeamCard = () => {
         {team?.title}
       </Typography>
       
-                  <Typography variant="body2" sx={{textAlign:"center",color:"#0c4b65",fontSize:"14px",fontWeight:500,mt:3}} gutterBottom> {team?.name}</Typography>
-                  <Typography variant="body2" sx={{textAlign:"center",color:"#0c4b65",fontSize:"14px",fontWeight:200,mt:1}} gutterBottom>{team?.description}</Typography>
+                  <Typography variant="h5" sx={{textAlign:"center",fontWeight:500}}> {team?.name}</Typography>
+                  <Typography variant="h6" sx={{textAlign:"center",fontWeight:400,mt:1}} gutterBottom>{team?.description}</Typography>
                  
-          <Box sx={{textAlign:"center",mt:3,color:"#0c4b65"}}>
+          <Box sx={{textAlign:"center",mt:2,color:"#0c4b65"}}>
           <ButtonBase>
-          <FacebookRoundedIcon sx={{ fontSize: "20px", cursor: "pointer" }} />
+          <a href={team.linkedin} target="blank"> <LinkedInIcon sx={{ fontSize: "30px", cursor: "pointer", p:2, color:"#0a66c2" }} /></a>
+         
         </ButtonBase>
         <ButtonBase>
-          <WhatsappRoundedIcon sx={{ fontSize: "20px", cursor: "pointer" }} />
+        <a href={team.github} target="blank"><GitHubIcon sx={{ fontSize: "30px", cursor: "pointer", color: "black" }} /></a>
         </ButtonBase>
         <ButtonBase>
-          <LinkedInIcon sx={{ fontSize: "20px", cursor: "pointer" }} />
+        <a href={team.facebook} target="blank"><FacebookRoundedIcon sx={{ fontSize: "30px", cursor: "pointer", p:2 , color:"#3578E5"}} /></a>
         </ButtonBase>
         <ButtonBase>
-          <EmailIcon sx={{ fontSize: "20px", cursor: "pointer" }} />
+        <a href={team.email} target="blank"> <EmailIcon sx={{ fontSize: "30px", cursor: "pointer" }} /></a>
         </ButtonBase>
 </Box>
 
