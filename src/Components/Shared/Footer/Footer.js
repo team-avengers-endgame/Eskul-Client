@@ -163,35 +163,29 @@ const Footer = () => {
                                 Our Contacts
                             </Typography>
                             <Box>
-                                <a
-                                    className='footer-link'
-                                    href="http://" target="_blank" rel="noopener noreferrer">
+                              
+                                  
+                                    
                                     <Typography className='footer-link'
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        3261 Anmoore Road Brooklyn, NY 11230
+                                        Dhaka, Bangladesh
                                     </Typography>
-                                </a>
-                                <a
-                                    className='footer-link'
-                                    href="http://" target="_blank" rel="noopener noreferrer">
+                               
+                              
                                     <Typography className='footer-link'
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        800-123-4567, Fax: 718-724-3312
+                                        +8801877533727, Fax: 718-724-3312
                                     </Typography>
-                                </a>
-                                <a
-                                    className='footer-link'
-                                    href="http://" target="_blank" rel="noopener noreferrer">
+                          
                                     <Typography className='footer-link'
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        officeone@youremail.com
-                                        officeone@youremail.com
+                                        <a href=" mailto: team.avengers.endgame@gmail.com" target="blank" style={{color: "#777777", textDecoration:"none"}}> team.avengers.endgame@gmail.com</a>
+                                        <br />
+                                        <a href=" mailto: rukon.js@gmail.com" target="blank" style={{color: "#777777", textDecoration:"none"}}>rukon.js@gmail.com</a>
                                     </Typography>
-                                </a>
+                              
 
-                                <a
-                                    className='footer-link'
-                                    href="http://" target="_blank" rel="noopener noreferrer">
+                       
 
                                     <Typography
                                         sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
@@ -199,7 +193,7 @@ const Footer = () => {
                                         Mon-Fri: 9:00 am – 5:00 pm
                                         Sat: 11:00 am – 16:00 pm
                                     </Typography>
-                                </a>
+                              
                             </Box>
 
                         </Grid>
