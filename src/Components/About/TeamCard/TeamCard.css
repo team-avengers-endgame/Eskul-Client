@@ -1,4 +1,4 @@
-*,*:after,*:before{
+/* *,*:after,*:before{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
@@ -85,4 +85,4 @@ img{
 .ui-card:hover .description a{
 	opacity: 1;
 	transform: translateY(0px);
-}
+} */

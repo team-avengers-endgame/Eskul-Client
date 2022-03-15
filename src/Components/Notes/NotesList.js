@@ -15,7 +15,7 @@ const NotesList = () => {
     return (
 
         <Container>
-            <Typography variant="h4" sx={{ margin: "10px", fontWeight: 'bold', textAlign: 'center' }} >Download your Notes</Typography>
+            <Typography variant="h4" sx={{ margin: "10px", fontWeight: 'bold', textAlign: 'center', my: 5 }} >Download your Notes</Typography>
             <Box sx={{ mx: 'auto' }}>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {notes.map((note) => (
@@ -29,13 +29,9 @@ const NotesList = () => {
                                             <h3>{note.name}</h3>
                                             <h4>{note.sub}</h4>
 
-                                            <ul>
-                                                <li>
-                                                    <a className="anchor" href="https://drive.google.com/file/d/1C0_xRXDn2fsWeYKfjyDUthb944uIclwx/view?usp=sharing" target="_blank" download>Download PDF
-                                                    </a>
-                                                </li>
-
-                                            </ul>
+                                         
+                                                    <a className="anchor" href="https://drive.google.com/file/d/1C0_xRXDn2fsWeYKfjyDUthb944uIclwx/view?usp=sharing" target="_blank" download>Download PDF</a>
+                                               
                                         </div>
                                     </div>
                                 </div>

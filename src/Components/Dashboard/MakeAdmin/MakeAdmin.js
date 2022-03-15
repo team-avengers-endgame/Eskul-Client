@@ -27,7 +27,7 @@ const MakeAdmin = () => {
     return (
         <Box sx={{ p: 3 }}>
             <Box>
-                <Typography variant='h5'>Make a admin form</Typography>
+                <Typography variant='h5'>Make an admin form</Typography>
                 <Box sx={{ maxWidth: 400 }}>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <TextField size='small' fullWidth label="Email" placeholder='Email'{...register("email", { required: true })} />

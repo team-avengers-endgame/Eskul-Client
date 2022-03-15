@@ -16,9 +16,9 @@ const About = () => {
       <AboutHeroSection />
       {/* <ChildEducation /> */}
       <VisionMissionSection />
-      <TeamCard></TeamCard>
       <DifferenceSection />
       <FacilitySection />
+      <TeamCard></TeamCard>
       {/* <Principles /> */}
 
       <Footer />
