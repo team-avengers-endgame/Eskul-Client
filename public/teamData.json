@@ -3,27 +3,44 @@
         "name": "Maria Kamal",
         "img": "https://i.ibb.co/88NMvww/261024617-1335226813579866-4314340769251562840-n-removebg-preview.png",
         "description": "Frontend Developer",
-        "contact": "https://drive.google.com/file/d/1ni7Qi9ndpacUGyPZtRycm6XXcG9XyPX1/view?usp=sharing"
+        "contact": "https://drive.google.com/file/d/1ni7Qi9ndpacUGyPZtRycm6XXcG9XyPX1/view?usp=sharing",
+        "github": "https://github.com/mariaafahad",
+        "linkedin": "https://www.linkedin.com/in/maria-kamal-1b3905216/",
+        "facebook": "https://www.facebook.com/maria.fahad.143",
+        "email":" mailto:mariaafahad@gmail.com"
     },
    
    
     {
-        "name": "Tania Tabassum",
+        "name": "Tania Tabassum Noor",
         "img": "https://i.ibb.co/r5Jg6St/crop-img-removebg-preview.png",
         "description": "Frontend Developer",
-        "contact": "https://drive.google.com/file/d/1wlLpoFGc6yWSt5jy_LOZXQzM3P3BGiaD/view?usp=sharing"
+        "contact": "https://drive.google.com/file/d/1wlLpoFGc6yWSt5jy_LOZXQzM3P3BGiaD/view?usp=sharing",
+        "github": "https://github.com/Taniatabassumnoor",
+        "linkedin": "https://www.linkedin.com/in/tania-tabassum-noor-6b6270227/",
+        "facebook": "https://www.facebook.com/profile.php?id=100069991652216",
+        "email":" mailto:taniatabassumnoor866@gmail.com"
+        
     },
     {
         "name": "Naznin Kamal",
         "img": "https://i.ibb.co/98xzQSS/IMG-7458-removebg-preview.png?fbclid=IwAR3fL6cyXnwqqI_K_m2oNVi05AnWnp9kfBJ81M5ddzr-VwiP4mN9nqXadPI",
         "description": "MERN Stack Developer",
-        "contact": "https://drive.google.com/file/d/1Ep35FG6mXNTNqQgU6wtmirbq-uuNpUzV/view?usp=sharing"
+        "contact": "https://drive.google.com/file/d/1Ep35FG6mXNTNqQgU6wtmirbq-uuNpUzV/view?usp=sharing",
+        "github": " https://github.com/Nazninkamal",
+        "linkedin": " https://www.linkedin.com/in/naznin-kamal/",
+        "facebook": "https://www.facebook.com/nazninkamalrimi",
+        "email": " mailto:najninkamalrimi@gmail.com"
     },
     {
         "name": "Farhaan Elias",
         "img": "https://i.ibb.co/7KsXkCj/farhan-WI-removebg-preview-Copy.png",
         "description": "Full-Stack Developer",
-        "contact": "https://drive.google.com/file/d/1Lbn_gWMVzqADCubc6Az62_ZQyG_RsQ9E/view?usp=drivesdk"
+        "contact": "https://drive.google.com/file/d/1Lbn_gWMVzqADCubc6Az62_ZQyG_RsQ9E/view?usp=drivesdk",
+        "github": "https://github.com/faarhaan10",
+        "linkedin": "https://www.linkedin.com/in/farhan-elias/",
+        "facebook": "https://www.facebook.com/faarhaan10",
+        "email": " mailto:faarhaan10@gmail.com"
     },
    
    
@@ -31,13 +48,21 @@
         "name": "Md Rukon Uddin",
         "img": "https://i.ibb.co/C0Y15LN/Rukon-Pofile-Pic-2-removebg-preview.png",
         "description": "MERN-Stack Developer",
-        "contact": "https://drive.google.com/file/d/1S8dFRWC7f3QH6ZVnGp6miYLwPz8s4coh/view?usp=sharing"
+        "contact": "https://drive.google.com/file/d/1S8dFRWC7f3QH6ZVnGp6miYLwPz8s4coh/view?usp=sharing",
+        "github": "https://github.com/RnRukon",
+        "linkedin": "https://www.linkedin.com/in/rukon-js/",
+        "facebook": "https://www.facebook.com/JsRukon",
+        "email": " mailto:rukon.js@gmail.com"
     },
     {
         "name": "Rupok Koiry",
         "img": "https://i.ibb.co/9Nm2hfK/271388791-460883882229328-6916962440509522390-n-removebg-preview.png",
         "description": "Backend Developer",
-        "contact": "https://drive.google.com/file/d/1DITBDUUyU8pQaaamOZ3OUm41_WyaGUfe/view"
+        "contact": "https://drive.google.com/file/d/1DITBDUUyU8pQaaamOZ3OUm41_WyaGUfe/view",
+        "github": "https://github.com/Rupok-Koiry/",
+        "linkedin": "https://www.linkedin.com/in/rupok-koiry/",
+        "facebook": "https://www.facebook.com/rupok.koiry",
+        "email": " mailto:koiry.rupok@gmail.com"
     }
    
    
