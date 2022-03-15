@@ -268,19 +268,16 @@ const NavigationBar = () => {
                       {user?.displayName}
                     </Typography>
                   </MenuItem>{" "}
-                  <Divider />
+
                 </span>
               )}
-
+              <Divider />
               <NavLink to="/dashboard/profile" style={LinkStyle}>
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
               </NavLink>
-              <Divider />
-              <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">Account</Typography>
-              </MenuItem>
+
 
               {
                 user.email &&

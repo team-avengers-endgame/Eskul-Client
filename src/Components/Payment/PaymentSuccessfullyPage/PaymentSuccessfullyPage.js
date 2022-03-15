@@ -21,6 +21,7 @@ const PaymentSuccessfullyPage = () => {
             .then(data => {
                 setBook(data);
                 data?.cartBooks.map(book => setBooks(book));
+                console.log(data)
             })
     }, [id])
 
