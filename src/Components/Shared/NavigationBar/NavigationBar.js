@@ -57,7 +57,7 @@ const NavigationBar = () => {
   const LinkStyle = { textDecoration: "none", color: "black" };
   return (
     <AppBar
-      position={navbar ? "sticky" : "static"}
+      position={navbar ? "fixed" : "static"}
       sx={
         navbar
           ? { backgroundColor: "#c3e9fff0" }
