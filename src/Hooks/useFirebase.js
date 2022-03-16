@@ -26,7 +26,7 @@ const useFirebase = () => {
   const [booksCount, setBooksCount] = useState(0);
   const [privateTeacherCount, setTeachersCount] = useState(0);
   const [schoolsCount, setSchoolsCount] = useState(0);
-  const [experienceCount, setExperienceCount] = useState(0);
+  
 
   // login google------------------------
   const signInWithGoogle = (location, navigate) => {
