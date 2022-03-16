@@ -17,7 +17,7 @@ import axios from "axios";
 import { alert } from "../../../Hooks/useStyle";
 import Swal from "sweetalert2";
 import SearchBar from "../../Shared/SearchBar/SearchBar";
-import useAuth from "../../../Hooks/useAuth";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -48,7 +48,7 @@ export default function Books() {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [searchValue, setSearchValue] = useState([]);
   
-  const {setBooksCount} = useAuth();
+  
 
   const loadBooks = async () => {
     fetch(`${api}/books`)
@@ -56,7 +56,6 @@ export default function Books() {
       .then((data) => {
         setBooks(data?.data?.data);
         setSearchValue(data?.data?.data);
-        setBooksCount(data?.data?.data.length);
       });
   };
   useEffect(() => {

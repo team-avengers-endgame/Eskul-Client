@@ -18,16 +18,20 @@ import { alert, ButtonStyle } from "../../Hooks/useStyle";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 
+
 const BookList = () => {
   const [books, setBooks] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
   const [cart, setCart] = useContext(CartContext);
+
+
   useEffect(() => {
     fetch(`${api}/books`)
       .then((res) => res.json())
       .then((data) => {
         setBooks(data?.data?.data);
         setSearchValue(data?.data?.data);
+        
       });
   }, []);
 
