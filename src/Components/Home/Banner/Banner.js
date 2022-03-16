@@ -44,8 +44,8 @@ const Banner = () => {
                                     data-aos='fade-up'
                                     sx={{
                                         textAlign: 'center',
-                                        width: '22rem',
-                                        p: 5,
+                                        width: '17rem',
+                                        p: 6,
                                         backgroundImage: `url(${rect})`,
                                         backgroundSize: 'contain',
                                         backgroundRepeat: 'no-repeat'
@@ -53,7 +53,7 @@ const Banner = () => {
                                     <img src={newSlide.icon} alt="slide img" />
                                     <Typography
                                         variant="h6"
-                                        component="div"
+                                        
                                         sx={{
                                             fontStyle: 'italic',
                                             fontFamily: 'Georgia'
@@ -62,7 +62,7 @@ const Banner = () => {
                                         {newSlide.text1}
                                     </Typography>
                                     <Typography
-                                        variant="h5"
+                                        variant="h6"
                                         component="div"
                                         sx={{ fontWeight: '500', color: '#3B4757' }}
                                     >
