@@ -9,7 +9,7 @@ import FacebookIcon from './img/facebook.svg';
 import Logo from './img/logo.png'
 import { alert } from '../../../Hooks/useStyle';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import LinedinIcon from './img/linkedinsvg.svg';
+import LinkedinIcon from './img/linkedinsvg.svg';
 const Footer = () => {
 
     // Email handler =============
@@ -246,7 +246,7 @@ const Footer = () => {
                             <Box className='footer-icon'>
                                 <a href="https://www.linkedin.com/in/rukon-js/" target="_blank" rel="noopener noreferrer">
 
-                                    <img src={LinedinIcon} alt="" />
+                                    <img src={LinkedinIcon} alt="" />
                                 </a>
                             </Box>
                         </Typography>
