@@ -1,9 +1,30 @@
+import React, { useEffect, useState } from 'react';
 import { Avatar, Box, Card, CardContent, Grid, Typography } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import MoneyIcon from '@mui/icons-material/Money';
+import { api } from '../../../../Hooks/Api';
 
-export const Budget = () => (
-    <Card
+
+const Budget = () => {
+
+    const [books, setBooks] = useState([]);
+    useEffect(() => {
+        fetch(`${api}/books`)
+          .then((res) => res.json())
+          .then((data) => {
+            setBooks(data?.data?.data);
+            
+    
+          });
+      }, []);
+      const totalReducer = (previous, product) => previous + product.bookPrice;
+      const total = books.reduce(totalReducer, 0);
+      
+      
+    
+    return (
+        <div>
+            <Card
         sx={{ height: '100%' }}
 
     >
@@ -25,7 +46,7 @@ export const Budget = () => (
                         color="textPrimary"
                         variant="h4"
                     >
-                        $24k
+                        ${Math.floor(total/1000)}{total>1000?'k':'Taka'}
                     </Typography>
                 </Grid>
                 <Grid item>
@@ -55,7 +76,7 @@ export const Budget = () => (
                     }}
                     variant="body2"
                 >
-                    12%
+                    {Math.floor((100*500)/total)}%
                 </Typography>
                 <Typography
                     color="textSecondary"
@@ -66,4 +87,8 @@ export const Budget = () => (
             </Box>
         </CardContent>
     </Card>
-);
+        </div>
+    );
+};
+
+export default Budget;

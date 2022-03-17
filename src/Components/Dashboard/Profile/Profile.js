@@ -24,7 +24,6 @@ const Profile = () => {
         setScroll();
         setOpen(true);
     };
-    console.log(user?.metadata)
     return (
         <Box>
             <Toolbar />

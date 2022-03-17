@@ -1,15 +1,15 @@
 import { Box, Grid, Toolbar } from '@mui/material';
 import React from 'react';
-import { Budget } from './DeashboardHomeComponet/Budget';
+import  Budget  from './DeashboardHomeComponet/Budget';
 import LatestOrders from './DeashboardHomeComponet/Latest-orders';
 
-import { LatestProducts } from './DeashboardHomeComponet/Latest-products';
+import LatestProducts from './DeashboardHomeComponet/Latest-products';
 import { Sales } from './DeashboardHomeComponet/Sales';
 import { TasksProgress } from './DeashboardHomeComponet/Tasks-progress';
-import { TotalCustomers } from './DeashboardHomeComponet/Total-customers';
+import  TotalCustomers  from './DeashboardHomeComponet/Total-customers';
 import { TotalProfit } from './DeashboardHomeComponet/Total-profit';
 import { TrafficByDevice } from './DeashboardHomeComponet/Traffic-by-device';
-// import bg from './Profile-Dashboard-Template-1.jpg'
+
 const DashboardHome = () => {
     return (
         <Box sx={{ pt: 5, px: 2 }}>
