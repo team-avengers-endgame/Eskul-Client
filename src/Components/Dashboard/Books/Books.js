@@ -17,7 +17,7 @@ import axios from "axios";
 import { alert } from "../../../Hooks/useStyle";
 import Swal from "sweetalert2";
 import SearchBar from "../../Shared/SearchBar/SearchBar";
-
+import Footer from '../../Shared/Footer/Footer';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -122,6 +122,7 @@ export default function Books() {
   };
 
   return (
+   <>
     <Box sx={{ p: 3 }}>
       <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
       <Typography variant="h5" sx={{ my: 2, fontWeight: "bold" }}>
@@ -203,5 +204,7 @@ export default function Books() {
         loadBooks={loadBooks}
       />
     </Box>
+    <Footer/>
+   </>
   );
 }

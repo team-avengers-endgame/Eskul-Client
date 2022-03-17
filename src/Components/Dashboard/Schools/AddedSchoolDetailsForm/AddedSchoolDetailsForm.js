@@ -1,12 +1,12 @@
 import React from 'react';
-import AddAStudent from './AddAStudent/AddAStudent';
+// import AddAStudent from './AddAStudent/AddAStudent';
 import AddATreacher from './AddATreacher/AddATreacher';
 
 const AddedSchoolDetailsForm = () => {
     return (
         <div>
             <AddATreacher />
-            <AddAStudent />
+            {/* <AddAStudent /> */}
         </div>
     );
 };

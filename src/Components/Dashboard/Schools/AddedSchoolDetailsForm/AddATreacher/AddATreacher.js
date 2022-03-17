@@ -4,7 +4,9 @@ import {
   CssBaseline,
   Grid,
   MenuItem,
+  Paper,
   TextField,
+  Toolbar,
   Typography,
 } from "@mui/material";
 
@@ -100,16 +102,11 @@ const AddATreacher = () => {
   const classes = useStyles();
   return (
     <Container sx={{ p: 0 }}>
+      <Toolbar/>
       <CssBaseline />
-      <Box
+      <Paper
         className={classes.paper}
-        sx={{
-          pb: 7,
-          pt: 2,
-          px: 2,
-          background: "#f6f8ff",
-          borderRadius: 5,
-          boxShadow: "0px 14px 22px rgb(42 135 158 / 10%)",
+        sx={{mb: 10, py: 2, px: 2,borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)" 
         }}
       >
         <img alt="" className={classes.avatar} src={Logo}></img>
@@ -239,7 +236,7 @@ const AddATreacher = () => {
             </Grid>
           </form>
         </Box>
-      </Box>
+      </Paper>
     </Container>
   );
 };
