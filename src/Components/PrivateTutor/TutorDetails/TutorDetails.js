@@ -78,6 +78,7 @@ const TutorDetails = () => {
   }, []);
 
   const handleFormSubmit = async (e) => {
+    console.log("Hello");
     e.preventDefault();
     const {
       data: { _id },

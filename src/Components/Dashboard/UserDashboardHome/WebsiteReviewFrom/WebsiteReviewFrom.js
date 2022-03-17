@@ -11,16 +11,15 @@ const WebsiteReviewFrom = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const { data } = await axios.get(
-      `http://localhost:8000/api/users/me/${user.email}`
-    );
+    const { data } = await axios.get(`${api}/users/me/${user.email}`);
 
     const response = await axios.post(`${api}/reviews`, {
       user: data._id,
       rating: value,
       description: message,
     });
-    console.log(response);
+    setValue(0);
+    setMessage("");
   };
   return (
     <form onSubmit={handleFormSubmit}>
