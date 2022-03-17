@@ -6,16 +6,23 @@ import { HashLink } from 'react-router-hash-link';
 import './Footer.css'
 import { useForm } from "react-hook-form";
 import FacebookIcon from './img/facebook.svg';
-import TwitterIcon from './img/twitter.svg';
-import InstagramIcon from './img/instagram.svg';
 import Logo from './img/logo.png'
+import { alert } from '../../../Hooks/useStyle';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinedinIcon from './img/linkedinsvg.svg';
 const Footer = () => {
 
     // Email handler =============
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+
+        if (data.email) {
+            alert('success', 'Success', 'Newsletter Sing in success')
+            reset();
+        }
+    };
     return (
-        <Box sx={{ flexGrow: 1, textAlign: 'center'}}>
+        <Box sx={{ flexGrow: 1, textAlign: 'center' }}>
             <Box className="footer-Container">
                 <Container >
                     <Grid container spacing={{ xs: 2, sm: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -35,8 +42,8 @@ const Footer = () => {
                             <form onSubmit={handleSubmit(onSubmit)}>
 
 
-                                <TextField {...register("Newsletter")}
-                                    placeholder='Newsletter signup'
+                                <TextField {...register("email")}
+                                    placeholder='User Email for Newsletter'
                                     sx={{ backgroundColor: 'white' }}
                                     size='small'
                                 />
@@ -122,9 +129,6 @@ const Footer = () => {
                                         FAQ
                                     </Link><br /><br />
 
-
-
-
                                     <HashLink
                                         to='/#gallery'
                                         scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'end' })}
@@ -163,37 +167,44 @@ const Footer = () => {
                                 Our Contacts
                             </Typography>
                             <Box>
-                              
-                                  
-                                    
-                                    <Typography className='footer-link'
-                                        sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        Dhaka, Bangladesh
-                                    </Typography>
-                               
-                              
-                                    <Typography className='footer-link'
-                                        sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        +8801877533727, Fax: 718-724-3312
-                                    </Typography>
-                          
-                                    <Typography className='footer-link'
-                                        sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
-                                        <a href=" mailto: team.avengers.endgame@gmail.com" target="blank" style={{color: "#777777", textDecoration:"none"}}> team.avengers.endgame@gmail.com</a>
-                                        <br />
-                                        <a href=" mailto: rukon.js@gmail.com" target="blank" style={{color: "#777777", textDecoration:"none"}}>rukon.js@gmail.com</a>
-                                    </Typography>
-                              
 
-                       
 
-                                    <Typography
-                                        sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
 
-                                        Mon-Fri: 9:00 am – 5:00 pm
-                                        Sat: 11:00 am – 16:00 pm
-                                    </Typography>
-                              
+                                <Typography className='footer-link'
+                                    sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
+                                    Dhaka, Bangladesh
+                                </Typography>
+
+
+                                <Typography className='footer-link'
+                                    sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
+                                    <a
+                                        className='footer-link'
+                                        style={{ color: "#777777", textDecoration: "none" }}
+                                        href="tel:+8801877533727">Phone: +8801877533727</a>
+                                    <a
+                                        className='footer-link'
+                                        style={{ color: "#777777", textDecoration: "none" }}
+                                        href="tel:+8801877533727">, Fax: 718-724-3312</a>
+                                </Typography>
+
+                                <Typography className='footer-link'
+                                    sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
+                                    <a href=" mailto: team.avengers.endgame@gmail.com" target="blank" style={{ color: "#777777", textDecoration: "none" }}> team.avengers.endgame@gmail.com</a>
+                                    <br />
+                                    <a href=" mailto: rukon.js@gmail.com" target="blank" style={{ color: "#777777", textDecoration: "none" }}>rukon.js@gmail.com</a>
+                                </Typography>
+
+
+
+
+                                <Typography
+                                    sx={{ fontSize: 15, fontFamily: 'Roboto",sans-serif' }}>
+
+                                    Mon-Fri: 9:00 am – 5:00 pm
+                                    Sat: 11:00 am – 16:00 pm
+                                </Typography>
+
                             </Box>
 
                         </Grid>
@@ -223,14 +234,20 @@ const Footer = () => {
                             Follow us:
                             <Box className='footer-icon'>
                                 <a href="https://www.facebook.com/ESKUL-111112171511275" target="_blank" rel="noopener noreferrer">
-                                <img src={FacebookIcon} alt="" />
+                                    <img src={FacebookIcon} alt="" />
                                 </a>
                             </Box>
                             <Box className='footer-icon'>
-                                <img src={TwitterIcon} alt="" />
+                                <a href="https://github.com/team-avengers-endgame" target="_blank" rel="noopener noreferrer">
+
+                                    <GitHubIcon sx={{ height: '18px', width: '18px' }} />
+                                </a>
                             </Box>
                             <Box className='footer-icon'>
-                                <img src={InstagramIcon} alt="" />
+                                <a href="https://www.linkedin.com/in/rukon-js/" target="_blank" rel="noopener noreferrer">
+
+                                    <img src={LinedinIcon} alt="" />
+                                </a>
                             </Box>
                         </Typography>
 
@@ -239,7 +256,7 @@ const Footer = () => {
                 </Grid>
 
             </Container>
-            <Toolbar/>
+            <Toolbar />
         </Box>
     );
 };

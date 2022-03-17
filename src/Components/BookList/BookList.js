@@ -5,8 +5,10 @@ import {
   CardMedia,
   Container,
   Grid,
+  Pagination,
   Paper,
   Rating,
+  Stack,
   Typography,
 } from "@mui/material";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
@@ -17,23 +19,25 @@ import Footer from "../Shared/Footer/Footer";
 import { alert, ButtonStyle } from "../../Hooks/useStyle";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
+import useAuth from "../../Hooks/useAuth";
+
 
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
   const [cart, setCart] = useContext(CartContext);
-
-
+  const [page, setPage] = useState(1);
+  const { booksCount } = useAuth();
   useEffect(() => {
-    fetch(`${api}/books`)
+    fetch(`${api}/books?page=${page}&limit=10`)
       .then((res) => res.json())
       .then((data) => {
         setBooks(data?.data?.data);
         setSearchValue(data?.data?.data);
-        
+
       });
-  }, []);
+  }, [page]);
 
 
   /*************** searching *****************/
@@ -146,6 +150,15 @@ const BookList = () => {
             </Grid>
           ))}
         </Grid>
+        <Stack spacing={2}>
+
+          <Pagination onChange={(e, value) => setPage(value)}
+            count={Math.floor(booksCount / 10)}
+            color="secondary"
+            showFirstButton
+            showLastButton />
+
+        </Stack>
       </Container>
       <Footer />
     </>
