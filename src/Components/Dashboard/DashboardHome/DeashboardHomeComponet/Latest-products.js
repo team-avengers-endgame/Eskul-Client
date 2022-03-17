@@ -1,70 +1,50 @@
+import React, { useEffect, useState } from "react";
 import { formatDistanceToNow, subHours } from 'date-fns';
-import { v4 as uuid } from 'uuid';
-import {
-    Box,
-    Button,
-    Card,
-    CardHeader,
-    Divider,
-    IconButton,
-    List,
-    ListItem,
-    ListItemAvatar,
-    ListItemText
-} from '@mui/material';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import Img from './32zvb859.jpg'
-const products = [
-    {
-        id: uuid(),
-        name: 'Dropbox',
-        imageUrl: Img,
-        updatedAt: subHours(Date.now(), 2)
-    },
-    {
-        id: uuid(),
-        name: 'Medium Corporation',
-        imageUrl: Img,
-        updatedAt: subHours(Date.now(), 2)
-    },
-    {
-        id: uuid(),
-        name: 'Slack',
-        imageUrl: Img,
-        updatedAt: subHours(Date.now(), 3)
-    },
-    {
-        id: uuid(),
-        name: 'Lyft',
-        imageUrl: Img,
-        updatedAt: subHours(Date.now(), 5)
-    },
-    {
-        id: uuid(),
-        name: 'GitHub',
-        imageUrl: Img,
-        updatedAt: subHours(Date.now(), 9)
-    }
-];
 
-export const LatestProducts = (props) => (
-    <Card >
+import {Card,CardHeader,Divider,IconButton,List,ListItem,ListItemAvatar,ListItemText, TablePagination} from '@mui/material';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+
+import { api } from "../../../../Hooks/Api";
+
+
+const LatestProducts = () => {
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(5);
+    const [books, setBooks] = useState([]);
+    useEffect(() => {
+        fetch(`${api}/books`)
+          .then((res) => res.json())
+          .then((data) => {
+            setBooks(data?.data?.data);
+            
+    
+          });
+      }, []);
+      const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+      
+    return(
+        <Card >
         <CardHeader
-            subtitle={`${products.length} in total`}
+            subtitle={`${books.length} in total`}
             title="Latest Products"
         />
         <Divider />
         <List>
-            {products?.map((product, i) => (
+            {books?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.reverse()?.map((product, i) => (
                 <ListItem
-                    divider={i < products.length - 1}
-                    key={product.id}
+                    divider={i < books?.length - 1}
+                    key={product?._id}
                 >
                     <ListItemAvatar>
                         <img
-                            alt={product.name}
-                            src={product.imageUrl}
+                            alt={product?.bookName}
+                            src={product?.bookImg}
                             style={{
                                 height: 48,
                                 width: 48
@@ -72,8 +52,8 @@ export const LatestProducts = (props) => (
                         />
                     </ListItemAvatar>
                     <ListItemText
-                        primary={product.name}
-                        secondary={`Updated ${formatDistanceToNow(product.updatedAt)}`}
+                        primary={product?.bookName}
+                        secondary={`Updated ${formatDistanceToNow(subHours(Date.now(),5))}`}
                     />
                     <IconButton
                         edge="end"
@@ -84,22 +64,20 @@ export const LatestProducts = (props) => (
                 </ListItem>
             ))}
         </List>
-        <Divider />
-        <Box
-            sx={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-                p: 2
-            }}
-        >
-            <Button
-                color="primary"
-                endIcon={<ArrowRightIcon />}
-                size="small"
-                variant="text"
-            >
-                View all
-            </Button>
-        </Box>
+        <TablePagination
+                            rowsPerPageOptions={[5, 10, 25]}
+                            component="div"
+                            count={books.length}
+                            rowsPerPage={rowsPerPage}
+                            page={page}
+                            onPageChange={handleChangePage}
+                            onRowsPerPageChange={handleChangeRowsPerPage}
+                        />
+      
     </Card>
-);
+    )
+}
+
+
+export default LatestProducts;
+/// updatedAt: subHours(Date.now(), 10)
