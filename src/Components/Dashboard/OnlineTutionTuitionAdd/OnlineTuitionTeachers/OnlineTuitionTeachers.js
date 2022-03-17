@@ -17,6 +17,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import SearchBar from '../../../Shared/SearchBar/SearchBar';
 import { alert } from '../../../../Hooks/useStyle';
+import Footer from '../../../Shared/Footer/Footer';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -129,6 +130,7 @@ const OnlineTuitionTeachers = () => {
     //////////////////////////////////////////////////
 
     return (
+       <>
         <Box sx={{ p: 3 }}>
             <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
             <Typography variant='h5' sx={{ pb: 3 }}>
@@ -146,7 +148,7 @@ const OnlineTuitionTeachers = () => {
                     </TableHead>
                     <TableBody>
                         {searchValue?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            .map((teacher) => (
+                            ?.map((teacher) => (
                                 <StyledTableRow key={teacher?._id}>
                                     <StyledTableCell component="th" scope="row">
                                         {teacher?.teacherName}
@@ -196,6 +198,8 @@ const OnlineTuitionTeachers = () => {
                 id={id} handleClose={handleClose} open={open} scroll={scroll} fetchTeacher={fetchTeacher}
             />
         </Box>
+        <Footer/>
+       </>
     );
 };
 

@@ -1,4 +1,4 @@
-import { Button, Container, CssBaseline, Grid, MenuItem, TextField, Typography } from '@mui/material';
+import { Button, Container, CssBaseline, Grid, MenuItem, TextField, Toolbar, Typography } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 import { alert, ButtonStyle } from '../../../Hooks/useStyle.js';
 import { Box } from '@mui/system';
@@ -12,6 +12,7 @@ import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import { api } from '../../../Hooks/Api.js';
+import Footer from '../../Shared/Footer/Footer.js';
 const axios = require('axios');
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -121,11 +122,14 @@ const AddASchool = () => {
     };
     const classes = useStyles();
     return (
+       <>
         <Container sx={{ p: 0 }}>
             <CssBaseline />
+            <CssBaseline />
+            <Toolbar/>
             <Box className={classes.paper}
 
-                sx={{ pb: 7, pt: 2, px: 2, background: "#f6f8ff", borderRadius: 5, boxShadow: "1px 2px 5px #e2e2e2" }}>
+                sx={{ mb: 10, py: 2, px: 2,borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)" }}>
 
                 <img alt='' className={classes.avatar} src={Logo}></img>
                 <Typography component="h1" variant="h5">Add a School From</Typography>
@@ -257,6 +261,8 @@ const AddASchool = () => {
                 </Box>
             </Box>
         </Container>
+        <Footer/>
+       </>
     );
 };
 const CssTextField = styled(TextField)({
