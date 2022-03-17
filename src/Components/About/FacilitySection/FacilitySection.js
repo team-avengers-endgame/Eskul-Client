@@ -5,7 +5,7 @@ import cloud from "../../../Assets/Images/AboutUs/cloud.svg";
 import useAuth from "../../../Hooks/useAuth";
 const FacilitySection = () => {
 
-  const {booksCount} = useAuth();
+  const {booksCount,privateTeacherCount,schoolsCount} = useAuth();
 
   return (
     <Box
@@ -87,7 +87,7 @@ const FacilitySection = () => {
                   gutterBottom
                   component="div"
                 >
-                  142
+                  {schoolsCount}
                 </Typography>
               </Box>
 
@@ -131,7 +131,7 @@ const FacilitySection = () => {
                   gutterBottom
                   component="div"
                 >
-                  24
+                  {privateTeacherCount}
                 </Typography>
               </Box>
 

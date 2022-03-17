@@ -29,10 +29,10 @@ const Home = () => {
       <Gallery />
       {/* <Subscribe/> */}
       <Partners />
-      <QuickScroll />
       {/* <Reviews/> */}
 
       <Footer />
+      <QuickScroll />
     </>
   );
 };

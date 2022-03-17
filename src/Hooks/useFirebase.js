@@ -12,16 +12,21 @@ import { useEffect, useState } from "react";
 import initializeAuthentication from "../Components/Login/Firebase/firebase.init";
 import { api } from "./Api";
 
+
 initializeAuthentication();
 
 const useFirebase = () => {
   const [admin, setAdmin] = useState(false);
   const [user, setUser] = useState({});
-  const [booksCount, setBooksCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const auth = getAuth();
-
   const [authError, setAuthError] = useState("");
+
+
+  const [booksCount, setBooksCount] = useState(0);
+  const [privateTeacherCount, setTeachersCount] = useState(0);
+  const [schoolsCount, setSchoolsCount] = useState(0);
+  
 
   // login google------------------------
   const signInWithGoogle = (location, navigate) => {
@@ -115,20 +120,20 @@ const useFirebase = () => {
   };
 
 
-const updateUserProfile=(name,photo)=>{
-  setIsLoading(true);
-  updateProfile(auth.currentUser, {
-    displayName: name, photoURL: photo
-  }).then(() => {
-    // Profile updated!
-    // ...
-  }).catch((error) => {
-    // An error occurred
-    // ...
-  }).finally(()=>{
-    setIsLoading(false)
-  })
-}
+  const updateUserProfile = (name, photo) => {
+    setIsLoading(true);
+    updateProfile(auth.currentUser, {
+      displayName: name, photoURL: photo
+    }).then(() => {
+      // Profile updated!
+      // ...
+    }).catch((error) => {
+      // An error occurred
+      // ...
+    }).finally(() => {
+      setIsLoading(false)
+    })
+  }
 
 
 
@@ -186,7 +191,29 @@ const updateUserProfile=(name,photo)=>{
       .finally(() => { });
   }, [user.email]);
 
-  
+  //////////////////////////////////////////////
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(`${api}/books`)
+      .then((res) => res.json())
+      .then((data) => {
+        setBooksCount(data?.data?.data.length);
+      });
+      fetch(`${api}/privateTeachers`)
+      .then(res => res.json())
+      .then(data => {
+        setTeachersCount(data?.data?.data.length);
+      })
+      fetch(`${api}/schools`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSchoolsCount(data?.data?.data.length);
+        
+      });
+    setIsLoading(false);
+  }, [])
+
+  //////////////////////////////////////////////
 
   return {
     user,
@@ -201,7 +228,8 @@ const updateUserProfile=(name,photo)=>{
     authError,
     admin,
     booksCount,
-    setBooksCount
+    privateTeacherCount,
+    schoolsCount
   };
 };
 

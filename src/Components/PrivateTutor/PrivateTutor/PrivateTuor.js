@@ -1,7 +1,8 @@
-import { Box, Button, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
+import { Box, Button, CardMedia, Container, Grid, Pagination, Paper, Stack, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { api } from '../../../Hooks/Api';
+import useAuth from '../../../Hooks/useAuth';
 import { alert, ButtonStyle } from '../../../Hooks/useStyle';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
@@ -11,14 +12,16 @@ import SharedBanner from '../../Shared/SharedBanner/SharedBanner';
 const PrivateTuor = () => {
     const [teachers, setTeachers] = useState([]);
     const [searchValue, setSearchValue] = useState([]);
+    const { privateTeacherCount } = useAuth();
+    const [page,setPage]=useState(1);
     useEffect(() => {
-        fetch(`${api}/privateTeachers`)
+        fetch(`${api}/privateTeachers?page=${page}&limit=10`)
             .then(res => res.json())
             .then(data => {
                 setTeachers(data?.data?.data);
                 setSearchValue(data?.data?.data)
             })
-    }, [])
+    }, [page])
 
     /*************** searching *****************/
     const handleOnChange = (e) => {
@@ -100,7 +103,15 @@ const PrivateTuor = () => {
                 </Grid>
 
 
+                <Stack spacing={2}>
 
+                    <Pagination onChange={(e, value) => setPage(value)}
+                        count={Math.floor(privateTeacherCount / 10)}
+                        color="secondary"
+                        showFirstButton
+                        showLastButton />
+
+                </Stack>
             </Container>
             <Footer />
 
