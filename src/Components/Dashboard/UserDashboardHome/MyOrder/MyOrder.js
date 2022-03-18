@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Chip, Container, Divider, Fab, Grid, Toolbar } from '@mui/material';
+import { Box, Chip, Container, Divider, Fab, Grid, TableFooter, TablePagination, Toolbar } from '@mui/material';
 import CartOrder from './MyBooks';
 import CustomerAddress from './MyAddress';
 import axios from 'axios';
@@ -7,10 +7,12 @@ import { api } from '../../../../Hooks/Api';
 import useAuth from '../../../../Hooks/useAuth';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Swal from 'sweetalert2';
+
 const MyOrder = () => {
     const [orders, setOrder] = useState([]);
     const { user } = useAuth();
-
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(4);
 
     useEffect(() => {
         fetch(`${api}/myOrder/${user?.email}`)
@@ -49,18 +51,25 @@ const MyOrder = () => {
             }
         })
     }
-
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+      };
+    
+      const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(+event.target.value);
+        setPage(0);
+      };
 
     return (
         <Container>
             <Toolbar />
             <Divider>
                 <Fab variant="extended" size="small" color="primary" aria-label="add">
-                    <AddShoppingCartIcon />  MY Order
+                    <AddShoppingCartIcon />MY Order
                 </Fab>
             </Divider>
             {
-                orders.map(order =>
+                orders?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.map(order =>
                     <Box key={order?._id}>
 
                         <Grid
@@ -96,7 +105,17 @@ const MyOrder = () => {
                     </Box>
                 )
             }
-
+ <TableFooter>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
+            component="div"
+            count={orders.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </TableFooter>
         </Container>
     );
 };

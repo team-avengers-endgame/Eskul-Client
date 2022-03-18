@@ -15,10 +15,13 @@ const Footer = () => {
     // Email handler =============
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-
-        if (data.email) {
+        var mailFormat = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+        if(data.email.match(mailFormat)){
             alert('success', 'Success', 'Newsletter Sing in success')
             reset();
+        }
+        else {
+            alert('warning', 'Warning', 'You have entered an invalid email address!')
         }
     };
     return (
@@ -43,7 +46,7 @@ const Footer = () => {
 
 
                                 <TextField {...register("email")}
-                                    placeholder='User Email for Newsletter'
+                                    placeholder='Your Email for Newsletter'
                                     sx={{ backgroundColor: 'white' }}
                                     size='small'
                                 />
