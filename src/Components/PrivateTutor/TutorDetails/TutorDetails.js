@@ -336,7 +336,6 @@ const TutorDetails = () => {
           </Grid>
         </Grid>
       </Container>
-
       <Footer />
     </>
   );
