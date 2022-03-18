@@ -155,7 +155,7 @@ function Dashboard(props) {
                             <ListItemIcon>
                                 <AdminPanelSettingsIcon />
                             </ListItemIcon>
-                            Make a Admin
+                            Make an Admin
                         </ListItem>
                     </NavLink>
                 </span>
