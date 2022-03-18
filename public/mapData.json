@@ -1,0 +1,243 @@
+[
+    {
+        "id":1,
+        "school":"Ideal School and College",
+        "geometry": {
+            "coordinates": [23.735771953365674, 90.42305994191685]
+          }
+        
+    },
+    {
+        "id":2,
+        "school":"Holy Cross Girls High school & College",
+        "geometry": {
+            "coordinates": [23.758447996130684, 90.39114112657641]
+          }
+        
+    },
+    {
+        "id":3,
+        "school":"St Gregory's High School",
+        "geometry": {
+            "coordinates": [23.708415292229155, 90.41444551123499]
+          }
+        
+    },
+    {
+        "id":4,
+        "school":"Dhanmondi Government Boys High School",
+        "geometry": {
+            "coordinates": [23.758012573591117, 90.3752088400708]
+          }
+        
+    },
+    {
+        "id":5,
+        "school":"Saint Joseph Higher Secondary School",
+        "geometry": {
+            "coordinates": [23.759952291213352, 90.37039999958755]
+          }
+        
+    },
+    {
+        "id":6,
+        "school":"Chittagong Collegiate School",
+        "geometry": {
+            "coordinates": [22.33353705866709, 91.82531124005419]
+          }
+        
+    },
+    {
+        "id":7,
+        "school":"Govt. Muslim High School",
+        "geometry": {
+            "coordinates": [22.334753440525628, 91.83695271121906]
+          }
+        
+    },
+    {
+        "id":8,
+        "school":"Dr.Kashtagir Government Girls School",
+        "geometry": {
+            "coordinates": [22.34819636754602, 91.8343921112192]
+          }
+        
+    },
+    {
+        "id":9,
+        "school":"Nasirabad Government High School",
+        "geometry": {
+            "coordinates": [22.362203803376236, 91.82070995354898]
+          }
+        
+    },
+    {
+        "id":10,
+        "school":"Agrabad Balika Bidayalay, Chattogram",
+        "geometry": {
+            "coordinates": [22.325306101138956, 91.8004703130652]
+          }
+        
+    },
+    {
+        "id":11,
+        "school":"Burichong Ananda Pilot Govt. High School, Burichong",
+        "geometry": {
+            "coordinates": [23.551701173847228, 91.1282551689035]
+          }
+        
+    },
+    {
+        "id":12,
+        "school":"Cumilla Victoria Govt. school & College",
+        "geometry": {
+            "coordinates": [23.459876666490054, 91.18189794063744]
+          }
+        
+    },
+    {
+        "id":13,
+        "school":"Ispahani Public School and College",
+        "geometry": {
+            "coordinates": [23.47703688753133, 91.119312626573]
+          }
+        
+    },
+    {
+        "id":14,
+        "school":"Comilla Zilla School",
+        "geometry": {
+            "coordinates": [23.463329619344297, 91.18115369773763]
+          }
+        
+    },
+    {
+        "id":15,
+        "school":"Ibn Taimia High School and College",
+        "geometry": {
+            "coordinates": [23.449736296864554, 91.18109122657266]
+          }
+        
+    },
+    {
+        "id":16,
+        "school":"Adventist International Mission School",
+        "geometry": {
+            "coordinates": [23.793716474086388, 90.38068728240087]
+          }
+        
+    },
+    {
+        "id":17,
+        "school":"Academy Halima Khatun Girls High School",
+        "geometry": {
+            "coordinates": [22.70119781794433, 90.3656755707399]
+          }
+        
+    },
+    {
+        "id":18,
+        "school":"Kashimpur High School & College",
+        "geometry": {
+            "coordinates": [23.98253503680913, 90.32296413822722]
+          }
+        
+    },
+    {
+        "id":19,
+        "school":"ARS Secondary School, Rafiqraju Cadet School & College",
+        "geometry": {
+            "coordinates": [23.924832538596057, 90.26512866890803]
+          }
+        
+    },
+    {
+        "id":20,
+        "school":"Udayan Secondary School",
+        "geometry": {
+            "coordinates": [22.71289575780342, 90.36746098977733]
+          }
+        
+    },
+    {
+        "id":21,
+        "school":"Seroil Government High School, Rajshahi",
+        "geometry": {
+            "coordinates": [24.369866580081283, 88.61079689774871]
+          }
+        
+    },
+    {
+        "id":22,
+        "school":"Government Laboratory High School, Rajshahi",
+        "geometry": {
+            "coordinates": [24.3718308305895, 88.58026988425432]
+          }
+        
+    },
+    {
+        "id":23,
+        "school":"Govt. P.N Girls High School, Rajshahi",
+        "geometry": {
+            "coordinates": [24.36584409522707, 88.60197469774864]
+          }
+        
+    },
+    {
+        "id":24,
+        "school":"Rajshahi Government Women’s College",
+        "geometry": {
+            "coordinates": [24.37214750274959, 88.59831841124318]
+          }
+        
+    },
+    {
+        "id":25,
+        "school":"Rajshahi Model School and College",
+        "geometry": {
+            "coordinates": [24.368056691465448, 88.57577917843017]
+          }
+        
+    },
+    {
+        "id":26,
+        "school":"Rangpur Zilla School",
+        "geometry": {
+            "coordinates": [25.757926675915343, 89.24293170572216]
+          }
+        
+    },
+    {
+        "id":27,
+        "school":"Police Lines School & College, Rangpur",
+        "geometry": {
+            "coordinates": [25.757345392171946, 89.24899755359073]
+          }
+        
+    },
+    {
+        "id":28,
+        "school":"Nilphamari Govt High School",
+        "geometry": {
+            "coordinates": [25.935711032467488, 88.85469678242829]
+          }
+        
+    },
+    {
+        "id":29,
+        "school":"Bir Uttam Shaheed Samad High School",
+        "geometry": {
+            "coordinates": [25.76910149776895, 89.21796639592046]
+          }
+        
+    },
+    {
+        "id":30,
+        "school":"Cant Public School & College, Rangpur",
+        "geometry": {
+            "coordinates": [25.764578764872446, 89.23008498242598]
+          }
+        
+    }
+    
+]

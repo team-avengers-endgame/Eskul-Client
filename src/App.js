@@ -42,11 +42,16 @@ import MyOrder from "./Components/Dashboard/UserDashboardHome/MyOrder/MyOrder";
 import ManageOrder from "./Components/Dashboard/ManageOrder/ManageOrder";
 import WebsiteReviewFrom from "./Components/Dashboard/UserDashboardHome/WebsiteReviewFrom/WebsiteReviewFrom";
 import Donation from "./Components/Donation/Donation";
-import TransportHomeDetails from "./Components/Transport/TransportHomeDetails";
+
 import TransportHome from "./Components/Transport/TransportDetails/TransportHome";
 import Faq from "./Components/Faq/Faq";
 import Profile from "./Components/Dashboard/Profile/Profile";
 import { Box } from "@mui/material";
+
+import TransportHomeDetails from "./Components/Transport/TransportHomeDetails";
+import SchoolHome from "./Components/ReDesignedSchoolPage/SchoolHome/SchoolHome";
+import DetailsHome from "./Components/ReDesignSchoolDetailsPage/DetailsHome/DetailsHome";
+
 
 
 
@@ -120,6 +125,12 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route path="notes" element={<NotesPage />} />
+            <Route path="schDetails" element={<SchoolDetails />} />
+            <Route path="transport" element={<TransportHomeDetails />} />
+            <Route path="transportDetails/:tpid" element={<TransportHome />} />
+            <Route path="contacts" element={<Contacts />} />
+            <Route path="schools" element={<SchoolHome />} />
             <Route path="notes" element={
               <PrivateRoute>
                 <NotesPage />
@@ -146,7 +157,7 @@ function App() {
               path="details/:id"
               element={
                 <PrivateRoute>
-                  <SchoolDetails />
+                  <DetailsHome />
                 </PrivateRoute>
               }
             />
