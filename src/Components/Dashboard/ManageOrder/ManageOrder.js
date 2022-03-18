@@ -21,7 +21,7 @@ import Swal from "sweetalert2";
 const ManageOrder = () => {
   const [orders, setOrder] = useState([]);
   const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(4);
+  const [rowsPerPage, setRowsPerPage] = React.useState(4);
 
 
   const fetchOrders = () => {
@@ -70,14 +70,14 @@ const ManageOrder = () => {
       }
     });
   };
- const handleChangePage = (event, newPage) => {
-        setPage(newPage);
-    };
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
 
-    const handleChangeRowsPerPage = (event) => {
-        setRowsPerPage(+event.target.value);
-        setPage(0);
-    };
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
   /* 
  
   */
@@ -117,17 +117,17 @@ const ManageOrder = () => {
           </Box>
         ))}
 
-<TableFooter>
-                    <TablePagination
-                        rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
-                        component="div"
-                        count={orders.length}
-                        rowsPerPage={rowsPerPage}
-                        page={page}
-                        onPageChange={handleChangePage}
-                        onRowsPerPageChange={handleChangeRowsPerPage}
-                    />
-                </TableFooter>
+        <TableFooter>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
+            component="div"
+            count={orders.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </TableFooter>
       </Container>
       <Footer />
     </>

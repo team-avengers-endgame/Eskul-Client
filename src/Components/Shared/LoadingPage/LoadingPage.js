@@ -7,8 +7,8 @@ const LoadingPage = () => {
     return (
         <Box >
             <Box sx={{ bgColor: 'red', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-                <Box sx={{ textAlign: 'center' }}>
-                    <img src={Logo} alt="" /><br />
+                <Box sx={{ textAlign: 'center',p:3 }}>
+                    <img style={{width:"100%"}} src={Logo} alt="" /><br />
                     <img src={Img} alt="" />
                     <Typography>Loading...</Typography>
                 </Box>
