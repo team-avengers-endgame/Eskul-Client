@@ -327,7 +327,6 @@ const TutorDetails = () => {
                   {" "}
                   <PaidIcon color="primary" />
                   <Typography variant="body1">
-                    {" "}
                     Fee: ৳ {tutor?.monthlyFee} / per month
                   </Typography>
                 </span>
