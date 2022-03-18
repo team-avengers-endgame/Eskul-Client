@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, TextField, Typography } from '@mui/material';
+import { Button, TextField, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useForm } from "react-hook-form";
 import { api } from '../../../Hooks/Api';
 import { alert, ButtonStyle } from '../../../Hooks/useStyle';
+import Footer from '../../Shared/Footer/Footer';
 const MakeAdmin = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = data => {
@@ -25,6 +26,9 @@ const MakeAdmin = () => {
 
 
     return (
+       <>
+        <Toolbar/>
+        <Toolbar/>
         <Box sx={{ p: 3 }}>
             <Box>
                 <Typography variant='h5'>Make an admin form</Typography>
@@ -37,6 +41,11 @@ const MakeAdmin = () => {
                 </Box>
             </Box>
         </Box>
+        <Toolbar/>
+        <Toolbar/>
+        
+        <Footer/>
+       </>
     );
 };
 
