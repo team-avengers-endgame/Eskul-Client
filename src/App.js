@@ -18,7 +18,6 @@ import BasicSection from "./Components/SchoolDetails/SchDetailsLayout/ContentBar
 import AddABook from "./Components/Dashboard/AddABook/AddABook";
 import DashboardBooks from "./Components/Dashboard/Books/Books";
 import Contacts from "./Components/Contacts/Contacts";
-
 import OnlineTuitionTeacherAdd from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeacherAdd";
 import BookList from "./Components/BookList/BookList";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
@@ -27,7 +26,7 @@ import AdminRoute from "./Components/Dashboard/AdminRoute/AdminRoute";
 import EditBooks from "./Components/Dashboard/Books/EditBooks/EditBooks";
 import DashboardHome from "./Components/Dashboard/DashboardHome/DashboardHome";
 import OnlineTuitionTeachers from "./Components/Dashboard/OnlineTutionTuitionAdd/OnlineTuitionTeachers/OnlineTuitionTeachers";
-import PrivateTuor from "./Components/PrivateTutor/PrivateTutor/PrivateTuor";
+import PrivateTutor from "./Components/PrivateTutor/PrivateTutor/PrivateTuor";
 import TutorDetails from "./Components/PrivateTutor/TutorDetails/TutorDetails";
 import DashboardSchoolTeachers from "./Components/Dashboard/Schools/Teachers/Teachers";
 import NotesPage from "./Components/Notes/NotesPage";
@@ -70,6 +69,8 @@ function App() {
     });
   });
   const { user, admin } = useAuth();
+
+
   return (
 
     <Box sx={{ overflow: 'hidden' }}>
@@ -79,14 +80,43 @@ function App() {
             <Route element={App} />
             <Route path="/" element={<Home />} />
             <Route path="home" element={<Home />} />
-            <Route path="faq" element={<Faq />} />
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login />} />
             <Route path="about" element={<About />} />
+            <Route path="basic" element={<BasicSection />} />
+            <Route path="contacts" element={<Contacts />} />
+            <Route path="schools" element={<Schools />} />
             <Route path="books" element={<BookList />} />
-            <Route path="books/bookOrderReview" element={<BookOrderReview />} />
-            <Route path="success/:id" element={<PaymentSuccessfullyPage />} />
-            <Route path="payment" element={<Payment />} />
+            <Route path="books/bookOrderReview" element={
+              <BookOrderReview />
+            } />
+
+
+            <Route path="faq" element={
+              <PrivateRoute>
+                <Faq />
+              </PrivateRoute>
+            } />
+
+
+
+            <Route path="success/:id" element={
+              <PrivateRoute>
+                <PaymentSuccessfullyPage />
+              </PrivateRoute>
+            } />
+
+            <Route path="teacherDetails/:id" element={
+              <PrivateRoute>
+                <TeacherDetails />
+              </PrivateRoute>
+            } />
+
+            <Route path="payment" element={
+              <PrivateRoute>
+                <Payment />
+              </PrivateRoute>
+            } />
             <Route
               path="bookDetails/:id"
               element={
@@ -101,6 +131,27 @@ function App() {
             <Route path="transportDetails/:tpid" element={<TransportHome />} />
             <Route path="contacts" element={<Contacts />} />
             <Route path="schools" element={<SchoolHome />} />
+            <Route path="notes" element={
+              <PrivateRoute>
+                <NotesPage />
+              </PrivateRoute>
+            } />
+
+            <Route path="schDetails" element={
+              <PrivateRoute>
+                <SchoolDetails />
+              </PrivateRoute>
+            } />
+            <Route path="transport" element={
+              <PrivateRoute>
+                <TransportHomeDetails />
+              </PrivateRoute>
+            } />
+            <Route path="transportDetails/:tpid" element={
+              <PrivateRoute>
+                <TransportHome />
+              </PrivateRoute>
+            } />
 
             <Route
               path="details/:id"
@@ -110,9 +161,8 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="teacherDetails/:id" element={<TeacherDetails />} />
-            <Route path="basic" element={<BasicSection />} />
-            <Route path="privateTutor" element={<PrivateTuor />} />
+
+            <Route path="privateTutor" element={<PrivateTutor />} />
             <Route
               path="tutorDetails/:id"
               element={
@@ -151,10 +201,6 @@ function App() {
                   </AdminRoute>
                 }
               />
-              <Route path="notes" element={<NotesPage />} />
-              <Route path="schDetails" element={<SchoolDetails />} />
-              <Route path="contacts" element={<Contacts />} />
-              <Route path="transport" element={<TransportHome />} />
 
 
               <Route
@@ -165,9 +211,7 @@ function App() {
                   </PrivateRoute>
                 }
               />
-              <Route path="teacherDetails/:id" element={<TeacherDetails />} />
-              <Route path="basic" element={<BasicSection />} />
-              <Route path="privateTutor" element={<PrivateTuor />} />
+
               <Route
                 path="schools"
                 element={

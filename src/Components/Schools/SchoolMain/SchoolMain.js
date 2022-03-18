@@ -7,10 +7,13 @@ import { api } from "../../../Hooks/Api";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
 import { alert, ButtonStyle } from "../../../Hooks/useStyle";
 import SearchBar from "../../Shared/SearchBar/SearchBar";
+import useAuth from "../../../Hooks/useAuth";
 const SchoolMain = () => {
   const [schools, setSchools] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
   const [page, setPage] = useState(1);
+  const { schoolsCount } = useAuth();
+
   useEffect(() => {
     fetch(`${api}/schools?page=${page}&limit=10`)
       .then((res) => res.json())
@@ -22,6 +25,7 @@ const SchoolMain = () => {
 
 
   const handleOnChange = (e) => {
+
     const value = e.target.value;
     const newValue = schools?.filter(s => s.schoolName.toLowerCase().includes(value.toLowerCase()) || s.location.toLowerCase().includes(value.toLowerCase()))
     newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
@@ -112,7 +116,12 @@ const SchoolMain = () => {
       </Grid>
       <Stack spacing={2}>
 
-        <Pagination onChange={(e, value) => setPage(value)} count={100} color="secondary" />
+        <Pagination onChange={(e, value) => setPage(value)}
+          count={Math.floor(schoolsCount / 10)}
+          color="secondary"
+          showFirstButton
+          showLastButton
+        />
 
       </Stack>
     </Container>

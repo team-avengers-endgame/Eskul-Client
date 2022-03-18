@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, CssBaseline, Grid, TextField, Typography } from '@mui/material';
+import { Button, Container, CssBaseline, Grid, Paper, TextField, Toolbar, Typography } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 import { alert, ButtonStyle } from '../../../Hooks/useStyle';
 import { Box } from '@mui/system';
@@ -9,6 +9,7 @@ import { styled } from '@mui/material/styles';
 import uploadImage from '../../../Hooks/useImgUpload';
 
 import { api } from '../../../Hooks/Api.js';
+import Footer from '../../Shared/Footer/Footer';
 const axios = require('axios');
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -66,11 +67,13 @@ const OnlineTuitionTeacherAdd = () => {
 
     const classes = useStyles();
     return (
+        <>
         <Container sx={{ p: 0 }}>
+            <Toolbar/>
             <CssBaseline />
-            <Box className={classes.paper}
+            <Paper className={classes.paper}
 
-                sx={{ pb: 7, pt: 2, px: 2, background: "#f6f8ff", borderRadius: 5, boxShadow: "1px 2px 5px #e2e2e2" }}>
+                sx={{mb: 10, py: 2, px: 2,borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)"  }}>
 
                 <img alt='' className={classes.avatar} src={Logo}></img>
                 <Typography component="h1" variant="h5">Add a Online Tuition</Typography>
@@ -175,8 +178,10 @@ const OnlineTuitionTeacherAdd = () => {
                         </Grid>
                     </form>
                 </Box>
-            </Box>
+            </Paper>
         </Container>
+        <Footer/>
+        </>
     );
 };
 const CssTextField = styled(TextField)({

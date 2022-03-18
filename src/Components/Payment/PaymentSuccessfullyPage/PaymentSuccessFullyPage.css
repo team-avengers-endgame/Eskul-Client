@@ -1,5 +1,6 @@
 .paymentSuccessContainer {
-    background-image: url('./Img/bace57c5e51b79fa303026d754fef8b5.gif'), url('./Img//confetti-icegif-2.gif');
+    background-image: url('./Img/bace57c5e51b79fa303026d754fef8b5.gif');
+    background-color: black;
     background-position: right bottom, left top;
     background-repeat: no-repeat, repeat;
     background-attachment: fixed;

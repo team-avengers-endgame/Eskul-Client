@@ -1,45 +1,74 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
 import './NotesLIst.css'
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import Pdf from './Pdf';
+import { nodesData } from './NotesData/NotseData';
 
 const NotesList = () => {
+    const [name, setName] = useState("");
+    const [notes, setNotes] = useState([]);
+    const [open, setOpen] = useState(false);
+    const [scroll, setScroll] = useState();
 
-    const [notes, setNotes] = useState([])
     useEffect(() => {
-        fetch('/notesData.json')
-            .then(res => res.json())
-            .then(data => setNotes(data))
+        setNotes(nodesData)
     }, [])
-    // noteslist
+    
+
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleSetScroll = (name) => {
+        setName(name);
+        setScroll();
+        setOpen(true);
+    };
+
+
+
+
+
+
+
     return (
 
         <Container>
             <Typography variant="h4" sx={{ margin: "10px", fontWeight: 'bold', textAlign: 'center', my: 5 }} >Download your Notes</Typography>
             <Box sx={{ mx: 'auto' }}>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                    {notes.map((note) => (
-                        <Grid item spacing={{ xs: 2, md: 3 }} xs={12} sm={4} md={4} key={note.name}
+                    {notes?.map((note, index) => (
+                        <Grid item spacing={{ xs: 2, md: 3 }} xs={12} sm={4} md={4} key={index}
                         >
-                            <div >
-                                <div className="card">
-                                    <img className="pro-pic" src={note.img} alt="" />
-                                    <div className="desciption-wrap">
-                                        <div className="description">
-                                            <h3>{note.name}</h3>
-                                            <h4>{note.sub}</h4>
+                          
+                                <Box className="card">
+                                    <img className="pro-pic" src={note?.img} alt="" />
+                                    <Box className="desciption-wrap">
+                                        <Box className="description">
+                                            <Typography variant='h6'>{note?.name}</Typography>
+                                            <Typography variant='h6'>{note?.sub}</Typography>
+                                            <Button onClick={() => handleSetScroll(note?.name)} >Read the PDF</Button>
 
-                                         
-                                                    <a className="anchor" href="https://drive.google.com/file/d/1C0_xRXDn2fsWeYKfjyDUthb944uIclwx/view?usp=sharing" target="_blank" download>Download PDF</a>
-                                               
-                                        </div>
-                                    </div>
-                                </div>
+                                        </Box>
+                                    </Box>
+                                </Box>
 
-                            </div>
+                          
+
+
                         </Grid>
                     ))}
                 </Grid>
+
+
+
+                <Pdf
+                    handleClose={handleClose}
+                    open={open}
+                    scroll={scroll}
+                    name={name}
+                />
             </Box>
         </Container>
 

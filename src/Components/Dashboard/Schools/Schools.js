@@ -15,6 +15,7 @@ import { api } from "../../../Hooks/Api";
 import EditSchoolDataForm from "./EditSchoolDataForm/EditSchoolDataForm";
 import SearchBar from "../../Shared/SearchBar/SearchBar";
 import { alert } from "../../../Hooks/useStyle";
+import Footer from "../../Shared/Footer/Footer";
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -95,6 +96,7 @@ export default function Schools() {
   const placeholder = 'Search by School Name or Location';
 
   return (
+    <>
     <Box sx={{ p: 3 }}>
       <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
       <Typography variant="h5" sx={{ pb: 3 }}>Manage all Schools</Typography>
@@ -175,5 +177,7 @@ export default function Schools() {
         loadSchools={loadSchools}
       />
     </Box>
+    <Footer/>
+    </>
   );
 }
