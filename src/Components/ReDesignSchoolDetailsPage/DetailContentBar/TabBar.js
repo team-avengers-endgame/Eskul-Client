@@ -8,7 +8,8 @@ import BasicSchoolInfo from './BasicSchoolInfo';
 import Description from './Description';
 import Teachers from './Teachers/Teachers';
 import SchoolContact from './SchoolContact';
-import Feedback from '../DetailContentBar/Feedback/Feedback'
+import Feedback from '../../SchoolDetails/SchDetailsLayout/ContentBar/Feedback/Feedback';
+
 
 const TabBar = () => {
     const [value, setValue] = React.useState('1');
