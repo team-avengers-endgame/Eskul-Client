@@ -9,7 +9,7 @@ import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Register/Register";
 import About from "./Components/About/About/About";
 import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
-import Schools from "./Components/Schools/Schools/Schools";
+// import Schools from "./Components/Schools/Schools/Schools";
 import AddASchool from "./Components/Dashboard/AddASchool/AddASchool";
 import DashboardSchools from "./Components/Dashboard/Schools/Schools";
 import MakeAdmin from "./Components/Dashboard/MakeAdmin/MakeAdmin";
@@ -49,9 +49,9 @@ import Profile from "./Components/Dashboard/Profile/Profile";
 import { Box } from "@mui/material";
 
 import TransportHomeDetails from "./Components/Transport/TransportHomeDetails";
-import SchoolHome from "./Components/ReDesignedSchoolPage/SchoolHome/SchoolHome";
-import DetailsHome from "./Components/ReDesignSchoolDetailsPage/DetailsHome/DetailsHome";
 
+import DetailsHome from "./Components/ReDesignSchoolDetailsPage/DetailsHome/DetailsHome";
+import SchoolHome from './Components/ReDesignedSchoolPage/SchoolHome/SchoolHome'
 
 
 
@@ -85,7 +85,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="basic" element={<BasicSection />} />
             <Route path="contacts" element={<Contacts />} />
-            <Route path="schools" element={<Schools />} />
+            <Route path="schools" element={<SchoolHome />} />
             <Route path="books" element={<BookList />} />
             <Route path="books/bookOrderReview" element={
               <BookOrderReview />
@@ -126,11 +126,11 @@ function App() {
               }
             />
             <Route path="notes" element={<NotesPage />} />
-            <Route path="schDetails" element={<SchoolDetails />} />
+            {/* <Route path="schDetails" element={<SchoolDetails />} /> */}
             <Route path="transport" element={<TransportHomeDetails />} />
             <Route path="transportDetails/:tpid" element={<TransportHome />} />
             <Route path="contacts" element={<Contacts />} />
-            <Route path="schools" element={<SchoolHome />} />
+            {/* <Route path="schools" element={<SchoolHome />} /> */}
             <Route path="notes" element={
               <PrivateRoute>
                 <NotesPage />
