@@ -16,7 +16,6 @@ import StarIcon from "@mui/icons-material/Star";
 
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import PaidIcon from "@mui/icons-material/Paid";
-import ReviewsIcon from "@mui/icons-material/Reviews";
 import { api } from "../../Hooks/Api";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import Footer from "../Shared/Footer/Footer";

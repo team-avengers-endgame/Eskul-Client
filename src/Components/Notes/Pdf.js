@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
-import Pdf1 from './PDF/sample.pdf';
+import { nodesData } from './NotesData/NotseData';
+import { ButtonStyle } from '../../Hooks/useStyle';
+import LoadingPage from '../Shared/LoadingPage/LoadingPage';
 const Pdf = ({ handleClose, open, scroll, name }) => {
 
     const [numPages, setNumPages] = useState(null);
@@ -24,8 +26,8 @@ const Pdf = ({ handleClose, open, scroll, name }) => {
         changePage(+1)
     }
 
-
-
+    const notePdf = nodesData.filter(pdf => pdf?.name === name)
+    const singlePdf = notePdf[0]
 
 
     const descriptionElementRef = React.useRef(null);
@@ -50,24 +52,27 @@ const Pdf = ({ handleClose, open, scroll, name }) => {
                 aria-describedby="scroll-dialog-description"
             >
                 <DialogTitle id="scroll-dialog-title">
-                    PDF
+                    PDF {singlePdf?.name}
                 </DialogTitle>
-                <DialogContent dividers={scroll === "paper"}>
-                    <Document file={Pdf1} onLoadSuccess={console.log(onDocumentLoadSuccess)}>
+                {
+                    !singlePdf?.pdf?<LoadingPage/>:
+                    <DialogContent dividers={scroll === "paper"}>
+                    <Document file={singlePdf?.pdf} onLoadSuccess={onDocumentLoadSuccess}>
                         <Page height="600" pageNumber={pageNumber} />
                     </Document>
-                    <p> Page {pageNumber} of {numPages}</p>
+                    <Typography> Page {pageNumber} of {numPages}</Typography>
                     {pageNumber > 1 &&
-                        <button onClick={changePageBack}>Previous Page</button>
+                        <Button sx={{ ...ButtonStyle }} size='small' onClick={changePageBack}>Previous Page</Button>
                     }
                     {
                         pageNumber < numPages &&
-                        <button onClick={changePageNext}>Next Page</button>
+                        <Button sx={{ ...ButtonStyle }} size='small' onClick={changePageNext}>Next Page</Button>
                     }
 
                 </DialogContent>
+                }
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button sx={{ ...ButtonStyle }} onClick={handleClose}>Cancel</Button>
                 </DialogActions>
             </Dialog>
         </div>

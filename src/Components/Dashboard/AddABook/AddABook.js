@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, CssBaseline, Grid, MenuItem, TextField, Typography } from '@mui/material';
+import { Button, Container, CssBaseline, Grid, MenuItem, TextField, Toolbar, Typography } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 import { ButtonStyle, alert } from '../../../Hooks/useStyle'
 import { Box } from '@mui/system';
@@ -15,6 +15,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import StarIcon from '@mui/icons-material/Star';
 import Rating from '@mui/material/Rating';
+import Footer from '../../Shared/Footer/Footer';
 const labels = {
     0.5: 'Useless',
     1: 'Useless+',
@@ -158,11 +159,13 @@ const AddABook = () => {
 
     const classes = useStyles();
     return (
+       <>
         <Container sx={{ p: 0 }}>
+            <Toolbar/>
             <CssBaseline />
             <Box className={classes.paper}
 
-                sx={{ pb: 7, pt: 2, px: 2, background: "#f6f8ff", borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 10%)" }}>
+                sx={{ mb: 10, py: 2, px: 2,borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)" }}>
 
                 <img alt='' className={classes.avatar} src={Logo}></img>
 
@@ -307,6 +310,8 @@ const AddABook = () => {
             </Box>
 
         </Container>
+        <Footer/>
+       </>
     );
 };
 const CssTextField = styled(TextField)({
