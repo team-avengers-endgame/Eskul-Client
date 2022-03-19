@@ -6,21 +6,20 @@ import { api } from "../../../../Hooks/Api";
 const WebsiteReviewFrom = () => {
   const { user } = useAuth();
 
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(2);
   const [message, setMessage] = useState("");
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const { data } = await axios.get(
-      `http://localhost:8000/api/users/me/${user.email}`
-    );
+    const { data } = await axios.get(`${api}/users/me/${user.email}`);
 
     const response = await axios.post(`${api}/reviews`, {
       user: data._id,
       rating: value,
       description: message,
     });
-    console.log(response);
+    setValue(0);
+    setMessage("");
   };
   return (
     <form onSubmit={handleFormSubmit}>
@@ -49,19 +48,13 @@ const WebsiteReviewFrom = () => {
         >
           Give Your Valuable Reviews
         </Typography>
-        <Rating
-          sx={{ mt: 2 }}
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        />
+       
         <TextField
           required
           variant="outlined"
           sx={{
             width: {
-              xm: "90%",
+              xm: "100%",
               sm: "90%",
               md: "50%",
             },
@@ -75,7 +68,14 @@ const WebsiteReviewFrom = () => {
           placeholder="What's your experience....."
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-        />{" "}
+        />
+         <Rating
+          sx={{ mt: 2 }}
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+        />
         <Button
           sx={{
             padding: "10px 40px",
@@ -88,7 +88,8 @@ const WebsiteReviewFrom = () => {
               border: "0.5px solid #ffaf5f",
               color: "#0c4b65",
               fontWeight: 600,
-            },
+              
+            }
           }}
           variant="outlined"
           type="submit"

@@ -20,6 +20,7 @@ import DropdownMenuGallery from "./DropdownMenuGallery";
 import NotificationIcon from "./NotificationIcon";
 import CartDrawer from "./CartDrawer";
 
+
 const NavigationBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -84,23 +85,23 @@ const NavigationBar = () => {
 
           {/* large device menus */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Link to="/" style={LinkStyle}>
+            <NavLink to="/" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
               >
                 home
               </Button>
-            </Link>
+            </NavLink>
 
-            <Link to="/schools" style={LinkStyle}>
+            <NavLink  to="/schools" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
               >
                 Schools
               </Button>
-            </Link>
+            </NavLink>
             <Link to="/privateTutor" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}

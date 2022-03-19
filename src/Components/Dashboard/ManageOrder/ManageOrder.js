@@ -6,6 +6,8 @@ import {
   Divider,
   Fab,
   Grid,
+  TableFooter,
+  TablePagination,
   Toolbar,
 } from "@mui/material";
 import { api } from "../../../Hooks/Api";
@@ -18,6 +20,10 @@ import Footer from "../../Shared/Footer/Footer";
 import Swal from "sweetalert2";
 const ManageOrder = () => {
   const [orders, setOrder] = useState([]);
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(4);
+
+
   const fetchOrders = () => {
     fetch(`${api}/allOrder`)
       .then((res) => res.json())
@@ -64,7 +70,14 @@ const ManageOrder = () => {
       }
     });
   };
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
 
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
   /* 
  
   */
@@ -77,7 +90,7 @@ const ManageOrder = () => {
             <AddShoppingCartIcon /> Manage Orders
           </Fab>
         </Divider>
-        {orders.map((order) => (
+        {orders?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.map((order) => (
           <Box key={order?._id}>
             <Grid
               container
@@ -103,6 +116,18 @@ const ManageOrder = () => {
             </Divider>
           </Box>
         ))}
+
+        <TableFooter>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
+            component="div"
+            count={orders.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </TableFooter>
       </Container>
       <Footer />
     </>

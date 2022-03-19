@@ -17,7 +17,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { LinkStyle } from '../../Hooks/useStyle';
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
-import { Avatar } from '@mui/material';
+import { Avatar, Collapse, ListItemButton, ListItemText } from '@mui/material';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import AddCardIcon from '@mui/icons-material/AddCard';
 import LoginIcon from '@mui/icons-material/Login';
@@ -26,19 +26,34 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import HomeIcon from '@mui/icons-material/Home';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import PreviewIcon from '@mui/icons-material/Preview';
-
-
-
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 const drawerWidth = 240;
 function Dashboard(props) {
     const { user, logOut, admin } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [openListSchool, setOpenListSchool] = React.useState(false);
+    const [openListBooks, setOpenListBooks] = React.useState(false);
+    const [openListTutor, setOpenListTutor] = React.useState(false);
 
     const navigate = useNavigate();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
+    };
+
+    const handleClickListSchool = () => {
+        setOpenListSchool(!openListSchool);
+    };
+    const handleClickListBooks = () => {
+        setOpenListBooks(!openListBooks);
+    };
+    const handleClickListTutor = () => {
+        setOpenListTutor(!openListTutor);
     };
 
 
@@ -67,7 +82,7 @@ function Dashboard(props) {
                 </NavLink>
                 <Divider />
 
-                <NavLink to='/dashboard' style={LinkStyle}>
+                <NavLink to='/dashboard' style={{ ...LinkStyle }} >
                     <ListItem button >
                         <ListItemIcon>
                             <DashboardIcon />
@@ -76,62 +91,117 @@ function Dashboard(props) {
                     </ListItem>
                 </NavLink>
 
-               
+
                 <Divider />
+
                 {admin && <span>
-                    <NavLink to='/dashboard/addASchool' style={LinkStyle}>
-                        <ListItem button >
-                            <ListItemIcon>
-                                <SchoolIcon />
-                            </ListItemIcon>
-                            Add A School
-                        </ListItem>
-                    </NavLink>
+                    {/* ------------------------------- */}
+                    <ListItemButton onClick={handleClickListSchool}>
+                        <ListItemIcon>
+                            <AccountBalanceIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Schools" />
+                        {openListSchool ? <ExpandLess /> : <ExpandMore />}
+                    </ListItemButton>
+                    <Collapse in={openListSchool} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            <NavLink to='/dashboard/addASchool' style={LinkStyle}>
+                                <ListItem button >
+                                    <ListItemIcon>
+                                        <AddCircleOutlinedIcon />
+                                    </ListItemIcon>
+                                    Add A School
+                                </ListItem>
+                            </NavLink>
+
+                            <NavLink to='/dashboard/schools' style={LinkStyle}>
+                                <ListItem button >
+                                    <ListItemIcon>
+                                        <SchoolIcon />
+                                    </ListItemIcon>
+                                    Schools
+                                </ListItem>
+                            </NavLink>
+
+                        </List>
+                    </Collapse>
+                    {/* ------------------------------- */}
                     <Divider />
-                    <NavLink to='/dashboard/schools' style={LinkStyle}>
-                        <ListItem button >
-                            <ListItemIcon>
-                                <SchoolIcon />
-                            </ListItemIcon>
-                            Schools
-                        </ListItem>
-                    </NavLink>
+                    <ListItemButton onClick={handleClickListBooks}>
+                        <ListItemIcon>
+                            <LibraryBooksIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Books" />
+                        {openListBooks ? <ExpandLess /> : <ExpandMore />}
+                    </ListItemButton>
+
+                    <Collapse in={openListBooks} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            <NavLink to='/dashboard/addABook' style={LinkStyle}>
+                                <ListItem button >
+                                    <ListItemIcon>
+                                        <AddCircleOutlinedIcon />
+                                    </ListItemIcon>
+                                    Add a Book
+                                </ListItem>
+                            </NavLink>
+
+
+                            <NavLink to='/dashboard/books' style={LinkStyle}>
+                                <ListItem button >
+                                    <ListItemIcon>
+                                        <MenuBookIcon />
+                                    </ListItemIcon>
+                                    Books
+                                </ListItem>
+                            </NavLink>
+                        </List>
+                    </Collapse>
+
+                    {/* ----------------------------- */}
                     <Divider />
-                    <NavLink to='/dashboard/addOnlineTuition' style={LinkStyle}>
-                        <ListItem button >
-                            <ListItemIcon>
-                                <AddCardIcon />
-                            </ListItemIcon>
-                            Add a Online Tuition
-                        </ListItem>
-                    </NavLink>
+
+
+                    {/* ------------------------------- */}
+
+                    <ListItemButton onClick={handleClickListTutor}>
+                        <ListItemIcon>
+                            <SchoolIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Tuition" />
+                        {openListBooks ? <ExpandLess /> : <ExpandMore />}
+                    </ListItemButton>
+
+                    <Collapse in={openListTutor} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+
+                            <NavLink to='/dashboard/addOnlineTuition' style={LinkStyle}>
+                                <ListItem button >
+                                    <ListItemIcon>
+                                        <AddCircleOutlinedIcon />
+                                    </ListItemIcon>
+                                    Add Tuition Teachers
+                                </ListItem>
+                            </NavLink>
+
+                            <NavLink to='/dashboard/onlineTuitionTeachers' style={LinkStyle}>
+                                <ListItem button >
+                                    <ListItemIcon>
+                                        <AddCardIcon />
+                                    </ListItemIcon>
+                                    Tuition Teachers
+                                </ListItem>
+                            </NavLink>
+
+                        </List>
+                    </Collapse>
+
+                    {/* ----------------------------- */}
                     <Divider />
-                    <NavLink to='/dashboard/onlineTuitionTeachers' style={LinkStyle}>
-                        <ListItem button >
-                            <ListItemIcon>
-                                <AddCardIcon />
-                            </ListItemIcon>
-                            Tuition Teachers
-                        </ListItem>
-                    </NavLink>
-                    <Divider />
-                    <NavLink to='/dashboard/addABook' style={LinkStyle}>
-                        <ListItem button >
-                            <ListItemIcon>
-                                <AddCardIcon />
-                            </ListItemIcon>
-                            Add a Book
-                        </ListItem>
-                    </NavLink>
-                    <Divider />
-                    <NavLink to='/dashboard/books' style={LinkStyle}>
-                        <ListItem button >
-                            <ListItemIcon>
-                                <MenuBookIcon />
-                            </ListItemIcon>
-                            Books
-                        </ListItem>
-                    </NavLink>
+
+
+
+
                     <Divider />
                     <NavLink to='/dashboard/manageOrder' style={LinkStyle}>
                         <ListItem button >
@@ -147,7 +217,7 @@ function Dashboard(props) {
                             <ListItemIcon>
                                 <AdminPanelSettingsIcon />
                             </ListItemIcon>
-                            Make a Admin
+                            Make an Admin
                         </ListItem>
                     </NavLink>
                 </span>

@@ -50,7 +50,7 @@
         "sh1":"Chittagong Collegiate School",
         "sh2":"Govt. Muslim High School ",
         "sh3":"Dr.Kashtagir Government Girls School",
-        "sh4":"Nasirabad Government High School.",
+        "sh4":"Nasirabad Government High School",
         "sh5":"Chittagong Government Girls’ High School"
       },
       "time": "7:00 AM - 9:00 Am",
@@ -89,10 +89,10 @@
       "id": 3,
       "name": "Meghna Bus",
       "schools": {
-        "sh1":"Cumilla Cadet College",
+        "sh1":"Burichong Ananda Pilot Govt. High School, Burichong",
         "sh2":"Cumilla Victoria Govt. school & College",
         "sh3":"Ispahani Public School and College",
-        "sh4":"Feni Girls Cadet College",
+        "sh4":"Comilla Zilla School",
         "sh5":"Ibn Taimia High School and College"
       },
       "time": "8:00 AM - 10:00 Am",
@@ -221,14 +221,14 @@
       "id": 6,
       "name": "Rainbow Bus",
       "schools": {
-        "sh1":"Ideal School and College",
-        "sh2":"Holy Cross Girls High school & College",
-        "sh3":"St Gregory's High School",
-        "sh4":"Dhanmondi Government Boys High School",
-        "sh5":"Saint Joseph Higher Secondary School"
+        "sh1":"Rangpur Zilla School",
+        "sh2":"Police Lines School & College, Rangpur",
+        "sh3":"Nilphamari Govt High School",
+        "sh4":"Bir Uttam Shaheed Samad High School",
+        "sh5":"Cant Public School & College, Rangpur"
       },
       "time": "6:00 AM - 8:00 Am",
-      "location": "Noakhali",
+      "location": "Rangpur",
       "driver1": {
         "person":"Arman Uddin",
         "phone":"01847698399",

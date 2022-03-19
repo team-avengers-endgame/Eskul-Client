@@ -2,9 +2,10 @@ import React from "react";
 import Footer from "../Shared/Footer/Footer";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import SharedBanner from "../Shared/SharedBanner/SharedBanner";
-import SimpleMap from "./GoogleMap/GoogleMap";
-import GoogleMap from "./GoogleMap/GoogleMap";
+
+
 import HowWeWorks from "./HowWeWorks";
+import OurMap from "./OurMap/OurMap";
 import Transport from "./Transport";
 import TransportHero from "./TransportHero";
 
@@ -16,7 +17,7 @@ const TransportHomeDetails = () => {
       <TransportHero/>
       <Transport />
       <HowWeWorks/>
- <SimpleMap/>
+      <OurMap/>
       <Footer />
     </div>
   );

@@ -25,7 +25,7 @@ const HeroSection = () => {
       }}} variant="outlined">Read More</Button>
   </Grid>
   <Grid item xs={12} sm={12} md={6}>
-  <img src="https://www.nicepng.com/png/full/436-4366236_school-bus-transport-school-transport-school-bus-icon.png" alt="" />
+  <img style={{width:"100%"}} src="https://i.ibb.co/g6YsdCH/hero-transport.png" alt="" />
   </Grid>
 
 </Grid>

@@ -17,6 +17,32 @@ const Donation = () => {
         <>
             <NavigationBar />
             <SharedBanner pageName={"Donation"} />
+            <Container sx={{ my: 10 }}>
+                <Grid container spacing={2}>
+                    <Grid
+                        data-aos="fade-right"
+                        data-aos-offset="300"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="2000"
+                        item xs={12} sm={12} md={6}>
+                        <Typography variant="body1">
+                            Donating in the education of the girls brings high returns in terms of aiding social and economic growth. To be more precise, it will promote social inclusion, encourage gender equality and make them well-informed emerging leaders. An educated girl is far more likely to commit to educating her own children, which in turn will empower an entire generation. Therefore, educating girls will help control the birth rate, improve basic hygiene, health care and the community as a whole.
+                            <br />
+                            Through this Donation, the underprivileged girls at async schools will have a greater chance of escaping poverty, raise the standard of living of their communities and have healthier and productive lives. With a rightful education, they will acquire the knowledge and skills to make wise decisions and be self-sufficient. Our collected money will be divided equally among them.
+                            <Typography variant="h4">So Donate Here and Be the  Honorable one!!!!</Typography>
+                        </Typography>
+                    </Grid>
+                    <Grid
+                        data-aos="fade-left"
+                        data-aos-offset="300"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="2000"
+                        item xs={12} sm={12} md={6}>
+                        <img src="https://i.ibb.co/8McvZqH/pict-large.jpg" alt="" />
+                    </Grid>
+                </Grid>
+            </Container>
+
             <Container component="span" sx={{ p: 2, border: '1px dashed grey' }}>
                 <React.Fragment>
                     <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>

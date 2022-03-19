@@ -78,6 +78,7 @@ const TutorDetails = () => {
   }, []);
 
   const handleFormSubmit = async (e) => {
+    console.log("Hello");
     e.preventDefault();
     const {
       data: { _id },
@@ -326,7 +327,6 @@ const TutorDetails = () => {
                   {" "}
                   <PaidIcon color="primary" />
                   <Typography variant="body1">
-                    {" "}
                     Fee: ৳ {tutor?.monthlyFee} / per month
                   </Typography>
                 </span>
@@ -335,7 +335,6 @@ const TutorDetails = () => {
           </Grid>
         </Grid>
       </Container>
-
       <Footer />
     </>
   );
