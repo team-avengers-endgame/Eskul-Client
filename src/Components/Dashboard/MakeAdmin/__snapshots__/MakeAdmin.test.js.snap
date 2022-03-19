@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Make Admin testing should render correctly in "debug" mode 1`] = `ShallowWrapper {}`;
+
 exports[`MakeAdmin should render correctly in "debug" mode 1`] = `ShallowWrapper {}`;
 
 exports[`MakeAdmin test should render correctly in "debug" mode 1`] = `ShallowWrapper {}`;

@@ -36,7 +36,12 @@ const DropdownMenuGallery = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
             >
-
+                <Link to="/books" style={LinkStyle}>
+                    <MenuItem onClick={handleCloseUserMenu}>
+                        <Typography textAlign="center">Buy Books</Typography>
+                    </MenuItem>
+                </Link>
+                <Divider />
                 <Link to="/donation" style={LinkStyle}>
                     <MenuItem onClick={handleCloseUserMenu}>
                         <Typography textAlign="center">Donation</Typography>

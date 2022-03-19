@@ -110,16 +110,16 @@ const NavigationBar = () => {
                 Private Tutor
               </Button>
             </Link>
-            <Link to="/books" style={LinkStyle}>
+          
+
+            <Link to="/about" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
               >
-                Books
+                About Us
               </Button>
             </Link>
-
-
             <DropdownMenuGallery />
             <DropdownMenuPage />
             <Link to="/contacts" style={LinkStyle}>
@@ -191,23 +191,16 @@ const NavigationBar = () => {
                   <Typography textAlign="center">Schools</Typography>
                 </MenuItem>
               </Link>
-              <Link to="/" style={LinkStyle}>
+            
+              <Link to="/privateTutor" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Programs</Typography>
-                </MenuItem>
-              </Link>
-              <Link to="/" style={LinkStyle}>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Parent info</Typography>
+                  <Typography textAlign="center">Private Tutor</Typography>
                 </MenuItem>
               </Link>
               <DropdownMenuGallery />
               <DropdownMenuPage />
-              <Link to="/" style={LinkStyle}>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Blog</Typography>
-                </MenuItem>
-              </Link>
+             
+            
               <Link to="/contacts" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Contacts</Typography>
