@@ -153,7 +153,7 @@ const BookList = () => {
         <Stack spacing={2}>
 
           <Pagination onChange={(e, value) => setPage(value)}
-            count={Math.floor(booksCount / 10)}
+            count={Math.ceil(booksCount / 10)}
             color="secondary"
             showFirstButton
             showLastButton />

@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 const Login = () => {
-    const { signInWithGoogle, loginUser } = useAuth();
+    const { signInWithGoogle, loginUser, facebookLogin } = useAuth();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const location = useLocation();
@@ -146,7 +146,7 @@ const Login = () => {
                                             </Tooltip>
 
                                             <Tooltip title="Facebook" arrow>
-                                                <Fab style={{ width: '' }} size="small" color="primary" aria-label="add">
+                                                <Fab onClick={() => facebookLogin(location, navigate)} style={{ width: '' }} size="small" color="primary" aria-label="add">
                                                     <FacebookOutlinedIcon sx={{ mr: 1 }} />
                                                 </Fab>
                                             </Tooltip>

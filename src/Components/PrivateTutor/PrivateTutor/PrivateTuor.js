@@ -106,7 +106,7 @@ const PrivateTuor = () => {
                 <Stack spacing={2}>
 
                     <Pagination onChange={(e, value) => setPage(value)}
-                        count={Math.floor(privateTeacherCount / 10)}
+                        count={Math.ceil(privateTeacherCount / 10)}
                         color="secondary"
                         showFirstButton
                         showLastButton />

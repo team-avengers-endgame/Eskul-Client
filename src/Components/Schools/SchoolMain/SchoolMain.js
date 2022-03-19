@@ -23,7 +23,6 @@ const SchoolMain = () => {
       });
   }, [page]);
 
-
   const handleOnChange = (e) => {
 
     const value = e.target.value;
@@ -110,7 +109,7 @@ const SchoolMain = () => {
       <Stack spacing={2}>
 
         <Pagination onChange={(e, value) => setPage(value)}
-          count={Math.floor(schoolsCount / 10)}
+          count={Math.round(schoolsCount / 10)}
           color="secondary"
           showFirstButton
           showLastButton
