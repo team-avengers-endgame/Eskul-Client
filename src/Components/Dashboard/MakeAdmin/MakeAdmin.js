@@ -47,7 +47,7 @@ const MakeAdmin = () => {
               {errors.email && <span>This admin field is required</span>} <br />{" "}
               <br />
               <Button type="submit" fullWidth sx={ButtonStyle}>
-                Make Admin
+                Make an Admin
               </Button>
             </form>
           </Box>
