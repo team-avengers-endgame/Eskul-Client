@@ -25,8 +25,8 @@ const Footer = () => {
         }
     };
     return (
-        <Box sx={{ flexGrow: 1, textAlign: 'center' }}>
-            <Box className="footer-Container">
+        <Box sx={{ flexGrow: 1, textAlign: 'center',mt:{xm:20,sm:6,md:10} }}>
+            <Box  className="footer-Container">
                 <Container >
                     <Grid container spacing={{ xs: 2, sm: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                         <Grid item xs={4} sm={4} md={4}

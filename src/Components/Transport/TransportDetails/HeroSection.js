@@ -4,7 +4,7 @@ import React from 'react';
 
 const HeroSection = () => {
     return (
-        <Container sx={{py:3}}>
+        <Container sx={{py:10}}>
           <Typography variant="h5" gutterBottom component="div">
         Explore our Transport Details
       </Typography>
@@ -20,9 +20,7 @@ const HeroSection = () => {
       <Typography sx={{color:"#0c4b65",fontSize:"14px",fontWeight:400}} variant="subtitle1" gutterBottom component="div">
       Our website provides transport facilities for their child.This is the page. We have given the location of the bus here with the charge, time and driver's number Where users can choose the transport of their choice according to their location. Our website provides transport facilities for their child.This is the page. We have given the location of the bus here with the charge, time and driver's number Where users can choose the transport of their choice according to their location.
       </Typography>
-      <Button sx={{padding:"10px 40px",color:"#0c4b65",border:"0.5px solid #ffaf5f",mt:4,fontWeight:"semibold","&:hover":{
-        backgroundColor:"#0c4b65", color:"#fff"
-      }}} variant="outlined">Read More</Button>
+      
   </Grid>
   <Grid item xs={12} sm={12} md={6}>
   <img style={{width:"100%"}} src="https://i.ibb.co/g6YsdCH/hero-transport.png" alt="" />

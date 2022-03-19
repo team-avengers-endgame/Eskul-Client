@@ -6,7 +6,7 @@ const SchoolContact = () => {
         e.preventDefault();   }
     return (
         <Container >
-        <h1 style={{color:"salmon",fontSize:"40px"}}>Contact Form</h1>
+        <h1 style={{color:"#0c4b65",fontSize:"40px"}}>Contact Form</h1>
       <form style={{margin:" 0 auto"}}  onSubmit={sendEmail}>
       <TextField 
       sx={{width:"90%",marginTop:"2%"}}
@@ -35,7 +35,7 @@ const SchoolContact = () => {
      rows={4}
      variant="filled"
    /> <br />
-   <Button style={{backgroundColor:"salmon",color:"white",marginTop:"5%",marginBottom:"10%"}} type="submit">Submit</Button>
+   <Button style={{backgroundColor:"#0c4b65",color:"white",marginTop:"5%",marginBottom:"10%",padding:"10px 20px"}} type="submit">Submit</Button>
       </form>
    </Container>
     );
