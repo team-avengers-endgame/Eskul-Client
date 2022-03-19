@@ -11,6 +11,6 @@ describe('AboutUs test', () => {
     expect(component).toMatchSnapshot();
   });
 
-  //
+
 });
 
