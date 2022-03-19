@@ -3,7 +3,7 @@ import React from 'react';
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 const HowWeWorks = () => {
     return (
-        <Container sx={{ py: 15 }}>
+        <Container sx={{ py: 8 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12} md={6}>
             <Box sx={{ mb: 5 }}>
@@ -187,18 +187,21 @@ const HowWeWorks = () => {
             </Box>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <img
+           <Container>
+           <img
               style={{ width: "100%",
-              height: "600px",
+              height: "500px",
+              objectFit:"cover",
               maxWidth: "100%",
-              verticalAlign: "top",
+              marginTop:"30%",
               borderRadius: "10px",
-              margin:"auto",
-              aspectRatio: "auto 1200 / 1200",
-              marginTop: "25%", marginLeft: "25%" }} 
-              src="https://i.ibb.co/nPkKYQW/photo-1578697554923-4552d0ac946d.jpg"
+              margin:"0px auto",
+              aspectRatio: "auto 600 / 600",
+              }} 
+              src="https://i.ibb.co/JF1M85v/photo-1583508805133-8fd03a9916d4-1.jpg"
               alt=""
             />
+           </Container>
           </Grid>
         </Grid>
       </Container>
