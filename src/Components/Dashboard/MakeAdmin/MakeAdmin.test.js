@@ -1,6 +1,8 @@
 import Makeadmin from './MakeAdmin'
 import ReactDOM from 'react-dom'
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
+import { shallow } from 'enzyme';
+import MakeAdmin from './MakeAdmin';
 
 
     describe('Make Admin testing', () => {
@@ -9,11 +11,10 @@ import { fireEvent, render, screen } from '@testing-library/react';
         ReactDOM.render(<Makeadmin />, Box);
     })
  
-       test("checking first", () => {
-           render(<Makeadmin />);
-           const page = screen.getByText("Make an admin form");
-            expect(page).toBeInTheDocument();
-       })
+    it('text check', () =>{
+      let wrapper = shallow(<MakeAdmin/>)
+      expect(wrapper.contains("Make an admin form")).toEqual(true)
+   })
     test('input field find', () => {
         const container = document.createElement('Box');
         document.body.appendChild(container);
