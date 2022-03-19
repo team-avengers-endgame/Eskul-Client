@@ -30,8 +30,8 @@ const ManageOrder = () => {
   }, []);
 
   const handleUpdateStatus = (status, id) => {
-  
-      axios
+    console.log(status);
+    axios
       .patch(`${api}/statusUpdate/${id}`, { status })
       .then((res) => {
         console.log(res);
@@ -42,36 +42,28 @@ const ManageOrder = () => {
   };
   const handleDelete = (id) => {
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      axios
-      .delete(`${api}/manageAllOrderDelete/${id}`)
-      .then((res) => {
-        res.status === 204 &&
-        Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-        )
-        fetchOrders();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    }
-
-  })
-    
-    
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`${api}/manageAllOrderDelete/${id}`)
+          .then((res) => {
+            res.status === 204 &&
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            fetchOrders();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    });
   };
-
 
   /* 
  
