@@ -47,6 +47,9 @@ const BookDetails = () => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(-1);
   const { id } = useParams();
+  const [number, setNumber] = useState(1);
+  const [isFetched, setIsFetched] = useState(0);
+
   useEffect(() => {
     fetch(`${api}/books/${id}`)
       .then((res) => res.json())
@@ -73,17 +76,19 @@ const BookDetails = () => {
   const fetchReviews = () => {
     fetch(`${api}/reviews`)
       .then((res) => res.json())
-      .then((data) =>
-        setReviews(
-          data?.data.data
-            .filter((review) => review.review_type === "book")
-            .filter((review) => review.book === id)
-        )
-      );
+      .then((data) => {
+        const allReviews = data?.data.data
+          .filter((review) => review.review_type === "book")
+          .filter((review) => review.book === id);
+
+        const reviewsChunk = allReviews.slice(0, number * 2);
+        setIsFetched(Math.ceil(allReviews.length / 2) === number);
+        setReviews(reviewsChunk);
+      });
   };
   useEffect(() => {
     fetchReviews();
-  }, []);
+  }, [number]);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -210,6 +215,14 @@ const BookDetails = () => {
                 ) : (
                   <p>No reviews yet. Be the first one to review this book.</p>
                 )}
+                <Button
+                  type="submit"
+                  variant="outlined"
+                  disabled={isFetched || reviews.length === 0}
+                  onClick={() => setNumber(number + 1)}
+                >
+                  {isFetched ? "No More Reviews To Show" : "Load More Reviews"}
+                </Button>
               </Typography>
             </Box>
           </Grid>
