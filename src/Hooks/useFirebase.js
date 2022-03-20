@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  FacebookAuthProvider,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -26,7 +27,7 @@ const useFirebase = () => {
   const [booksCount, setBooksCount] = useState(0);
   const [privateTeacherCount, setTeachersCount] = useState(0);
   const [schoolsCount, setSchoolsCount] = useState(0);
-  
+
 
   // login google------------------------
   const signInWithGoogle = (location, navigate) => {
@@ -53,6 +54,35 @@ const useFirebase = () => {
         setAuthError(error.message);
       });
   };
+
+  // singin with facebook
+  const facebookLogin = (location, navigate) => {
+    const provider = new FacebookAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user)
+        saveUsers(
+          {
+            displayName: user?.displayName,
+            email: user?.email,
+            photoURL: user?.photoURL,
+          },
+          "PATCH"
+          );
+          
+          setUser(user)
+          setAuthError('')
+          navigate(location?.state?.from || "/");
+      })
+      .catch((error) => {
+
+        const errorMessage = error.message;
+        setAuthError(errorMessage)
+
+      });
+  }
 
   // register user
   const registerUser = (
@@ -199,16 +229,16 @@ const useFirebase = () => {
       .then((data) => {
         setBooksCount(data?.data?.data.length);
       });
-      fetch(`${api}/privateTeachers`)
+    fetch(`${api}/privateTeachers`)
       .then(res => res.json())
       .then(data => {
         setTeachersCount(data?.data?.data.length);
       })
-      fetch(`${api}/schools`)
+    fetch(`${api}/schools`)
       .then((res) => res.json())
       .then((data) => {
         setSchoolsCount(data?.data?.data.length);
-        
+
       });
     setIsLoading(false);
   }, [])
@@ -224,6 +254,7 @@ const useFirebase = () => {
     updateUserProfile,
     isLoading,
     setIsLoading,
+    facebookLogin,
     logOut,
     authError,
     admin,

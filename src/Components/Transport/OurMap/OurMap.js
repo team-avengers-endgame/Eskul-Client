@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material"
+import { Container, Typography } from "@mui/material"
 import React, { useEffect, useState } from "react"
 import {GoogleMap,withScriptjs,withGoogleMap,Marker} from "react-google-maps"
 
@@ -13,7 +13,7 @@ function Map () {
   return (
   
 <GoogleMap 
-  defaultZoom = {8} 
+  defaultZoom = {7} 
   defaultCenter = {{ lat: 23.459955402310467, lng: 91.1824880265728 }}
 
   >
@@ -40,9 +40,9 @@ const WrappedMap = withScriptjs(withGoogleMap(Map))
 export default function OurMap() {
   
   return (
-    <div style={{width:"100vw",height:"100vh"}}>
+    <Container sx={{width:"100vw",height:"100vh",mb:{xm:30,sm:6,md:6}}}>
        <Typography
-            sx={{ fontWeight: "500", fontSize: 42,py:4, color: "#3B4757",textAlign:"center" }}
+            sx={{ fontWeight: "500", fontSize: {xm:"15px",sm:"25px",md:"35px"},pb:2, color: "#3B4757",textAlign:"center" }}
             variant="h4"
             gutterBottom
             component="div"
@@ -51,11 +51,11 @@ export default function OurMap() {
           Provided In Google Map
           </Typography>
      
-      <WrappedMap googleMapURL = {`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAo7YpydfLtQ60NLuitlPMBueuF-P7r9Wc`}
-    loadingElement = {<div style={{height:"100%"}}/>} 
-    containerElement = {<div style={{height:"100%"}}/>} 
+      <WrappedMap  googleMapURL = {`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAo7YpydfLtQ60NLuitlPMBueuF-P7r9Wc`}
+    loadingElement = {<div style={{height:"60%"}}/>} 
+    containerElement = {<div style={{height:"80%"}}/>} 
     mapElement = {<div style={{height:"100%"}}/>} />
-    </div>
+    </Container>
   )
 }
 

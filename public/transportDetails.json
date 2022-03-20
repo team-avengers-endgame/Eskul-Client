@@ -11,36 +11,18 @@
       },
       "time": "8:00 AM - 10:00 Am",
       "location": "Dhaka",
-      "driver1": {
-        "person":"Salam Uddin",
-        "phone":"01847698399",
-        "email":"salam@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        "img1":"https://i.ibb.co/YRxZrvQ/d-2.png"
-      },
-      "driver2": {
-        "person":"Aloak Kumar",
-        "phone":"01347698321",
-        "email":"aloak@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        "img2":"https://i.ibb.co/GW4nnGH/d-3.png"
-      },
-      "driver3": {
-        "person":"Narayan Kumar",
-        "phone":"01347698356",
-        "email":"narayan@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        
-        
-        "img3":"https://i.ibb.co/CwtYhcy/d-4.jpg"
-      },
+      
       "package":"6 month",
-     
-      "driverImg": "https://i.ibb.co/4Ss0D4T/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crosse.jpg",
-      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg"
+      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg",
+      "driverImg":"https://i.ibb.co/8bFVHsP/bohemian-man-with-his-arms-crossed-1368-3542.webp",
+      "driverName":"Tamim Muktadir",
+      "driverPhone":"01747698372",
+      "driverExperience":"8",
+      "driverCharge":"8000",
+      "driverEmail":"mailto:faarhaan10@gmail.com",
+      "driverLinkedin":"https://www.linkedin.com/in/farhan-elias/",
+      "driverFacebook":"https://www.linkedin.com/in/farhan-elias/",
+      "driverGithub":"https://github.com/faarhaan10"
     },
     
     {
@@ -55,34 +37,17 @@
       },
       "time": "7:00 AM - 9:00 Am",
       "location": "Chittagong",
-      "driver1": {
-        "person":"Kolim Uddin",
-        "phone":"01847698345",
-        "email":"kolim@gmail.com",
-        "experience":"5",
-        "charge":"20000",
-        "img1":"https://i.ibb.co/HVpyJ5V/indoor-picture-cheerful-handsome-young-man-having-folded-hands-looking-directly-smiling-sincerely-we.jpg"
-      },
-      "driver2": {
-        "person":"Shihab Shah",
-        "phone":"01347698321",
-        "email":"shihab@gmail.com",
-        "experience":"5",
-        "charge":"20000",
-        "img2":"https://i.ibb.co/4Ss0D4T/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crosse.jpg"
-      },
-      "driver3": {
-        "person":"Akash Barua",
-        "phone":"01347698356",
-        "email":"akash@gmail.com",
-        "experience":"5",
-        "charge":"20000",
-        "img3":"https://i.ibb.co/PFvGwTk/delivery-concept-handsome-african-american-delivery-man-crossed-arms-isolated-grey-studio-background.jpg"
-      },
       "package":"6 month",
-     
-      "driverImg": "https://i.ibb.co/4Ss0D4T/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crosse.jpg",
-      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg"
+      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg",
+      "driverImg":"https://i.ibb.co/fp1wdHf/young-bearded-man-with-striped-shirt.jpg",
+      "driverName":"Shahbaz Hasan",
+      "driverPhone":"01347698354",
+      "driverExperience":"5",
+      "driverCharge":"50000",
+      "driverEmail":"mailto:koiry.rupok@gmail.com",
+      "driverLinkedin":"https://www.linkedin.com/in/rupok-koiry/",
+      "driverFacebook":"https://www.facebook.com/rupok.koiry",
+      "driverGithub":"https://github.com/Rupok-Koiry/"
     },
     
     {
@@ -97,36 +62,17 @@
       },
       "time": "8:00 AM - 10:00 Am",
       "location": "Cumilla",
-      "driver1": {
-        "person":"Salam Uddin",
-        "phone":"01847698399",
-        "email":"salam@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        "img1":"https://i.ibb.co/fp1wdHf/young-bearded-man-with-striped-shirt.jpg"
-      },
-      "driver2": {
-        "person":"Aloak Kumar",
-        "phone":"01347698321",
-        "email":"aloak@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        "img2":"https://i.ibb.co/xj4QJj3/d-15.jpg"
-      },
-      "driver3": {
-        "person":"Narayan Kumar",
-        "phone":"01347698356",
-        "email":"narayan@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        
-        
-        "img3":"https://i.ibb.co/tBNbPF9/d-14-t.jpg"
-      },
       "package":"6 month",
-     
-      "driverImg": "https://i.ibb.co/4Ss0D4T/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crosse.jpg",
-      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg"
+      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg",
+      "driverImg":"https://i.ibb.co/PFvGwTk/delivery-concept-handsome-african-american-delivery-man-crossed-arms-isolated-grey-studio-background.jpg",
+      "driverName":"Sagor Vottacharjo",
+      "driverPhone":"01847698398",
+      "driverExperience":"3",
+      "driverCharge":"3000",
+      "driverEmail":"mailto:rukon.js@gmail.com",
+      "driverLinkedin":"https://www.linkedin.com/in/rukon-js/",
+      "driverFacebook":"https://www.facebook.com/JsRukon",
+      "driverGithub":"https://github.com/RnRukon"
     },
     
     {
@@ -141,36 +87,17 @@
       },
       "time": "8:00 AM - 10:00 Am",
       "location": "Barisal",
-      "driver1": {
-        "person":"Rahim Uddin",
-        "phone":"01847698399",
-        "email":"rahim@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        "img1":"https://i.ibb.co/zVB75kd/d-12.jpg"
-      },
-      "driver2": {
-        "person":"Jamal Kumar",
-        "phone":"01347698321",
-        "email":"jamal@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        "img2":"https://i.ibb.co/RvnJn4r/d-10.jpg"
-      },
-      "driver3": {
-        "person":"Nil Das",
-        "phone":"01347698356",
-        "email":"nil@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        
-        
-        "img3":"https://i.ibb.co/2Z6LSdQ/d-11.jpg"
-      },
       "package":"6 month",
-     
-      "driverImg": "https://i.ibb.co/4Ss0D4T/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crosse.jpg",
-      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg"
+      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg",
+      "driverImg":"https://i.ibb.co/4Ss0D4T/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crosse.jpg",
+      "driverName":"Asif Iqbal",
+      "driverPhone":"01747698372",
+      "driverExperience":"8",
+      "driverCharge":"9000",
+      "driverEmail":"mailto:faarhaan10@gmail.com",
+      "driverLinkedin":"https://www.linkedin.com/in/farhan-elias/",
+      "driverFacebook":"https://www.linkedin.com/in/farhan-elias/",
+      "driverGithub":"https://github.com/faarhaan10"
     },
     
     {
@@ -185,36 +112,17 @@
       },
       "time": "9:00 AM - 11:00 Am",
       "location": "Rajshahi",
-      "driver1": {
-        "person":"Abul Uddin",
-        "phone":"01847698399",
-        "email":"abul@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        "img1":"https://i.ibb.co/4pbTbMj/d-9.png"
-      },
-      "driver2": {
-        "person":"Babul Kumar",
-        "phone":"01347698321",
-        "email":"babul@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        "img2":"https://i.ibb.co/JjwJNK7/d-8.png"
-      },
-      "driver3": {
-        "person":"Kabul Kumar",
-        "phone":"01347698356",
-        "email":"kabul@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        
-        
-        "img3":"https://i.ibb.co/71XX8qm/d-6.jpg"
-      },
       "package":"6 month",
-     
-      "driverImg": "https://i.ibb.co/4Ss0D4T/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crosse.jpg",
-      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg"
+      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg",
+      "driverImg":"https://i.ibb.co/0s0DTQM/handsome-confident-smiling-man-with-hands-crossed-chest.jpg",
+      "driverName":"Rocky Dash",
+      "driverPhone":"01347698354",
+      "driverExperience":"5",
+      "driverCharge":"60000",
+      "driverEmail":"mailto:koiry.rupok@gmail.com",
+      "driverLinkedin":"https://www.linkedin.com/in/rupok-koiry/",
+      "driverFacebook":"https://www.facebook.com/rupok.koiry",
+      "driverGithub":"https://github.com/Rupok-Koiry/"
     },
     
     {
@@ -229,36 +137,17 @@
       },
       "time": "6:00 AM - 8:00 Am",
       "location": "Rangpur",
-      "driver1": {
-        "person":"Arman Uddin",
-        "phone":"01847698399",
-        "email":"arman@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        "img1":"https://i.ibb.co/T13HQDB/d-7.png"
-      },
-      "driver2": {
-        "person":"Sabbir Hossian",
-        "phone":"01347698321",
-        "email":"sabbir@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        "img2":"https://i.ibb.co/8bFVHsP/bohemian-man-with-his-arms-crossed-1368-3542.webp"
-      },
-      "driver3": {
-        "person":"Ujjal Kanti",
-        "phone":"01347698356",
-        "email":"ujjal@gmail.com",
-        "experience":"3",
-        "charge":"20000",
-        
-        
-        "img3":"https://i.ibb.co/8Mg3vZp/d-5.jpg"
-      },
       "package":"6 month",
-     
-      "driverImg": "https://i.ibb.co/4Ss0D4T/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crosse.jpg",
-      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg"
+      "busImg": "https://i.ibb.co/HCvTKxM/big-touristic-bus-outdoor-392895-12160.jpg",
+      "driverImg":"https://i.ibb.co/HVpyJ5V/indoor-picture-cheerful-handsome-young-man-having-folded-hands-looking-directly-smiling-sincerely-we.jpg",
+      "driverName":"Emdadul Hasan",
+      "driverPhone":"01847698398",
+      "driverExperience":"3",
+      "driverCharge":"4000",
+      "driverEmail":"mailto:rukon.js@gmail.com",
+      "driverLinkedin":"https://www.linkedin.com/in/rukon-js/",
+      "driverFacebook":"https://www.facebook.com/JsRukon",
+      "driverGithub":"https://github.com/RnRukon"
     }
   ]
     

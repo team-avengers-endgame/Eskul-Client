@@ -1,8 +1,10 @@
-import { Button, Container, Grid, InputAdornment, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, InputAdornment, TextField, Toolbar, Typography } from '@mui/material';
 import React from 'react';
 
 import { useForm } from "react-hook-form";
 import { ButtonStyle } from '../../Hooks/useStyle';
+import QuickScroll from '../Home/QuickScroll/QuickScroll';
+import Footer from '../Shared/Footer/Footer';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import SharedBanner from '../Shared/SharedBanner/SharedBanner';
 
@@ -17,14 +19,17 @@ const Donation = () => {
         <>
             <NavigationBar />
             <SharedBanner pageName={"Donation"} />
-            <Container sx={{ my: 10 }}>
-                <Grid container spacing={2}>
+           <Box sx={{px:1}}>
+           <Container sx={{ my: 10 }}>
+                <Grid container spacing={{ xs: 2, md: 3 }}
+                    columns={{ xs: 4, sm: 8, md: 12 }}>
                     <Grid
+                        item xs={4} sm={4} md={6}
                         data-aos="fade-right"
                         data-aos-offset="300"
                         data-aos-easing="ease-in-sine"
                         data-aos-duration="2000"
-                        item xs={12} sm={12} md={6}>
+                    >
                         <Typography variant="body1">
                             Donating in the education of the girls brings high returns in terms of aiding social and economic growth. To be more precise, it will promote social inclusion, encourage gender equality and make them well-informed emerging leaders. An educated girl is far more likely to commit to educating her own children, which in turn will empower an entire generation. Therefore, educating girls will help control the birth rate, improve basic hygiene, health care and the community as a whole.
                             <br />
@@ -33,18 +38,19 @@ const Donation = () => {
                         </Typography>
                     </Grid>
                     <Grid
+                        item xs={4} sm={4} md={6}
                         data-aos="fade-left"
                         data-aos-offset="300"
                         data-aos-easing="ease-in-sine"
-                        data-aos-duration="2000"
-                        item xs={12} sm={12} md={6}>
-                        <img src="https://i.ibb.co/8McvZqH/pict-large.jpg" alt="" />
+                        data-aos-duration="2000">
+                        <img style={{ width: '100%' }}
+                            src="https://i.ibb.co/8McvZqH/pict-large.jpg" alt="" />
                     </Grid>
                 </Grid>
             </Container>
-
-            <Container component="span" sx={{ p: 2, border: '1px dashed grey' }}>
-                <React.Fragment>
+            <Toolbar />
+            <Container component="span" sx={{py:2, border: '1px dashed grey' }}>
+                <Box>
                     <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                         Donar address
                     </Typography>
@@ -202,8 +208,13 @@ const Donation = () => {
                         </Grid>
                     </form>
 
-                </React.Fragment>
+                </Box>
             </Container>
+           </Box>
+            <Toolbar />
+            <Toolbar />
+            <Footer />
+            <QuickScroll />
         </>
     );
 };
