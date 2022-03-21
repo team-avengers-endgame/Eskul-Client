@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import {
@@ -14,9 +14,10 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 
 const CustomerAddress = ({ order, handleUpdateStatus, handleDelete }) => {
-  const [status, setStatus] = useState(order?.status);
+ 
+
   const handleChange = (event) => {
-    setStatus(event.target.value);
+   const status=(event.target.value);
     handleUpdateStatus(status, order?._id);
   };
 
@@ -208,11 +209,12 @@ const CustomerAddress = ({ order, handleUpdateStatus, handleDelete }) => {
             <Select
               labelId="demo-simple-select-autowidth-label"
               id="demo-simple-select-autowidth"
-              value={status}
+              value={order.status}
               onChange={handleChange}
               autoWidth
             >
-              <MenuItem value={status}>{status}</MenuItem>
+              
+              <MenuItem value={order?.status}>{order?.status}</MenuItem>
               <MenuItem value="Approved">Approved</MenuItem>
               <MenuItem value="Shipped">Shipped</MenuItem>
               <MenuItem value="Delivered">Delivered</MenuItem>

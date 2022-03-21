@@ -1,14 +1,12 @@
 import React from 'react';
-import { Box, Button, TextField, Grid, Avatar, Divider, Chip, Fab, Typography } from '@mui/material';
+import { Box, Button, TextField, Grid, Avatar, Divider, Chip, Fab, Typography, Stack, IconButton } from '@mui/material';
 import { useForm } from "react-hook-form";
 import { makeStyles } from '@material-ui/core/styles';
 import LockIcon from '@material-ui/icons/Lock';
-import { AccountCircle } from '@material-ui/icons';
+import { AccountCircle, PhotoCamera } from '@material-ui/icons';
 import Avatar_img from '../Login/img/undraw_profile_pic_ic5t.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import GoogleIcon from '@mui/icons-material/Google';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import Tooltip from '@mui/material/Tooltip';
 import useAuth from '../../../Hooks/useAuth';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
@@ -72,6 +70,9 @@ const Register = () => {
             })
     }
 
+    const Input = styled('input')({
+        display: 'none',
+    });
 
     const classes = useStyles();
     return (
@@ -138,51 +139,40 @@ const Register = () => {
 
                                             {errors.password && <span style={{ color: 'red' }}>This field is required</span>}
                                             <br />
-                                            <br />
-                                            <CssTextField
-                                                sx={{ width: 1 }}
-                                                accept="image/png, image/jpg, image/jpeg"
-                                                type="file"
-                                                onChange={e => handleImgUpload(e.target.files[0])} />
-                                            <br />
-                                            <br />
+
+                                            <Stack>
+                                                <label htmlFor="icon-button-file">
+                                                    <Input
+                                                        onChange={e => handleImgUpload(e.target.files[0])}
+                                                        accept="image/png, image/jpg, image/jpeg"
+                                                        id="icon-button-file" type="file" />
+                                                    <IconButton color="primary" aria-label="upload picture" component="span">
+                                                        <PhotoCamera />
+                                                    </IconButton>
+                                                    Image
+                                                </label>
+                                            </Stack>
+
+
+
                                             <Button type="Login"
                                                 variant="contained"
                                                 className={classes.LoginButton}
                                                 sx={{ display: 'block', width: 1 }}
                                             >Login</Button>
                                         </form>
-                                        <Box style={{
-
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                        }}>
-                                            <Link style={{
-                                                textDecoration: 'none',
-                                                color: '#005593',
-                                                fontWeight: 'bold'
-                                            }} to='/'>Forgot Your Password</Link>
-                                        </Box>
+                                        <br />
                                         <Divider>
                                             <Chip label="or" />
                                         </Divider>
                                         <br />
                                         <Box sx={{ display: 'flex', justifyContent: ' space-around' }}>
                                             <Tooltip title="Google" arrow>
-                                                <Fab onClick={() => signInWithGoogle(location, navigate)} size="small" color="secondary" aria-label="add">
+                                                <Fab onClick={() => signInWithGoogle(location, navigate)}
+                                                    sx={{ width: 1 }}
+                                                    variant="extended" size="small" color="primary" aria-label="add">
                                                     <GoogleIcon sx={{ mr: 1 }} />
-
-                                                </Fab>
-                                            </Tooltip>
-
-                                            <Tooltip title="Facebook" arrow>
-                                                <Fab style={{ width: '' }} size="small" color="primary" aria-label="add">
-                                                    <FacebookOutlinedIcon sx={{ mr: 1 }} />
-                                                </Fab>
-                                            </Tooltip>
-                                            <Tooltip title="Twitter" arrow>
-                                                <Fab size="small" color="secondary" aria-label="add">
-                                                    <TwitterIcon sx={{ mr: 1 }} />
+                                                    Google sing in
                                                 </Fab>
                                             </Tooltip>
                                         </Box>
@@ -195,7 +185,7 @@ const Register = () => {
                                                     color: '#005593',
                                                     fontWeight: 'bold'
                                                 }}
-                                            ><Button>Register now</Button></Link>
+                                            ><Button>Login now</Button></Link>
                                         </Box>
 
                                     </Box>
@@ -211,24 +201,6 @@ const Register = () => {
     );
 };
 
-const CssTextField = styled(TextField)({
-    '& label.Mui-focused': {
-        color: 'green',
-    },
-    '& .MuiInput-underline:after': {
-        borderBottomColor: 'green',
-    },
-    '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-            borderColor: 'orange',
-        },
-        '&:hover fieldset': {
-            borderColor: 'hotpink',
-        },
-        '&.Mui-focused fieldset': {
-            borderColor: 'green',
-        },
-    },
-});
+
 
 export default Register;

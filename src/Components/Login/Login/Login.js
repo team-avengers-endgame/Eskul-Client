@@ -1,15 +1,12 @@
 import React from 'react';
 import { Box, Button, TextField, Grid, Avatar, Divider, Chip, Fab, Typography } from '@mui/material';
 import { useForm } from "react-hook-form";
-import './Login.css';
 import { makeStyles } from '@material-ui/core/styles';
 import LockIcon from '@material-ui/icons/Lock';
 import { AccountCircle } from '@material-ui/icons';
 import Avatar_img from './img/undraw_profile_pic_ic5t.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import GoogleIcon from '@mui/icons-material/Google';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import Tooltip from '@mui/material/Tooltip';
 import useAuth from '../../../Hooks/useAuth';
 import Footer from '../../Shared/Footer/Footer';
@@ -56,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 const Login = () => {
-    const { signInWithGoogle, loginUser, facebookLogin } = useAuth();
+    const { signInWithGoogle, loginUser } = useAuth();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const location = useLocation();
@@ -139,22 +136,14 @@ const Login = () => {
 
                                             {/*********** Google Login *************/}
                                             <Tooltip title="Google" arrow>
-                                                <Fab onClick={() => signInWithGoogle(location, navigate)} size="small" color="secondary" aria-label="add">
+                                                <Fab onClick={() => signInWithGoogle(location, navigate)} variant="extended" size="small" color="primary" aria-label="add" sx={{width:1}}>
                                                     <GoogleIcon sx={{ mr: 1 }} />
-
+                                                    Google Sign in
                                                 </Fab>
                                             </Tooltip>
 
-                                            <Tooltip title="Facebook" arrow>
-                                                <Fab onClick={() => facebookLogin(location, navigate)} style={{ width: '' }} size="small" color="primary" aria-label="add">
-                                                    <FacebookOutlinedIcon sx={{ mr: 1 }} />
-                                                </Fab>
-                                            </Tooltip>
-                                            <Tooltip title="Twitter" arrow>
-                                                <Fab size="small" color="secondary" aria-label="add">
-                                                    <TwitterIcon sx={{ mr: 1 }} />
-                                                </Fab>
-                                            </Tooltip>
+
+
                                         </Box>
                                         <br />
                                         <Divider><Chip label="🙃" /></Divider>

@@ -36,11 +36,12 @@ const ManageOrder = () => {
   }, []);
 
   const handleUpdateStatus = (status, id) => {
-    console.log(status);
+
     axios
       .patch(`${api}/statusUpdate/${id}`, { status })
       .then((res) => {
         console.log(res);
+        fetchOrders();
       })
       .catch((err) => {
         console.log(err);
