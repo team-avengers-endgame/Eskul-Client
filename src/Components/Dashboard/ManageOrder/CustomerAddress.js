@@ -14,10 +14,10 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 
 const CustomerAddress = ({ order, handleUpdateStatus, handleDelete }) => {
- 
+
 
   const handleChange = (event) => {
-   const status=(event.target.value);
+    const status = (event.target.value);
     handleUpdateStatus(status, order?._id);
   };
 
@@ -202,18 +202,21 @@ const CustomerAddress = ({ order, handleUpdateStatus, handleDelete }) => {
       <ListItem sx={{ display: "flex", justifyContent: "space-between" }}>
         {order?.status && (
           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel id="demo-simple-select-autowidth-label">
+            <InputLabel
+
+              id="demo-simple-select-autowidth-label">
               Status
             </InputLabel>
 
             <Select
+              color='error'
               labelId="demo-simple-select-autowidth-label"
               id="demo-simple-select-autowidth"
               value={order.status}
               onChange={handleChange}
               autoWidth
             >
-              
+
               <MenuItem value={order?.status}>{order?.status}</MenuItem>
               <MenuItem value="Approved">Approved</MenuItem>
               <MenuItem value="Shipped">Shipped</MenuItem>
