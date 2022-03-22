@@ -1,43 +1,95 @@
-import { Button, Container, TextField } from '@mui/material';
-import React from 'react';
+import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
+import React, { useRef } from 'react';
+import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
+import SendIcon from '@mui/icons-material/Send';
+import { ButtonStyle } from '../../../Hooks/useStyle';
+
+
 
 const SchoolContact = () => {
-    const sendEmail = e =>{
-        e.preventDefault();   }
+    
+    const { register } = useForm();
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm("service_es28khp", "template_1fmwbhh", e.target, "user_bJFVwTvtJQe23vqEilEMy")
+
+      .then((result) => {
+        alert('Message sent successfully!');
+      }, (error) => {
+        alert(error.message);
+      });
+    e.target.reset();
+  };
     return (
         <Container >
-        <h1 style={{color:"#0c4b65",fontSize:"40px"}}>Contact Form</h1>
-      <form style={{margin:" 0 auto"}}  onSubmit={sendEmail}>
-      <TextField 
-      sx={{width:"90%",marginTop:"2%"}}
-      id="standard-basic" 
-      name="name"
-      label="Name" 
-      variant="standard" /> <br />
-      <TextField 
-      sx={{width:"90%",marginTop:"2%"}}
-      id="standard-basic" 
-      name="email"
-      label="Email" 
-      variant="standard" /> <br />
-      <TextField 
-      sx={{width:"90%",marginTop:"2%"}}
-      id="standard-basic" 
-      name="subject"
-      label="Subject" 
-      variant="standard" /> <br />
-      <TextField
-      sx={{width:"90%",marginTop:"2%"}}
-     id="filled-multiline-static"
-     name="message"
-     label="Message"
-     multiline
-     rows={4}
-     variant="filled"
-   /> <br />
-   <Button style={{backgroundColor:"#0c4b65",color:"white",marginTop:"5%",marginBottom:"10%",padding:"10px 20px"}} type="submit">Submit</Button>
-      </form>
-   </Container>
+
+
+
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12, lg: 12 }} sx={{mt:3}}>
+         
+
+          <Grid item xs={4} sm={4} md={12} lg={12}>
+            <Box sx={{ mb: 5 }}>
+              <Box>
+              <Typography
+        sx={{ mb: 4, color: "#0c4b65", fontWeight: "600", fontSize: "30px" }}
+        variant="h5"
+        component="div"
+      >
+       Contact Form
+      </Typography>
+               
+              </Box>
+
+
+              <form ref={form} onSubmit={sendEmail}>
+
+                <Box sx={{ mt: 3 }} >
+
+                  <TextField id="filled-basic" label="Name" fullWidth
+                    variant="filled"{...register("name", { required: true })}
+                    placeholder=" Your Name"
+                    sx={{ my: 2 }} />
+                  <TextField id="filled-basic" label="Email" fullWidth
+                    variant="filled"{...register("email", { required: true })}
+                    placeholder=" Your email"
+                    sx={{ my: 2 }} />
+
+                  <TextField id="filled-basic" label="Subject"
+                    variant="filled" fullWidth {...register("subject", { required: true })}
+                    placeholder="Subject"
+                    sx={{ my: 2 }} />
+
+
+
+                  <TextField fullWidth
+                    id="outlined-multiline-static"
+                    variant="filled"
+                    label="Massage"
+                    multiline
+                    rows={4}
+
+                    {...register("description", { required: true })} placeholder=" Your Massage"
+                    sx={{ my: 2 }} /> <br />
+
+
+                  <Button type="submit" fullWidth variant="contained" sx={ButtonStyle} endIcon={<SendIcon />}> Send</Button>
+
+
+                </Box>
+
+
+              </form>
+
+            </Box>
+          </Grid>
+        </Grid>
+
+      
+
+      </Container>
     );
 };
 

@@ -6,13 +6,15 @@ import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import { Box, Button, Container, Grid, TextField } from "@mui/material";
-
 import "./Faq.css";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import Footer from "../Shared/Footer/Footer";
 import SharedBanner from "../Shared/SharedBanner/SharedBanner";
 import { ButtonStyle } from "../../Hooks/useStyle";
 import SendIcon from '@mui/icons-material/Send';
+import { useForm } from "react-hook-form";
+import emailjs from '@emailjs/browser';
+
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -57,6 +59,20 @@ export default function CustomizedAccordions() {
     setExpanded(newExpanded ? panel : false);
   };
 
+
+  const { register } = useForm();
+  const form = React.useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm("service_es28khp", "template_1fmwbhh", e.target, "user_bJFVwTvtJQe23vqEilEMy")
+
+      .then((result) => {
+        alert('Message sent successfully!');
+      }, (error) => {
+        alert(error.message);
+      });
+    e.target.reset();
+  };
   return (
     <>
     <NavigationBar/>
@@ -171,10 +187,11 @@ export default function CustomizedAccordions() {
     </Box>
 
 
-    
-
+       
+       {/* Form is start here*/}
     
    <Container>
+      <form ref={form} onSubmit={sendEmail}>
    <Box sx={{ textAlign: "center", mt: 15 }}>
     <Typography
           variant="h3"
@@ -189,58 +206,51 @@ export default function CustomizedAccordions() {
    sx={{px: {xs: 0,sm: 3 ,md: 15}}}
    >
     <Grid item xs={4} sm={4} md={6} >
-    <TextField 
-    fullWidth
-     id="outlined-basic"
-     label="Your Name" 
-     variant="outlined" />
+    <TextField id="filled-basic" label="Name" fullWidth
+                    variant="filled"{...register("name", { required: true })}
+                    placeholder=" Your Name"
+                    sx={{ my: 2 }} />
         </Grid>
         <Grid item  xs={4} sm={4} md={6} >
-        <TextField 
-        fullWidth
-        id="outlined-basic"
-        label="Your Email" 
-        variant="outlined" />
+         <TextField id="filled-basic" label="Email" fullWidth
+                    variant="filled"{...register("email", { required: true })}
+                    placeholder=" Your email"
+                    sx={{ my: 2 }} />
+
          </Grid>
         
         
         <Grid item  xs={4} sm={4} md={6} >
-        <TextField
-         fullWidth
-          id="outlined-number"
-          label="Number"
-          type="number"
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
+        <TextField id="filled-basic" label="Phone Number"
+                    variant="filled" fullWidth {...register("Number", { required: true })}
+                    placeholder="Number"
+                    sx={{ my: 2 }} />
           </Grid>
         <Grid item  xs={4} sm={4} md={6} >
-        <TextField
-         fullWidth
-          id="outlined-basic"
-          label="Subject"
-         
-        
-        />
+        <TextField id="filled-basic" label="Subject"
+                    variant="filled" fullWidth {...register("subject", { required: true })}
+                    placeholder="Subject"
+                    sx={{ my: 2 }} />
+
           </Grid>
         
         <Grid item  xs={4} sm={8} md={12} >
         <TextField fullWidth
-                   id="outlined-basic"
-                   label="Your Name" 
-                   variant="outlined"
+                    id="outlined-multiline-static"
+                    variant="filled"
+                    label="Massage"
                     multiline
                     rows={4}
 
-                   /> <br />
+                    {...register("description", { required: true })} placeholder=" Your Massage"
+                    sx={{ my: 2 }} /><br />
     </Grid>
    <Box sx={{width:"25%", mx:"auto", mt:3}}>
    <Button type="submit" fullWidth variant="contained" sx={ButtonStyle} endIcon={<SendIcon />}> Send</Button>
    </Box>
     </Grid>
     
-   
+   </form>
    </Container>
   
     </Container>

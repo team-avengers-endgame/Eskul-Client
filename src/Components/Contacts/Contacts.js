@@ -8,7 +8,6 @@ import img4 from '../../Assets/Images/clock (1).png'
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import SendIcon from '@mui/icons-material/Send';
-import './Contacts.css'
 import Footer from '../Shared/Footer/Footer';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { ButtonStyle } from '../../Hooks/useStyle';
