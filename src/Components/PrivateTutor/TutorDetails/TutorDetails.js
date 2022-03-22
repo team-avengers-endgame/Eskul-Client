@@ -55,6 +55,9 @@ const TutorDetails = () => {
   const [tutor, setTutor] = useState({});
   const { id } = useParams();
   const { user } = useAuth();
+  const [number, setNumber] = useState(1);
+  const [isFetched, setIsFetched] = useState(0);
+
   useEffect(() => {
     fetch(`${api}/privateTeachers/${id}`)
       .then((res) => res.json())
@@ -65,17 +68,19 @@ const TutorDetails = () => {
   const fetchReviews = () => {
     fetch(`${api}/reviews`)
       .then((res) => res.json())
-      .then((data) =>
-        setReviews(
-          data?.data.data
-            .filter((review) => review.review_type === "privateTeacher")
-            .filter((review) => review.privateTeacher === id)
-        )
-      );
+      .then((data) => {
+        const allReviews = data?.data.data
+          .filter((review) => review.review_type === "privateTeacher")
+          .filter((review) => review.privateTeacher === id);
+
+        const reviewsChunk = allReviews.slice(0, number * 2);
+        setIsFetched(Math.ceil(allReviews.length / 2) === number);
+        setReviews(reviewsChunk);
+      });
   };
   useEffect(() => {
     fetchReviews();
-  }, []);
+  }, [number]);
 
   const handleFormSubmit = async (e) => {
     console.log("Hello");
@@ -245,6 +250,14 @@ const TutorDetails = () => {
                 ) : (
                   <p>No reviews yet. Be the first one to review this tutor.</p>
                 )}
+                <Button
+                  type="submit"
+                  variant="outlined"
+                  disabled={isFetched || reviews.length === 0}
+                  onClick={() => setNumber(number + 1)}
+                >
+                  {isFetched ? "No More Reviews To Show" : "Load More Reviews"}
+                </Button>
               </Typography>
             </Box>
           </Grid>
