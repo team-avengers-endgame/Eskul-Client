@@ -1,75 +1,91 @@
-import { Button, Container, TextField, Typography } from "@mui/material";
-import React from "react";
+import { Box, Button, Container, Grid, TextField, Typography } from "@mui/material";
+import React, { useRef } from "react";
+import { useForm } from "react-hook-form";
+import SendIcon from '@mui/icons-material/Send';
+import emailjs from '@emailjs/browser';
+import { ButtonStyle } from "../../../Hooks/useStyle";
+
+
 
 const TeacherContact = () => {
+
+  const { register } = useForm();
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm("service_es28khp", "template_1fmwbhh", e.target, "user_bJFVwTvtJQe23vqEilEMy")
+
+      .then((result) => {
+        alert('Message sent successfully!');
+      }, (error) => {
+        alert(error.message);
+      });
+    e.target.reset();
+  };
   return (
-    <Container sx={{ py: 2 }}>
-      <Typography
+    <Container >
+
+
+
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12, lg: 12 }} sx={{mt:3}}>
+         
+
+          <Grid item xs={4} sm={4} md={12} lg={12}>
+            <Box sx={{ mb: 5 }}>
+              <Box>
+              <Typography
         sx={{ mb: 4, color: "#0c4b65", fontWeight: "600", fontSize: "30px" }}
         variant="h5"
         component="div"
       >
         Make contact with respected teacher
       </Typography>
-      <form>
-        <TextField
-          sx={{ width: "100%", my: 3, border: "2px solid #0c4b65" }}
-          required
-          placeholder="Your Name"
-        />{" "}
-        <br />
-        <TextField
-          sx={{ width: "100%", my: 3, border: "2px solid #0c4b65" }}
-          required
-          placeholder="Your Email"
-        />{" "}
-        <br />
-        <TextField
-          sx={{ width: "100%", my: 3, border: "2px solid #0c4b65" }}
-          required
-          rows={4}
-          multiline
-          placeholder="Your Message"
-        />{" "}
-        <br />
-        <Button
-          sx={{
-            color: "#fff",
-            flexBasis: "initial",
-            minHeight: "40px",
-            fontFamily: "Sans-serif",
-            fontSize: "15px",
-            textTransform: "capitalize",
-            letterSpacing: "0px",
-            backgroundColor: "#46aadd",
-            borderStyle: "solid",
-            borderWidth: "1px 1px 1px 1px",
-            borderColor: "#01479b",
-            paddingTop: 0,
-            paddingBottom: 0,
-            border: "none",
-            padding: "12px 24px",
-            display: "inlineBlock",
-            lineHeight: 1,
-            borderRadius: "5px",
-            fill: "#FFFFFF",
-            textAlign: "center",
-            fontWeight: 600,
-            whiteSpace: "nowrap",
-            userSelect: "none",
-            width: "auto",
-            mb: 5,
-            overflow: "visible",
-            "&:hover": {
-              backgroundColor: "black",
-            },
-          }}
-        >
-          Submit
-        </Button>
-      </form>
-    </Container>
+               
+              </Box>
+
+
+              <form ref={form} onSubmit={sendEmail}>
+
+                <Box sx={{ mt: 3 }} >
+
+                  <TextField id="filled-basic" label="Name" fullWidth
+                    variant="filled"{...register("name", { required: true })}
+                    placeholder=" Your Name"
+                    sx={{ my: 2 }} />
+                  <TextField id="filled-basic" label="Email" fullWidth
+                    variant="filled"{...register("email", { required: true })}
+                    placeholder=" Your email"
+                    sx={{ my: 2 }} />
+
+
+                  <TextField fullWidth
+                    id="outlined-multiline-static"
+                    variant="filled"
+                    label="Massage"
+                    multiline
+                    rows={4}
+
+                    {...register("description", { required: true })} placeholder=" Your Massage"
+                    sx={{ my: 2 }} /> <br />
+
+
+                  <Button type="submit" fullWidth variant="contained" sx={ButtonStyle} endIcon={<SendIcon />}> Send</Button>
+
+
+                </Box>
+
+
+              </form>
+
+            </Box>
+          </Grid>
+        </Grid>
+
+      
+
+      </Container>
   );
 };
 
 export default TeacherContact;
+

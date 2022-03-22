@@ -39,11 +39,7 @@ const DropdownMenuPage = () => {
 
 
 
-        <Link to="/about" style={LinkStyle}>
-          <MenuItem onClick={handleCloseUserMenu}>
-            <Typography textAlign="center">About us</Typography>
-          </MenuItem>
-        </Link>
+        
         <Divider />
         <Link to="/faq" style={LinkStyle}>
           <MenuItem onClick={handleCloseUserMenu}>
@@ -54,6 +50,11 @@ const DropdownMenuPage = () => {
         <Link to="/contacts" style={LinkStyle}>
           <MenuItem onClick={handleCloseUserMenu}>
             <Typography textAlign="center">Contacts</Typography>
+          </MenuItem>
+        </Link>
+        <Link to="/notfound" style={LinkStyle}>
+          <MenuItem onClick={handleCloseUserMenu}>
+            <Typography textAlign="center">404 Page</Typography>
           </MenuItem>
         </Link>
       </Menu>
