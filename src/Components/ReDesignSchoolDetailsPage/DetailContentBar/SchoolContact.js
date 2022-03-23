@@ -43,7 +43,7 @@ reset();
             <Box sx={{ mb: 5 }}>
               <Box>
               <Typography
-        sx={{ mb: 4, color: "#0c4b65", fontWeight: "600", fontSize: "30px" }}
+        sx={{ mb: 4, color: "rgba(40,180,133,0.85)", fontWeight: "600",textAlign:"center", fontSize: "30px" }}
         variant="h5"
         component="div"
       >
@@ -60,7 +60,7 @@ reset();
                   <TextField id="filled-basic" label="Name" fullWidth
                     variant="filled"{...register("name", { required: true })}
                     placeholder=" Your Name"
-                    sx={{ my: 2 }} />
+                    sx={{ my: 2}} />
                   <TextField id="filled-basic" label="Email" fullWidth
                     variant="filled"{...register("email", { required: true })}
                     placeholder=" Your email"
@@ -83,8 +83,36 @@ reset();
                     {...register("description", { required: true })} placeholder=" Your Massage"
                     sx={{ my: 2 }} /> <br />
 
+                   <Box sx={{display: "flex", justifyContent: "center", mt: 2 }}><Button type="submit" fullWidth variant="contained" sx={{
+                    color: "#fff",
+                    flexBasis: "initial",
+                    minHeight: "40px",
+                    fontFamily: "Sans-serif",
+                    fontSize: "15px",
+                    textTransform: "capitalize",
+                    letterSpacing: "1px",
+                    backgroundImage: "linear-gradient(to right bottom, rgba(126,213,111,0.85), rgba(40,180,133,0.85))",
+                    borderStyle: "solid",
+                    borderWidth: "1px 1px 1px 1px",
+                    borderColor: "#01479b",
+                    paddingTop: 0,
+                    paddingBottom: 0,
+                    border: "none",
+                    padding: "12px 24px",
+                    display: "inlineBlock",
+                    lineHeight: 1,
+                    borderRadius: "5px",
+                    fill: "#FFFFFF",
+                    textAlign: "center",
+                    fontWeight: 500,
+                    whiteSpace: "nowrap",
 
-                  <Button type="submit" fullWidth variant="contained" sx={ButtonStyle} endIcon={<SendIcon />}> Send</Button>
+                    width: "auto",
+                    mb: 2,
+                    overflow: "visible",
+
+                  }} endIcon={<SendIcon />}> Send</Button></Box>
+                  
 
 
                 </Box>
