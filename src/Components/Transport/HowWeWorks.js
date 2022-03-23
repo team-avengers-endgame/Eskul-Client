@@ -1,11 +1,18 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Aos from 'aos';
 const HowWeWorks = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 8000,
+    });
+  }, []);
     return (
         <Container sx={{ py: 8 }}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={12} md={6}>
+          <Grid data-aos="fade-down" data-aos-easing="linear"
+  data-aos-duration="3000" item xs={12} sm={12} md={6}>
             <Box sx={{ mb: 5 }}>
               <Typography
                 sx={{
@@ -186,16 +193,17 @@ const HowWeWorks = () => {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={12} md={6}>
+          <Grid data-aos="fade-up" data-aos-easing="linear"
+  data-aos-duration="3000" item xs={12} sm={12} md={6}>
            <Container>
            <img
               style={{ width: "100%",
               height: "500px",
               objectFit:"cover",
               maxWidth: "100%",
-              marginTop:"30%",
+             
               borderRadius: "10px",
-              margin:"0px auto",
+              margin:"10% auto",
               aspectRatio: "auto 600 / 600",
               }} 
               src="https://i.ibb.co/JF1M85v/photo-1583508805133-8fd03a9916d4-1.jpg"
