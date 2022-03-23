@@ -72,14 +72,16 @@ const NavigationBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            <img
-              style={{
-                height: "45px",
-                objectFit: "contain",
-              }}
-              src={logo}
-              alt=""
-            />
+            <Link to='/'>
+              <img
+                style={{
+                  height: "45px",
+                  objectFit: "contain",
+                }}
+                src={logo}
+                alt=""
+              />
+            </Link>
           </Typography>
 
           {/* large device menus */}
@@ -93,7 +95,7 @@ const NavigationBar = () => {
               </Button>
             </NavLink>
 
-            <NavLink  to="/schools" style={LinkStyle}>
+            <NavLink to="/schools" style={LinkStyle}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
@@ -109,7 +111,7 @@ const NavigationBar = () => {
                 Private Tutor
               </Button>
             </Link>
-          
+
 
             <Link to="/about" style={LinkStyle}>
               <Button
@@ -190,7 +192,7 @@ const NavigationBar = () => {
                   <Typography textAlign="center">Schools</Typography>
                 </MenuItem>
               </Link>
-            
+
               <Link to="/privateTutor" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Private Tutor</Typography>
@@ -198,8 +200,8 @@ const NavigationBar = () => {
               </Link>
               <DropdownMenuGallery />
               <DropdownMenuPage />
-             
-            
+
+
               <Link to="/contacts" style={LinkStyle}>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Contacts</Typography>
@@ -224,7 +226,7 @@ const NavigationBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
             <CartDrawer />
-            
+
 
             <Box sx={{ display: { xs: "none", sm: "inline", md: "inline" } }}>
               <Tooltip title="Open settings" arrow placement="left-end">
