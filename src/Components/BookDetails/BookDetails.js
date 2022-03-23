@@ -102,7 +102,9 @@ const BookDetails = () => {
       rating,
       review_type: "book",
       book: id,
-    });
+    }).then(res => {
+      res.status === 201 && alert('success', 'Success', 'Review post successfully')
+    })
     fetchReviews();
     setRating(0);
     setDescription("");

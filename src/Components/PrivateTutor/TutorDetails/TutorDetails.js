@@ -28,7 +28,7 @@ import SubjectIcon from "@mui/icons-material/Subject";
 import SchoolIcon from "@mui/icons-material/School";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import DetailsIcon from "@mui/icons-material/Details";
-import { ButtonStyle } from "../../../Hooks/useStyle";
+import { alert, ButtonStyle } from "../../../Hooks/useStyle";
 import axios from "axios";
 import useAuth from "../../../Hooks/useAuth";
 import StarIcon from "@mui/icons-material/Star";
@@ -94,7 +94,9 @@ const TutorDetails = () => {
       rating,
       review_type: "privateTeacher",
       privateTeacher: id,
-    });
+    }).then(res => {
+      res.status === 201 && alert('success', 'Success', 'Review post successfully')
+    })
     fetchReviews();
     setRating(0);
     setDescription("");

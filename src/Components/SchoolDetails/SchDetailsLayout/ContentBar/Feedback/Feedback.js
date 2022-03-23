@@ -11,26 +11,21 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../../../../Hooks/Api";
 import useAuth from "../../../../../Hooks/useAuth";
-import { ButtonStyle } from "../../../../../Hooks/useStyle";
+import { alert, ButtonStyle } from "../../../../../Hooks/useStyle";
 import StarIcon from "@mui/icons-material/Star";
 const Feedback = () => {
   const [description, setDescription] = useState("");
   const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(-1);
-  const [tutor, setTutor] = useState({});
   const { id } = useParams();
   const { user } = useAuth();
   const [number, setNumber] = useState(1);
   const [isFetched, setIsFetched] = useState(0);
 
-  useEffect(() => {
-    fetch(`${api}/privateTeachers/${id}`)
-      .then((res) => res.json())
-      .then((data) => setTutor(data?.data?.data));
-  }, [id]);
 
-  const iconStyle = { display: "flex", alignItems: "center" };
+
+
   const labels = {
     0.5: "Useless",
     1: "Useless+",
@@ -72,7 +67,9 @@ const Feedback = () => {
       rating,
       review_type: "school",
       school: id,
-    });
+    }).then(res => {
+      res.status === 201 && alert('success', 'Success', 'Review post successfully')
+    })
     fetchReviews();
     setRating(0);
     setDescription("");
