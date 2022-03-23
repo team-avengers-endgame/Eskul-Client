@@ -10,7 +10,7 @@ import "./Faq.css";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import Footer from "../Shared/Footer/Footer";
 import SharedBanner from "../Shared/SharedBanner/SharedBanner";
-import { ButtonStyle } from "../../Hooks/useStyle";
+import { alert, ButtonStyle } from "../../Hooks/useStyle";
 import SendIcon from '@mui/icons-material/Send';
 import { useForm } from "react-hook-form";
 import emailjs from '@emailjs/browser';
@@ -60,19 +60,30 @@ export default function CustomizedAccordions() {
   };
 
 
-  const { register } = useForm();
-  const form = React.useRef();
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs.sendForm("service_es28khp", "template_1fmwbhh", e.target, "user_bJFVwTvtJQe23vqEilEMy")
+  const {
+    register,
+    handleSubmit,
+    reset} = useForm();
+ 
 
-      .then((result) => {
-        alert('Message sent successfully!');
-      }, (error) => {
-        alert(error.message);
-      });
-    e.target.reset();
+  const sendEmail = (formData) => {
+    emailjs.send("service_es28khp", "template_1fmwbhh", formData, "user_bJFVwTvtJQe23vqEilEMy")
+
+ .then(
+  (result) => {
+
+    result.text && alert('success', 'Success', 'Message sent successfully');
+  },
+  (error) => {
+
+    error.text &&  alert('error', 'Error', 'Messege can not send');
+  }
+);
+reset();  
+
   };
+
+
   return (
     <>
     <NavigationBar/>
@@ -191,7 +202,7 @@ export default function CustomizedAccordions() {
        {/* Form is start here*/}
     
    <Container>
-      <form ref={form} onSubmit={sendEmail}>
+      <form onSubmit={handleSubmit(sendEmail)}>
    <Box sx={{ textAlign: "center", mt: 15 }}>
     <Typography
           variant="h3"
@@ -222,7 +233,7 @@ export default function CustomizedAccordions() {
         
         <Grid item  xs={4} sm={4} md={6} >
         <TextField id="filled-basic" label="Phone Number"
-                    variant="filled" fullWidth {...register("Number", { required: true })}
+                    variant="filled" fullWidth {...register("number", { required: true })}
                     placeholder="Number"
                     sx={{ my: 2 }} />
           </Grid>
@@ -242,7 +253,7 @@ export default function CustomizedAccordions() {
                     multiline
                     rows={4}
 
-                    {...register("description", { required: true })} placeholder=" Your Massage"
+                    {...register("message", { required: true })} placeholder=" Your Massage"
                     sx={{ my: 2 }} /><br />
     </Grid>
    <Box sx={{width:"25%", mx:"auto", mt:3}}>

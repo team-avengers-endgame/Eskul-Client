@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import connectImg from '../../Assets/Images/contact.svg'
 import img1 from '../../Assets/Images/location-removebg-preview (1).png'
@@ -10,7 +10,7 @@ import emailjs from '@emailjs/browser';
 import SendIcon from '@mui/icons-material/Send';
 import Footer from '../Shared/Footer/Footer';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
-import { ButtonStyle } from '../../Hooks/useStyle';
+import { alert, ButtonStyle } from '../../Hooks/useStyle';
 import SharedBanner from '../Shared/SharedBanner/SharedBanner';
 
 
@@ -18,18 +18,27 @@ import SharedBanner from '../Shared/SharedBanner/SharedBanner';
 
 
 const Contacts = () => {
-  const { register } = useForm();
-  const form = useRef();
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs.sendForm("service_es28khp", "template_1fmwbhh", e.target, "user_bJFVwTvtJQe23vqEilEMy")
 
-      .then((result) => {
-        alert('Message sent successfully!');
-      }, (error) => {
-        alert(error.message);
-      });
-    e.target.reset();
+  const {
+    register,
+    handleSubmit,
+    reset} = useForm();
+ 
+
+  const sendEmail = (formData) => {
+    emailjs.send("service_es28khp", "template_1fmwbhh", formData, "user_bJFVwTvtJQe23vqEilEMy")
+
+ .then(
+  (result) => {
+
+    result.text && alert('success', 'Success', 'Message sent successfully');
+  },
+  (error) => {
+
+    error.text &&  alert('error', 'Error', 'Messege can not send');
+  }
+);
+reset();  
   };
 
   return (
@@ -57,7 +66,7 @@ const Contacts = () => {
               </Box>
 
 
-              <form ref={form} onSubmit={sendEmail}>
+              <form  onSubmit={handleSubmit(sendEmail)}>
 
                 <Box sx={{ mt: 3 }} >
 
@@ -71,7 +80,7 @@ const Contacts = () => {
                     sx={{ my: 2 }} />
 
                   <TextField id="filled-basic" label="Phone Number"
-                    variant="filled" fullWidth {...register("Number", { required: true })}
+                    variant="filled" fullWidth {...register("number", { required: true })}
                     placeholder="Number"
                     sx={{ my: 2 }} />
 
@@ -84,7 +93,7 @@ const Contacts = () => {
                     multiline
                     rows={4}
 
-                    {...register("description", { required: true })} placeholder=" Your Massage"
+                    {...register("message", { required: true })} placeholder=" Your Massage"
                     sx={{ my: 2 }} /> <br />
 
 

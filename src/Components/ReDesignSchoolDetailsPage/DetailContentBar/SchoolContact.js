@@ -1,27 +1,36 @@
 import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
-import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import SendIcon from '@mui/icons-material/Send';
-import { ButtonStyle } from '../../../Hooks/useStyle';
+import { alert, ButtonStyle } from '../../../Hooks/useStyle';
 
 
 
 const SchoolContact = () => {
     
-    const { register } = useForm();
-  const form = useRef();
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs.sendForm("service_es28khp", "template_1fmwbhh", e.target, "user_bJFVwTvtJQe23vqEilEMy")
+  const {
+    register,
+    handleSubmit,
+    reset} = useForm();
+ 
 
-      .then((result) => {
-        alert('Message sent successfully!');
-      }, (error) => {
-        alert(error.message);
-      });
-    e.target.reset();
+  const sendEmail = (formData) => {
+    emailjs.send("service_es28khp", "template_1fmwbhh", formData, "user_bJFVwTvtJQe23vqEilEMy")
+
+ .then(
+  (result) => {
+
+    result.text && alert('success', 'Success', 'Message sent successfully');
+  },
+  (error) => {
+
+    error.text &&  alert('error', 'Error', 'Messege can not send');
+  }
+);
+reset();  
   };
+
+
     return (
         <Container >
 
@@ -44,7 +53,7 @@ const SchoolContact = () => {
               </Box>
 
 
-              <form ref={form} onSubmit={sendEmail}>
+              <form  onSubmit={handleSubmit(sendEmail)}>
 
                 <Box sx={{ mt: 3 }} >
 

@@ -3,24 +3,32 @@ import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import SendIcon from '@mui/icons-material/Send';
 import emailjs from '@emailjs/browser';
-import { ButtonStyle } from "../../../Hooks/useStyle";
+import { alert, ButtonStyle } from "../../../Hooks/useStyle";
 
 
 
 const TeacherContact = () => {
 
-  const { register } = useForm();
-  const form = useRef();
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs.sendForm("service_es28khp", "template_1fmwbhh", e.target, "user_bJFVwTvtJQe23vqEilEMy")
+  const {
+    register,
+    handleSubmit,
+    reset} = useForm();
+ 
 
-      .then((result) => {
-        alert('Message sent successfully!');
-      }, (error) => {
-        alert(error.message);
-      });
-    e.target.reset();
+  const sendEmail = (formData) => {
+    emailjs.send("service_es28khp", "template_1fmwbhh", formData, "user_bJFVwTvtJQe23vqEilEMy")
+
+ .then(
+  (result) => {
+
+    result.text && alert('success', 'Success', 'Message sent successfully');
+  },
+  (error) => {
+
+    error.text &&  alert('error', 'Error', 'Messege can not send');
+  }
+);
+reset();  
   };
   return (
     <Container >
@@ -44,7 +52,7 @@ const TeacherContact = () => {
               </Box>
 
 
-              <form ref={form} onSubmit={sendEmail}>
+              <form onSubmit={handleSubmit(sendEmail)}>
 
                 <Box sx={{ mt: 3 }} >
 
@@ -65,7 +73,7 @@ const TeacherContact = () => {
                     multiline
                     rows={4}
 
-                    {...register("description", { required: true })} placeholder=" Your Massage"
+                    {...register("message", { required: true })} placeholder=" Your Massage"
                     sx={{ my: 2 }} /> <br />
 
 

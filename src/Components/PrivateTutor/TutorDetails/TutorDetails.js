@@ -27,7 +27,6 @@ import PaidIcon from "@mui/icons-material/Paid";
 import SubjectIcon from "@mui/icons-material/Subject";
 import SchoolIcon from "@mui/icons-material/School";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import ReviewsIcon from "@mui/icons-material/Reviews";
 import DetailsIcon from "@mui/icons-material/Details";
 import { ButtonStyle } from "../../../Hooks/useStyle";
 import axios from "axios";
@@ -230,8 +229,8 @@ const TutorDetails = () => {
                     </Grid>
                   </Grid>
                 </form>
-                {reviews.length > 0 ? (
-                  reviews.map((review) => (
+                {reviews?.length > 0 ? (
+                  reviews?.reverse?.map((review) => (
                     <React.Fragment>
                       <h4>Name: {review.user.displayName}</h4>
                       <h4>Description: {review.description}</h4>
