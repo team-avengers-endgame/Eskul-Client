@@ -34,7 +34,7 @@ const Donation = () => {
       date: new Date().toLocaleDateString(),
     };
     axios
-      .post(`${api}/donation/donationInit`, newData)
+      .post(`${api}/donationInit`, newData)
       .then((res) => {
         window.location.replace(res?.data);
         console.log(res);
