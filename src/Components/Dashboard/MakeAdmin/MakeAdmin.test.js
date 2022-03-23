@@ -13,5 +13,7 @@ import MakeAdmin from './MakeAdmin';
       let wrapper = shallow(<MakeAdmin/>)
       expect(wrapper.contains("Make an admin form")).toEqual(true)
    })
+
+ 
   
 })

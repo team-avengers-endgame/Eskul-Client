@@ -35,7 +35,7 @@ const NotesList = () => {
     return (
 
         <Container>
-            <Typography variant="h4" sx={{ margin: "10px", fontWeight: 'bold', textAlign: 'center', my: 5 }} >Download your Notes</Typography>
+            <Typography variant="h4" sx={{ margin: "10px", fontWeight: 'bold', textAlign: 'center', my: 5 }} >Read the Books!</Typography>
             <Box sx={{ mx: 'auto' }}>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {notes?.map((note, index) => (
