@@ -42,13 +42,7 @@ const DetailPageTeacher = () => {
                 <Grid item xs={6} sm container>
                   <Grid item xs container direction="column" spacing={2}>
                     <Grid item xs>
-                      {/* <Typography
-                        gutterBottom
-                        variant="subtitle1"
-                        component="div"
-                      >
-                        {single.schoolName}
-                      </Typography> */}
+                   
 
                       <Typography
                         sx={{ mt: { xs: 1 } }}

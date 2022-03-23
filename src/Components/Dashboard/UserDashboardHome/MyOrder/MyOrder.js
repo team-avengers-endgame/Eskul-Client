@@ -53,19 +53,19 @@ const MyOrder = () => {
     }
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
-      };
-    
-      const handleChangeRowsPerPage = (event) => {
+    };
+
+    const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(+event.target.value);
         setPage(0);
-      };
-
+    };
+    const color = orders.length === 0 ? "error" : "success"
     return (
         <Container>
             <Toolbar />
             <Divider>
-                <Fab variant="extended" size="small" color="primary" aria-label="add">
-                    <AddShoppingCartIcon />MY Order
+                <Fab variant="extended" size="small" color={color} aria-label="add">
+                    <AddShoppingCartIcon />{orders.length === 0 ? "My Order Not Found" : "MY Order"}
                 </Fab>
             </Divider>
             {
@@ -105,17 +105,17 @@ const MyOrder = () => {
                     </Box>
                 )
             }
- <TableFooter>
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
-            component="div"
-            count={orders.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </TableFooter>
+            <TableFooter>
+                <TablePagination
+                    rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
+                    component="div"
+                    count={orders.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                />
+            </TableFooter>
         </Container>
     );
 };

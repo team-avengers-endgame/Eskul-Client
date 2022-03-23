@@ -31,6 +31,8 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
+
 const drawerWidth = 240;
 function Dashboard(props) {
     const { user, logOut, admin } = useAuth();
@@ -211,6 +213,16 @@ function Dashboard(props) {
                             Manage Order
                         </ListItem>
                     </NavLink>
+
+                    <Divider />
+                    <NavLink to='/dashboard/donations' style={LinkStyle}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <VolunteerActivismIcon />
+                            </ListItemIcon>
+                            Donations
+                        </ListItem>
+                    </NavLink>
                     <Divider />
                     <NavLink to='/dashboard/makeAdmin' style={LinkStyle}>
                         <ListItem button >
@@ -233,6 +245,15 @@ function Dashboard(props) {
                                     <AddShoppingCartIcon />
                                 </ListItemIcon>
                                 My Order
+                            </ListItem>
+                        </NavLink>
+                        <Divider />
+                        <NavLink to='/dashboard/myDonations' style={LinkStyle}>
+                            <ListItem button >
+                                <ListItemIcon>
+                                    <VolunteerActivismIcon />
+                                </ListItemIcon>
+                                My Donations
                             </ListItem>
                         </NavLink>
                         <Divider />

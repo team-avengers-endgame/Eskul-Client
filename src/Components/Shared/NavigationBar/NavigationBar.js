@@ -17,7 +17,6 @@ import useAuth from "../../../Hooks/useAuth";
 import { Divider } from "@mui/material";
 import DropdownMenuPage from "./DropdownMenuPage";
 import DropdownMenuGallery from "./DropdownMenuGallery";
-import NotificationIcon from "./NotificationIcon";
 import CartDrawer from "./CartDrawer";
 
 
@@ -225,7 +224,7 @@ const NavigationBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
             <CartDrawer />
-            <NotificationIcon />
+            
 
             <Box sx={{ display: { xs: "none", sm: "inline", md: "inline" } }}>
               <Tooltip title="Open settings" arrow placement="left-end">

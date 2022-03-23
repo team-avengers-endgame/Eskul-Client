@@ -26,10 +26,10 @@ const Donation = () => {
 
         }
         axios
-            .post(`${api}/donation/donationInit`, newData)
+            .post(`${api}/donationInit`, newData)
             .then((res) => {
                 window.location.replace(res?.data);
-
+                console.log(res)
             })
             .catch((error) => {
                 console.log(error);

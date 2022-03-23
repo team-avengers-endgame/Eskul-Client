@@ -9,7 +9,6 @@ import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Register/Register";
 import About from "./Components/About/About/About";
 import SchoolDetails from "./Components/SchoolDetails/SchoolDetails";
-// import Schools from "./Components/Schools/Schools/Schools";
 import AddASchool from "./Components/Dashboard/AddASchool/AddASchool";
 import DashboardSchools from "./Components/Dashboard/Schools/Schools";
 import MakeAdmin from "./Components/Dashboard/MakeAdmin/MakeAdmin";
@@ -42,16 +41,16 @@ import MyOrder from "./Components/Dashboard/UserDashboardHome/MyOrder/MyOrder";
 import ManageOrder from "./Components/Dashboard/ManageOrder/ManageOrder";
 import WebsiteReviewFrom from "./Components/Dashboard/UserDashboardHome/WebsiteReviewFrom/WebsiteReviewFrom";
 import Donation from "./Components/Donation/Donation";
-
 import TransportHome from "./Components/Transport/TransportDetails/TransportHome";
 import Faq from "./Components/Faq/Faq";
 import Profile from "./Components/Dashboard/Profile/Profile";
 import { Box } from "@mui/material";
-
 import TransportHomeDetails from "./Components/Transport/TransportHomeDetails";
-
 import DetailsHome from "./Components/ReDesignSchoolDetailsPage/DetailsHome/DetailsHome";
 import SchoolHome from './Components/ReDesignedSchoolPage/SchoolHome/SchoolHome'
+import DonationSuccess from "./Components/Donation/DonationSuccess";
+import Donations from "./Components/Dashboard/Donations/Donations";
+import MyDonations from "./Components/Dashboard/UserDashboardHome/MyDonations/MyDonations";
 
 
 
@@ -103,6 +102,11 @@ function App() {
             <Route path="success/:id" element={
               <PrivateRoute>
                 <PaymentSuccessfullyPage />
+              </PrivateRoute>
+            } />
+            <Route path="donationSuccess/:id" element={
+              <PrivateRoute>
+                <DonationSuccess />
               </PrivateRoute>
             } />
 
@@ -309,6 +313,22 @@ function App() {
                   <PrivateRoute>
                     <WebsiteReviewFrom />
                   </PrivateRoute>
+                }
+              />
+              <Route
+                path="myDonations"
+                element={
+                  <PrivateRoute>
+                    <MyDonations />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="donations"
+                element={
+                  <AdminRoute>
+                    <Donations />
+                  </AdminRoute>
                 }
               />
             </Route>

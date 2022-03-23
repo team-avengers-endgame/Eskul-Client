@@ -1,9 +1,6 @@
-import { Box, ButtonBase, Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
-import WhatsappRoundedIcon from "@mui/icons-material/WhatsappRounded";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import EmailIcon from "@mui/icons-material/Email";
+
 import { useParams } from "react-router-dom";
 import { api } from "../../../Hooks/Api";
 const TeacherInfo = () => {
@@ -13,7 +10,7 @@ const TeacherInfo = () => {
     fetch(`${api}/teachers/${id}`)
       .then((res) => res.json())
       .then((data) => setTeacherInfos(data.data.data));
-  }, []);
+  }, [id]);
   // teacher info is
   return (
     <Container sx={{ py: 2, mr: 10 }}>
@@ -114,33 +111,7 @@ const TeacherInfo = () => {
             <span style={{ fontWeight: "800" }}>Email:</span>
             {teacherInfos?.email}
           </Typography>
-          {/* Icons */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              color: "#46aadd",
-              mb: 5,
-            }}
-          >
-            <ButtonBase>
-              <FacebookRoundedIcon
-                sx={{ fontSize: "28px", cursor: "pointer" }}
-              />
-            </ButtonBase>
-            <ButtonBase>
-              <WhatsappRoundedIcon
-                sx={{ fontSize: "28px", cursor: "pointer" }}
-              />
-            </ButtonBase>
-            <ButtonBase>
-              <LinkedInIcon sx={{ fontSize: "28px", cursor: "pointer" }} />
-            </ButtonBase>
-            <ButtonBase>
-              <EmailIcon sx={{ fontSize: "28px", cursor: "pointer" }} />
-            </ButtonBase>
-          </Box>
+         
         </Grid>
       </Grid>
     </Container>
