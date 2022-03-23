@@ -230,7 +230,7 @@ const TutorDetails = () => {
                   </Grid>
                 </form>
                 {reviews?.length > 0 ? (
-                  reviews?.reverse?.map((review) => (
+                  reviews?.reverse()?.map((review) => (
                     <React.Fragment>
                       <h4>Name: {review.user.displayName}</h4>
                       <h4>Description: {review.description}</h4>
