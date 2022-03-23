@@ -1,15 +1,24 @@
-import { Button, Container, Grid, Typography } from '@mui/material';
-import React from 'react';
-
+import { Container, Grid, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
+import Aos from 'aos';
 
 const HeroSection = () => {
+    useEffect(() => {
+        Aos.init({
+          duration: 8000,
+        });
+      }, []);
     return (
         <Container sx={{py:10}}>
           <Typography variant="h5" gutterBottom component="div">
         Explore our Transport Details
       </Typography>
       <Grid container spacing={12}>
-  <Grid item xs={12} sm={12} md={6}>
+  <Grid 
+  data-aos="fade-left" data-aos-easing="linear"
+  data-aos-duration="3000"
+  item
+  xs={12} sm={12} md={6}>
   
   <Typography sx={{color:"#c25934",fontSize:"24px",fontWeight:800}} variant="h6" gutterBottom component="div">
   Our Trasport Facility
@@ -22,7 +31,11 @@ const HeroSection = () => {
       </Typography>
       
   </Grid>
-  <Grid item xs={12} sm={12} md={6}>
+  <Grid 
+  data-aos="fade-right" data-aos-easing="linear"
+  data-aos-duration="3000"
+  item 
+  xs={12} sm={12} md={6}>
   <img style={{width:"100%"}} src="https://i.ibb.co/g6YsdCH/hero-transport.png" alt="" />
   </Grid>
 
