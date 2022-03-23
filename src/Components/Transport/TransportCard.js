@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     Box,
     Button,
@@ -13,9 +13,14 @@ import {
  
   import footerbgsvg from "../../Assets/Images/AboutUs/footer-bg.svg";
 import { NavLink } from 'react-router-dom';
-
+import Aos from 'aos';
 const TransportCard = ({dt}) => {
   const {busImg,name,location,id} = dt;
+  useEffect(() => {
+    Aos.init({
+      duration: 8000,
+    });
+  }, []);
     return (
         <Box
       sx={{
@@ -51,9 +56,11 @@ const TransportCard = ({dt}) => {
           </Typography>
         </Container>
         <Box >
-          <Grid container spacing={2}>
+          <Grid data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500" container spacing={2}>
               {/* 1 */}
-            <Grid item xs={12} sm={12} md={4}>
+            <Grid  item xs={12} sm={12} md={4}>
               <Card sx={{  background: "#fff",
                 w: "25%",
                 p: "20px 15px",
