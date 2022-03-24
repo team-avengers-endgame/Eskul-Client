@@ -1,16 +1,27 @@
 import React, { useEffect } from 'react';
 import './NurtingEnvironment.css'
-import { Box, Button, Container, Grid, Link, Typography } from '@mui/material';
+import { Box,Container, Fab, Grid,Typography } from '@mui/material';
 import SlowMotionVideoOutlinedIcon from '@mui/icons-material/SlowMotionVideoOutlined';
 import Aos from 'aos';
+import Video from './Video/Video';
 const NurtingEnvironment = () => {
-
+    const [open, setOpen] = React.useState(false);
+    const [scroll, setScroll] = React.useState();
 
     useEffect(() => {
         Aos.init({
             duration: 1000
         });
     }, []);
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleVideoOpen = () => {
+        setScroll();
+        setOpen(true);
+    };
+
     return (
         <Box className='NurtingEnvironment-container' >
 
@@ -24,7 +35,7 @@ const NurtingEnvironment = () => {
                                 data-aos-duration="2000"
                                 variant='h4' sx={{ fontWeight: 'bold' }}>
                                 We Create a Helpfull Website <br />
-                                <span style={{ color: 'rgb(70, 170, 220)' }}>for Each Child</span>
+                                <span style={{ color: 'rgb(70, 170, 220)' }}>for Each Students</span>
                             </Typography>
                             <Typography
                                 data-aos="flip-right"
@@ -35,14 +46,23 @@ const NurtingEnvironment = () => {
 
                             </Typography>
                             <br /><br />
-                            <Button sx={{ borderRadius: '50%', height: '60px', width: '60px', backgroundColor: 'rgb(70, 170, 220)', color: 'white' }}>
-                                 <a href="https://www.youtube.com/watch?v=aXZPJ8yGbwU"><SlowMotionVideoOutlinedIcon style={{ color: 'fff' }}></SlowMotionVideoOutlinedIcon></a>
-                            </Button> <Link style={{ color: 'rgb(70, 170, 220)', fontWeight: 'bold', textDecoration: 'none' }}>View Video</Link>
+                            <Fab
+                                onClick={handleVideoOpen}
+                                color="info" aria-label="add">
+                                <SlowMotionVideoOutlinedIcon />
+                            </Fab>
+                             <Typography variant='body' sx={{ color: 'rgb(70, 170, 220)', fontWeight: 'bold',display:'inline',pl:2}}>View Video</Typography>
                         </Box>
                     </Grid>
                 </Grid>
             </Container>
+            <Video
 
+                handleClose={handleClose}
+                open={open}
+                scroll={scroll}
+
+            />
         </Box>
     );
 };
