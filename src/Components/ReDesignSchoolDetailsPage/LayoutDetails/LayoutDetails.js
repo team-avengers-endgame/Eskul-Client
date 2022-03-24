@@ -4,19 +4,19 @@ import DetailContentBar from '../DetailContentBar/DetailContentBar';
 import DetailSideBar from '../DetailSideBar/DetailSideBar';
 
 const LayoutDetails = () => {
-    return (
-        <Container>
+  return (
+    <Container>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12} md={8}>
-        
-        <DetailContentBar/>
+
+          <DetailContentBar />
         </Grid>
         <Grid item xs={12} sm={12} md={4}>
-        <DetailSideBar/>
+          <DetailSideBar />
         </Grid>
       </Grid>
     </Container>
-    );
+  );
 };
 
 export default LayoutDetails;

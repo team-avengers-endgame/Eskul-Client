@@ -5,15 +5,15 @@ import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 import LayoutDetails from '../LayoutDetails/LayoutDetails';
 
 const DetailsHome = () => {
-    return (
-        <div>
-           <NavigationBar />
+  return (
+    <div>
+      <NavigationBar />
       <Banner />
       {/* <TopBar /> */}
-    <LayoutDetails/>
-      <Footer /> 
-        </div>
-    );
+      <LayoutDetails />
+      <Footer />
+    </div>
+  );
 };
 
 export default DetailsHome;

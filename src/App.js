@@ -86,10 +86,25 @@ function App() {
             <Route path="contacts" element={<Contacts />} />
             <Route path="schools" element={<SchoolHome />} />
             <Route path="books" element={<BookList />} />
+            <Route path="contacts" element={<Contacts />} />
             <Route path="books/bookOrderReview" element={
               <BookOrderReview />
             } />
-
+            <Route path="notes" element={
+              <PrivateRoute>
+                <NotesPage />
+              </PrivateRoute>
+            } />
+            <Route path="transport" element={
+              <PrivateRoute>
+                <TransportHomeDetails />
+              </PrivateRoute>
+            } />
+            <Route path="transportDetails/:tpid" element={
+              <PrivateRoute>
+                <TransportHome />
+              </PrivateRoute>
+            } />
 
             <Route path="faq" element={
               <PrivateRoute>
@@ -129,12 +144,8 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="notes" element={<NotesPage />} />
-            {/* <Route path="schDetails" element={<SchoolDetails />} /> */}
-            <Route path="transport" element={<TransportHomeDetails />} />
-            <Route path="transportDetails/:tpid" element={<TransportHome />} />
-            <Route path="contacts" element={<Contacts />} />
-            {/* <Route path="schools" element={<SchoolHome />} /> */}
+
+
             <Route path="notes" element={
               <PrivateRoute>
                 <NotesPage />

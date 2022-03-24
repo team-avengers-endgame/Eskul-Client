@@ -49,7 +49,7 @@ const labels = {
 const TutorDetails = () => {
   const [description, setDescription] = useState("");
   const [reviews, setReviews] = useState([]);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(2);
   const [hover, setHover] = useState(-1);
   const [tutor, setTutor] = useState({});
   const { id } = useParams();
@@ -107,7 +107,7 @@ const TutorDetails = () => {
       <Container>
         <Box sx={{ textAlign: "center", my: 5 }}>
           <Typography variant="h3">{tutor?.teacherName}</Typography>
-          <Typography> No reviews yet</Typography>
+         
         </Box>
         <Grid
           container

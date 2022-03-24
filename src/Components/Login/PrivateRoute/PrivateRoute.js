@@ -4,15 +4,19 @@ import useAuth from "../../../Hooks/useAuth";
 import LoadingPage from "../../Shared/LoadingPage/LoadingPage";
 
 const PrivateRoute = ({ children }) => {
-    let { user, isLoading } = useAuth();
+    let { user, isLoading} = useAuth();
     let location = useLocation();
+
     if (isLoading) {
         return <LoadingPage />;
     }
+
     if (user?.email) {
         return children;
     }
-    return !user?.email?<LoadingPage/>:<Navigate to="/login" state={{ from: location }} />;
+
+    return  <Navigate to="/login" state={{ from: location }} />;
+
 };
 
 export default PrivateRoute;

@@ -22,8 +22,6 @@ const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const auth = getAuth();
   const [authError, setAuthError] = useState("");
-
-
   const [booksCount, setBooksCount] = useState(0);
   const [privateTeacherCount, setTeachersCount] = useState(0);
   const [schoolsCount, setSchoolsCount] = useState(0);
@@ -31,6 +29,7 @@ const useFirebase = () => {
 
   // login google------------------------
   const signInWithGoogle = (location, navigate) => {
+    setIsLoading(true);
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -52,17 +51,20 @@ const useFirebase = () => {
       })
       .catch((error) => {
         setAuthError(error.message);
-      });
+      }).finally(() => {
+        setIsLoading(false);
+      })
   };
 
   // singin with facebook
   const facebookLogin = (location, navigate) => {
+    setIsLoading(true);
     const provider = new FacebookAuthProvider();
 
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
-        console.log(user)
+
         saveUsers(
           {
             displayName: user?.displayName,
@@ -70,18 +72,20 @@ const useFirebase = () => {
             photoURL: user?.photoURL,
           },
           "PATCH"
-          );
-          
-          setUser(user)
-          setAuthError('')
-          navigate(location?.state?.from || "/");
+        );
+
+        setUser(user)
+        setAuthError('')
+        navigate(location?.state?.from || "/");
       })
       .catch((error) => {
 
         const errorMessage = error.message;
         setAuthError(errorMessage)
 
-      });
+      }).finally(() => {
+        setIsLoading(false);
+      })
   }
 
   // register user
@@ -133,6 +137,7 @@ const useFirebase = () => {
   };
 
   const loginUser = (email, password, location, navigate) => {
+
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -182,8 +187,8 @@ const useFirebase = () => {
 
   // save user to database-------------
   const saveUsers = (newUser, method) => {
+    setIsLoading(true);
     const user = { ...newUser };
-
     fetch(`${api}/users`, {
       method: method,
       headers: {
@@ -193,12 +198,16 @@ const useFirebase = () => {
     })
       .then((res) => res.json())
       /* .then((data) => console.log(data)) */
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsLoading(false);
+      })
   };
 
   // on auth state change -----------------------------
 
   useEffect(() => {
+    setIsLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
@@ -212,18 +221,23 @@ const useFirebase = () => {
   // const email = 'koiry.rupok@gmail.com'
   // get admin ============================
   useEffect(() => {
+    setIsLoading(true);
     fetch(`${api}/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
 
         setAdmin(data.admin);
+      }).catch(err => {
+        console.log(err)
       })
-      .finally(() => { });
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [user.email]);
 
   //////////////////////////////////////////////
   useEffect(() => {
-    setIsLoading(true);
+
     fetch(`${api}/books`)
       .then((res) => res.json())
       .then((data) => {
@@ -240,7 +254,7 @@ const useFirebase = () => {
         setSchoolsCount(data?.data?.data.length);
 
       });
-    setIsLoading(false);
+
   }, [])
 
   //////////////////////////////////////////////
