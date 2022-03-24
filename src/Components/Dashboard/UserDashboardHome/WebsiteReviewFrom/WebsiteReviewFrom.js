@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import useAuth from "../../../../Hooks/useAuth";
 import { api } from "../../../../Hooks/Api";
+import { alert } from "../../../../Hooks/useStyle";
 const WebsiteReviewFrom = () => {
   const { user } = useAuth();
 
@@ -13,11 +14,14 @@ const WebsiteReviewFrom = () => {
     event.preventDefault();
     const { data } = await axios.get(`${api}/users/me/${user.email}`);
 
-    const response = await axios.post(`${api}/reviews`, {
+    axios.post(`${api}/reviews`, {
       user: data._id,
       rating: value,
       description: message,
-    });
+    }).then((res) => {
+      res.status === 201? alert('success', 'Success', "Review post successfully") :
+        alert('error', 'error', "Review post bad request,please try again")
+    })
     setValue(0);
     setMessage("");
   };
@@ -48,7 +52,7 @@ const WebsiteReviewFrom = () => {
         >
           Give Your Valuable Reviews
         </Typography>
-       
+
         <TextField
           required
           variant="outlined"
@@ -69,7 +73,7 @@ const WebsiteReviewFrom = () => {
           value={message}
           onChange={(event) => setMessage(event.target.value)}
         />
-         <Rating
+        <Rating
           sx={{ mt: 2 }}
           value={value}
           onChange={(event, newValue) => {
@@ -88,7 +92,7 @@ const WebsiteReviewFrom = () => {
               border: "0.5px solid #ffaf5f",
               color: "#0c4b65",
               fontWeight: 600,
-              
+
             }
           }}
           variant="outlined"
