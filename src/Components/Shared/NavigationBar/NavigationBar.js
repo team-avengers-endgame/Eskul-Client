@@ -130,7 +130,7 @@ const NavigationBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#211e1e", display: "block" }}
               >
-               Contact Us
+                Contact Us
               </Button>
             </Link>
             <DropdownMenuGallery />
@@ -317,7 +317,7 @@ const NavigationBar = () => {
                   </MenuItem>
                 </NavLink>
               )}
-              
+
             </Menu>
           </Box>
         </Toolbar>
