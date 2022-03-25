@@ -1,12 +1,8 @@
 import { Container, Grid, Typography } from '@mui/material';
-import React, { useEffect } from 'react';
-import Aos from 'aos';
+import React  from 'react';
+
 const TransportHero = () => {
-  useEffect(() => {
-    Aos.init({
-      duration: 2000
-    });
-  }, []);
+ 
     return (
         <Container sx={{ my: 10 }}>
       <Grid container spacing={2}>
@@ -14,7 +10,6 @@ const TransportHero = () => {
          data-aos="fade-left"
          data-aos-offset="300"
          data-aos-easing="ease-in-sine"
-         data-aos-duration="3000"
          xs={12} sm={12} md={6}>
           <Typography
             sx={{ fontStyle: "italic", fontSize: 22, color: "#3B4757" }}

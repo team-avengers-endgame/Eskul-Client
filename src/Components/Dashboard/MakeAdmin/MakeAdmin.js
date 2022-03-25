@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { api } from "../../../Hooks/Api";
 import { alert, ButtonStyle } from "../../../Hooks/useStyle";
 import Footer from "../../Shared/Footer/Footer";
+import QuickScroll from "../../Home/QuickScroll/QuickScroll";
 const MakeAdmin = () => {
   const {
     register,
@@ -55,8 +56,8 @@ const MakeAdmin = () => {
       </Box>
       <Toolbar />
       <Toolbar />
-
       <Footer />
+      <QuickScroll />
     </>
   );
 };

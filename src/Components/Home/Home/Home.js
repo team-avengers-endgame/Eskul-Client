@@ -24,10 +24,7 @@ const Home = () => {
       <TopList />
       <TestimonialSlider />
       <Gallery />
-      {/* <Subscribe/> */}
       <Partners />
-      {/* <Reviews/> */}
-
       <Footer />
       <QuickScroll />
     </>

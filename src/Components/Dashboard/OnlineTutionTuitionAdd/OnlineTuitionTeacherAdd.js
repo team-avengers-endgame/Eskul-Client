@@ -10,6 +10,7 @@ import uploadImage from '../../../Hooks/useImgUpload';
 
 import { api } from '../../../Hooks/Api.js';
 import Footer from '../../Shared/Footer/Footer';
+import QuickScroll from '../../Home/QuickScroll/QuickScroll';
 const axios = require('axios');
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -53,7 +54,7 @@ const OnlineTuitionTeacherAdd = () => {
                     alert('error', 'Bad Request, Places Try again')
                 console.log(error);
             });
-      
+
         reset();
     };
 
@@ -68,119 +69,120 @@ const OnlineTuitionTeacherAdd = () => {
     const classes = useStyles();
     return (
         <>
-        <Container sx={{ p: 0 }}>
-            <Toolbar/>
-            <CssBaseline />
-            <Paper className={classes.paper}
+            <Container sx={{ p: 0 }}>
+                <Toolbar />
+                <CssBaseline />
+                <Paper className={classes.paper}
 
-                sx={{mb: 10, py: 2, px: 2,borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)"  }}>
+                    sx={{ mb: 10, py: 2, px: 2, borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)" }}>
 
-                <img alt='' className={classes.avatar} src={Logo}></img>
-                <Typography component="h1" variant="h5">Add a Online Tuition</Typography>
-                <Box >
-                    <form onSubmit={handleSubmit(onSubmit)}
-                        className={classes.form} noValidate
-                    >
-                        <Grid container spacing={1}>
-                            <Grid item xs={12} sm={6} md={6} >
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("teacherName", { required: true })}
-                                    fullWidth
-                                    label="Teacher Name"
-                                    autoFocus
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("subject", { required: true })}
-                                    fullWidth
-                                    label="Subject"
-                                    autoFocus
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    type='number'
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("monthlyFee", { required: true })}
-                                    fullWidth
-                                    label="Monthly Fee"
-                                    autoFocus
-                                />
-                            </Grid>
+                    <img alt='' className={classes.avatar} src={Logo}></img>
+                    <Typography component="h1" variant="h5">Add a Online Tuition</Typography>
+                    <Box >
+                        <form onSubmit={handleSubmit(onSubmit)}
+                            className={classes.form} noValidate
+                        >
+                            <Grid container spacing={1}>
+                                <Grid item xs={12} sm={6} md={6} >
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("teacherName", { required: true })}
+                                        fullWidth
+                                        label="Teacher Name"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("subject", { required: true })}
+                                        fullWidth
+                                        label="Subject"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        type='number'
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("monthlyFee", { required: true })}
+                                        fullWidth
+                                        label="Monthly Fee"
+                                        autoFocus
+                                    />
+                                </Grid>
 
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("educationalQualification", { required: true })}
-                                    fullWidth
-                                    label="Educational Qualification"
-                                    autoFocus
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("description", { required: true })}
-                                    fullWidth
-                                    label="Description"
-                                    autoFocus
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("location", { required: true })}
-                                    fullWidth
-                                    label="Location"
-                                    autoFocus
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("email", { required: true })}
-                                    fullWidth
-                                    label="Email"
-                                    autoFocus
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <CssTextField
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("educationalQualification", { required: true })}
+                                        fullWidth
+                                        label="Educational Qualification"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("description", { required: true })}
+                                        fullWidth
+                                        label="Description"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("location", { required: true })}
+                                        fullWidth
+                                        label="Location"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("email", { required: true })}
+                                        fullWidth
+                                        label="Email"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <CssTextField
 
-                                    size='small'
-                                    sx={{ width: 1 }}
-                                    accept="image/png, image/jpg, image/jpeg"
-                                    type="file"
-                                    onChange={e => handleImgUpload(e.target.files[0])} />
+                                        size='small'
+                                        sx={{ width: 1 }}
+                                        accept="image/png, image/jpg, image/jpeg"
+                                        type="file"
+                                        onChange={e => handleImgUpload(e.target.files[0])} />
 
+                                </Grid>
                             </Grid>
-                        </Grid>
-                        <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-                            <Grid item xs={12} sm={6} md={6}>
-                                <Button
-                                    style={ButtonStyle}
-                                    type='submit'
-                                    size='small'
-                                    variant="outlined"
-                                    fullWidth
-                                >Submit</Button>
+                            <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                                <Grid item xs={12} sm={6} md={6}>
+                                    <Button
+                                        style={ButtonStyle}
+                                        type='submit'
+                                        size='small'
+                                        variant="outlined"
+                                        fullWidth
+                                    >Submit</Button>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </form>
-                </Box>
-            </Paper>
-        </Container>
-        <Footer/>
+                        </form>
+                    </Box>
+                </Paper>
+            </Container>
+            <Footer />
+            <QuickScroll />
         </>
     );
 };

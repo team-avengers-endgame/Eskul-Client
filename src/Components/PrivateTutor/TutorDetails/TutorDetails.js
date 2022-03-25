@@ -32,6 +32,7 @@ import { alert, ButtonStyle } from "../../../Hooks/useStyle";
 import axios from "axios";
 import useAuth from "../../../Hooks/useAuth";
 import StarIcon from "@mui/icons-material/Star";
+import QuickScroll from "../../Home/QuickScroll/QuickScroll";
 const labels = {
   0.5: "Useless",
   1: "Useless+",
@@ -107,7 +108,7 @@ const TutorDetails = () => {
       <Container>
         <Box sx={{ textAlign: "center", my: 5 }}>
           <Typography variant="h3">{tutor?.teacherName}</Typography>
-         
+
         </Box>
         <Grid
           container
@@ -350,6 +351,7 @@ const TutorDetails = () => {
         </Grid>
       </Container>
       <Footer />
+      <QuickScroll />
     </>
   );
 };

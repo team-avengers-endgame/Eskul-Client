@@ -1,4 +1,5 @@
 import React from 'react';
+import QuickScroll from '../../Home/QuickScroll/QuickScroll';
 import Banner from '../../SchoolDetails/Banner/Banner';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
@@ -9,9 +10,9 @@ const DetailsHome = () => {
     <div>
       <NavigationBar />
       <Banner />
-      {/* <TopBar /> */}
       <LayoutDetails />
       <Footer />
+      <QuickScroll />
     </div>
   );
 };

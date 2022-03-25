@@ -16,6 +16,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import StarIcon from '@mui/icons-material/Star';
 import Rating from '@mui/material/Rating';
 import Footer from '../../Shared/Footer/Footer';
+import QuickScroll from '../../Home/QuickScroll/QuickScroll';
 const labels = {
     0.5: 'Useless',
     1: 'Useless+',
@@ -159,159 +160,160 @@ const AddABook = () => {
 
     const classes = useStyles();
     return (
-       <>
-        <Container sx={{ p: 0 }}>
-            <Toolbar/>
-            <CssBaseline />
-            <Box className={classes.paper}
+        <>
+            <Container sx={{ p: 0 }}>
+                <Toolbar />
+                <CssBaseline />
+                <Box className={classes.paper}
 
-                sx={{ mb: 10, py: 2, px: 2,borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)" }}>
+                    sx={{ mb: 10, py: 2, px: 2, borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)" }}>
 
-                <img alt='' className={classes.avatar} src={Logo}></img>
+                    <img alt='' className={classes.avatar} src={Logo}></img>
 
-                <Typography variant="h5">Add a Book Form</Typography>
+                    <Typography variant="h5">Add a Book Form</Typography>
 
-                <Box >
-                    <form onSubmit={handleSubmit(onSubmit)}
-                        className={classes.form} noValidate
-                    >
-                        <Grid container spacing={1}>
-                            <Grid item xs={12} sm={6} md={6} >
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("bookName", { required: true })}
-                                    fullWidth
-                                    label="Book Name"
-                                    autoFocus
-                                />
+                    <Box >
+                        <form onSubmit={handleSubmit(onSubmit)}
+                            className={classes.form} noValidate
+                        >
+                            <Grid container spacing={1}>
+                                <Grid item xs={12} sm={6} md={6} >
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("bookName", { required: true })}
+                                        fullWidth
+                                        label="Book Name"
+                                        autoFocus
+                                    />
+                                </Grid>
+
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("bookDescription", { required: true })}
+                                        fullWidth
+                                        label="Description"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("author", { required: true })}
+                                        fullWidth
+                                        label="Author"
+                                        autoFocus
+                                    />
+                                </Grid>
+
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("publisher", { required: true })}
+                                        fullWidth
+                                        label="Publisher"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                        <Stack size='small' variant="outlined">
+                                            <DesktopDatePicker
+
+                                                label="Published Date"
+                                                inputFormat="MM/dd/yyyy"
+                                                value={publishedDate}
+                                                onChange={handleChangePublishedDate}
+                                                renderInput={(params) => <TextField {...params} />}
+                                                autoFocus
+                                            /></Stack>
+
+                                    </LocalizationProvider>
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        type="number"
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("bookPrice", { required: true })}
+                                        fullWidth
+                                        label="Book Price"
+                                        autoFocus
+                                    />
+                                </Grid>
+
+
+
+                                <Grid item xs={12} sm={6}>
+                                    <CssTextField
+                                        size='small'
+                                        sx={{ width: 1 }}
+                                        accept="image/png, image/jpg, image/jpeg"
+                                        type="file"
+                                        onChange={e => handleImgUpload(e.target.files[0])} />
+
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        id="outlined-select-currency"
+                                        select
+                                        fullWidth
+                                        size='small'
+                                        label="Type"
+                                        value={type}
+                                        onChange={handleChangeBookType}
+                                        autoFocus
+                                    >
+                                        {bookType.map((option) => (
+                                            <MenuItem key={option.value} value={option.value}>
+                                                {option.value}
+                                            </MenuItem>
+                                        ))}
+                                    </TextField>
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <Rating
+                                        name="hover-feedback"
+                                        value={rating}
+                                        precision={0.5}
+                                        onChange={(event, newValue) => {
+                                            setRating(newValue);
+                                        }}
+                                        onChangeActive={(event, newHover) => {
+                                            setHover(newHover);
+                                        }}
+                                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                    />
+                                    {rating !== null && (
+                                        <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : rating]}</Box>
+                                    )}
+
+                                </Grid>
                             </Grid>
-
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("bookDescription", { required: true })}
-                                    fullWidth
-                                    label="Description"
-                                    autoFocus
-                                />
+                            <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                                <Grid item xs={12} sm={6} md={6}>
+                                    <Button
+                                        style={ButtonStyle}
+                                        type='submit'
+                                        size='small'
+                                        variant="outlined"
+                                        fullWidth
+                                    >Submit</Button>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("author", { required: true })}
-                                    fullWidth
-                                    label="Author"
-                                    autoFocus
-                                />
-                            </Grid>
+                        </form>
+                    </Box>
 
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("publisher", { required: true })}
-                                    fullWidth
-                                    label="Publisher"
-                                    autoFocus
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                    <Stack size='small' variant="outlined">
-                                        <DesktopDatePicker
-
-                                            label="Published Date"
-                                            inputFormat="MM/dd/yyyy"
-                                            value={publishedDate}
-                                            onChange={handleChangePublishedDate}
-                                            renderInput={(params) => <TextField {...params} />}
-                                            autoFocus
-                                        /></Stack>
-
-                                </LocalizationProvider>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    type="number"
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("bookPrice", { required: true })}
-                                    fullWidth
-                                    label="Book Price"
-                                    autoFocus
-                                />
-                            </Grid>
-
-
-
-                            <Grid item xs={12} sm={6}>
-                                <CssTextField
-                                    size='small'
-                                    sx={{ width: 1 }}
-                                    accept="image/png, image/jpg, image/jpeg"
-                                    type="file"
-                                    onChange={e => handleImgUpload(e.target.files[0])} />
-
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    id="outlined-select-currency"
-                                    select
-                                    fullWidth
-                                    size='small'
-                                    label="Type"
-                                    value={type}
-                                    onChange={handleChangeBookType}
-                                    autoFocus
-                                >
-                                    {bookType.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                            {option.value}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <Rating
-                                    name="hover-feedback"
-                                    value={rating}
-                                    precision={0.5}
-                                    onChange={(event, newValue) => {
-                                        setRating(newValue);
-                                    }}
-                                    onChangeActive={(event, newHover) => {
-                                        setHover(newHover);
-                                    }}
-                                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                                />
-                                {rating !== null && (
-                                    <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : rating]}</Box>
-                                )}
-
-                            </Grid>
-                        </Grid>
-                        <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-                            <Grid item xs={12} sm={6} md={6}>
-                                <Button
-                                    style={ButtonStyle}
-                                    type='submit'
-                                    size='small'
-                                    variant="outlined"
-                                    fullWidth
-                                >Submit</Button>
-                            </Grid>
-                        </Grid>
-                    </form>
                 </Box>
 
-            </Box>
-
-        </Container>
-        <Footer/>
-       </>
+            </Container>
+            <Footer />
+            <QuickScroll />
+        </>
     );
 };
 const CssTextField = styled(TextField)({

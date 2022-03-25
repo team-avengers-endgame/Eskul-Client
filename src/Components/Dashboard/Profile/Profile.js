@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Fab, Grid, IconButton,Toolbar, Typography } from '@mui/material';
+import { Box, Container, Divider, Fab, Grid, IconButton, Toolbar, Typography } from '@mui/material';
 import React from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import EditIcon from '@mui/icons-material/Edit';
@@ -8,6 +8,7 @@ import Footer from '../../Shared/Footer/Footer';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { styled } from '@mui/material/styles';
 import uploadImage from "../../../Hooks/useImgUpload";
+import QuickScroll from '../../Home/QuickScroll/QuickScroll';
 
 const Profile = () => {
     const { user, updateUserProfile } = useAuth();
@@ -114,6 +115,7 @@ const Profile = () => {
 
             <Toolbar />
             <Footer />
+            <QuickScroll />
         </Box>
     );
 };

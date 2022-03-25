@@ -1,4 +1,5 @@
 import React from "react";
+import QuickScroll from "../Home/QuickScroll/QuickScroll";
 import Footer from "../Shared/Footer/Footer";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import SharedBanner from "../Shared/SharedBanner/SharedBanner";
@@ -14,11 +15,12 @@ const TransportHomeDetails = () => {
     <div>
       <NavigationBar />
       <SharedBanner pageName={"Transport Facility"} />
-      <TransportHero/>
+      <TransportHero />
       <Transport />
-      <HowWeWorks/>
-      <OurMap/>
+      <HowWeWorks />
+      <OurMap />
       <Footer />
+      <QuickScroll />
     </div>
   );
 };

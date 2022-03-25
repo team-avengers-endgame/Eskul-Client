@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { api } from '../../../Hooks/Api';
 import useAuth from '../../../Hooks/useAuth';
 import { alert, ButtonStyle } from '../../../Hooks/useStyle';
+import QuickScroll from '../../Home/QuickScroll/QuickScroll';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 import SearchBar from '../../Shared/SearchBar/SearchBar';
@@ -13,7 +14,7 @@ const PrivateTuor = () => {
     const [teachers, setTeachers] = useState([]);
     const [searchValue, setSearchValue] = useState([]);
     const { privateTeacherCount } = useAuth();
-    const [page,setPage]=useState(1);
+    const [page, setPage] = useState(1);
     useEffect(() => {
         fetch(`${api}/privateTeachers?page=${page}&limit=10`)
             .then(res => res.json())
@@ -114,7 +115,7 @@ const PrivateTuor = () => {
                 </Stack>
             </Container>
             <Footer />
-
+            <QuickScroll />
         </>
     );
 };

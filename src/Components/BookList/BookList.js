@@ -20,6 +20,7 @@ import { alert, ButtonStyle } from "../../Hooks/useStyle";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import useAuth from "../../Hooks/useAuth";
+import QuickScroll from "../Home/QuickScroll/QuickScroll";
 
 
 
@@ -161,6 +162,7 @@ const BookList = () => {
         </Stack>
       </Container>
       <Footer />
+      <QuickScroll />
     </>
   );
 };

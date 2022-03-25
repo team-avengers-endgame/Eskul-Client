@@ -7,6 +7,7 @@ import VisionMissionSection from "../VisionMissionSection/VisionMissionSection";
 import SharedBanner from "../../Shared/SharedBanner/SharedBanner";
 import Footer from "../../Shared/Footer/Footer";
 import TeamCard from "../TeamCard/TeamCard";
+import QuickScroll from "../../Home/QuickScroll/QuickScroll";
 // About section
 const About = () => {
   return (
@@ -14,14 +15,12 @@ const About = () => {
       <NavigationBar />
       <SharedBanner pageName={"About Us"} />
       <AboutHeroSection />
-      {/* <ChildEducation /> */}
       <VisionMissionSection />
       <DifferenceSection />
       <FacilitySection />
       <TeamCard></TeamCard>
-      {/* <Principles /> */}
-
       <Footer />
+      <QuickScroll />
     </div>
   );
 };

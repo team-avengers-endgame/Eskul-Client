@@ -1,5 +1,6 @@
 import { Container, Grid, Toolbar } from '@mui/material';
 import React from 'react';
+import QuickScroll from '../Home/QuickScroll/QuickScroll';
 import Cart from '../Shared/Cart/Cart';
 import Footer from '../Shared/Footer/Footer';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
@@ -9,7 +10,7 @@ const Payment = () => {
     return (
         <>
             <NavigationBar />
-            <Toolbar/>
+            <Toolbar />
             <Container>
                 <Grid container spacing={{ xs: 2, md: 3 }}
                     columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -25,6 +26,7 @@ const Payment = () => {
                 </Grid>
             </Container>
             <Footer />
+            <QuickScroll />
         </>
     );
 };

@@ -10,6 +10,7 @@ import Logo from './Img/logo.png'
 import { api } from '../../../Hooks/Api';
 
 import Confetti from 'react-confetti';
+import QuickScroll from '../../Home/QuickScroll/QuickScroll';
 
 
 const PaymentSuccessfullyPage = () => {
@@ -169,6 +170,7 @@ const PaymentSuccessfullyPage = () => {
             </Box>
 
             <Footer />
+            <QuickScroll />
         </Box>
     );
 };

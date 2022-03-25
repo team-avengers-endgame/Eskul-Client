@@ -1,4 +1,5 @@
 import React from 'react';
+import QuickScroll from '../../Home/QuickScroll/QuickScroll';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 import SharedBanner from '../../Shared/SharedBanner/SharedBanner';
@@ -14,12 +15,13 @@ import TransportDetails from './TransportDetails';
 const TransportHome = () => {
     return (
         <div>
-            <NavigationBar/>
+            <NavigationBar />
             <SharedBanner pageName={"Transport Details Page"} />
             <HeroSection></HeroSection>
-            <TransportDetails/>
-            <Drivers/>
-            <Footer/>
+            <TransportDetails />
+            <Drivers />
+            <Footer />
+            <QuickScroll />
         </div>
     );
 };

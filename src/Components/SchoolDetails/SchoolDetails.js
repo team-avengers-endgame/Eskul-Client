@@ -1,4 +1,5 @@
 import React from "react";
+import QuickScroll from "../Home/QuickScroll/QuickScroll";
 import Footer from "../Shared/Footer/Footer";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import Banner from "./Banner/Banner";
@@ -13,6 +14,7 @@ const SchoolDetails = () => {
       <TopBar />
       <SchDetailsLayout />
       <Footer />
+      <QuickScroll />
     </div>
   );
 };

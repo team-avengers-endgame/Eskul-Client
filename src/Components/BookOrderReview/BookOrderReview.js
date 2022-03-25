@@ -8,6 +8,7 @@ import { CartContext } from '../Context/CartContext';
 import { NavLink, useNavigate } from 'react-router-dom';
 import SharedBanner from '../Shared/SharedBanner/SharedBanner';
 import Swal from 'sweetalert2';
+import QuickScroll from '../Home/QuickScroll/QuickScroll';
 
 
 
@@ -125,9 +126,9 @@ const BookOrderReview = () => {
                                                         Details
                                                     </Button>
                                                 </NavLink>
-                                                <Button 
-                                                onClick={() =>handleRemoveToCart(cart._id)}
-                                                color="error"
+                                                <Button
+                                                    onClick={() => handleRemoveToCart(cart._id)}
+                                                    color="error"
                                                 >
                                                     Remove
                                                 </Button>
@@ -150,6 +151,7 @@ const BookOrderReview = () => {
                 </Grid>
             </Container>
             <Footer />
+            <QuickScroll />
         </>
     );
 };

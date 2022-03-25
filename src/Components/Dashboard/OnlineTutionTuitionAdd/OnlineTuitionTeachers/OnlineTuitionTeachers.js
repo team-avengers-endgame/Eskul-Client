@@ -18,6 +18,7 @@ import Swal from 'sweetalert2';
 import SearchBar from '../../../Shared/SearchBar/SearchBar';
 import { alert } from '../../../../Hooks/useStyle';
 import Footer from '../../../Shared/Footer/Footer';
+import QuickScroll from '../../../Home/QuickScroll/QuickScroll';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -130,76 +131,77 @@ const OnlineTuitionTeachers = () => {
     //////////////////////////////////////////////////
 
     return (
-       <>
-        <Box sx={{ p: 3 }}>
-            <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
-            <Typography variant='h5' sx={{ pb: 3 }}>
-                Online Tuition Teachers
-            </Typography>
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 700 }} aria-label="customized table">
-                    <TableHead>
-                        <TableRow>
-                            <StyledTableCell>Name</StyledTableCell>
-                            <StyledTableCell >Photo</StyledTableCell>
-                            <StyledTableCell align="right">Edit</StyledTableCell>
-                            <StyledTableCell align="right">Delete</StyledTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {searchValue?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            ?.map((teacher) => (
-                                <StyledTableRow key={teacher?._id}>
-                                    <StyledTableCell component="th" scope="row">
-                                        {teacher?.teacherName}
-                                    </StyledTableCell>
-                                    <StyledTableCell align="right">
+        <>
+            <Box sx={{ p: 3 }}>
+                <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
+                <Typography variant='h5' sx={{ pb: 3 }}>
+                    Online Tuition Teachers
+                </Typography>
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                        <TableHead>
+                            <TableRow>
+                                <StyledTableCell>Name</StyledTableCell>
+                                <StyledTableCell >Photo</StyledTableCell>
+                                <StyledTableCell align="right">Edit</StyledTableCell>
+                                <StyledTableCell align="right">Delete</StyledTableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {searchValue?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                ?.map((teacher) => (
+                                    <StyledTableRow key={teacher?._id}>
+                                        <StyledTableCell component="th" scope="row">
+                                            {teacher?.teacherName}
+                                        </StyledTableCell>
+                                        <StyledTableCell align="right">
 
-                                        <Avatar src={teacher?.teacherPhoto} alt='' />
+                                            <Avatar src={teacher?.teacherPhoto} alt='' />
 
-                                    </StyledTableCell>
-                                    <StyledTableCell align="right">
-                                        <IconButton
-                                            color="secondary"
-                                            onClick={handleClickOpen('paper', teacher._id)}
-                                        >
-                                            <EditIcon />
-                                        </IconButton>
-                                    </StyledTableCell>
-                                    <StyledTableCell align="right">
-                                        <IconButton
-                                            color="secondary"
-                                            sx={{ color: "#f50057" }}
-                                            component="span"
-                                            onClick={() => handleDelete(teacher?._id)}
-                                        >
-                                            <DeleteIcon />
-                                        </IconButton>
-                                    </StyledTableCell>
+                                        </StyledTableCell>
+                                        <StyledTableCell align="right">
+                                            <IconButton
+                                                color="secondary"
+                                                onClick={handleClickOpen('paper', teacher._id)}
+                                            >
+                                                <EditIcon />
+                                            </IconButton>
+                                        </StyledTableCell>
+                                        <StyledTableCell align="right">
+                                            <IconButton
+                                                color="secondary"
+                                                sx={{ color: "#f50057" }}
+                                                component="span"
+                                                onClick={() => handleDelete(teacher?._id)}
+                                            >
+                                                <DeleteIcon />
+                                            </IconButton>
+                                        </StyledTableCell>
 
-                                </StyledTableRow>
-                            ))}
-                    </TableBody>
+                                    </StyledTableRow>
+                                ))}
+                        </TableBody>
 
-                </Table>
-                <TableFooter>
-                    <TablePagination
-                        rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
-                        component="div"
-                        count={teachers.length}
-                        rowsPerPage={rowsPerPage}
-                        page={page}
-                        onPageChange={handleChangePage}
-                        onRowsPerPageChange={handleChangeRowsPerPage}
-                    />
-                </TableFooter>
-            </TableContainer>
-            <OnlineTuitionTeachersEdit
-                id={id} handleClose={handleClose} open={open} scroll={scroll} fetchTeacher={fetchTeacher}
-            />
-        </Box>
-        <Footer/>
-       </>
+                    </Table>
+                    <TableFooter>
+                        <TablePagination
+                            rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
+                            component="div"
+                            count={teachers.length}
+                            rowsPerPage={rowsPerPage}
+                            page={page}
+                            onPageChange={handleChangePage}
+                            onRowsPerPageChange={handleChangeRowsPerPage}
+                        />
+                    </TableFooter>
+                </TableContainer>
+                <OnlineTuitionTeachersEdit
+                    id={id} handleClose={handleClose} open={open} scroll={scroll} fetchTeacher={fetchTeacher}
+                />
+            </Box>
+            <Footer />
+            <QuickScroll />
+        </>
     );
 };
 

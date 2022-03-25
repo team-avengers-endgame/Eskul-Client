@@ -13,6 +13,7 @@ import Footer from '../Shared/Footer/Footer';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { alert, ButtonStyle } from '../../Hooks/useStyle';
 import SharedBanner from '../Shared/SharedBanner/SharedBanner';
+import QuickScroll from '../Home/QuickScroll/QuickScroll';
 
 
 
@@ -23,23 +24,23 @@ const Contacts = () => {
   const {
     register,
     handleSubmit,
-    reset} = useForm();
- 
+    reset } = useForm();
+
 
   const sendEmail = (formData) => {
     emailjs.send("service_es28khp", "template_1fmwbhh", formData, "user_bJFVwTvtJQe23vqEilEMy")
 
- .then(
-  (result) => {
+      .then(
+        (result) => {
 
-    result.text && alert('success', 'Success', 'Message sent successfully');
-  },
-  (error) => {
+          result.text && alert('success', 'Success', 'Message sent successfully');
+        },
+        (error) => {
 
-    error.text &&  alert('error', 'Error', 'Messege can not send');
-  }
-);
-reset();  
+          error.text && alert('error', 'Error', 'Messege can not send');
+        }
+      );
+    reset();
   };
 
   return (
@@ -51,7 +52,7 @@ reset();
 
 
 
-        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12, lg: 12 }} sx={{mt:3}}>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12, lg: 12 }} sx={{ mt: 3 }}>
           <Grid item xs={4} sm={4} md={5} lg={5}>
             <Box >
               <img style={{ width: "450px" }} src={connectImg} alt="" />
@@ -67,7 +68,7 @@ reset();
               </Box>
 
 
-              <form  onSubmit={handleSubmit(sendEmail)}>
+              <form onSubmit={handleSubmit(sendEmail)}>
 
                 <Box sx={{ mt: 3 }} >
 
@@ -175,6 +176,7 @@ reset();
 
       </Container>
       <Footer />
+      <QuickScroll />
     </>
 
 

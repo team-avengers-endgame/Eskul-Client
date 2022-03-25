@@ -16,6 +16,7 @@ import EditSchoolDataForm from "./EditSchoolDataForm/EditSchoolDataForm";
 import SearchBar from "../../Shared/SearchBar/SearchBar";
 import { alert } from "../../../Hooks/useStyle";
 import Footer from "../../Shared/Footer/Footer";
+import QuickScroll from "../../Home/QuickScroll/QuickScroll";
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -97,87 +98,88 @@ export default function Schools() {
 
   return (
     <>
-    <Box sx={{ p: 3 }}>
-      <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
-      <Typography variant="h5" sx={{ pb: 3 }}>Manage all Schools</Typography>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Schools</StyledTableCell>
-              <StyledTableCell align="left">Location</StyledTableCell>
-              <StyledTableCell align="left">EIIN</StyledTableCell>
-              <StyledTableCell align="left">Photo</StyledTableCell>
-              <StyledTableCell align="right">Added School data</StyledTableCell>
-              <StyledTableCell align="right">School Edit</StyledTableCell>
-              <StyledTableCell align="right">Teachers Edit</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {searchValue?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.map((school) => (
-              <StyledTableRow key={school?._id}>
-                <StyledTableCell component="th" scope="row">
-                  {school?.schoolName}
-                </StyledTableCell>
-                <StyledTableCell align="left">
-                  {school?.location}
-                </StyledTableCell>
-                <StyledTableCell align="left">{school?.EIIN}</StyledTableCell>
-                <StyledTableCell align="left">
-                  <img
-                    style={{ width: "auto", height: "50px" }}
-                    src={school?.schoolPhoto}
-                    alt=""
-                  />
-                </StyledTableCell>
+      <Box sx={{ p: 3 }}>
+        <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
+        <Typography variant="h5" sx={{ pb: 3 }}>Manage all Schools</Typography>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 700 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>Schools</StyledTableCell>
+                <StyledTableCell align="left">Location</StyledTableCell>
+                <StyledTableCell align="left">EIIN</StyledTableCell>
+                <StyledTableCell align="left">Photo</StyledTableCell>
+                <StyledTableCell align="right">Added School data</StyledTableCell>
+                <StyledTableCell align="right">School Edit</StyledTableCell>
+                <StyledTableCell align="right">Teachers Edit</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {searchValue?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.map((school) => (
+                <StyledTableRow key={school?._id}>
+                  <StyledTableCell component="th" scope="row">
+                    {school?.schoolName}
+                  </StyledTableCell>
+                  <StyledTableCell align="left">
+                    {school?.location}
+                  </StyledTableCell>
+                  <StyledTableCell align="left">{school?.EIIN}</StyledTableCell>
+                  <StyledTableCell align="left">
+                    <img
+                      style={{ width: "auto", height: "50px" }}
+                      src={school?.schoolPhoto}
+                      alt=""
+                    />
+                  </StyledTableCell>
 
-                <StyledTableCell align="right">
-                  <Link to={`/dashboard/addedSchoolDetailsForm/${school?._id}`}>
-                    <IconButton color="secondary">
-                      <AddCircleOutlinedIcon />
-                    </IconButton>
-                  </Link>
-                </StyledTableCell>
-                <StyledTableCell align="right">
-                  <IconButton
-                    color="secondary"
-                    onClick={() => singleSchool(school?._id)}
-                  >
-                    <EditIcon />
-                  </IconButton>
-                </StyledTableCell>
-                <StyledTableCell align="right">
-                  <Link to={`/dashboard/teachers/${school?._id}`}>
-                    <IconButton color="secondary">
+                  <StyledTableCell align="right">
+                    <Link to={`/dashboard/addedSchoolDetailsForm/${school?._id}`}>
+                      <IconButton color="secondary">
+                        <AddCircleOutlinedIcon />
+                      </IconButton>
+                    </Link>
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    <IconButton
+                      color="secondary"
+                      onClick={() => singleSchool(school?._id)}
+                    >
                       <EditIcon />
                     </IconButton>
-                  </Link>
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-          <TableFooter>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
-              component="div"
-              count={schools?.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </TableFooter>
-        </Table>
-      </TableContainer>
-      <EditSchoolDataForm
-        school={school}
-        open={open}
-        scroll={scroll}
-        handleClose={handleClose}
-        loadSchools={loadSchools}
-      />
-    </Box>
-    <Footer/>
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    <Link to={`/dashboard/teachers/${school?._id}`}>
+                      <IconButton color="secondary">
+                        <EditIcon />
+                      </IconButton>
+                    </Link>
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+            <TableFooter>
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
+                component="div"
+                count={schools?.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </TableFooter>
+          </Table>
+        </TableContainer>
+        <EditSchoolDataForm
+          school={school}
+          open={open}
+          scroll={scroll}
+          handleClose={handleClose}
+          loadSchools={loadSchools}
+        />
+      </Box>
+      <Footer />
+      <QuickScroll />
     </>
   );
 }

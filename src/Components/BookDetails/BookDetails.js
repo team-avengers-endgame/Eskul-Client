@@ -25,6 +25,7 @@ import { alert, ButtonStyle } from "../../Hooks/useStyle";
 import { CartContext } from "../Context/CartContext";
 import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
+import QuickScroll from "../Home/QuickScroll/QuickScroll";
 
 const labels = {
   0.5: "Useless",
@@ -290,8 +291,8 @@ const BookDetails = () => {
           </Grid>
         </Grid>
       </Container>
-
       <Footer />
+      <QuickScroll />
     </>
   );
 };

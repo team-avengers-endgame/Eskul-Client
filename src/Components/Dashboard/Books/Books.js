@@ -18,6 +18,7 @@ import { alert } from "../../../Hooks/useStyle";
 import Swal from "sweetalert2";
 import SearchBar from "../../Shared/SearchBar/SearchBar";
 import Footer from '../../Shared/Footer/Footer';
+import QuickScroll from "../../Home/QuickScroll/QuickScroll";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -47,8 +48,8 @@ export default function Books() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [searchValue, setSearchValue] = useState([]);
-  
-  
+
+
 
   const loadBooks = async () => {
     fetch(`${api}/books`)
@@ -122,89 +123,90 @@ export default function Books() {
   };
 
   return (
-   <>
-    <Box sx={{ p: 3 }}>
-      <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
-      <Typography variant="h5" sx={{ my: 2, fontWeight: "bold" }}>
-        Manage All Book
-      </Typography>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Book Name</StyledTableCell>
-              <StyledTableCell>Photo</StyledTableCell>
-              <StyledTableCell align="right" sx={{ color: "green" }}>
-                Edit
-              </StyledTableCell>
-              <StyledTableCell align="right" sx={{ color: "red" }}>
-                Delete
-              </StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {searchValue?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((book) => (
-              <StyledTableRow
-                key={book._id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <StyledTableCell component="th" scope="row">
-                  {book.bookName}
+    <>
+      <Box sx={{ p: 3 }}>
+        <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
+        <Typography variant="h5" sx={{ my: 2, fontWeight: "bold" }}>
+          Manage All Book
+        </Typography>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>Book Name</StyledTableCell>
+                <StyledTableCell>Photo</StyledTableCell>
+                <StyledTableCell align="right" sx={{ color: "green" }}>
+                  Edit
                 </StyledTableCell>
-                <StyledTableCell>
-                  <img
-                    style={{ width: "50px", height: "70px" }}
-                    src={book.bookImg}
-                    alt=""
-                  />
+                <StyledTableCell align="right" sx={{ color: "red" }}>
+                  Delete
                 </StyledTableCell>
-                <StyledTableCell align="right">
-                  <IconButton
-                    onClick={() => handleSetScroll(book._id)}
-                    color="secondary"
-                    component="span"
-                  >
-                    <EditIcon />
-                  </IconButton>
-                </StyledTableCell>
-                <StyledTableCell align="right">
-                  <IconButton
-                    onClick={() => handleDeleteBook(book._id)}
-                    color="secondary"
-                    sx={{ color: "#f50057" }}
-                    component="span"
-                  >
-                    <DeleteIcon />
-                  </IconButton>
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {searchValue?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((book) => (
+                <StyledTableRow
+                  key={book._id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <StyledTableCell component="th" scope="row">
+                    {book.bookName}
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <img
+                      style={{ width: "50px", height: "70px" }}
+                      src={book.bookImg}
+                      alt=""
+                    />
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    <IconButton
+                      onClick={() => handleSetScroll(book._id)}
+                      color="secondary"
+                      component="span"
+                    >
+                      <EditIcon />
+                    </IconButton>
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    <IconButton
+                      onClick={() => handleDeleteBook(book._id)}
+                      color="secondary"
+                      sx={{ color: "#f50057" }}
+                      component="span"
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
 
-        </Table>
+          </Table>
 
-        <TableFooter>
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
-            component="div"
-            count={books?.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </TableFooter>
-      </TableContainer>
+          <TableFooter>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 40]}
+              component="div"
+              count={books?.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+          </TableFooter>
+        </TableContainer>
 
-      <EditBooks
-        id={id}
-        handleClose={handleClose}
-        open={open}
-        scroll={scroll}
-        loadBooks={loadBooks}
-      />
-    </Box>
-    <Footer/>
-   </>
+        <EditBooks
+          id={id}
+          handleClose={handleClose}
+          open={open}
+          scroll={scroll}
+          loadBooks={loadBooks}
+        />
+      </Box>
+      <Footer />
+      <QuickScroll />
+    </>
   );
 }

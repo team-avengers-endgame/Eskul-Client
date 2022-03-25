@@ -18,6 +18,7 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import axios from "axios";
 import Footer from "../../Shared/Footer/Footer";
 import Swal from "sweetalert2";
+import QuickScroll from "../../Home/QuickScroll/QuickScroll";
 const ManageOrder = () => {
   const [orders, setOrder] = useState([]);
   const [page, setPage] = React.useState(0);
@@ -131,6 +132,7 @@ const ManageOrder = () => {
         </TableFooter>
       </Container>
       <Footer />
+      <QuickScroll />
     </>
   );
 };

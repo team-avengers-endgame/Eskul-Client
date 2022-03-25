@@ -1,4 +1,5 @@
 import React from "react";
+import QuickScroll from "../../Home/QuickScroll/QuickScroll";
 import Footer from "../../Shared/Footer/Footer";
 import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 import SharedBanner from "../../Shared/SharedBanner/SharedBanner";
@@ -11,6 +12,7 @@ const Schools = () => {
       <SharedBanner pageName={"All Schools in Bangladesh"} />
       <SchoolMain />
       <Footer />
+      <QuickScroll />
     </div>
   );
 };

@@ -13,6 +13,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import { api } from '../../../Hooks/Api.js';
 import Footer from '../../Shared/Footer/Footer.js';
+import QuickScroll from '../../Home/QuickScroll/QuickScroll.js';
 const axios = require('axios');
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -122,147 +123,148 @@ const AddASchool = () => {
     };
     const classes = useStyles();
     return (
-       <>
-        <Container sx={{ p: 0 }}>
-            <CssBaseline />
-            <CssBaseline />
-            <Toolbar/>
-            <Box className={classes.paper}
+        <>
+            <Container sx={{ p: 0 }}>
+                <CssBaseline />
+                <CssBaseline />
+                <Toolbar />
+                <Box className={classes.paper}
 
-                sx={{ mb: 10, py: 2, px: 2,borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)" }}>
+                    sx={{ mb: 10, py: 2, px: 2, borderRadius: 5, boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)" }}>
 
-                <img alt='' className={classes.avatar} src={Logo}></img>
-                <Typography component="h1" variant="h5">Add a School From</Typography>
-                <Box >
-                    <form onSubmit={handleSubmit(onSubmit)}
-                        className={classes.form} noValidate
-                    >
-                        <Grid container spacing={1}>
-                            <Grid item xs={12} sm={6} md={6} >
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("schoolName", { required: true })}
-                                    fullWidth
-                                    label="School Name"
-                                    autoFocus
-                                />
+                    <img alt='' className={classes.avatar} src={Logo}></img>
+                    <Typography component="h1" variant="h5">Add a School From</Typography>
+                    <Box >
+                        <form onSubmit={handleSubmit(onSubmit)}
+                            className={classes.form} noValidate
+                        >
+                            <Grid container spacing={1}>
+                                <Grid item xs={12} sm={6} md={6} >
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("schoolName", { required: true })}
+                                        fullWidth
+                                        label="School Name"
+                                        autoFocus
+                                    />
+
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("location", { required: true })}
+                                        fullWidth
+                                        label="Location"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("EIIN", { required: true })}
+                                        fullWidth
+                                        label="EIIN"
+                                        autoFocus
+                                    />
+                                </Grid>
+
+                                <Grid item xs={12} sm={6}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                        <Stack size='small'>
+                                            <DesktopDatePicker
+
+                                                label="Founder date"
+                                                inputFormat="MM/dd/yyyy"
+                                                value={founderDate}
+                                                onChange={handleChange}
+                                                renderInput={(params) => <TextField {...params} />}
+                                            /></Stack>
+
+                                    </LocalizationProvider>                                    </Grid>
+
+
+
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        id="outlined-select-currency"
+                                        select
+                                        fullWidth
+                                        size='small'
+                                        label="Shift"
+                                        value={schoolShiftValue}
+                                        onChange={handleChangeSchoolShift}
+                                        autoFocus
+                                    >
+                                        {schoolShift.map((option) => (
+                                            <MenuItem key={option.value} value={option.value}>
+                                                {option.value}
+                                            </MenuItem>
+                                        ))}
+                                    </TextField>
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        id="outlined-select-currency"
+                                        select
+                                        fullWidth
+                                        size='small'
+                                        label="School Type"
+                                        value={schoolType}
+                                        onChange={handleChangeSchoolType}
+                                        autoFocus
+                                    >
+                                        {schoolTypes.map((option) => (
+                                            <MenuItem key={option.value} value={option.value}>
+                                                {option.value}
+                                            </MenuItem>
+                                        ))}
+                                    </TextField>
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        size='small'
+                                        variant="outlined"
+                                        {...register("schoolEmail", { required: true })}
+                                        fullWidth
+                                        label="Email"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <CssTextField
+
+                                        size='small'
+                                        sx={{ width: 1 }}
+                                        accept="image/png, image/jpg, image/jpeg"
+                                        type="file"
+                                        onChange={e => handleImgUpload(e.target.files[0])} />
+
+                                </Grid>
+
+
 
                             </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("location", { required: true })}
-                                    fullWidth
-                                    label="Location"
-                                    autoFocus
-                                />
+                            <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                                <Grid item xs={12} sm={6} md={6}>
+                                    <Button
+                                        style={ButtonStyle}
+                                        type='submit'
+                                        size='small'
+                                        variant="outlined"
+                                        fullWidth
+                                    >Submit</Button>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("EIIN", { required: true })}
-                                    fullWidth
-                                    label="EIIN"
-                                    autoFocus
-                                />
-                            </Grid>
-
-                            <Grid item xs={12} sm={6}>
-                                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                    <Stack size='small'>
-                                        <DesktopDatePicker
-
-                                            label="Founder date"
-                                            inputFormat="MM/dd/yyyy"
-                                            value={founderDate}
-                                            onChange={handleChange}
-                                            renderInput={(params) => <TextField {...params} />}
-                                        /></Stack>
-
-                                </LocalizationProvider>                                    </Grid>
-
-
-
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    id="outlined-select-currency"
-                                    select
-                                    fullWidth
-                                    size='small'
-                                    label="Shift"
-                                    value={schoolShiftValue}
-                                    onChange={handleChangeSchoolShift}
-                                    autoFocus
-                                >
-                                    {schoolShift.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                            {option.value}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    id="outlined-select-currency"
-                                    select
-                                    fullWidth
-                                    size='small'
-                                    label="School Type"
-                                    value={schoolType}
-                                    onChange={handleChangeSchoolType}
-                                    autoFocus
-                                >
-                                    {schoolTypes.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                            {option.value}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    size='small'
-                                    variant="outlined"
-                                    {...register("schoolEmail", { required: true })}
-                                    fullWidth
-                                    label="Email"
-                                    autoFocus
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <CssTextField
-
-                                    size='small'
-                                    sx={{ width: 1 }}
-                                    accept="image/png, image/jpg, image/jpeg"
-                                    type="file"
-                                    onChange={e => handleImgUpload(e.target.files[0])} />
-
-                            </Grid>
-
-
-
-                        </Grid>
-                        <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-                            <Grid item xs={12} sm={6} md={6}>
-                                <Button
-                                    style={ButtonStyle}
-                                    type='submit'
-                                    size='small'
-                                    variant="outlined"
-                                    fullWidth
-                                >Submit</Button>
-                            </Grid>
-                        </Grid>
-                    </form>
+                        </form>
+                    </Box>
                 </Box>
-            </Box>
-        </Container>
-        <Footer/>
-       </>
+            </Container>
+            <Footer />
+            <QuickScroll />
+        </>
     );
 };
 const CssTextField = styled(TextField)({

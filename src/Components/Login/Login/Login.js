@@ -11,6 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import useAuth from '../../../Hooks/useAuth';
 import Footer from '../../Shared/Footer/Footer';
 import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
+import QuickScroll from '../../Home/QuickScroll/QuickScroll';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -136,7 +137,7 @@ const Login = () => {
 
                                             {/*********** Google Login *************/}
                                             <Tooltip title="Google" arrow>
-                                                <Fab onClick={() => signInWithGoogle(location, navigate)} variant="extended" size="small" color="primary" aria-label="add" sx={{width:1}}>
+                                                <Fab onClick={() => signInWithGoogle(location, navigate)} variant="extended" size="small" color="primary" aria-label="add" sx={{ width: 1 }}>
                                                     <GoogleIcon sx={{ mr: 1 }} />
                                                     Google Sign in
                                                 </Fab>
@@ -167,6 +168,7 @@ const Login = () => {
                 </Box>
             </Box>
             <Footer />
+            <QuickScroll />
         </>
     );
 };
