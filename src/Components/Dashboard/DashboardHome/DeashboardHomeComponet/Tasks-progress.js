@@ -1,50 +1,59 @@
 import { Avatar, Box, Card, CardContent, Grid, LinearProgress, Typography } from '@mui/material';
-import InsertChartIcon from '@mui/icons-material/InsertChartOutlined';
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
+import React from 'react';
+import useAuth from '../../../../Hooks/useAuth';
 
-export const TasksProgress = (props) => (
-    <Card
-        sx={{ height: '100%' }}
-        {...props}
-    >
-        <CardContent>
-            <Grid
-                container
-                spacing={3}
-                sx={{ justifyContent: 'space-between' }}
-            >
-                <Grid item>
-                    <Typography
-                        color="textSecondary"
-                        gutterBottom
-                        variant="overline"
-                    >
-                        TASKS PROGRESS
-                    </Typography>
-                    <Typography
-                        color="textPrimary"
-                        variant="h4"
-                    >
-                        75.5%
-                    </Typography>
+const TasksProgress = () => {
+    const { donationsCount } = useAuth();
+    const totalReducer = (previous, donation) => previous + Number(donation?.total_amount);
+    const total = donationsCount.reduce(totalReducer, 0);
+    
+    return (
+
+        <Card sx={{ height: '100%' }}>
+            <CardContent>
+                <Grid
+                    container
+                    spacing={3}
+                    sx={{ justifyContent: 'space-between' }}
+                >
+                    <Grid item>
+                        <Typography
+                            color="textSecondary"
+                            gutterBottom
+                            variant="overline"
+                        >
+                                Total Donate
+                        </Typography>
+                        <Typography
+                            color="textPrimary"
+                            variant="h4"
+                        >
+                            {total}৳
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Avatar
+                            sx={{
+                                backgroundColor: 'warning.main',
+                                height: 56,
+                                width: 56
+                            }}
+                        >
+                            <VolunteerActivismIcon />
+                        </Avatar>
+                    </Grid>
                 </Grid>
-                <Grid item>
-                    <Avatar
-                        sx={{
-                            backgroundColor: 'warning.main',
-                            height: 56,
-                            width: 56
-                        }}
-                    >
-                        <InsertChartIcon />
-                    </Avatar>
-                </Grid>
-            </Grid>
-            <Box sx={{ pt: 3 }}>
-                <LinearProgress
-                    value={75.5}
-                    variant="determinate"
-                />
-            </Box>
-        </CardContent>
-    </Card>
-);
+                <Box sx={{ pt: 3 }}>
+                    <LinearProgress
+                        value={75.5}
+                        variant="determinate"
+                    />
+                </Box>
+            </CardContent>
+        </Card>
+
+    );
+};
+
+export default TasksProgress;

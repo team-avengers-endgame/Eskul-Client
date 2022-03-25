@@ -25,7 +25,7 @@ const useFirebase = () => {
   const [booksCount, setBooksCount] = useState(0);
   const [privateTeacherCount, setTeachersCount] = useState(0);
   const [schoolsCount, setSchoolsCount] = useState(0);
-
+  const [donationsCount, setDonationsCount] = useState([])
 
   // login google------------------------
   const signInWithGoogle = (location, navigate) => {
@@ -254,6 +254,11 @@ const useFirebase = () => {
         setSchoolsCount(data?.data?.data.length);
 
       });
+    fetch(`${api}/allDonation`)
+      .then((res) => res.json())
+      .then((data) => {
+        setDonationsCount(data);
+      });
 
   }, [])
 
@@ -274,7 +279,8 @@ const useFirebase = () => {
     admin,
     booksCount,
     privateTeacherCount,
-    schoolsCount
+    schoolsCount,
+    donationsCount
   };
 };
 

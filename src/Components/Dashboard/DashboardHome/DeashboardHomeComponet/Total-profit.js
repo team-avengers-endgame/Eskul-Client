@@ -24,7 +24,7 @@ export const TotalProfit = (props) => (
                         color="textPrimary"
                         variant="h4"
                     >
-                        $23k
+                        $00k
                     </Typography>
                 </Grid>
                 <Grid item>
@@ -46,7 +46,7 @@ export const TotalProfit = (props) => (
                     alignItems: 'center'
                 }}
             >
-                {/* <ArrowDownwardIcon color="error" /> */} <Typography
+              <Typography
                     color="error"
                     sx={{
                         mr: 1

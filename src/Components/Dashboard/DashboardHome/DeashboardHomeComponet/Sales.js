@@ -8,9 +8,6 @@ import {
   useTheme,
 } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-// import { Bar } from 'react-chartjs-2'
-
 import { Chart, registerables } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
@@ -42,7 +39,7 @@ export const Sales = (props) => {
         maxBarThickness: 10,
       },
     ],
-    labels: ["1 Aug", "2 Aug", "3 Aug", "4 Aug", "5 Aug", "6 Aug", "7 aug"],
+    labels: ["19 March", "20 March", "21 March", "22 March", "23 March", "24 Aug", "25 March"],
   };
 
   const options = {
@@ -122,13 +119,7 @@ export const Sales = (props) => {
           p: 2,
         }}
       >
-        <Button
-          color="primary"
-          endIcon={<ArrowRightIcon fontSize="small" />}
-          size="small"
-        >
-          Overview
-        </Button>
+       
       </Box>
     </Card>
   );

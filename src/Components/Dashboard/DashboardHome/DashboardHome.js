@@ -7,7 +7,8 @@ import LatestOrders from './DeashboardHomeComponet/Latest-orders';
 
 import LatestProducts from './DeashboardHomeComponet/Latest-products';
 import { Sales } from './DeashboardHomeComponet/Sales';
-import { TasksProgress } from './DeashboardHomeComponet/Tasks-progress';
+import TasksProgress from './DeashboardHomeComponet/Tasks-progress';
+
 import TotalCustomers from './DeashboardHomeComponet/Total-customers';
 import { TotalProfit } from './DeashboardHomeComponet/Total-profit';
 import { TrafficByDevice } from './DeashboardHomeComponet/Traffic-by-device';
