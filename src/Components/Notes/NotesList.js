@@ -14,7 +14,7 @@ const NotesList = () => {
     useEffect(() => {
         setNotes(nodesData)
     }, [])
-    
+
 
 
     const handleClose = () => {
@@ -41,20 +41,20 @@ const NotesList = () => {
                     {notes?.map((note, index) => (
                         <Grid item spacing={{ xs: 2, md: 3 }} xs={12} sm={4} md={4} key={index}
                         >
-                          
-                                <Box className="card">
-                                    <img className="pro-pic" src={note?.img} alt="" />
-                                    <Box className="desciption-wrap">
-                                        <Box className="description">
-                                            <Typography variant='h6'>{note?.name}</Typography>
-                                            <Typography variant='h6'>{note?.sub}</Typography>
-                                            <Button onClick={() => handleSetScroll(note?.name)} >Read the PDF</Button>
 
-                                        </Box>
+                            <Box className="card">
+                                <img className="pro-pic" src={note?.img} alt="" />
+                                <Box className="desciption-wrap">
+                                    <Box className="description">
+                                        <Typography variant='h6'>{note?.name}</Typography>
+                                        <Typography variant='h6'>{note?.sub}</Typography>
+                                        <Button onClick={() => handleSetScroll(note?.name)} >Read the PDF</Button>
+
                                     </Box>
                                 </Box>
+                            </Box>
 
-                          
+
 
 
                         </Grid>
@@ -72,41 +72,6 @@ const NotesList = () => {
             </Box>
         </Container>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // <Card sx={{ maxWidth: 345 }}>
-        //     <CardMedia
-        //         component="img"
-        //         alt="green iguana"
-        //         height="140"
-        //         image="https://i.ibb.co/GHSk8Q6/3-funny-hello-first-grade-first-day-of-first-grade-yestic.jpg"
-        //     />
-        //     <CardContent>
-        //         <Typography gutterBottom variant="h5" component="div">
-        //             Lizard
-        //         </Typography>
-        //         <Typography variant="body2" color="text.secondary">
-        //             Lizards are a widespread group of squamate reptiles, with over 6,000
-        //             species, ranging across all continents except Antarctica
-        //         </Typography>
-        //     </CardContent>
-        //     <CardActions>
-        //         <a href="https://drive.google.com/file/d/1C0_xRXDn2fsWeYKfjyDUthb944uIclwx/view?usp=sharing" target="_blank" download>See My Resume
-        //         </a>
-        //     </CardActions>
-        // </Card>
     );
 }
 
