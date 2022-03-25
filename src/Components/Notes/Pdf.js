@@ -62,7 +62,7 @@ const Pdf = ({ handleClose, open, scroll, name }) => {
                     </Document>
                     <Typography> Page {pageNumber} of {numPages}</Typography>
                     {pageNumber > 1 &&
-                        <Button sx={{ ...ButtonStyle }} size='small' onClick={changePageBack}>Previous Page</Button>
+                        <Button sx={{ ...ButtonStyle,mr:1 }} size='small' onClick={changePageBack}>Previous Page</Button>
                     }
                     {
                         pageNumber < numPages &&
