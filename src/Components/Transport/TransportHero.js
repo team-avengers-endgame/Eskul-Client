@@ -1,11 +1,21 @@
 import { Container, Grid, Typography } from '@mui/material';
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import Aos from 'aos';
 const TransportHero = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 2000
+    });
+  }, []);
     return (
         <Container sx={{ my: 10 }}>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={12} md={6}>
+        <Grid item
+         data-aos="fade-left"
+         data-aos-offset="300"
+         data-aos-easing="ease-in-sine"
+         data-aos-duration="3000"
+         xs={12} sm={12} md={6}>
           <Typography
             sx={{ fontStyle: "italic", fontSize: 22, color: "#3B4757" }}
             variant="body1"
@@ -42,7 +52,12 @@ const TransportHero = () => {
             or her to grow.
           </Typography>
         </Grid>
-        <Grid item xs={12} sm={12} md={6}>
+        <Grid item 
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="3000"
+        xs={12} sm={12} md={6}>
           <img style={{  width: "100%",
               height: "auto",
               maxWidth: "100%",

@@ -120,7 +120,7 @@ const TestimonialSlider = () => {
                 >
                   {dt?.description}
                 </Typography>
-                <Box sx={{ textAlign: "center", mt: 3, color: "#faaf00" }}>
+                <Box sx={{ textAlign: "center", mt: 3,pb:3, color: "#faaf00" }}>
                   {" "}
                   <Rating
                     name="half-rating-read"
