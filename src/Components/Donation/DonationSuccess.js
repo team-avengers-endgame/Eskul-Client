@@ -33,7 +33,7 @@ const DonationSuccess = () => {
         <Box >
             <NavigationBar />
             <Box sx={{  textAlign: "center",
-             backgroundImage: "url('https://i.ibb.co/XtbY4dG/dsgn-23.jpg')",backgroundPosition: "center",backgroundSize: "cover",backgroundAttachment: "fixed",height: "100vh",backgroundColor: "rgba(0, 0, 0, 0.801) !important"}}>
+             backgroundImage: "url('https://i.ibb.co/dJGM6xS/dsgn-23-1.jpg')",backgroundPosition: "center",backgroundSize: "cover",backgroundAttachment: "fixed",height: "100vh",backgroundColor: "rgba(0, 0, 0, 0.801) !important"}}>
                 <Container   width={width}
                     height={height}>
                     <Confetti />
