@@ -17,8 +17,8 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import TransportCard from "./TransportCard";
 import wavepink from "../../Assets/Images/wave-pink.svg";
+import Aos from 'aos';
 const Transport = () => {
   const [transports, setTransports] = useState([]);
   useEffect(() => {
@@ -26,7 +26,11 @@ const Transport = () => {
       .then((res) => res.json())
       .then((data) => setTransports(data));
   }, []);
-
+  useEffect(() => {
+    Aos.init({
+      duration: 2000
+    });
+  }, []);
   return (
     <Box sx={{
       backgroundImage: `url(${wavepink})`,
@@ -44,7 +48,12 @@ const Transport = () => {
        {transports.map((dt) =>  (
          <Grid key={dt.id} item xs={12} sm={12} md={4}>
            
-             <Card sx={{  background: "#fff",
+             <Card 
+             data-aos="fade-up"
+             data-aos-offset="100"
+             data-aos-easing="ease-in-sine"
+             data-aos-duration="3000"
+             sx={{  background: "#fff",
                w: "25%",
                p: "20px 15px",
                boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)",

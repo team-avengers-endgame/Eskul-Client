@@ -51,7 +51,7 @@ const SchoolListPage = () => {
 
   useEffect(() => {
     Aos.init({
-      duration: 4000
+      duration: 2000
     });
   }, []);
   const placeholder = 'Search by School Name or EIIN';
@@ -73,7 +73,12 @@ const SchoolListPage = () => {
             {searchValue?.map((dt) => (
               <Grid key={dt.id} item xs={4} sm={4} md={4}>
 
-                <Card sx={{
+                <Card 
+                data-aos="fade-up"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="3000"
+                sx={{
                   background: "#fff",
                   display: 'flex', justifyContent: 'space-between', flexDirection: 'column',
                   boxShadow: "0px 14px 22px rgb(42 135 158 / 14%)",
