@@ -28,7 +28,6 @@ const NotesList = () => {
                                         <div className="description">
                                             <h3>{note.name}</h3>
                                             <h4>{note.sub}</h4>
-
                                             <ul>
                                                 <li>
                                                     <a className="anchor" href="https://drive.google.com/file/d/1C0_xRXDn2fsWeYKfjyDUthb944uIclwx/view?usp=sharing" target="_blank" download>Download PDF
