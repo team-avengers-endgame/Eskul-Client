@@ -9,7 +9,7 @@ const NotesPage = () => {
     return (
         <div>
             <NavigationBar />
-            <SharedBanner pageName={"Notes"} />
+            <SharedBanner pageName={"Read Our Connection!"} />
             <NotesList />
             <Footer />
             <QuickScroll />
