@@ -226,8 +226,6 @@ const NavigationBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
             <CartDrawer />
-
-
             <Box sx={{ display: { xs: "none", sm: "inline", md: "inline" } }}>
               <Tooltip title="Open settings" arrow placement="left-end">
                 <IconButton onClick={handleOpenUserMenu} sx={{ ml: 1, p: 0 }}>

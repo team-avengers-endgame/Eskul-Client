@@ -89,7 +89,7 @@ const BookOrderReview = () => {
                                                 />
                                             </Grid>
                                             <Grid item xs={2} sm={4} md={8} pl={2} my={3}>
-                                                <Box>
+                                                <Box style={{ textAlign: 'left' }}>
                                                     <Typography variant="h6"
                                                         sx={{ fontSize: '12px', fontWeight: 900 }}
                                                     >{cart?.bookName}</Typography>

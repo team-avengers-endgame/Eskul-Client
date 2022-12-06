@@ -15,7 +15,7 @@ const Footer = () => {
     // Email handler =============
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        var mailFormat = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+        var mailFormat = /[a-zA-Z0-9]+[.]?([a-zA-Z0-9]+)?[@][a-z]{3,9}[.][a-z]{2,5}/g;
         if(data.email.match(mailFormat)){
             alert('success', 'Success', 'Newsletter Sing in success')
             reset();

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { api } from "../../../../Hooks/Api";
 import {Box,Button,Card,CardActionArea,CardContent,CardMedia,Container,Grid,Typography,} from "@mui/material";
-import Aos from 'aos';
+
 const Teachers = () => {
     const { id } = useParams();
   const [teachers, setTeachers] = useState([]);

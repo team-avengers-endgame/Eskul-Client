@@ -1,4 +1,4 @@
-import { Box, Container, Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import React from 'react';
 import DetailContentBar from '../DetailContentBar/DetailContentBar';
 import DetailSideBar from '../DetailSideBar/DetailSideBar';

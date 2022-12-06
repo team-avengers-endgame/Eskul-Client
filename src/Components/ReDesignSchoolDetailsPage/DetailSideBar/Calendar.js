@@ -2,7 +2,7 @@ import * as React from 'react';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import CalendarPicker from '@mui/lab/CalendarPicker';
-import { Box, Container, Typography, } from "@mui/material";
+import { Box, Typography, } from "@mui/material";
 
 const Calendar = () => {
     const [date, setDate] = React.useState(new Date());

@@ -1,4 +1,4 @@
-import { Avatar, Box, Container, Rating, Typography,ButtonBase } from "@mui/material";
+import { Avatar, Box, Container, Typography,ButtonBase } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";

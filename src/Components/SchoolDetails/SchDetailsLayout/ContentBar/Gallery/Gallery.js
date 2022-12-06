@@ -9,7 +9,6 @@ const Gallery = () => {
           backgroundColor: "#46aadd",
           borderRadius: "0px 100px 0px 0px",
           width: "10%",
-          mt: 17,
           ml: { xs: 0, sm: 0, md: 25 },
           mt: { xs: 5, sm: 5 },
         }}

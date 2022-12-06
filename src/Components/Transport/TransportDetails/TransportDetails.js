@@ -14,9 +14,9 @@ const TransportDetails = () => {
   },[])
   
   useEffect(()=>{
-   const foundtp=  details.find(tp=>tp?.id==tpid)
+   const foundtp=  details.find(tp=>tp?.id===tpid)
    setItems(foundtp)
-  },[details])
+  },[details,tpid])
   
   return (
     <Container sx={{py:4}}>
